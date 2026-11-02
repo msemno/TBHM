@@ -1,0 +1,15 @@
+test_container_magic_beyond_4k (integration_test_v3974_reverse.V3974ReverseTests.test_container_magic_beyond_4k) ... ok
+test_emba_static_command_and_emulation_gate (integration_test_v3974_reverse.V3974ReverseTests.test_emba_static_command_and_emulation_gate) ... ok
+test_failed_unsquashfs_uses_sasquatch_fallback (integration_test_v3974_reverse.V3974ReverseTests.test_failed_unsquashfs_uses_sasquatch_fallback) ... ok
+test_hardening_failure_is_unknown (integration_test_v3974_reverse.V3974ReverseTests.test_hardening_failure_is_unknown) ... ok
+test_local_firmware_inputs_need_no_fake_target (integration_test_v3974_reverse.V3974ReverseTests.test_local_firmware_inputs_need_no_fake_target) ... ok
+test_relative_firmware_path_and_binwalk_root_compatibility (integration_test_v3974_reverse.V3974ReverseTests.test_relative_firmware_path_and_binwalk_root_compatibility) ... ok
+test_release_identity (integration_test_v3974_reverse.V3974ReverseTests.test_release_identity) ... ok
+test_rootfs_audit_cert_service_sbom_update_and_priorities (integration_test_v3974_reverse.V3974ReverseTests.test_rootfs_audit_cert_service_sbom_update_and_priorities) ... ok
+test_rootfs_symlink_cannot_read_host_file (integration_test_v3974_reverse.V3974ReverseTests.test_rootfs_symlink_cannot_read_host_file) ... ok
+test_routersploit_catalog_is_static_only (integration_test_v3974_reverse.V3974ReverseTests.test_routersploit_catalog_is_static_only) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.127s
+
+OK

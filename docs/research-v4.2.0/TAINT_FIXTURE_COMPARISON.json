@@ -1,0 +1,106 @@
+{
+  "baseline": {
+    "schema": "tbhm.fixture-evaluation/1",
+    "status": "complete",
+    "evaluated": 18,
+    "labeled": 18,
+    "predictions": 18,
+    "overall": {
+      "TP": 5,
+      "FP": 5,
+      "FN": 4,
+      "TN": 4,
+      "precision": 0.5,
+      "recall": 0.5555555555555556,
+      "false_positive_rate": 0.5555555555555556,
+      "f1": 0.5263157894736842
+    },
+    "by_category": {
+      "CWE-78": {
+        "TP": 3,
+        "FP": 3,
+        "FN": 3,
+        "TN": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "false_positive_rate": 0.6,
+        "f1": 0.5
+      },
+      "CWE-89": {
+        "TP": 1,
+        "FP": 1,
+        "FN": 1,
+        "TN": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "false_positive_rate": 0.3333333333333333,
+        "f1": 0.5
+      },
+      "CWE-95": {
+        "TP": 1,
+        "FP": 1,
+        "FN": 0,
+        "TN": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "false_positive_rate": 1.0,
+        "f1": 0.6666666666666666
+      }
+    },
+    "unresolved_missing_predictions": [],
+    "unlabeled_predictions": [],
+    "meaning": "Metrics apply only to these operator-labeled cases. Missing predictions are unresolved, not clean; no general accuracy or payout claim follows."
+  },
+  "candidate": {
+    "schema": "tbhm.fixture-evaluation/1",
+    "status": "complete",
+    "evaluated": 18,
+    "labeled": 18,
+    "predictions": 18,
+    "overall": {
+      "TP": 9,
+      "FP": 0,
+      "FN": 0,
+      "TN": 9,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "f1": 1.0
+    },
+    "by_category": {
+      "CWE-78": {
+        "TP": 6,
+        "FP": 0,
+        "FN": 0,
+        "TN": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "CWE-89": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "CWE-95": {
+        "TP": 1,
+        "FP": 0,
+        "FN": 0,
+        "TN": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      }
+    },
+    "unresolved_missing_predictions": [],
+    "unlabeled_predictions": [],
+    "meaning": "Metrics apply only to these operator-labeled cases. Missing predictions are unresolved, not clean; no general accuracy or payout claim follows."
+  }
+}

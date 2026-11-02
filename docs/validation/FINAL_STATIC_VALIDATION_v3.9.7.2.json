@@ -1,0 +1,175 @@
+{
+  "release": "3.9.7.2-historical-coverage-restored",
+  "result": "PASS",
+  "passed": 20,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "python_syntax_and_compile",
+      "ok": true,
+      "detail": {
+        "files": 243,
+        "errors": []
+      }
+    },
+    {
+      "name": "json_parse",
+      "ok": true,
+      "detail": {
+        "files": 26,
+        "errors": []
+      }
+    },
+    {
+      "name": "yaml_parse",
+      "ok": true,
+      "detail": {
+        "files": 40,
+        "errors": []
+      }
+    },
+    {
+      "name": "shell_syntax",
+      "ok": true,
+      "detail": {
+        "files": 2,
+        "errors": []
+      }
+    },
+    {
+      "name": "no_unrestricted_shell_execution",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no_symlinks",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no_nested_archives",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no_runtime_caches",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no_collected_target_results",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "no_embedded_private_key_blocks",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "integration_matrix",
+      "ok": true,
+      "detail": {
+        "passed": 13,
+        "failed": 0,
+        "total": 13
+      }
+    },
+    {
+      "name": "real_cli_smoke",
+      "ok": true,
+      "detail": {
+        "release": "3.9.7.2-historical-coverage-restored",
+        "commands": [
+          "python tbhm.py --capability-status",
+          "python tbhm.py --doctor",
+          "python tbhm.py --list-profiles",
+          "python tbhm.py --help",
+          "python tbhm.py -y --code-dir <fixture> --code-scan-data-files --phases code_scan -o <output>"
+        ],
+        "capability_registry_version": "3.9.7.2",
+        "capabilities_registered": 16,
+        "capabilities_available_now": 12,
+        "doctor_ok": true,
+        "doctor_check_count": 20,
+        "help_contains_code_scan_data_files": true,
+        "help_contains_code_scan_extra_extensions": true,
+        "profiles_nonempty": true,
+        "report_generated": true,
+        "report_aliases_generated": true,
+        "findings_total": 2,
+        "raw_fixture_secret_persisted": false,
+        "result": "PASS",
+        "network_target_contacted": false
+      }
+    },
+    {
+      "name": "v3971_path_cli_phase_preservation",
+      "ok": true,
+      "detail": {
+        "missing_original_paths": [],
+        "missing_cli_options": [],
+        "missing_phases": [],
+        "phase_order_unchanged": true
+      }
+    },
+    {
+      "name": "historical_secret_rule_names",
+      "ok": true,
+      "detail": {
+        "count": 23
+      }
+    },
+    {
+      "name": "historical_sink_rule_names",
+      "ok": true,
+      "detail": {
+        "count": 27
+      }
+    },
+    {
+      "name": "historical_data_extensions_opt_in",
+      "ok": true,
+      "detail": [
+        ".html",
+        ".json",
+        ".md",
+        ".txt",
+        ".xml"
+      ]
+    },
+    {
+      "name": "historical_cloud_indicator_union",
+      "ok": true,
+      "detail": {
+        "aws": 8,
+        "azure": 5,
+        "gcp": 6
+      }
+    },
+    {
+      "name": "capability_registry_valid",
+      "ok": true,
+      "detail": {
+        "version": "3.9.7.2",
+        "registered": 16
+      }
+    },
+    {
+      "name": "phase_registry_unique",
+      "ok": true,
+      "detail": {
+        "ordered": 129,
+        "unique": 129
+      }
+    },
+    {
+      "name": "cli_option_inventory",
+      "ok": true,
+      "detail": {
+        "count": 332
+      }
+    }
+  ],
+  "test_boundary": "Offline/local fixtures only. No third-party target testing was performed."
+}

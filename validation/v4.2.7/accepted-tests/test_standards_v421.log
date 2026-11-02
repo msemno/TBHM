@@ -1,0 +1,8 @@
+test_class_binds_to_explicit_ids (test_standards_v421.CoverageTests.test_class_binds_to_explicit_ids) ... ok
+test_inconclusive_is_not_executed (test_standards_v421.CoverageTests.test_inconclusive_is_not_executed) ... ok
+test_phase_only_or_untrusted_assertion_is_not_a_test (test_standards_v421.CoverageTests.test_phase_only_or_untrusted_assertion_is_not_a_test) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

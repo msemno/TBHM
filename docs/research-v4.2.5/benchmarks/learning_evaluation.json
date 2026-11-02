@@ -1,0 +1,311 @@
+{
+  "schema": "tbhm.learning-benchmark/1",
+  "scope": "Synthetic retrieval-ranking experiment only, eight ambiguous queries and sixteen reviewed historical cases. Expected relevant IDs are defined before evaluating the two fixed configurations.",
+  "real_model_effectiveness": "UNVERIFIED",
+  "real_model_executed": false,
+  "field_calibration": "DEFERRED: licensed independently labeled representative projects required",
+  "retrieval_top_1": {
+    "baseline": 0.0,
+    "candidate": 1.0
+  },
+  "queries": [
+    {
+      "scenario_id": "evaluation-0",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-0",
+      "actual_top_1": "a-decoy-0",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-1",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-1",
+      "actual_top_1": "a-decoy-1",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-2",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-2",
+      "actual_top_1": "a-decoy-2",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-3",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-3",
+      "actual_top_1": "a-decoy-3",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-4",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-4",
+      "actual_top_1": "a-decoy-4",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-5",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-5",
+      "actual_top_1": "a-decoy-5",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-6",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-6",
+      "actual_top_1": "a-decoy-6",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-7",
+      "variant": "baseline",
+      "expected_relevant": "b-reviewed-7",
+      "actual_top_1": "a-decoy-7",
+      "correct": false
+    },
+    {
+      "scenario_id": "evaluation-0",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-0",
+      "actual_top_1": "b-reviewed-0",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-1",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-1",
+      "actual_top_1": "b-reviewed-1",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-2",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-2",
+      "actual_top_1": "b-reviewed-2",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-3",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-3",
+      "actual_top_1": "b-reviewed-3",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-4",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-4",
+      "actual_top_1": "b-reviewed-4",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-5",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-5",
+      "actual_top_1": "b-reviewed-5",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-6",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-6",
+      "actual_top_1": "b-reviewed-6",
+      "correct": true
+    },
+    {
+      "scenario_id": "evaluation-7",
+      "variant": "candidate",
+      "expected_relevant": "b-reviewed-7",
+      "actual_top_1": "b-reviewed-7",
+      "correct": true
+    }
+  ],
+  "surrogate_workflow_evaluations": {
+    "baseline": {
+      "schema": "tbhm.independent-learning-evaluation/1",
+      "evaluation_id": "baseline",
+      "project_id": "evaluation",
+      "dataset_sha256": "47fbf9f31a756407c90a3670942917cc2948db4e2e0896052836862d367877aa",
+      "scope": "Eight synthetic cases with independently fixture-authored labels. Deterministic surrogate; NOT real-model quality or field accuracy.",
+      "model_versions": [
+        "synthetic-surrogate-v1"
+      ],
+      "retrieval_versions": [
+        "scenario-lexical-v1"
+      ],
+      "configuration_sha256": "cc35cf2825ddd08916bbc0d391c872e0340a2f7c6270cafef79967016d684450",
+      "total_frozen_cases": 8,
+      "independent_unknown_labels": 0,
+      "missing_predictions": 0,
+      "metrics": {
+        "schema": "tbhm.quality-evaluation/1",
+        "by_stage_class": [
+          {
+            "stage": "llm_triage",
+            "class": "access_control",
+            "TP": 0,
+            "FP": 4,
+            "TN": 0,
+            "FN": 4,
+            "inconclusive": 0,
+            "inconclusive_positive": 0,
+            "inconclusive_negative": 0,
+            "sample_size": 8,
+            "prediction_coverage": 1.0,
+            "conditional_precision": 0.0,
+            "conditional_recall": 0.0,
+            "conditional_false_positive_rate": 1.0,
+            "conditional_false_negative_rate": 1.0,
+            "recall_bounds": [
+              0.0,
+              0.0
+            ],
+            "false_positive_rate_bounds": [
+              1.0,
+              1.0
+            ],
+            "false_negative_rate_bounds": [
+              1.0,
+              1.0
+            ],
+            "precision_wilson_95": [
+              0,
+              0.4898908364545973
+            ],
+            "recall_wilson_95_conditional": [
+              0,
+              0.4898908364545973
+            ],
+            "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+          }
+        ],
+        "sample_size": 8,
+        "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+      },
+      "evidence_citation_validity": 1.0,
+      "citation_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "invalid_citations": 0,
+      "total_citations": 16,
+      "classification_accuracy": 1.0,
+      "calibration_brier_score": 0.6400000000000001,
+      "calibration_samples": 8,
+      "abstention_rate": 0.0,
+      "latency_ms": {
+        "mean": 4.080148999975108,
+        "max": 10.015214999839372
+      },
+      "peak_ram_bytes": 29265920,
+      "peak_vram_bytes": null,
+      "failure_examples": [],
+      "proof_authority": false,
+      "unresolved_is_clean": false,
+      "field_accuracy": "UNVERIFIED",
+      "training_executed": false
+    },
+    "candidate": {
+      "schema": "tbhm.independent-learning-evaluation/1",
+      "evaluation_id": "candidate",
+      "project_id": "evaluation",
+      "dataset_sha256": "47fbf9f31a756407c90a3670942917cc2948db4e2e0896052836862d367877aa",
+      "scope": "Eight synthetic cases with independently fixture-authored labels. Deterministic surrogate; NOT real-model quality or field accuracy.",
+      "model_versions": [
+        "synthetic-surrogate-v1"
+      ],
+      "retrieval_versions": [
+        "scenario-lexical-feedback-v1"
+      ],
+      "configuration_sha256": "7e5a69f12bd620e8c57652ea56e602617109d2c0106e4db3243217e56e1624fb",
+      "total_frozen_cases": 8,
+      "independent_unknown_labels": 0,
+      "missing_predictions": 0,
+      "metrics": {
+        "schema": "tbhm.quality-evaluation/1",
+        "by_stage_class": [
+          {
+            "stage": "llm_triage",
+            "class": "access_control",
+            "TP": 4,
+            "FP": 0,
+            "TN": 4,
+            "FN": 0,
+            "inconclusive": 0,
+            "inconclusive_positive": 0,
+            "inconclusive_negative": 0,
+            "sample_size": 8,
+            "prediction_coverage": 1.0,
+            "conditional_precision": 1.0,
+            "conditional_recall": 1.0,
+            "conditional_false_positive_rate": 0.0,
+            "conditional_false_negative_rate": 0.0,
+            "recall_bounds": [
+              1.0,
+              1.0
+            ],
+            "false_positive_rate_bounds": [
+              0.0,
+              0.0
+            ],
+            "false_negative_rate_bounds": [
+              0.0,
+              0.0
+            ],
+            "precision_wilson_95": [
+              0.5101091635454027,
+              1
+            ],
+            "recall_wilson_95_conditional": [
+              0.5101091635454027,
+              1
+            ],
+            "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+          }
+        ],
+        "sample_size": 8,
+        "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+      },
+      "evidence_citation_validity": 1.0,
+      "citation_wilson_95": [
+        0.8063923194655637,
+        1
+      ],
+      "invalid_citations": 0,
+      "total_citations": 16,
+      "classification_accuracy": 1.0,
+      "calibration_brier_score": 0.039999999999999994,
+      "calibration_samples": 8,
+      "abstention_rate": 0.0,
+      "latency_ms": {
+        "mean": 2.6349112499701732,
+        "max": 3.127477999896655
+      },
+      "peak_ram_bytes": 29265920,
+      "peak_vram_bytes": null,
+      "failure_examples": [],
+      "proof_authority": false,
+      "unresolved_is_clean": false,
+      "field_accuracy": "UNVERIFIED",
+      "training_executed": false
+    }
+  },
+  "surrogate_warning": "The surrogate copies the first historical label solely to exercise independent evaluation and promotion gates. These metrics do not estimate LLM effectiveness.",
+  "governance": {
+    "proposal_created": true,
+    "approved": true,
+    "promoted": true,
+    "rollback_restored_baseline": true,
+    "audit_intact": true
+  },
+  "resource_measurement": {
+    "elapsed_ms": 251.98916599993026,
+    "peak_process_ram_bytes": 29265920,
+    "vram_bytes": null,
+    "environment": "current Linux Python 3.12 process; not a measured 6 GB Kali VM"
+  },
+  "training_executed": false,
+  "passed": true
+}

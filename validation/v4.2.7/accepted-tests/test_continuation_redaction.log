@@ -1,0 +1,9 @@
+test_actual_short_provider_flags_and_inline_flags (test_continuation_redaction.RedactionBoundaryTests.test_actual_short_provider_flags_and_inline_flags) ... ok
+test_every_split_of_known_secret_and_url (test_continuation_redaction.RedactionBoundaryTests.test_every_split_of_known_secret_and_url) ... ok
+test_multiline_private_key_and_oversize_line_fail_closed (test_continuation_redaction.RedactionBoundaryTests.test_multiline_private_key_and_oversize_line_fail_closed) ... ok
+test_structured_credentials_and_url_keep_hashes (test_continuation_redaction.RedactionBoundaryTests.test_structured_credentials_and_url_keep_hashes) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.009s
+
+OK

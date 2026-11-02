@@ -1,0 +1,27 @@
+id: tbhm-exposed-ds-store
+
+info:
+  name: Exposed .DS_Store File (Directory Enumeration)
+  author: tbhm
+  severity: low
+  description: |
+    A macOS .DS_Store file is reachable. It encodes the names of files in the
+    directory, leaking hidden paths and aiding further content discovery.
+  remediation: "Remove .DS_Store files and block them at the web server."
+  tags: tbhm,exposure,info-leak
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/.DS_Store"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: word
+        part: body
+        words:
+          - "Bud1"

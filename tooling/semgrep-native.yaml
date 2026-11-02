@@ -1,0 +1,13 @@
+rules:
+  - id: tbhm-python-shell-command
+    languages: [python]
+    message: Review shell=True with nonconstant input; reachability and exploitability require validation.
+    severity: WARNING
+    pattern: subprocess.$METHOD(..., shell=True, ...)
+  - id: tbhm-python-unsafe-yaml
+    languages: [python]
+    message: Review unsafe YAML loading on untrusted input.
+    severity: WARNING
+    patterns:
+      - pattern: yaml.load(...)
+      - pattern-not: yaml.load(..., Loader=yaml.SafeLoader, ...)

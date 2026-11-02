@@ -1,0 +1,195 @@
+{
+  "schema": "tbhm.proof-fixture-evaluation/1",
+  "scope": "12 generated local authenticated-capture cases (6 positive, 6 benign) for three existing strict proof classes. Does not measure real-world detector recall or false-positive rates.",
+  "matrices": {
+    "schema": "tbhm.fixture-evaluation/1",
+    "status": "complete",
+    "evaluated": 12,
+    "labeled": 12,
+    "predictions": 12,
+    "overall": {
+      "TP": 6,
+      "FP": 0,
+      "FN": 0,
+      "TN": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "f1": 1.0
+    },
+    "by_category": {
+      "access_control": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "open_redirect": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "sensitive_data_exposure": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      }
+    },
+    "unresolved_missing_predictions": [],
+    "unlabeled_predictions": [],
+    "meaning": "Metrics apply only to these operator-labeled cases. Missing predictions are unresolved, not clean; no general accuracy or payout claim follows."
+  },
+  "tamper_tests": {
+    "tested": 24,
+    "rejected": 24,
+    "examples": [
+      {
+        "class": "access_control",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "counter_only",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "access_control",
+        "attack": "counter_only",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "counter_only",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "sensitive_data_exposure",
+        "attack": "counter_only",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "counter_only",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "bad_signature",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "replayed_capture",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "wrong_class",
+        "rejected": true
+      },
+      {
+        "class": "open_redirect",
+        "attack": "counter_only",
+        "rejected": true
+      }
+    ]
+  },
+  "unsupported_classes": [
+    "sqli",
+    "reflected_xss",
+    "stored_xss",
+    "dom_xss",
+    "ssrf",
+    "ssti",
+    "path_traversal",
+    "deserialization",
+    "auth_session",
+    "csrf"
+  ],
+  "unresolved_not_clean": true
+}

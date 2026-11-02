@@ -1,0 +1,22 @@
+{
+  "archive_root": "TBHM-4.1.0",
+  "base_branch": "TBHM-v3.9.7.3-lifecycle-go-safe-upgrade",
+  "capability_source": "TBHM-v3.9.7.5-FULL",
+  "common_ancestor": "TBHM-v3.9.7.3-installer-stability",
+  "release": "4.1.0",
+  "safety_model": {
+    "argv_only_execution": true,
+    "bounded_output": true,
+    "go_executor_optional": true,
+    "high_impact_actions_approval_gated": true,
+    "llm_non_authoritative": true,
+    "negative_controls_required": true,
+    "process_group_termination": true,
+    "python_authoritative_control_plane": true,
+    "strict_evidence_lifecycle": true
+  },
+  "runtime": "runtime.json",
+  "sbom": "SBOM.cdx.json",
+  "dependency_lock": "requirements.lock",
+  "previous_release": "4.0.0-unified-safe"
+}

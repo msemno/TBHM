@@ -1,0 +1,66 @@
+{
+  "tool": "TBHM",
+  "version": "4.2.6",
+  "started_at": "2026-10-26T16:07:52.410016",
+  "source_build_sha256": "3a689a411dfe5dde0a4e5c255c41a00d700e24af3b01f493a28214d0017ccf91",
+  "report_snapshot_at": "2026-10-26T16:07:55.288568+00:00",
+  "execution_status": "running",
+  "phase_outcomes": {
+    "controlled_validation_plane": {
+      "body_seconds": 2.241,
+      "observer_and_dispatch_seconds": 0.001,
+      "wall_seconds": 2.243,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "strict_finding_validation": {
+      "body_seconds": 0.031,
+      "observer_and_dispatch_seconds": 0.004,
+      "wall_seconds": 0.035,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "test_coverage_ledger": {
+      "body_seconds": 0.02,
+      "observer_and_dispatch_seconds": 0.004,
+      "wall_seconds": 0.024,
+      "state": "COMPLETED",
+      "issue_count": 0
+    }
+  },
+  "execution_note": "Report snapshot precedes final sealing; execution_ledger.json is authoritative for final run completion. Phase completion is not vulnerability-test coverage.",
+  "profile": "authorized_safe",
+  "targets": [
+    "http://127.0.0.1:36967"
+  ],
+  "summary": {
+    "confirmed": 0,
+    "supported": 0,
+    "unconfirmed": 0
+  },
+  "evidence_lifecycle": {
+    "test_executions": 1,
+    "test_statuses": {
+      "passed": 1
+    },
+    "observations": 0,
+    "candidates": 0,
+    "validation_attempts": 1,
+    "validation_results": {
+      "fail": 1
+    },
+    "campaigns": 0,
+    "operations": 0,
+    "operation_statuses": {},
+    "detection_outcomes": 0,
+    "cleanup_actions": 0
+  },
+  "findings": [],
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "baseline": {
+    "release": "3.9.7.1-backward-compatibility",
+    "archive_filename": "TBHM-v3.9.7.1-backward-compatibility.zip",
+    "archive_sha256": "9261759202bf2fbf6ed36a9a715dc506678c2b9d9fb2bbbd2de17b9dff01e1a7",
+    "files": 372,
+    "cli_option_strings": 330,
+    "phases": 129
+  },
+  "final": {
+    "release": "3.9.7.2-historical-coverage-restored",
+    "files_before_release_manifest": 384,
+    "cli_option_strings": 332,
+    "phases": 129
+  },
+  "preservation": {
+    "missing_original_paths": [],
+    "missing_cli_options": [],
+    "missing_phases": [],
+    "phase_order_unchanged": true
+  },
+  "additions": {
+    "new_paths": [
+      "CHANGELOG-v3.9.7.2.md",
+      "VALIDATION-v3.9.7.2.md",
+      "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "docs/HISTORICAL_ARCHAEOLOGY_v3.9.7.2.md",
+      "docs/HISTORICAL_COVERAGE_RESTORATION_v3.9.7.2.md",
+      "docs/compatibility/BACKWARD_COMPATIBILITY_COMPARISON_v3.9.7.2.json",
+      "docs/compatibility/BACKWARD_COMPATIBILITY_REPORT_v3.9.7.2.md",
+      "docs/validation/CLI_SMOKE_v3.9.7.2.json",
+      "docs/validation/FINAL_STATIC_VALIDATION_v3.9.7.2.json",
+      "docs/validation/TEST_MATRIX_v3.9.7.2.json",
+      "integration_test_v3972.py",
+      "scripts/build_v3972_release_manifest.py"
+    ],
+    "new_cli_options": [
+      "--code-scan-data-files",
+      "--code-scan-extra-extensions"
+    ],
+    "new_phases": []
+  },
+  "modified_original_paths": [
+    "README.md",
+    "V3_README.md",
+    "core/ai_plane/__init__.py",
+    "core/capability_registry.py",
+    "core/cicd_dataflow.py",
+    "core/cloud_iam_graph.py",
+    "core/code_patterns.py",
+    "core/compliance_predicates.py",
+    "core/doctor.py",
+    "core/fp_filters.py",
+    "core/ocsf.py",
+    "core/osint_collectors.py",
+    "core/reporter.py",
+    "core/safe_plan_executor.py",
+    "integration_test_historical_regressions_v3971.py",
+    "integration_test_v396.py",
+    "integration_test_v3961.py",
+    "integration_test_v3971.py",
+    "phases/cloud_identity_path_analysis.py",
+    "phases/code_scan.py",
+    "phases/compliance_reporting_extended.py",
+    "phases/ocsf_normalization.py",
+    "phases/reverse_correlation.py",
+    "phases/reverse_dynamic_evidence.py",
+    "phases/reverse_static_analysis.py",
+    "phases/reverse_symbolic_analysis.py",
+    "phases/reverse_triage.py",
+    "scripts/build_v3971_compatibility_report.py",
+    "scripts/update_intel_feeds.py",
+    "tbhm.py",
+    "tooling/capability_registry_v3971.json"
+  ],
+  "result": "PASS",
+  "notes": [
+    "Version-only updates account for several modified Python and test files.",
+    "The v3.9.7.1 capability-registry filename remains present for path compatibility; its registry_version is 3.9.7.2.",
+    "No phase was added because every restoration belongs to an existing working phase."
+  ]
+}

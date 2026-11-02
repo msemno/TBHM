@@ -1,0 +1,27 @@
+{
+  "git_apply_check_returncode": 0,
+  "git_apply_returncode": 0,
+  "included_files_match": true,
+  "tested_python_hashes_match": 379,
+  "patch_sha256": "bb3eaaadc9d0bd36780bb377d01a130929cf77e41caca59ac61b575b137c33eb",
+  "historical_ledgers": [
+    {
+      "path": "docs/research-v4.2.1/FEATURE_DECISIONS.csv",
+      "baseline_rows": 14,
+      "candidate_rows": 33,
+      "old_rows_unchanged": true
+    },
+    {
+      "path": "docs/research-v4.2.2/GAP_MATRIX.csv",
+      "baseline_rows": 16,
+      "candidate_rows": 35,
+      "old_rows_unchanged": true
+    },
+    {
+      "path": "docs/research-v4.2.1/COMPETITIVE_TOOL_MATRIX.csv",
+      "baseline_rows": 119,
+      "candidate_rows": 121,
+      "old_rows_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+test_cli_account_replay_reaches_database_report_and_sealed_delivery (integration_test_v422_workflows.WorkflowTests.test_cli_account_replay_reaches_database_report_and_sealed_delivery) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.810s
+
+OK

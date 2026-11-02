@@ -1,0 +1,14 @@
+test_compressed_chunked_and_aborted_bodies_do_not_escape_cap (test_pinned_transport_v424.PinnedTransport.test_compressed_chunked_and_aborted_bodies_do_not_escape_cap) ... ok
+test_concurrent_process_lock_blocks_before_http (test_pinned_transport_v424.PinnedTransport.test_concurrent_process_lock_blocks_before_http) ... ok
+test_cross_origin_redirect_is_not_followed (test_pinned_transport_v424.PinnedTransport.test_cross_origin_redirect_is_not_followed) ... ok
+test_dns_rebinding_and_mixed_answers_fail_before_contact (test_pinned_transport_v424.PinnedTransport.test_dns_rebinding_and_mixed_answers_fail_before_contact) ... ok
+test_ipv6_numeric_destination (test_pinned_transport_v424.PinnedTransport.test_ipv6_numeric_destination) ... ok
+test_numeric_connect_keeps_host_without_dns_at_socket_connect (test_pinned_transport_v424.PinnedTransport.test_numeric_connect_keeps_host_without_dns_at_socket_connect) ... ok
+test_offline_unsupported_driver_proxy_and_unreviewed_pins_fail_closed (test_pinned_transport_v424.PinnedTransport.test_offline_unsupported_driver_proxy_and_unreviewed_pins_fail_closed) ... ok
+test_pinned_native_and_real_socket_isolated_pipe_driver (test_pinned_transport_v424.PinnedTransport.test_pinned_native_and_real_socket_isolated_pipe_driver) ... ok
+test_tls_certificate_and_hostname_validation_survive_ip_pinning (test_pinned_transport_v424.PinnedTransport.test_tls_certificate_and_hostname_validation_survive_ip_pinning) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.761s
+
+OK

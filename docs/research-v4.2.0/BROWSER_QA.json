@@ -1,0 +1,19 @@
+{
+  "mobileMetrics": {
+    "viewport": 390,
+    "scrollWidth": 390,
+    "bodyWidth": 390,
+    "x": 0
+  },
+  "overflowNodes": [],
+  "errors": [],
+  "duplicateIds": [],
+  "badAnchors": [],
+  "matrixVisible": 1,
+  "cliVisible": 3,
+  "catalogVisible": 1,
+  "desktopOverflow": false,
+  "mobileOverflow": false,
+  "operatorRows": 3,
+  "operatorFiltered": 1
+}

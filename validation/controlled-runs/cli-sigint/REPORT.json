@@ -1,0 +1,48 @@
+{
+  "tool": "TBHM",
+  "version": "4.2.6",
+  "started_at": "2026-10-26T16:08:02.033272",
+  "source_build_sha256": "3a689a411dfe5dde0a4e5c255c41a00d700e24af3b01f493a28214d0017ccf91",
+  "report_snapshot_at": "2026-10-26T16:08:02.665212+00:00",
+  "execution_status": "interrupted",
+  "phase_outcomes": {
+    "content_discovery": {
+      "body_seconds": 0.339,
+      "observer_and_dispatch_seconds": 0.002,
+      "wall_seconds": 0.341,
+      "state": "CANCELLED",
+      "issue_count": 1
+    }
+  },
+  "execution_note": "Report snapshot precedes final sealing; execution_ledger.json is authoritative for final run completion. Phase completion is not vulnerability-test coverage.",
+  "profile": "authorized_safe",
+  "targets": [
+    "example.test"
+  ],
+  "summary": {
+    "confirmed": 0,
+    "supported": 0,
+    "unconfirmed": 0
+  },
+  "evidence_lifecycle": {
+    "test_executions": 0,
+    "test_statuses": {},
+    "observations": 0,
+    "candidates": 0,
+    "validation_attempts": 0,
+    "validation_results": {},
+    "campaigns": 0,
+    "operations": 0,
+    "operation_statuses": {},
+    "detection_outcomes": 0,
+    "cleanup_actions": 0
+  },
+  "findings": [],
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  }
+}

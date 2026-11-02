@@ -1,0 +1,22 @@
+identities:
+  - identity_id: account-a-member
+    role: member
+    tenant: tenant-a
+    session_label: Account A browser session
+    session_provider_ref: vault://tbhm/example/account-a
+    metadata:
+      purpose: positive control and low-privilege test identity
+  - identity_id: account-b-member
+    role: member
+    tenant: tenant-b
+    session_label: Account B browser session
+    session_provider_ref: vault://tbhm/example/account-b
+    metadata:
+      purpose: cross-object and cross-tenant negative control
+  - identity_id: tenant-a-admin
+    role: tenant_admin
+    tenant: tenant-a
+    session_label: Tenant A administrator
+    session_provider_ref: vault://tbhm/example/tenant-a-admin
+    metadata:
+      purpose: role-boundary comparison

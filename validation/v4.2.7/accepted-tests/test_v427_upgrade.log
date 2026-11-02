@@ -1,0 +1,7 @@
+test_model_lock_default_and_explicit_override_do_not_mutate_the_lock (test_v427_upgrade.UpgradeContracts.test_model_lock_default_and_explicit_override_do_not_mutate_the_lock) ... ok
+test_nullable_and_defaulted_additions_are_compatible (test_v427_upgrade.UpgradeContracts.test_nullable_and_defaulted_additions_are_compatible) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.136s
+
+OK

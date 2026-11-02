@@ -1,0 +1,40 @@
+name: quick_recon
+description: Fast read-only recon. Skips heavy scanners. ~10-20 min on a small target.
+active_probes: false
+send_payloads: false
+rate_limit:
+  global_rps: 5
+  per_target_rps: 3
+  per_endpoint_rps: 1
+payload_classes:
+- reflection
+nuclei:
+  severity:
+  - critical
+  - high
+  tags:
+  - cve
+  - takeover
+sqlmap:
+  enabled: false
+  level: 1
+  risk: 1
+  max_time: 30
+max_subdomains: 500
+katana_depth: 1
+phases:
+- preflight
+- recon
+- discovery
+- backend_map
+- js_analysis
+- content_discovery
+- protected_routes
+- vuln_scan
+- cloud_recon
+- cloud_recon_extended
+- console_leaks
+- api_key_pivot
+- secrets_misc
+- dashboard
+- report

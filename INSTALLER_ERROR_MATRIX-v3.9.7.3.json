@@ -1,0 +1,103 @@
+{
+  "release": "3.9.7.3-installer-stability",
+  "source": "operator installation log supplied 2026-07-19",
+  "live_network_install_replayed": false,
+  "items": [
+    {
+      "issue": "Installer banner reported v3.9.7.1 inside the v3.9.7.2 package",
+      "classification": "version-reporting defect",
+      "fix": "Installer and runtime reporting now use 3.9.7.3-installer-stability.",
+      "verification": "version regression test and CLI smoke test"
+    },
+    {
+      "issue": "Optional Python tools were installed into the shared user site and replaced pydantic, protobuf, networkx, ruamel.yaml, packaging and related dependencies",
+      "classification": "environment integrity defect",
+      "fix": "Each optional pip/pipx catalog tool now receives a dedicated virtual environment under TBHM_TOOL_HOME; no optional Python app is installed into the shared user site.",
+      "verification": "source regression, mocked install tests, pip command inspection"
+    },
+    {
+      "issue": "giskard, modelscan, whylogs and SuzieQ were attempted on unsupported Python 3.13",
+      "classification": "interpreter incompatibility",
+      "fix": "Interpreter constraints and side-by-side interpreter selection are evaluated before pip. Unsupported combinations are explicit skipped-incompatible results.",
+      "verification": "offline compatibility fixtures"
+    },
+    {
+      "issue": "SuzieQ recipe expected a non-existent suzieq executable",
+      "classification": "catalog executable mismatch",
+      "fix": "Catalog now uses suzieq-cli and recognizes sq-poller; a safe_cli install fails truthfully if no declared executable appears.",
+      "verification": "catalog and missing-CLI regression tests"
+    },
+    {
+      "issue": "whylogs was treated as a command-line application",
+      "classification": "integration-mode mismatch",
+      "fix": "whylogs is catalogued as an isolated library; no nonexistent CLI is required.",
+      "verification": "library-without-CLI regression test"
+    },
+    {
+      "issue": "npm global installs failed with EACCES under /usr/local",
+      "classification": "permission/path defect",
+      "fix": "npm recipes use npm install --global --prefix ~/.local and PATH includes ~/.local/bin.",
+      "verification": "normalized-command regression test"
+    },
+    {
+      "issue": "cargo-audit failed because dependency resolution exceeded the installed Rust MSRV",
+      "classification": "toolchain/dependency drift",
+      "fix": "cargo recipes add --locked; incompatible failures remain visible rather than being mislabeled successful.",
+      "verification": "cargo recipe regression test"
+    },
+    {
+      "issue": "archived kubeaudit root-module install was attempted",
+      "classification": "deprecated/invalid upstream recipe",
+      "fix": "kubeaudit is retained for compatibility/import but auto-install is skipped-deprecated with an explanation.",
+      "verification": "negative execution test"
+    },
+    {
+      "issue": "apt package presence used dpkg -l exit status and falsely reported gdb installed",
+      "classification": "package-state detection defect",
+      "fix": "Presence requires exact dpkg-query status 'install ok installed'.",
+      "verification": "shell contract regression test"
+    },
+    {
+      "issue": "apt failures such as unavailable osquery, Zeek dependency conflicts and transient rtl-433 mirror failures appeared as generic failures",
+      "classification": "repository/platform handling defect",
+      "fix": "apt recipes are preflighted, simulated, classified as unavailable/incompatible/platform, use IPv4/fix-missing, and retry only bounded transient failures.",
+      "verification": "three apt preflight/retry fixtures"
+    },
+    {
+      "issue": "Playwright browser download hid useful diagnostics and left the crawler unusable",
+      "classification": "optional runtime installation defect",
+      "fix": "Playwright is isolated, browser install output is visible, and smart_crawl can fall back to an existing system Chromium when the managed browser is unavailable.",
+      "verification": "system-Chromium fallback test"
+    },
+    {
+      "issue": "Syft was absent after the installer",
+      "classification": "missing installation recipe",
+      "fix": "Syft uses the reviewed official installer via a temporary file into ~/.local/bin.",
+      "verification": "installer source/static validation; no live network install claimed"
+    },
+    {
+      "issue": "Ruby gems and Composer applications installed outside PATH",
+      "classification": "user executable exposure defect",
+      "fix": "Ruby uses --user-install; Ruby and Composer user bin paths are discovered and canonical executables are linked into ~/.local/bin.",
+      "verification": "Ruby/Composer normalization test"
+    },
+    {
+      "issue": "TruffleHog installer was piped directly to sudo sh in /usr/local/bin",
+      "classification": "unsafe/privileged installer pattern",
+      "fix": "Script is downloaded with bounded curl options to a temporary file and invoked into the user-owned local bin without a shell pipeline or sudo.",
+      "verification": "bash/static validation"
+    },
+    {
+      "issue": "angr, Playwright and DuckDB would be isolated but unavailable to TBHM runtime code",
+      "classification": "runtime integration gap",
+      "fix": "angr triage can re-exec with its isolated interpreter, smart_crawl imports isolated Playwright, and data analysis uses an isolated DuckDB subprocess helper.",
+      "verification": "runtime contract tests"
+    },
+    {
+      "issue": "A previous failed v3.9.7.2 run may have left conflicting top-level packages in the user site",
+      "classification": "legacy environment recovery",
+      "fix": "Added offline installer_doctor and a conservative plan-first cleanup tool. --apply removes only known top-level optional distributions when an isolated replacement marker exists; it never downgrades shared libraries automatically.",
+      "verification": "cleanup plan default-safety test"
+    }
+  ]
+}

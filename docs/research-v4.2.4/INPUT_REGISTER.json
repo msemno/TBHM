@@ -1,0 +1,7 @@
+{
+  "filename": "Pasted text(20261019-082348).txt",
+  "bytes": 24965,
+  "sha256": "c7813b239295498136984560a304188fb60a4e8077e9a6b93b25cd3b4ba9ca1f",
+  "prior_research": "Retained 4.2.1/4.2.2/4.2.3 research ledgers, 102 canonical tool dispositions in docs/research-v4.2.3/COMPETITIVE_TOOL_MATRIX.csv",
+  "role": "User implementation specification; additive growth explicitly replaces old proof-file hash freeze."
+}

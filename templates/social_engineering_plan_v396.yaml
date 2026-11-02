@@ -1,0 +1,15 @@
+exercises:
+  - id: awareness-001
+    type: phishing_simulation
+    scope_target: example.com
+    target_group: synthetic-training-group
+    synthetic_credentials_only: true
+    real_password_collection_disabled: true
+    notification_plan: true
+    takedown_plan: true
+    max_recipients: 10
+    metrics_expected:
+      - delivered
+      - opened
+      - reported
+      - synthetic_submission

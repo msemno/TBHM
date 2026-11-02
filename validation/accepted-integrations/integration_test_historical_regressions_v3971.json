@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_historical_regressions_v3971.py",
+  "expected_cases": 22,
+  "executed_cases": 22,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.214,
+  "passed": true
+}

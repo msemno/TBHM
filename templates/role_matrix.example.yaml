@@ -1,0 +1,9 @@
+routes:
+  "GET /api/v1/users/{id}":
+    admin: allow
+    manager: deny
+    user: deny
+  "POST /api/v1/admin/export":
+    admin: allow
+    manager: deny
+    user: deny

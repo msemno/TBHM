@@ -1,0 +1,41 @@
+{
+  "total_seconds": 2.44,
+  "per_phase": {
+    "controlled_validation_plane": 2.24,
+    "report": 0.15,
+    "strict_finding_validation": 0.03,
+    "test_coverage_ledger": 0.02
+  },
+  "per_phase_details": {
+    "controlled_validation_plane": {
+      "body_seconds": 2.241,
+      "observer_and_dispatch_seconds": 0.001,
+      "wall_seconds": 2.243,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "strict_finding_validation": {
+      "body_seconds": 0.031,
+      "observer_and_dispatch_seconds": 0.004,
+      "wall_seconds": 0.035,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "test_coverage_ledger": {
+      "body_seconds": 0.02,
+      "observer_and_dispatch_seconds": 0.004,
+      "wall_seconds": 0.024,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "report": {
+      "body_seconds": 0.148,
+      "observer_and_dispatch_seconds": 0.002,
+      "wall_seconds": 0.149,
+      "state": "COMPLETED",
+      "issue_count": 0
+    }
+  },
+  "phase_loop_wall_seconds": 2.532,
+  "semantics": "total_seconds/per_phase retain body time; per_phase_details include observer work"
+}

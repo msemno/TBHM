@@ -1,0 +1,15 @@
+test_browser_query_cannot_be_sql_injection (test_operational_repairs_v426.OperationalRepairs.test_browser_query_cannot_be_sql_injection) ... ok
+test_diagnostic_version_probe_does_not_execute_wrapper (test_operational_repairs_v426.OperationalRepairs.test_diagnostic_version_probe_does_not_execute_wrapper) ... ok
+test_firewall_status_differential_is_not_vuln (test_operational_repairs_v426.OperationalRepairs.test_firewall_status_differential_is_not_vuln) ... ok
+test_imported_scanner_match_without_capture_remains_lead (test_operational_repairs_v426.OperationalRepairs.test_imported_scanner_match_without_capture_remains_lead) ... ok
+test_nmap_xml_host_address_survives_boolean_false_element (test_operational_repairs_v426.OperationalRepairs.test_nmap_xml_host_address_survives_boolean_false_element) ... ok
+test_node_sql_flow_retained (test_operational_repairs_v426.OperationalRepairs.test_node_sql_flow_retained) ... ok
+test_nuclei_classifies_invalid_executions (test_operational_repairs_v426.OperationalRepairs.test_nuclei_classifies_invalid_executions) ... ok
+test_nuclei_templates_have_no_install_side_effect (test_operational_repairs_v426.OperationalRepairs.test_nuclei_templates_have_no_install_side_effect) ... ok
+test_origin_is_candidate_not_permission (test_operational_repairs_v426.OperationalRepairs.test_origin_is_candidate_not_permission) ... ok
+test_third_party_path_does_not_suppress_findings (test_operational_repairs_v426.OperationalRepairs.test_third_party_path_does_not_suppress_findings) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.012s
+
+OK

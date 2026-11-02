@@ -1,0 +1,20 @@
+{
+  "schema": "tbhm.brokered-http/1",
+  "request_limit": 2,
+  "body_limit": 8192,
+  "max_response_body_bytes": 4096,
+  "requests": [
+    {
+      "id": "native-health",
+      "driver": "native",
+      "method": "GET",
+      "url": "https://api.example.test/health"
+    },
+    {
+      "id": "pipe-version",
+      "driver": "pipe-v1",
+      "method": "GET",
+      "url": "https://api.example.test/version"
+    }
+  ]
+}

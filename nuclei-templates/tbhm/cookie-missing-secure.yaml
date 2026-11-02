@@ -1,0 +1,40 @@
+id: tbhm-cookie-without-secure
+
+info:
+  name: Cookie Set Without Secure Flag
+  author: tbhm
+  severity: low
+  description: |
+    A Set-Cookie response sets a cookie without the Secure attribute. The cookie
+    can be transmitted over plaintext HTTP, exposing it to network interception.
+    (Heuristic: flags when no Set-Cookie line in the response carries 'secure'.)
+  remediation: "Add the Secure attribute to all cookies; serve only over HTTPS."
+  reference:
+    - https://owasp.org/www-community/controls/SecureCookieAttribute
+  tags: tbhm,cookie,misconfig
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      # A cookie is set ...
+      - type: regex
+        part: header
+        regex:
+          - "(?i)set-cookie:\\s*\\S+"
+      # ... and no Set-Cookie line mentions 'secure' (RE2-safe negative match).
+      - type: regex
+        part: header
+        negative: true
+        regex:
+          - "(?i)set-cookie:[^\\r\\n]*secure"
+    extractors:
+      - type: regex
+        part: header
+        group: 1
+        regex:
+          - "(?i)set-cookie:\\s*([^=;\\r\\n]+)="

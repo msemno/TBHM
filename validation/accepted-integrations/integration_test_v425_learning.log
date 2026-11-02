@@ -1,0 +1,9 @@
+test_closed_run_sqlite_import_keeps_forged_labels_untrusted (integration_test_v425_learning.LearningCLI.test_closed_run_sqlite_import_keeps_forged_labels_untrusted) ... ok
+test_full_operator_cli_persistence_review_retrieval_export_dashboard (integration_test_v425_learning.LearningCLI.test_full_operator_cli_persistence_review_retrieval_export_dashboard) ... ok
+test_live_bola_and_learning_capture_reach_sealed_operator_delivery (integration_test_v425_learning.LearningCLI.test_live_bola_and_learning_capture_reach_sealed_operator_delivery) ... ok
+test_run_capture_is_pending_and_failures_are_recorded (integration_test_v425_learning.LearningCLI.test_run_capture_is_pending_and_failures_are_recorded) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 13.392s
+
+OK

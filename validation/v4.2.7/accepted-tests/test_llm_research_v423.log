@@ -1,0 +1,13 @@
+test_garak_eval_counts_are_observations_not_confirmed_findings (test_llm_research_v423.LLMResearchTests.test_garak_eval_counts_are_observations_not_confirmed_findings) ... ok
+test_hash_bound_review_exports_only_train_and_preserves_outcome_label (test_llm_research_v423.LLMResearchTests.test_hash_bound_review_exports_only_train_and_preserves_outcome_label) ... ok
+test_json_contracts_reject_duplicates_nonfinite_and_links (test_llm_research_v423.LLMResearchTests.test_json_contracts_reject_duplicates_nonfinite_and_links) ... ok
+test_normalized_pyrit_export_is_import_only (test_llm_research_v423.LLMResearchTests.test_normalized_pyrit_export_is_import_only) ... ok
+test_paid_report_without_reuse_permission_is_blocked (test_llm_research_v423.LLMResearchTests.test_paid_report_without_reuse_permission_is_blocked) ... ok
+test_project_root_cause_and_content_split_leaks_are_all_visible (test_llm_research_v423.LLMResearchTests.test_project_root_cause_and_content_split_leaks_are_all_visible) ... ok
+test_promptfoo_scores_errors_and_missing_grades_never_imply_security_proof (test_llm_research_v423.LLMResearchTests.test_promptfoo_scores_errors_and_missing_grades_never_imply_security_proof) ... ok
+test_revoked_permission_removes_only_unchanged_generated_cards (test_llm_research_v423.LLMResearchTests.test_revoked_permission_removes_only_unchanged_generated_cards) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.015s
+
+OK

@@ -1,0 +1,9 @@
+test_cancel_during_blocked_input_stops_feeder_and_process (test_continuation_runner_duplex.RunnerDuplexTests.test_cancel_during_blocked_input_stops_feeder_and_process) ... ok
+test_nonreading_helper_cannot_block_parent_job_input (test_continuation_runner_duplex.RunnerDuplexTests.test_nonreading_helper_cannot_block_parent_job_input) ... ok
+test_successful_bidirectional_transfer_loses_no_bytes (test_continuation_runner_duplex.RunnerDuplexTests.test_successful_bidirectional_transfer_loses_no_bytes) ... ok
+test_writes_before_reading_still_times_out_in_both_backends (test_continuation_runner_duplex.RunnerDuplexTests.test_writes_before_reading_still_times_out_in_both_backends) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.804s
+
+OK

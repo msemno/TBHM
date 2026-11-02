@@ -1,0 +1,25 @@
+id: tbhm-missing-security-txt
+
+info:
+  name: Missing security.txt
+  author: tbhm
+  severity: info
+  description: |
+    No /.well-known/security.txt is published. Not a vulnerability, but its
+    absence means no machine-readable disclosure contact — useful context for a
+    report and an easy hygiene win.
+  remediation: "Publish /.well-known/security.txt per RFC 9116."
+  reference:
+    - https://www.rfc-editor.org/rfc/rfc9116
+  tags: tbhm,info,hygiene
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/.well-known/security.txt"
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 404 || status_code == 403"

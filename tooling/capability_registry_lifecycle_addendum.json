@@ -1,0 +1,30 @@
+{
+  "schema_version": "1",
+  "capabilities": [
+    {
+      "capability_id": "evidence.typed_test_lifecycle",
+      "implementation_state": "native",
+      "description": "Separates test executions, observations, candidates, validation attempts and confirmed findings."
+    },
+    {
+      "capability_id": "bug_bounty.policy_identity_workflow_workspace",
+      "implementation_state": "native_planning",
+      "description": "Builds a fail-closed, redacted program-policy, identity, request and workflow assertion workspace; does not send requests."
+    },
+    {
+      "capability_id": "redteam.full_campaign_lifecycle",
+      "implementation_state": "native_orchestration",
+      "description": "Models all ATT&CK campaign tactics with approval, telemetry, stop, evidence and cleanup fields."
+    },
+    {
+      "capability_id": "redteam.high_impact_execution",
+      "implementation_state": "import_only",
+      "description": "Exploit, credential, persistence, defense-evasion, lateral, C2, exfiltration and impact evidence must come from separately governed operator infrastructure."
+    },
+    {
+      "capability_id": "runtime.go_executor",
+      "implementation_state": "optional_native_helper",
+      "description": "Statically linked bounded argv-only Linux process executor; Python remains authoritative and safely falls back."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_v3974_reverse.py",
+  "expected_cases": 10,
+  "executed_cases": 10,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.127,
+  "passed": true
+}

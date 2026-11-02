@@ -1,0 +1,11 @@
+purpose: Corporate exposure assessment under written authorization
+allowed_subjects: [Current corporate identities supplied by the client]
+allowed_sources: [Public professional sources, approved exposure services]
+prohibited_data:
+  - Family and unrelated personal contacts
+  - Home-address enrichment
+  - Facial-recognition searches
+  - Credential use or account access
+retention_days: 30
+access: Engagement team only
+review_owner: Client privacy or legal representative

@@ -1,0 +1,726 @@
+{
+  "registry_version": "3.9.7.2",
+  "policy": {
+    "registration_is_not_execution": true,
+    "planned_or_unavailable_is_never_reported_as_operational": true,
+    "high_impact_actions": "plan/import only",
+    "arbitrary_shell_execution": "prohibited",
+    "secret_values": "never printed by status or doctor commands"
+  },
+  "capabilities": [
+    {
+      "capability_id": "platform.capability_status",
+      "name": "Capability registry status",
+      "description": "Reports implementation and runtime availability without implying authorization.",
+      "domain": "platform",
+      "action_class": "diagnostic",
+      "implementation_state": "native",
+      "execution_mode": "observe",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "capability_ids": {
+            "type": "array"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "registered",
+          "capabilities"
+        ]
+      },
+      "evidence_types": [
+        "capability_status_json"
+      ],
+      "phase_association": [
+        "agentic_control_manifest"
+      ],
+      "configuration_keys": [
+        "tooling.capability_registry"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Fail closed on an invalid registry and report validation errors."
+    },
+    {
+      "capability_id": "platform.doctor",
+      "name": "Environment and dependency doctor",
+      "description": "Checks Python, packages, executables, configuration, policies, output paths, evidence paths, AI home, environment-variable presence, and optional services.",
+      "domain": "platform",
+      "action_class": "diagnostic",
+      "implementation_state": "native",
+      "execution_mode": "observe",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "ok",
+          "checks"
+        ]
+      },
+      "evidence_types": [
+        "doctor_json"
+      ],
+      "phase_association": [
+        "diagnostics",
+        "toolchain_readiness"
+      ],
+      "configuration_keys": [
+        "TBHM_AI_HOME",
+        "TBHM_LOCAL_LLM_URL"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Missing optional components are reported and do not crash the application."
+    },
+    {
+      "capability_id": "safe_plan.rdap_lookup",
+      "name": "Allowlisted RDAP lookup",
+      "description": "Executes a structured domain or IP RDAP lookup through the native collector.",
+      "domain": "osint",
+      "action_class": "registration_lookup",
+      "implementation_state": "native",
+      "execution_mode": "execute_read_only",
+      "safety_class": "read_only",
+      "approval_required": false,
+      "network_access": true,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "query_type": {
+            "enum": [
+              "domain",
+              "ip"
+            ]
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "provider",
+          "status",
+          "provenance"
+        ]
+      },
+      "evidence_types": [
+        "rdap_json",
+        "safe_plan_execution"
+      ],
+      "phase_association": [
+        "safe_plan_execution",
+        "osint_api_collectors"
+      ],
+      "configuration_keys": [
+        "osint.timeout",
+        "osint.rate_limit"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Bounded retries, timeout, normalized provider error, and no scope expansion."
+    },
+    {
+      "capability_id": "safe_plan.sherlock_username",
+      "name": "Sherlock username search",
+      "description": "Runs an installed Sherlock executable with a validated username after approval for person-level OSINT.",
+      "domain": "osint",
+      "action_class": "username_search",
+      "implementation_state": "adapter",
+      "execution_mode": "execute_read_only",
+      "safety_class": "controlled",
+      "approval_required": true,
+      "network_access": true,
+      "external_tools": [
+        "sherlock"
+      ],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "username"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "exit_code",
+          "stdout",
+          "provenance"
+        ]
+      },
+      "evidence_types": [
+        "username_search_output",
+        "safe_plan_execution"
+      ],
+      "phase_association": [
+        "safe_plan_execution"
+      ],
+      "configuration_keys": [
+        "approval_manifest",
+        "osint_pii_policy"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Blocked when approval is absent; unavailable when the executable is missing."
+    },
+    {
+      "capability_id": "safe_plan.maigret_username",
+      "name": "Maigret username search",
+      "description": "Runs an installed Maigret executable with a validated username after approval for person-level OSINT.",
+      "domain": "osint",
+      "action_class": "username_search",
+      "implementation_state": "adapter",
+      "execution_mode": "execute_read_only",
+      "safety_class": "controlled",
+      "approval_required": true,
+      "network_access": true,
+      "external_tools": [
+        "maigret"
+      ],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "username"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "exit_code",
+          "stdout",
+          "provenance"
+        ]
+      },
+      "evidence_types": [
+        "username_search_output",
+        "safe_plan_execution"
+      ],
+      "phase_association": [
+        "safe_plan_execution"
+      ],
+      "configuration_keys": [
+        "approval_manifest",
+        "osint_pii_policy"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Blocked when approval is absent; unavailable when the executable is missing."
+    },
+    {
+      "capability_id": "safe_plan.cosign_verify_blob",
+      "name": "Cosign verify-blob",
+      "description": "Verifies a local blob against a local signature and certificate or public key.",
+      "domain": "supply_chain",
+      "action_class": "artifact_verification",
+      "implementation_state": "adapter",
+      "execution_mode": "verify",
+      "safety_class": "read_only",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [
+        "cosign"
+      ],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "blob",
+          "signature"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "exit_code",
+          "evidence_sha256"
+        ]
+      },
+      "evidence_types": [
+        "signature_verification",
+        "safe_plan_execution"
+      ],
+      "phase_association": [
+        "safe_plan_execution",
+        "ci_cd_supply_chain_security"
+      ],
+      "configuration_keys": [],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Unavailable when cosign is missing; never publishes or mutates an artifact."
+    },
+    {
+      "capability_id": "evidence.session_beacon_import",
+      "name": "Session and beacon evidence import",
+      "description": "Normalizes authorized JSON/CSV session metadata without starting or controlling C2 infrastructure.",
+      "domain": "evidence",
+      "action_class": "session_import",
+      "implementation_state": "import_only",
+      "execution_mode": "import",
+      "safety_class": "sensitive_import",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "path"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "records",
+          "malformed_records"
+        ]
+      },
+      "evidence_types": [
+        "session_inventory",
+        "beacon_inventory"
+      ],
+      "phase_association": [
+        "session_beacon_import"
+      ],
+      "configuration_keys": [
+        "session_import.redact_usernames"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Malformed records are isolated; valid records continue to import."
+    },
+    {
+      "capability_id": "osint.rdap",
+      "name": "Native RDAP collector",
+      "description": "Collects and normalizes domain or IP registration data with bounded retries and optional PII redaction.",
+      "domain": "osint",
+      "action_class": "api_collector",
+      "implementation_state": "native",
+      "execution_mode": "execute_read_only",
+      "safety_class": "read_only",
+      "approval_required": false,
+      "network_access": true,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "query"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "provider",
+          "result",
+          "provenance"
+        ]
+      },
+      "evidence_types": [
+        "rdap_json"
+      ],
+      "phase_association": [
+        "osint_api_collectors"
+      ],
+      "configuration_keys": [
+        "osint_api_provider",
+        "osint_api_query",
+        "osint_api_redact_pii"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Provider errors are normalized and do not expand active scope."
+    },
+    {
+      "capability_id": "cloud.iam_graph",
+      "name": "Cloud IAM graph analysis",
+      "description": "Normalizes AWS, Azure, GCP, and partially recognized IAM JSON into evidence-backed nodes, edges, and path indicators.",
+      "domain": "cloud",
+      "action_class": "identity_graph_analysis",
+      "implementation_state": "native",
+      "execution_mode": "analyze",
+      "safety_class": "read_only",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "path"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "nodes",
+          "edges",
+          "paths"
+        ]
+      },
+      "evidence_types": [
+        "cloud_identity_graph",
+        "cloud_identity_paths"
+      ],
+      "phase_association": [
+        "cloud_identity_path_analysis"
+      ],
+      "configuration_keys": [
+        "cloud_iam_input"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Malformed inputs are reported; permission names never self-confirm exploitability."
+    },
+    {
+      "capability_id": "compliance.control_predicates",
+      "name": "Control-level compliance predicates",
+      "description": "Evaluates control status from evidence and explicit predicates rather than scanner presence.",
+      "domain": "compliance",
+      "action_class": "control_evaluation",
+      "implementation_state": "native",
+      "execution_mode": "analyze",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "catalog",
+          "findings"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "frameworks",
+          "evaluator_version"
+        ]
+      },
+      "evidence_types": [
+        "compliance_control_evaluation"
+      ],
+      "phase_association": [
+        "compliance_reporting_extended"
+      ],
+      "configuration_keys": [
+        "compliance_catalog",
+        "compliance_frameworks"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": true,
+      "failure_behavior": "Unknown or not-tested is used when evidence cannot support pass/fail."
+    },
+    {
+      "capability_id": "cicd.dataflow",
+      "name": "CI/CD trust and dataflow analysis",
+      "description": "Performs native static trust-boundary and workflow-dataflow checks; optional adapters are used only when installed.",
+      "domain": "supply_chain",
+      "action_class": "workflow_analysis",
+      "implementation_state": "native",
+      "execution_mode": "analyze",
+      "safety_class": "read_only",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "code_dir"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "files",
+          "findings"
+        ]
+      },
+      "evidence_types": [
+        "cicd_dataflow",
+        "workflow_findings"
+      ],
+      "phase_association": [
+        "ci_cd_supply_chain_security"
+      ],
+      "configuration_keys": [
+        "code_dir",
+        "cicd_results",
+        "attestation_dir"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Native static checks continue when actionlint, zizmor, cosign, or SLSA tooling is absent."
+    },
+    {
+      "capability_id": "export.ocsf_class_aware",
+      "name": "Class-aware OCSF-oriented export",
+      "description": "Maps findings, cloud identity, session, wireless, compliance, CI/CD, and OSINT records to distinct event classes with stable fingerprints.",
+      "domain": "export",
+      "action_class": "normalization",
+      "implementation_state": "native",
+      "execution_mode": "analyze",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "class_uid",
+          "unmapped"
+        ]
+      },
+      "evidence_types": [
+        "ocsf_jsonl"
+      ],
+      "phase_association": [
+        "ocsf_normalization"
+      ],
+      "configuration_keys": [
+        "no_ocsf"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": true,
+      "failure_behavior": "Unknown records use a safe generic finding class and preserve unmapped provenance."
+    },
+    {
+      "capability_id": "wireless.passive_inventory",
+      "name": "Passive wireless inventory",
+      "description": "Imports authorized wireless observations and adds non-invasive risk notes.",
+      "domain": "wireless",
+      "action_class": "passive_inventory",
+      "implementation_state": "import_only",
+      "execution_mode": "import",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "path"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "observations"
+        ]
+      },
+      "evidence_types": [
+        "wireless_inventory"
+      ],
+      "phase_association": [
+        "passive_wireless_inventory"
+      ],
+      "configuration_keys": [
+        "wireless_observations",
+        "wireless_location_label"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Malformed records are isolated; no active wireless operation is available."
+    },
+    {
+      "capability_id": "integration.adapter_proposal",
+      "name": "Proposal-only adapter generator",
+      "description": "Generates unapproved adapter metadata, parser, tests, documentation, and risk proposals for human review.",
+      "domain": "integration",
+      "action_class": "adapter_proposal",
+      "implementation_state": "proposal_only",
+      "execution_mode": "plan",
+      "safety_class": "proposal_only",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "name"
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "status",
+          "activation"
+        ]
+      },
+      "evidence_types": [
+        "adapter_proposal"
+      ],
+      "phase_association": [
+        "integration_adapter_proposal"
+      ],
+      "configuration_keys": [
+        "adapter_definition"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "The proposal remains disabled and cannot install, activate, trust, or execute an adapter."
+    },
+    {
+      "capability_id": "source.data_document_static_scan",
+      "name": "Opt-in historical data/document static scan",
+      "description": "Restores v2.21-compatible secret and dangerous-sink review for JSON, XML, HTML, TXT, Markdown, and explicitly allowlisted text extensions. Values are screened and redacted before persistence; all observations remain unconfirmed static leads.",
+      "domain": "source_security",
+      "action_class": "static_analysis",
+      "implementation_state": "native",
+      "execution_mode": "analyze",
+      "safety_class": "passive",
+      "approval_required": false,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "code_dir"
+        ],
+        "properties": {
+          "code_scan_data_files": {
+            "type": "boolean"
+          },
+          "code_scan_extra_extensions": {
+            "type": "string"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "findings"
+        ],
+        "properties": {
+          "findings": {
+            "type": "array"
+          }
+        }
+      },
+      "evidence_types": [
+        "redacted_static_secret_lead",
+        "static_sink_lead",
+        "endpoint_inventory"
+      ],
+      "phase_association": [
+        "code_scan"
+      ],
+      "configuration_keys": [
+        "code_scan_data_files",
+        "code_scan_extra_extensions",
+        "secret_min_entropy"
+      ],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Default remains endpoint-only for data/document files. Opt-in findings are placeholder/entropy screened, redacted, downgraded to leads, and never self-confirm."
+    },
+    {
+      "capability_id": "high_impact.autonomous_exploitation",
+      "name": "Autonomous exploitation",
+      "description": "Explicitly unavailable. TBHM supports planning and evidence import only for high-impact activity.",
+      "domain": "high_impact",
+      "action_class": "exploitation",
+      "implementation_state": "unavailable",
+      "execution_mode": "plan",
+      "safety_class": "unavailable",
+      "approval_required": true,
+      "network_access": false,
+      "external_tools": [],
+      "python_dependencies": [],
+      "supported_platforms": [
+        "any"
+      ],
+      "input_schema": {
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      },
+      "evidence_types": [],
+      "phase_association": [
+        "execution_orchestration_plan"
+      ],
+      "configuration_keys": [],
+      "documentation_reference": "docs/CAPABILITY_DEPTH_v3.9.7.2.md",
+      "enabled_by_default": false,
+      "failure_behavior": "Always unavailable; requests are rejected."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "filename": "Beyond the Prompt_ A Practitioner's Guide to High-Impact LLM Vulnerabilities, Bug Bounties, and Safer Training.pdf",
+    "bytes": 129003,
+    "sha256": "e689c45a420a7643393b33d310392b7aac7c74e2852c463aa3ff6bee49b0676d",
+    "duplicate_of_prior_input": null,
+    "role": "research data"
+  },
+  {
+    "filename": "Pasted markdown (4)(1).md",
+    "bytes": 17520,
+    "sha256": "cb8afaf0eb8f80d7f61b77b78b22b170f1b8b9e1d8906ef814a9a83532ce6ada",
+    "duplicate_of_prior_input": null,
+    "role": "research data"
+  },
+  {
+    "filename": "Pasted text (2)(20261019-054722).txt",
+    "bytes": 32177,
+    "sha256": "92e431e4a3cf6ccce85fba4eb47fb16f0be209d951e835b39a2cca41dc86349c",
+    "duplicate_of_prior_input": null,
+    "role": "research data"
+  },
+  {
+    "filename": "Pasted text (3)(4).txt",
+    "bytes": 18107,
+    "sha256": "752b5bc4f4f597e10d3a8d8de419bf6fa6d1e80c1c6f62ca77d7bb5df22e2a11",
+    "duplicate_of_prior_input": "Pasted text (3)(3).txt",
+    "role": "research data"
+  },
+  {
+    "filename": "Pasted text (5).txt",
+    "bytes": 11490,
+    "sha256": "2bf7d904b8a58d6e7d31b6d46f3dd2e0c82de1bcc3bb5003c9a77e6bf23b17b8",
+    "duplicate_of_prior_input": null,
+    "role": "engineering constraints"
+  },
+  {
+    "filename": "Pasted text(20261019-054648).txt",
+    "bytes": 13846,
+    "sha256": "9d1cd7b8a5369d01fe9b5f478aa43c2e7a34c4394c9ccd1921e20a42139835d9",
+    "duplicate_of_prior_input": null,
+    "role": "research data"
+  }
+]

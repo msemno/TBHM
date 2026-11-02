@@ -1,0 +1,6 @@
+{
+  "returncode": 0,
+  "wall_seconds": 0.837,
+  "max_rss_kib": 37460,
+  "measurement": "One tiny synthetic combined local workflow on the build host; no external scanner, GPU or real LLM weights. Not representative performance."
+}

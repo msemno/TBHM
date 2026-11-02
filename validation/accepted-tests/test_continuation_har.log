@@ -1,0 +1,6 @@
+test_url_credentials_are_removed_while_route_and_status_survive (test_continuation_har.HarRedactionTests.test_url_credentials_are_removed_while_route_and_status_survive) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.061s
+
+OK

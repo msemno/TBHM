@@ -1,0 +1,32 @@
+id: tbhm-exposed-phpinfo
+
+info:
+  name: Exposed phpinfo() Page
+  author: tbhm
+  severity: medium
+  description: |
+    A phpinfo() page is publicly reachable, disclosing PHP version, loaded
+    modules, environment variables, absolute paths, and sometimes secrets.
+  remediation: "Remove phpinfo pages from production."
+  tags: tbhm,exposure,phpinfo,disclosure
+  metadata:
+    max-request: 3
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/phpinfo.php"
+      - "{{BaseURL}}/info.php"
+      - "{{BaseURL}}/test.php"
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: word
+        part: body
+        words:
+          - "PHP Version"
+          - "phpinfo()"
+        condition: or

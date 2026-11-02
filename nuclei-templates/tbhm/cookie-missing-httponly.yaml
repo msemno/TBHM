@@ -1,0 +1,38 @@
+id: tbhm-cookie-without-httponly
+
+info:
+  name: Cookie Set Without HttpOnly Flag
+  author: tbhm
+  severity: low
+  description: |
+    A Set-Cookie response sets a cookie without HttpOnly, so client-side
+    JavaScript can read it. If the cookie is a session token, any XSS becomes a
+    full session-hijack. (Heuristic: flags when no Set-Cookie line carries 'httponly'.)
+  remediation: "Add HttpOnly to session and auth cookies."
+  reference:
+    - https://owasp.org/www-community/HttpOnly
+  tags: tbhm,cookie,misconfig,xss
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: regex
+        part: header
+        regex:
+          - "(?i)set-cookie:\\s*\\S+"
+      - type: regex
+        part: header
+        negative: true
+        regex:
+          - "(?i)set-cookie:[^\\r\\n]*httponly"
+    extractors:
+      - type: regex
+        part: header
+        group: 1
+        regex:
+          - "(?i)set-cookie:\\s*([^=;\\r\\n]+)="

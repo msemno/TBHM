@@ -1,0 +1,21 @@
+test_disabled_new_options_preserve_legacy_resume_identity (__main__.Compatibility.test_disabled_new_options_preserve_legacy_resume_identity) ... FAIL
+test_new_plan_routing_remains_opt_in_and_manual_override_wins (__main__.Compatibility.test_new_plan_routing_remains_opt_in_and_manual_override_wins) ... ok
+test_old_cli_signatures_and_sqlite_semantics_are_retained (__main__.Compatibility.test_old_cli_signatures_and_sqlite_semantics_are_retained) ... ok
+test_original_phase_prefix_ordinals_and_every_dispatch_resolves (__main__.Compatibility.test_original_phase_prefix_ordinals_and_every_dispatch_resolves) ... ok
+test_real_v423_database_rows_and_evidence_ids_survive_open (__main__.Compatibility.test_real_v423_database_rows_and_evidence_ids_survive_open) ... ok
+
+======================================================================
+FAIL: test_disabled_new_options_preserve_legacy_resume_identity (__main__.Compatibility.test_disabled_new_options_preserve_legacy_resume_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/tests/test_compatibility_v424.py", line 48, in test_disabled_new_options_preserve_legacy_resume_identity
+    self.assertEqual(input_fingerprint(old,profile,targets),input_fingerprint(current,profile,targets))
+AssertionError: '6dd665a0ae9a71b703c4b149851c349bfbfc9643558651bfd187826d438b8beb' != '08cdae2ccdceaf555fc2b719ed01a33531117ec29182ccd7857f14c069ea1276'
+- 6dd665a0ae9a71b703c4b149851c349bfbfc9643558651bfd187826d438b8beb
++ 08cdae2ccdceaf555fc2b719ed01a33531117ec29182ccd7857f14c069ea1276
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.300s
+
+FAILED (failures=1)

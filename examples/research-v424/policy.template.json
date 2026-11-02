@@ -1,0 +1,25 @@
+{
+  "policy_id": "REPLACE_WITH_REVIEWED_POLICY_ID",
+  "included_assets": [
+    {
+      "host": "owned-test.example",
+      "ports": [
+        443
+      ],
+      "paths": [
+        "/download",
+        "/admin-audit",
+        "/missing-owned-function"
+      ]
+    }
+  ],
+  "excluded_assets": [],
+  "allowed_actions": [
+    "brokered_http_read",
+    "strict_read_validation"
+  ],
+  "allowed_http_methods": [
+    "GET"
+  ],
+  "max_requests_per_second": 1
+}

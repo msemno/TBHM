@@ -1,0 +1,7 @@
+test_export_redacts_supported_text_and_sqlite_without_touching_live (test_delivery_v422.DeliveryTests.test_export_redacts_supported_text_and_sqlite_without_touching_live) ... ok
+test_missing_predictions_keep_empty_classes_visible (test_delivery_v422.DeliveryTests.test_missing_predictions_keep_empty_classes_visible) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.068s
+
+OK

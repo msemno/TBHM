@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "baseline",
+    "command": "../../test-venv/bin/python scripts/run_tests.py --output ../../research-424/baseline-tests.json",
+    "cwd": "TBHM-4.2.3",
+    "returncode": 0
+  },
+  {
+    "stage": "final regression",
+    "command": "../../test-venv/bin/python scripts/run_tests.py --workers 3 --output ../../research-424/release-tests.json",
+    "cwd": "TBHM-4.2.4",
+    "returncode": 0
+  },
+  {
+    "stage": "paired evaluation",
+    "command": "../../test-venv/bin/python scripts/evaluate_release_v424.py --baseline ../TBHM-4.2.3 --output-dir docs/research-v4.2.4/benchmarks",
+    "cwd": "TBHM-4.2.4",
+    "returncode": 0
+  }
+]

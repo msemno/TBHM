@@ -1,0 +1,18 @@
+test_cross_language_jni_correlation (integration_test_v3975_deep_reverse.DeepReverseTests.test_cross_language_jni_correlation) ... ok
+test_dynamic_mapping_fuzz_crash_diff_and_campaign (integration_test_v3975_deep_reverse.DeepReverseTests.test_dynamic_mapping_fuzz_crash_diff_and_campaign) ... ok
+test_emba_mode_safety_contract (integration_test_v3975_deep_reverse.DeepReverseTests.test_emba_mode_safety_contract) ... ok
+test_inline_source_map_and_explicit_limits (integration_test_v3975_deep_reverse.DeepReverseTests.test_inline_source_map_and_explicit_limits) ... ok
+test_js_analysis_content_classification (integration_test_v3975_deep_reverse.DeepReverseTests.test_js_analysis_content_classification) ... ok
+test_js_sources_from_katana_paramspider_zap_and_source_map (integration_test_v3975_deep_reverse.DeepReverseTests.test_js_sources_from_katana_paramspider_zap_and_source_map) ... ok
+test_managed_mobile_family_and_package_verification (integration_test_v3975_deep_reverse.DeepReverseTests.test_managed_mobile_family_and_package_verification) ... ok
+test_package_manifest_validation_and_protocol_cap_detection (integration_test_v3975_deep_reverse.DeepReverseTests.test_package_manifest_validation_and_protocol_cap_detection) ... ok
+test_phase_and_cli_registration (integration_test_v3975_deep_reverse.DeepReverseTests.test_phase_and_cli_registration) ... ok
+test_sandbox_command_parser_and_angr_cli_surface (integration_test_v3975_deep_reverse.DeepReverseTests.test_sandbox_command_parser_and_angr_cli_surface) ... ok
+test_sandboxed_crash_minimization_contract (integration_test_v3975_deep_reverse.DeepReverseTests.test_sandboxed_crash_minimization_contract) ... ok
+test_taint_memory_model_and_aslr_rebasing (integration_test_v3975_deep_reverse.DeepReverseTests.test_taint_memory_model_and_aslr_rebasing) ... ok
+test_universal_ir_and_interprocedural_taint (integration_test_v3975_deep_reverse.DeepReverseTests.test_universal_ir_and_interprocedural_taint) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.987s
+
+OK

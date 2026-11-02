@@ -1,0 +1,27 @@
+{
+  "kind": "local controlled microbenchmarks; no Kali/Windows hardware extrapolation",
+  "results": [
+    {
+      "source_root": "/workspace/scratch/1b3ad98bd9df/baseline/TBHM-4.2.5",
+      "ledger_events": 1000,
+      "ledger_seconds": 6.75809,
+      "ledger_disk_bytes": 170071,
+      "redact_1MiB_mean_seconds_3_runs": 0.721662,
+      "peak_rss_kib": 14592,
+      "cpu_user_seconds": 8.034244,
+      "cpu_system_seconds": 0.754142,
+      "redaction_source_sha256": "65eb92f8cd28febfb64b48a55327d7207cb2d660eff4cca3c398b2dc90602bca"
+    },
+    {
+      "source_root": "/workspace/scratch/1b3ad98bd9df/work/TBHM-4.2.6",
+      "ledger_events": 1000,
+      "ledger_seconds": 0.561001,
+      "ledger_disk_bytes": 442747,
+      "redact_1MiB_mean_seconds_3_runs": 0.049579,
+      "peak_rss_kib": 15856,
+      "cpu_user_seconds": 0.718862,
+      "cpu_system_seconds": 0.112703,
+      "redaction_source_sha256": "318034b6b9173905900c4e4c4c1ce326d8d57baae58937bccfd52e0a285b6904"
+    }
+  ]
+}

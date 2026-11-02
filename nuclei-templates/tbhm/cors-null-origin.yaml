@@ -1,0 +1,29 @@
+id: tbhm-cors-null-origin
+
+info:
+  name: CORS Allows null Origin
+  author: tbhm
+  severity: medium
+  description: |
+    The server returns Access-Control-Allow-Origin: null. A 'null' origin can be
+    forged by a sandboxed iframe or data: document, bypassing the intended
+    same-origin restriction — especially dangerous with credentials allowed.
+  remediation: "Never allow the literal 'null' origin."
+  reference:
+    - https://portswigger.net/web-security/cors
+  tags: tbhm,cors,misconfig
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    headers:
+      Origin: "null"
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "access-control-allow-origin: null"
+        case-insensitive: true

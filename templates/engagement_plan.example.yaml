@@ -1,0 +1,31 @@
+engagement_id: ENG-2026-001
+crown_jewels:
+  - Customer identity platform
+  - Production signing keys
+adversary_profiles:
+  - Financially motivated external actor
+  - Assumed-breach contractor account
+detection_objectives:
+  - Detect privileged identity abuse
+  - Detect protected-data access outside the expected application path
+limitations:
+  - No production denial-of-service
+  - No use of discovered credentials without a separately approved action
+stop_conditions:
+  - Service instability
+  - Scope ambiguity
+  - Client emergency contact requests a stop
+stages:
+  - stage: governance
+    status: approved
+    owner: Engagement lead
+    objectives: [Confirm scope, ROE, contacts, retention]
+    success_criteria: [Signed authorization and approval manifest recorded]
+  - stage: intelligence
+    status: planned
+    objectives: [Map company, subsidiaries, brands, infrastructure candidates]
+    success_criteria: [Evidence graph contains provenance and confidence]
+  - stage: controlled_access
+    status: planned
+    objectives: [Import separately approved validation results]
+    success_criteria: [Evidence and cleanup records are complete]

@@ -1,0 +1,55 @@
+{
+  "schema": "tbhm.strict-replay/1",
+  "destination_pins": {
+    "https://owned-test.example": [
+      "REPLACE_WITH_REVIEWED_NUMERIC_IP"
+    ]
+  },
+  "cases": [
+    {
+      "test_id": "controlled-file",
+      "vulnerability_class": "path_traversal",
+      "controlled_fixture": true,
+      "scope_reference": "REPLACE_WITH_APPROVAL_REFERENCE",
+      "canary": "TBHM_REPLACE_WITH_32_RANDOM_HEX",
+      "actors": {
+        "member": {
+          "owned_test_account": true,
+          "credential_env": "TBHM_MEMBER_AUTH"
+        }
+      },
+      "parameter": "file",
+      "baseline_value": "public.txt",
+      "baseline_sha256": "REPLACE_WITH_PUBLIC_BASELINE_SHA256",
+      "traversal_value": "../tbhm-proof-REPLACE_WITH_32_HEX.txt",
+      "missing_value": "../tbhm-missing-REPLACE_WITH_32_HEX.txt",
+      "baseline_url": "https://owned-test.example/download?file=public.txt",
+      "mutation_url": "https://owned-test.example/download?file=..%2Ftbhm-proof-REPLACE_WITH_32_HEX.txt",
+      "negative_control_url": "https://owned-test.example/download?file=..%2Ftbhm-missing-REPLACE_WITH_32_HEX.txt"
+    },
+    {
+      "test_id": "protected-function",
+      "vulnerability_class": "bfla",
+      "controlled_fixture": true,
+      "scope_reference": "REPLACE_WITH_APPROVAL_REFERENCE",
+      "canary": "TBHM_REPLACE_WITH_32_RANDOM_HEX",
+      "actors": {
+        "admin": {
+          "owned_test_account": true,
+          "credential_env": "TBHM_ADMIN_AUTH"
+        },
+        "member": {
+          "owned_test_account": true,
+          "credential_env": "TBHM_MEMBER_AUTH"
+        }
+      },
+      "privileged_actor": "admin",
+      "limited_actor": "member",
+      "expected_limited_access": "deny",
+      "function_id": "audit.read",
+      "baseline_url": "https://owned-test.example/admin-audit",
+      "mutation_url": "https://owned-test.example/admin-audit",
+      "negative_control_url": "https://owned-test.example/missing-owned-function"
+    }
+  ]
+}

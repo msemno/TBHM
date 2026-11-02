@@ -1,0 +1,8 @@
+test_callback_budget_and_method_filter (test_oast_v421.TestLocalOAST.test_callback_budget_and_method_filter) ... ok
+test_explicit_approval_and_offline_fail_closed (test_oast_v421.TestLocalOAST.test_explicit_approval_and_offline_fail_closed) ... ok
+test_per_attempt_correlation_negative_and_bound (test_oast_v421.TestLocalOAST.test_per_attempt_correlation_negative_and_bound) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.095s
+
+OK

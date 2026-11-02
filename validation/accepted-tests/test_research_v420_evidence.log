@@ -1,0 +1,16 @@
+test_canonical_asset_prefers_url_and_keeps_local_files_distinct (test_research_v420_evidence.EvidenceTests.test_canonical_asset_prefers_url_and_keeps_local_files_distinct) ... ok
+test_chain_flag_cross_asset_and_single_finding_do_not_form_paths (test_research_v420_evidence.EvidenceTests.test_chain_flag_cross_asset_and_single_finding_do_not_form_paths) ... ok
+test_context_imports_are_bounded_redacted_and_never_follow_outside_symlinks (test_research_v420_evidence.EvidenceTests.test_context_imports_are_bounded_redacted_and_never_follow_outside_symlinks) ... ok
+test_contract_and_import_bytes_change_resume_identity (test_research_v420_evidence.EvidenceTests.test_contract_and_import_bytes_change_resume_identity) ... ok
+test_llm_batch_rejects_foreign_ids_and_preserves_classification_and_cwe (test_research_v420_evidence.EvidenceTests.test_llm_batch_rejects_foreign_ids_and_preserves_classification_and_cwe) ... ok
+test_missing_prediction_is_unresolved_and_metrics_are_exact (test_research_v420_evidence.EvidenceTests.test_missing_prediction_is_unresolved_and_metrics_are_exact) ... ok
+test_offline_web3_and_model_setup_never_dispatch (test_research_v420_evidence.EvidenceTests.test_offline_web3_and_model_setup_never_dispatch) ... ok
+test_real_http_429_and_503_pause_other_adapters_without_retry (test_research_v420_evidence.EvidenceTests.test_real_http_429_and_503_pause_other_adapters_without_retry) ... ok
+test_refutation_rejects_fake_evidence_wrong_ids_and_authoritative_verdicts (test_research_v420_evidence.EvidenceTests.test_refutation_rejects_fake_evidence_wrong_ids_and_authoritative_verdicts) ... ok
+test_root_cause_candidates_retain_records_and_do_not_infer_permission (test_research_v420_evidence.EvidenceTests.test_root_cause_candidates_retain_records_and_do_not_infer_permission) ... ok
+test_same_asset_chain_is_hypothesis_with_distinct_ids_and_no_new_finding (test_research_v420_evidence.EvidenceTests.test_same_asset_chain_is_hypothesis_with_distinct_ids_and_no_new_finding) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.576s
+
+OK

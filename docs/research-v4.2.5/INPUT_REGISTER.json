@@ -1,0 +1,23 @@
+{
+  "inputs": [
+    {
+      "name": "Pasted text (2)(20261019-163608).txt",
+      "bytes": 35193,
+      "sha256": "441d40dc6e7751cb7abe73981e4f0c5bba83ccf0bb12c6bf50f5b2f0288728e7",
+      "role": "master specification"
+    },
+    {
+      "name": "Pasted text(20261019-163552).txt",
+      "bytes": 10985,
+      "sha256": "74f7e78ff0bf181a164144336fed44500b287daa7b117cc651f8e0265f77f94a",
+      "role": "additional technical roadmap"
+    },
+    {
+      "name": "TBHM-4.2.4-linux-x86_64(1).zip",
+      "bytes": 22601112,
+      "sha256": "331cfbeaf1708680f21b5ee57710529df2916b20e4328e6099c42044d2dc67a5",
+      "role": "baseline source release"
+    }
+  ],
+  "priority": "User reconciliation instructions, then master development specification, then additional technical roadmap"
+}

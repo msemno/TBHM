@@ -1,0 +1,6 @@
+test_offline_makes_no_external_attempt (test_egress_v421.TestEgress.test_offline_makes_no_external_attempt) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+OK

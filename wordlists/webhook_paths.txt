@@ -1,0 +1,27 @@
+# G2 from design doc - webhook receivers (often poorly-validated)
+/webhooks
+/webhook
+/api/webhook
+/api/webhooks
+/api/v1/webhooks
+/webhooks/stripe
+/api/webhooks/stripe
+/integrations/stripe
+/webhooks/github
+/api/webhooks/github
+/integrations/github/webhook
+/webhooks/gitlab
+/webhooks/bitbucket
+/webhooks/slack
+/api/integrations/slack/events
+/integrations/slack/commands
+/webhooks/discord
+/webhooks/twilio
+/webhooks/sendgrid
+/api/webhooks/sendgrid
+/webhooks/mailgun
+/webhooks/paypal
+/webhooks/braintree
+/webhooks/zendesk
+/webhooks/intercom
+/integrations/jira/webhook

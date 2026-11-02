@@ -1,0 +1,137 @@
+{
+  "release": "4.2.2",
+  "date": "2026-10-19",
+  "implementation_baseline": "4.2.1",
+  "baseline": {
+    "groups": 48,
+    "passed": 48,
+    "unittest_cases": 269,
+    "all_passed": true
+  },
+  "candidate": {
+    "groups": 53,
+    "passed": 53,
+    "unittest_cases": 284,
+    "all_passed": true
+  },
+  "static_validation": {
+    "compile": {
+      "passed": true,
+      "detail": "python compileall"
+    },
+    "imports": {
+      "passed": true,
+      "detail": "all modules import"
+    },
+    "phase_coverage": {
+      "passed": true,
+      "detail": "145 phases resolve to modules with run()"
+    }
+  },
+  "compatibility": {
+    "removed_files": [],
+    "removed_cli_actions": [],
+    "changed_existing_argument_signatures": [],
+    "added_cli_actions": [
+      "--api-authz-plan",
+      "--approve-api-authz"
+    ],
+    "baseline_cli_actions": 450,
+    "candidate_cli_actions": 452,
+    "phase_names_and_order_equal": true,
+    "dispatched_phases": 145,
+    "sqlite_schema_equal": true,
+    "intentional_behavior_changes": [
+      "Linux offline denies all network sockets, including local model services; unavailable isolation fails closed.",
+      "Access-control confirmation rejects non-success object responses, leaking/invalid controls, and invalid private-object controls.",
+      "Delivery sanitizes supported text/SQLite backup cells and rejects unsafe signed/oversized/non-UTF8 text artifacts."
+    ],
+    "passed": true
+  },
+  "api_runtime_corpus": {
+    "cases": 8,
+    "http_requests": 48,
+    "overall": {
+      "TP": 4,
+      "FP": 0,
+      "FN": 0,
+      "TN": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "f1": 1.0
+    },
+    "scope": "Eight synthetic loopback HTTP cases: four paired owned-account BOLA positives and four secure/wrong-object negatives. Two repetitions of four scenarios; no held-out projects, mobile coverage, field precision, or payout claim."
+  },
+  "prior_proof_corpus": {
+    "cases": 12,
+    "tamper_tested": 24,
+    "tamper_refused": 24,
+    "scope": "12 generated local authenticated-capture cases (6 positive, 6 benign) for three existing strict proof classes. Does not measure real-world detector recall or false-positive rates."
+  },
+  "proof_control_comparison": {
+    "scope": "Five constructed authenticated capture bundles per version, not a detector benchmark or live HTTP evaluation.",
+    "baseline": [
+      {
+        "case": "positive_control",
+        "result": "pass"
+      },
+      {
+        "case": "denied_echo",
+        "result": "pass"
+      },
+      {
+        "case": "leaking_control",
+        "result": "pass"
+      },
+      {
+        "case": "same_request_control",
+        "result": "pass"
+      },
+      {
+        "case": "public_object",
+        "result": "pass"
+      }
+    ],
+    "candidate": [
+      {
+        "case": "positive_control",
+        "result": "pass"
+      },
+      {
+        "case": "denied_echo",
+        "result": "inconclusive"
+      },
+      {
+        "case": "leaking_control",
+        "result": "inconclusive"
+      },
+      {
+        "case": "same_request_control",
+        "result": "inconclusive"
+      },
+      {
+        "case": "public_object",
+        "result": "inconclusive"
+      }
+    ],
+    "candidate_refused_invalid_controls": 4,
+    "passed": true
+  },
+  "offline_boundary": {
+    "backend": "Linux x86-64 seccomp deny-network syscalls",
+    "tested": [
+      "TCP/UDP/IPv6 socket refusal",
+      "raw socket syscall refusal",
+      "io_uring_setup refusal",
+      "existing-thread TSYNC",
+      "fork/exec child inheritance",
+      "approved offline Python and Go adapters",
+      "inherited socket/unsupported architecture refusal"
+    ],
+    "packet_capture_performed": false,
+    "network_namespace": false,
+    "arbitrary_online_child_traffic_metered": false
+  },
+  "scope": "Local synthetic fixtures and loopback services only; no third-party targets, model quality/throughput, real bounty acceptance, device/emulator/chain runtime or full standards validation."
+}

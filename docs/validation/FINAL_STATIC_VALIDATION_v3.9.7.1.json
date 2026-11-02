@@ -1,0 +1,101 @@
+{
+  "release": "3.9.7.1-backward-compatibility",
+  "root": "/mnt/data/tbhm_3971_work/TBHM-v3.9.7.1-backward-compatibility",
+  "checks": {
+    "source_tree_present": {
+      "ok": true,
+      "file_count": 371
+    },
+    "python_ast_parse": {
+      "ok": true,
+      "count": 241,
+      "errors": []
+    },
+    "json_parse": {
+      "ok": true,
+      "count": 22,
+      "errors": []
+    },
+    "yaml_parse": {
+      "ok": true,
+      "count": 40,
+      "errors": []
+    },
+    "shell_syntax": {
+      "ok": true,
+      "count": 2,
+      "errors": []
+    },
+    "no_symlinks": {
+      "ok": true,
+      "items": []
+    },
+    "no_nested_archives": {
+      "ok": true,
+      "items": []
+    },
+    "no_runtime_caches": {
+      "ok": true,
+      "items": [],
+      "count": 0
+    },
+    "no_collected_result_files": {
+      "ok": true,
+      "items": [],
+      "count": 0
+    },
+    "no_unrestricted_shell_execution": {
+      "ok": true,
+      "shell_true": [],
+      "os_system": []
+    },
+    "no_private_keys": {
+      "ok": true,
+      "items": []
+    },
+    "no_obvious_hardcoded_secrets": {
+      "ok": true,
+      "items": []
+    },
+    "phase_identifiers_unique": {
+      "ok": true,
+      "count": 129,
+      "duplicates": []
+    },
+    "phase_modules_present": {
+      "ok": true,
+      "missing": []
+    },
+    "profile_phase_integrity": {
+      "ok": true,
+      "profiles": 7,
+      "errors": []
+    },
+    "capability_registry_valid": {
+      "ok": true,
+      "count": 15,
+      "available": 11,
+      "errors": []
+    },
+    "backward_compatibility_zero_unintentional_removals": {
+      "ok": true,
+      "summary": {
+        "baseline_files": 322,
+        "final_files": 365,
+        "preserved_original_paths": 322,
+        "missing_original_paths": 0,
+        "added_paths": 43,
+        "baseline_cli_options": 300,
+        "final_cli_options": 330,
+        "missing_cli_options": 0,
+        "added_cli_options": 30,
+        "baseline_phases": 124,
+        "final_phases": 129,
+        "missing_phases": 0,
+        "added_phases": 5
+      }
+    }
+  },
+  "errors": [],
+  "ok": true
+}

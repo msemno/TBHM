@@ -1,0 +1,26 @@
+{
+  "policy_id": "replace-with-reviewed-program-policy",
+  "included_assets": [
+    {
+      "host": "api.example.test",
+      "schemes": [
+        "https"
+      ],
+      "ports": [
+        443
+      ],
+      "paths": [
+        "/health",
+        "/version"
+      ]
+    }
+  ],
+  "excluded_assets": [],
+  "allowed_actions": [
+    "brokered_http_read"
+  ],
+  "allowed_http_methods": [
+    "GET"
+  ],
+  "max_requests_per_second": 1
+}

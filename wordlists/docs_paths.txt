@@ -1,0 +1,26 @@
+# C4 from design doc - documentation paths leak design info
+/docs/
+/swagger/
+/swagger.json
+/swagger.yaml
+/swagger-ui/
+/swagger-ui.html
+/api-docs/
+/api-docs.json
+/redoc/
+/openapi.json
+/openapi.yaml
+/storybook/
+/coverage/
+/jsdoc/
+/typedoc/
+/api/explorer
+/graphiql
+/playground
+/altair
+/voyager
+/api/swagger
+/v1/swagger.json
+/v2/api-docs
+/v3/api-docs
+/api/v1/openapi.json

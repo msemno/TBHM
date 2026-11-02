@@ -1,0 +1,109 @@
+{
+  "archive": "TBHM-4.2.5-preflight.zip",
+  "passed": true,
+  "offline_install_boundary": "Entire installer and descendants ran under inherited Linux seccomp deny-network isolation",
+  "tested_code_hashes_match": 400,
+  "tested_code_hashes_total": 400,
+  "checks": [
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/.test-venv/bin/python",
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/core/offline_isolation.py",
+        "--",
+        "bash",
+        "install.sh",
+        "--offline",
+        "--python",
+        "/workspace/scratch/8420e302b789/.test-venv/bin/python"
+      ],
+      "returncode": 0,
+      "seconds": 4.711,
+      "stdout": "Package integrity verified.\nLooking in links: /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/vendor/wheels\nProcessing ./vendor/wheels/certifi-2026.7.22-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 2))\nProcessing ./vendor/wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 3))\nProcessing ./vendor/wheels/idna-3.20-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 4))\nProcessing ./vendor/wheels/ldap3-2.9.1-py2.py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 5))\nProcessing ./vendor/wheels/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 6))\nProcessing ./vendor/wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 7))\nProcessing ./vendor/wheels/pyasn1-0.6.4-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 8))\nProcessing ./vendor/wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 9))\nProcessing ./vendor/wheels/requests-2.34.2-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 10))\nProcessing ./vendor/wheels/urllib3-2.8.0-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 11))\nInstalling collected packages: urllib3, PyYAML, pyasn1, psutil, numpy, idna, charset-normalizer, certifi, requests, ldap3\nSuccessfully installed PyYAML-6.0.3 certifi-2026.7.22 charset-normalizer-3.5.2 idna-3.20 ldap3-2.9.1 numpy-2.3.5 psutil-7.2.2 pyasn1-0.6.4 requests-2.34.2 urllib3-2.8.0\nNo broken requirements found.\n4.2.5\n\nInstalled TBHM 4.2.5 in /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv\nRun: /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/tbhm --help\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "returncode": 0,
+      "seconds": 0.172,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "./tbhm",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.081,
+      "stdout": "4.2.5\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "integration_test_v425_learning.py"
+      ],
+      "returncode": 0,
+      "seconds": 6.907,
+      "stdout": "",
+      "stderr": "test_closed_run_sqlite_import_keeps_forged_labels_untrusted (__main__.LearningCLI.test_closed_run_sqlite_import_keeps_forged_labels_untrusted) ... ok\ntest_full_operator_cli_persistence_review_retrieval_export_dashboard (__main__.LearningCLI.test_full_operator_cli_persistence_review_retrieval_export_dashboard) ... ok\ntest_live_bola_and_learning_capture_reach_sealed_operator_delivery (__main__.LearningCLI.test_live_bola_and_learning_capture_reach_sealed_operator_delivery) ... ok\ntest_run_capture_is_pending_and_failures_are_recorded (__main__.LearningCLI.test_run_capture_is_pending_and_failures_are_recorded) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 6.811s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "tests/test_bola_v425.py"
+      ],
+      "returncode": 0,
+      "seconds": 10.46,
+      "stdout": "",
+      "stderr": "test_graph_binds_owned_object_to_explicit_tenant_and_origin (__main__.Bola.test_graph_binds_owned_object_to_explicit_tenant_and_origin) ... ok\ntest_preflight_refuses_unowned_same_credentials_scope_and_writes (__main__.Bola.test_preflight_refuses_unowned_same_credentials_scope_and_writes) ... ok\ntest_public_expired_echo_wrong_tenant_stay_inconclusive (__main__.Bola.test_public_expired_echo_wrong_tenant_stay_inconclusive) ... ok\ntest_signed_identity_and_tenant_substitution_rejected (__main__.Bola.test_signed_identity_and_tenant_substitution_rejected) ... ok\ntest_tampered_replayed_wrong_class_and_missing_controls (__main__.Bola.test_tampered_replayed_wrong_class_and_missing_controls) ... ok\ntest_vulnerable_and_patched_end_to_end_proof_and_seven_requests (__main__.Bola.test_vulnerable_and_patched_end_to_end_proof_and_seven_requests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 10.356s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "tests/test_offline_v422.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.303,
+      "stdout": "",
+      "stderr": "test_approved_adapter_is_isolated_in_both_executors (__main__.OfflineTests.test_approved_adapter_is_isolated_in_both_executors) ... ok\ntest_inherited_socket_and_unsupported_platform_fail_closed (__main__.OfflineTests.test_inherited_socket_and_unsupported_platform_fail_closed) ... ok\ntest_threads_raw_syscalls_and_exec_inherit_filter (__main__.OfflineTests.test_threads_raw_syscalls_and_exec_inherit_filter) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.244s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "scripts/check_release_v425.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.027,
+      "stdout": "{\n  \"incremental_release_accepted\": true,\n  \"checks\": {\n    \"all_regression_groups_pass\": true,\n    \"compatible\": true,\n    \"reproduced_defects_closed\": true,\n    \"legacy_proof_behavior_preserved\": true,\n    \"learning_measured\": true,\n    \"real_model_claim_honest\": true\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "scripts/build_release_manifest.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "seconds": 0.249,
+      "stdout": "Manifest matches source tree.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+        "scripts/validate_v4_release.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.951,
+      "stdout": "[PASS] compile: python compileall\n[PASS] imports: all modules import\n[PASS] manifest: 807 entries verified\n[PASS] phase_coverage: 145 phases resolve to modules with run()\n\nALL PASS\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Fresh preflight extraction and offline core installation. Final release differs only in generated measured evidence/inventory metadata; executable source hashes must remain identical."
+}

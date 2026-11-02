@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TBHM Recommended Confirmed Finding Record",
+  "type": "object",
+  "required": [
+    "finding_id",
+    "root_cause_id",
+    "state",
+    "asset",
+    "weakness",
+    "assertion",
+    "proof",
+    "scope",
+    "severity",
+    "artifacts"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string"
+    },
+    "root_cause_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "candidate",
+        "supported",
+        "validated",
+        "confirmed",
+        "reported",
+        "retested",
+        "closed",
+        "reopened",
+        "duplicate",
+        "accepted_risk",
+        "not_applicable"
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "locator"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      }
+    },
+    "weakness": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cwe": {
+          "type": "string"
+        },
+        "owasp_test_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attack_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "decision",
+        "policy_id"
+      ],
+      "properties": {
+        "decision": {
+          "enum": [
+            "in_scope",
+            "out_of_scope",
+            "unclear"
+          ]
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "evaluated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "identity_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "tenant": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "object_owner": {
+          "type": "string"
+        }
+      }
+    },
+    "assertion": {
+      "type": "object",
+      "required": [
+        "test_id",
+        "expected_invariant",
+        "failure_condition"
+      ],
+      "properties": {
+        "test_id": {
+          "type": "string"
+        },
+        "test_version": {
+          "type": "string"
+        },
+        "expected_invariant": {
+          "type": "string"
+        },
+        "failure_condition": {
+          "type": "string"
+        },
+        "side_effect_budget": {
+          "type": "string"
+        }
+      }
+    },
+    "proof": {
+      "type": "object",
+      "required": [
+        "baseline",
+        "mutation",
+        "negative_control",
+        "repeatability",
+        "verifier"
+      ],
+      "properties": {
+        "baseline": {
+          "$ref": "#/$defs/evidence"
+        },
+        "mutation": {
+          "$ref": "#/$defs/evidence"
+        },
+        "negative_control": {
+          "$ref": "#/$defs/control"
+        },
+        "repeatability": {
+          "type": "object",
+          "properties": {
+            "attempts": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "successful_proofs": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "timing_statistics": {
+              "type": "object"
+            }
+          }
+        },
+        "verifier": {
+          "type": "object",
+          "required": [
+            "method",
+            "version",
+            "result"
+          ],
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "result": {
+              "enum": [
+                "pass",
+                "fail",
+                "inconclusive"
+              ]
+            },
+            "verified_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "reviewer": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "severity": {
+      "type": "object",
+      "required": [
+        "rating",
+        "rationale"
+      ],
+      "properties": {
+        "rating": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "informational"
+          ]
+        },
+        "cvss_vector": {
+          "type": "string"
+        },
+        "cvss_score": {
+          "type": "number"
+        },
+        "business_impact": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "properties": {
+        "program_id": {
+          "type": "string"
+        },
+        "eligible": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "sha256",
+          "kind"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "redacted": {
+            "type": "boolean"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cleanup": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "not_required",
+            "pending",
+            "completed",
+            "failed"
+          ]
+        },
+        "evidence_artifact_id": {
+          "type": "string"
+        }
+      }
+    },
+    "retest": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "not_started",
+            "fixed",
+            "not_fixed",
+            "partially_fixed",
+            "inconclusive"
+          ]
+        },
+        "tested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "test_execution_id": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": [
+        "request_artifact_id",
+        "response_artifact_id",
+        "status"
+      ],
+      "properties": {
+        "request_artifact_id": {
+          "type": "string"
+        },
+        "response_artifact_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "observed_delta": {
+          "type": "string"
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "required": [
+        "passed",
+        "description"
+      ],
+      "properties": {
+        "passed": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "request_artifact_id": {
+          "type": "string"
+        },
+        "response_artifact_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

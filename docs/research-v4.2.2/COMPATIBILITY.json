@@ -1,0 +1,53 @@
+{
+  "baseline": "../TBHM-4.2.1",
+  "candidate": "/workspace/scratch/275c82ed021c/release/TBHM-4.2.2",
+  "removed_files": [],
+  "added_files": [
+    "CHANGELOG-v4.2.2.md",
+    "RELEASE_INFO-v4.2.2.json",
+    "RELEASE_MANIFEST-v4.2.2.json",
+    "core/api_authorization.py",
+    "core/offline_isolation.py",
+    "docs/UPGRADE-v4.2.2.md",
+    "docs/research-v4.2.2/COMPATIBILITY.json",
+    "docs/research-v4.2.2/GAP_MATRIX.csv",
+    "docs/research-v4.2.2/INPUT_REGISTER.json",
+    "docs/research-v4.2.2/RESEARCH-DECISIONS.md",
+    "docs/research-v4.2.2/ROADMAP.md",
+    "docs/research-v4.2.2/benchmarks/api_labels.json",
+    "docs/research-v4.2.2/benchmarks/api_predictions.json",
+    "docs/research-v4.2.2/benchmarks/api_runtime_evaluation.json",
+    "docs/research-v4.2.2/benchmarks/proof_control_comparison.json",
+    "docs/research-v4.2.2/benchmarks/proof_evaluation.json",
+    "examples/api-authz-plan.json",
+    "examples/api-authz-policy.json",
+    "examples/research-v422/api_cases.json",
+    "integration_test_v422_workflows.py",
+    "scripts/build_release_manifest.py",
+    "scripts/compare_proof_controls_v422.py",
+    "scripts/compare_release_contracts.py",
+    "scripts/evaluate_api_authz_v422.py",
+    "scripts/package_release.py",
+    "tests/test_ai_boundary_v422.py",
+    "tests/test_api_authz_v422.py",
+    "tests/test_delivery_v422.py",
+    "tests/test_offline_v422.py"
+  ],
+  "removed_cli_actions": [],
+  "changed_existing_argument_signatures": [],
+  "added_cli_actions": [
+    "--api-authz-plan",
+    "--approve-api-authz"
+  ],
+  "baseline_cli_actions": 450,
+  "candidate_cli_actions": 452,
+  "phase_names_and_order_equal": true,
+  "dispatched_phases": 145,
+  "sqlite_schema_equal": true,
+  "intentional_behavior_changes": [
+    "Linux offline denies all network sockets, including local model services; unavailable isolation fails closed.",
+    "Access-control confirmation rejects non-success object responses, leaking/invalid controls, and invalid private-object controls.",
+    "Delivery sanitizes supported text/SQLite backup cells and rejects unsafe signed/oversized/non-UTF8 text artifacts."
+  ],
+  "passed": true
+}

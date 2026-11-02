@@ -1,0 +1,19 @@
+test_api_denials_and_server_errors_are_inventory_not_vulnerability (test_v427_findings.FindingRegressions.test_api_denials_and_server_errors_are_inventory_not_vulnerability) ... ok
+test_checkov_only_failed_with_real_location_is_a_candidate (test_v427_findings.FindingRegressions.test_checkov_only_failed_with_real_location_is_a_candidate) ... ok
+test_checkov_passed_or_missing_file_never_produces_vulnerability (test_v427_findings.FindingRegressions.test_checkov_passed_or_missing_file_never_produces_vulnerability) ... ok
+test_ci_without_source_or_attestation_input_never_scans_cwd (test_v427_findings.FindingRegressions.test_ci_without_source_or_attestation_input_never_scans_cwd) ... ok
+test_declarations_are_not_runtime_sinks_but_executable_code_remains (test_v427_findings.FindingRegressions.test_declarations_are_not_runtime_sinks_but_executable_code_remains) ... ok
+test_handler_keywords_are_inventory_without_losing_locations (test_v427_findings.FindingRegressions.test_handler_keywords_are_inventory_without_losing_locations) ... ok
+test_local_link_must_resolve_inside_root_and_match_package_name (test_v427_findings.FindingRegressions.test_local_link_must_resolve_inside_root_and_match_package_name) ... ok
+test_missing_mobile_artifact_is_explicit_failure_not_success (test_v427_findings.FindingRegressions.test_missing_mobile_artifact_is_explicit_failure_not_success) ... ok
+test_njsscan_parser_error_not_a_finding_and_locations_are_retained (test_v427_findings.FindingRegressions.test_njsscan_parser_error_not_a_finding_and_locations_are_retained) ... ok
+test_no_mobile_artifact_records_not_requested (test_v427_findings.FindingRegressions.test_no_mobile_artifact_records_not_requested) ... ok
+test_path_boundaries_and_static_assets_do_not_imply_authentication (test_v427_findings.FindingRegressions.test_path_boundaries_and_static_assets_do_not_imply_authentication) ... ok
+test_port_scope_never_inferred_from_dns_and_policy_excludes_win (test_v427_findings.FindingRegressions.test_port_scope_never_inferred_from_dns_and_policy_excludes_win) ... ok
+test_public_spa_and_sensitive_field_control (test_v427_findings.FindingRegressions.test_public_spa_and_sensitive_field_control) ... ok
+test_recon_live_is_not_a_cryptographic_iv (test_v427_findings.FindingRegressions.test_recon_live_is_not_a_cryptographic_iv) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.029s
+
+OK

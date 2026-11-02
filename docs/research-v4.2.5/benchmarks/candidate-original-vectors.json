@@ -1,0 +1,687 @@
+[
+  {
+    "id": "access_control-False-golden",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "golden",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "response object/owner does not prove cross-actor access"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-missing_control",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-tampered_signature",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-duplicate_repeat",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-counter_only",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-condition_false",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "condition_false",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "response object/owner does not prove cross-actor access"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-False-unrelated_class",
+    "kind": "access_control",
+    "vulnerable": false,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-golden",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "golden",
+    "result": {
+      "result": "pass",
+      "assertion_passed": true,
+      "negative_control_passed": true,
+      "repeatability_passed": true,
+      "reasons": [
+        "failure condition: json path value 'B' expected 'B' -> True",
+        "failure condition: status 200 == 200 -> True",
+        "negative control: status 404 == 404 -> True",
+        "repeatability: 2 distinct authenticated captures -> True"
+      ]
+    },
+    "receipt_issued": true
+  },
+  {
+    "id": "access_control-True-missing_control",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-tampered_signature",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-duplicate_repeat",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-counter_only",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-condition_false",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "condition_false",
+    "result": {
+      "result": "fail",
+      "assertion_passed": false,
+      "negative_control_passed": true,
+      "repeatability_passed": false,
+      "reasons": [
+        "failure condition: body_contains: 'absent-controlled-condition-string' -> False",
+        "negative control: status 404 == 404 -> True",
+        "repeatability: 2 distinct authenticated captures -> False"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "access_control-True-unrelated_class",
+    "kind": "access_control",
+    "vulnerable": true,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-golden",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "golden",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "private baseline marker missing in proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-missing_control",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-tampered_signature",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-duplicate_repeat",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-counter_only",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-condition_false",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "condition_false",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "private baseline marker missing in proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-False-unrelated_class",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": false,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-golden",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "golden",
+    "result": {
+      "result": "pass",
+      "assertion_passed": true,
+      "negative_control_passed": true,
+      "repeatability_passed": true,
+      "reasons": [
+        "failure condition: body_contains: 'FAKE_PRIVATE_MARKER_8765' -> True",
+        "negative control: body_not_contains: 'FAKE_PRIVATE_MARKER_8765' -> True",
+        "repeatability: 2 distinct authenticated captures -> True"
+      ]
+    },
+    "receipt_issued": true
+  },
+  {
+    "id": "sensitive_data_exposure-True-missing_control",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-tampered_signature",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-duplicate_repeat",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-counter_only",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-condition_false",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "condition_false",
+    "result": {
+      "result": "fail",
+      "assertion_passed": false,
+      "negative_control_passed": true,
+      "repeatability_passed": false,
+      "reasons": [
+        "failure condition: body_contains: 'absent-controlled-condition-string' -> False",
+        "negative control: body_not_contains: 'FAKE_PRIVATE_MARKER_8765' -> True",
+        "repeatability: 2 distinct authenticated captures -> False"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "sensitive_data_exposure-True-unrelated_class",
+    "kind": "sensitive_data_exposure",
+    "vulnerable": true,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-golden",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "golden",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "mutation is not a redirect to the controlled host"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-missing_control",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-tampered_signature",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-duplicate_repeat",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-counter_only",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-condition_false",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "condition_false",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "mutation is not a redirect to the controlled host"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-False-unrelated_class",
+    "kind": "open_redirect",
+    "vulnerable": false,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-golden",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "golden",
+    "result": {
+      "result": "pass",
+      "assertion_passed": true,
+      "negative_control_passed": true,
+      "repeatability_passed": true,
+      "reasons": [
+        "failure condition: header location='https://controlled.example.test/' expected 'https://controlled.example.test/' -> True",
+        "negative control: header location='/home' expected '/home' -> True",
+        "repeatability: 2 distinct authenticated captures -> True"
+      ]
+    },
+    "receipt_issued": true
+  },
+  {
+    "id": "open_redirect-True-missing_control",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "missing_control",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'negative_control'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-tampered_signature",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "tampered_signature",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "capture authentication failed"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-duplicate_repeat",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "duplicate_repeat",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "two distinct repeat captures required; counters are not proof"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-counter_only",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "counter_only",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "'baseline'"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-condition_false",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "condition_false",
+    "result": {
+      "result": "fail",
+      "assertion_passed": false,
+      "negative_control_passed": true,
+      "repeatability_passed": false,
+      "reasons": [
+        "failure condition: body_contains: 'absent-controlled-condition-string' -> False",
+        "negative control: header location='/home' expected '/home' -> True",
+        "repeatability: 2 distinct authenticated captures -> False"
+      ]
+    },
+    "receipt_issued": false
+  },
+  {
+    "id": "open_redirect-True-unrelated_class",
+    "kind": "open_redirect",
+    "vulnerable": true,
+    "variant": "unrelated_class",
+    "result": {
+      "result": "inconclusive",
+      "assertion_passed": false,
+      "negative_control_passed": false,
+      "repeatability_passed": false,
+      "reasons": [
+        "no audited confirmation contract for this vulnerability class"
+      ]
+    },
+    "receipt_issued": false
+  }
+]

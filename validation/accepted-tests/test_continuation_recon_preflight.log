@@ -1,0 +1,9 @@
+test_bruteforce_filters_candidates_before_dnsx_and_uses_ceiling (test_continuation_recon_preflight.ReconPreflightTests.test_bruteforce_filters_candidates_before_dnsx_and_uses_ceiling) ... ok
+test_denied_apex_is_not_sent_to_dns_basics (test_continuation_recon_preflight.ReconPreflightTests.test_denied_apex_is_not_sent_to_dns_basics) ... ok
+test_fractional_child_rate_fails_closed_instead_of_rounding_up (test_continuation_recon_preflight.ReconPreflightTests.test_fractional_child_rate_fails_closed_instead_of_rounding_up) ... ok
+test_passive_and_policy_zero_never_call_any_source (test_continuation_recon_preflight.ReconPreflightTests.test_passive_and_policy_zero_never_call_any_source) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.010s
+
+OK

@@ -1,0 +1,33 @@
+TBHM v3.9.3 regression tests
+
+[test_p03_runtime_proof_status]
+  PASS  200 is runtime proof
+  PASS  302 is runtime proof
+  PASS  401 is NOT runtime proof
+  PASS  403 is NOT runtime proof
+  PASS  404 is NOT runtime proof
+  PASS  500 is NOT runtime proof
+
+[test_p02_taint_no_self_confirm]
+  PASS  taint flow detected
+  PASS  static-only flow is NOT confirmed
+  PASS  confirmed after reachability corroboration
+
+[test_a_secret_value_before_redaction]
+  PASS  secret_candidates keeps the real value in memory
+  PASS  real key NOT treated as dummy
+  PASS  placeholder IS treated as dummy
+  PASS  redacted form never contains the real value
+
+[test_b_raw_short_imports]
+  PASS  short API 'gets' caught
+  PASS  short API 'system' caught
+  PASS  short API 'WinExec' caught
+
+[test_full_binary_phase]
+  PASS  binary phase produced findings (not a no-op)
+  PASS  exactly one real secret (example dropped even w/ sample.bin name)
+  PASS  stored secret evidence is redacted
+  PASS  short dangerous imports surfaced
+
+ALL PASSED

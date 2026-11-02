@@ -1,0 +1,87 @@
+{
+  "release": "3.9.7.2-historical-coverage-restored",
+  "scripts": [
+    {
+      "script": "integration_test_addons.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.578
+    },
+    {
+      "script": "integration_test_ai_plane.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 10.696
+    },
+    {
+      "script": "integration_test_historical_regressions_v3971.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.023
+    },
+    {
+      "script": "integration_test_v391_safe.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.144
+    },
+    {
+      "script": "integration_test_v392.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.046
+    },
+    {
+      "script": "integration_test_v393.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 2.893
+    },
+    {
+      "script": "integration_test_v3941.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.321
+    },
+    {
+      "script": "integration_test_v395.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.166
+    },
+    {
+      "script": "integration_test_v396.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.07
+    },
+    {
+      "script": "integration_test_v3961.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 5.589
+    },
+    {
+      "script": "integration_test_v3971.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 4.151
+    },
+    {
+      "script": "integration_test_v3972.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.095
+    },
+    {
+      "script": "integration_test_v39_safe.py",
+      "status": "pass",
+      "returncode": 0,
+      "duration_seconds": 3.084
+    }
+  ],
+  "passed": 13,
+  "failed": 0,
+  "total": 13,
+  "execution_note": "Each script was executed in a separate bounded subprocess; no network target was used."
+}

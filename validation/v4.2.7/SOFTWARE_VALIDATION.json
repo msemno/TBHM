@@ -1,0 +1,14 @@
+{
+  "version": "4.2.7",
+  "source_build_sha256": "a7fbbff5aea4ddf697ab5bfd644603b893e78c1cd8fbd83d6558f9efb3047060",
+  "baseline_suite_groups": 83,
+  "candidate_suite_groups": 87,
+  "unit_modules": 64,
+  "executed_unit_cases": 429,
+  "all_tests_passed": true,
+  "syntax_checked_files": 423,
+  "real_model_reasoning_evaluated": false,
+  "training_executed": false,
+  "universal_external_browser_containment_proven": false,
+  "host_kali_windows_gpu_deployment_certified": false
+}

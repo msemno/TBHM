@@ -1,0 +1,11 @@
+test_combined_local_inputs_reach_report_operator_view_and_sealed_delivery (integration_test_v420_workflows.WorkflowTests.test_combined_local_inputs_reach_report_operator_view_and_sealed_delivery) ... ok
+test_local_model_http_contract_refutation_persists_advice_only (integration_test_v420_workflows.WorkflowTests.test_local_model_http_contract_refutation_persists_advice_only) ... ok
+test_malformed_contract_keeps_partial_report_and_returns_failure (integration_test_v420_workflows.WorkflowTests.test_malformed_contract_keeps_partial_report_and_returns_failure) ... ok
+test_offline_maintenance_conflicts_fail_before_downloads (integration_test_v420_workflows.WorkflowTests.test_offline_maintenance_conflicts_fail_before_downloads) ... ok
+test_optional_analyzer_failure_remains_incomplete (integration_test_v420_workflows.WorkflowTests.test_optional_analyzer_failure_remains_incomplete) ... ok
+test_targetless_evaluation_cli_and_undefined_metrics (integration_test_v420_workflows.WorkflowTests.test_targetless_evaluation_cli_and_undefined_metrics) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 13.837s
+
+OK

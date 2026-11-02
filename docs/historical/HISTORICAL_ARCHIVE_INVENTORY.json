@@ -1,0 +1,2012 @@
+[
+  {
+    "actual_version": "2.16-fixed",
+    "broken_links": [],
+    "byte_size": 287444,
+    "caches": [],
+    "conflicting_version_strings": [
+      "2.0",
+      "2.1",
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14",
+      "2.15",
+      "2.16",
+      "2.16-fixed"
+    ],
+    "counts": {
+      "archive_entries": 132,
+      "directories": 11,
+      "files": 121,
+      "json_files": 0,
+      "markdown_files": 7,
+      "payload_files": 7,
+      "phase_modules": 38,
+      "profiles": 5,
+      "python_files": 71,
+      "shell_scripts": 2,
+      "templates": 1,
+      "test_modules": 0,
+      "wordlists": 6,
+      "yaml_files": 27
+    },
+    "detected_version_candidates": [
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.11 \u2014 Changelog",
+        "value": "2.11"
+      },
+      {
+        "line": 96,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.12 \u2014 Ineligible-finding suppression",
+        "value": "2.12"
+      },
+      {
+        "line": 136,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.13 \u2014 Catch-all-aware API fuzzing",
+        "value": "2.13"
+      },
+      {
+        "line": 193,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.14 \u2014 Authoritative rate limiting",
+        "value": "2.14"
+      },
+      {
+        "line": 214,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.15 \u2014 Enforced scope (--scope now actually works)",
+        "value": "2.15"
+      },
+      {
+        "line": 1,
+        "path": "README.md",
+        "text": "# TBHM v2.0 \u2014 The Bug Hunter Master",
+        "value": "2.0"
+      },
+      {
+        "line": 329,
+        "path": "README.md",
+        "text": "**TBHM v2 \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646 Burp Suite Pro \u0623\u0648 OWASP ZAP.** \u062f\u0648\u0644 tools \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629 \u0641\u064a\u0647\u0627 \u0633\u0646\u064a\u0646 R&D \u0648\u0645\u0634 \u0645\u0645\u0643\u0646 \u0623\u062f\u0627\u0629 CLI \u0648\u0627\u062d\u062f\u0629 \u062a\u0639\u0645\u0644 \u0645\u0627 \u064a\u0639\u0645\u0644\u0648\u0647. \u0627\u0644\u0644\u064a \u0628\u062a\u0639\u0645\u0644\u0647 v2.1:",
+        "value": "2.1"
+      },
+      {
+        "line": 331,
+        "path": "README.md",
+        "text": "| \u0627\u0644\u062e\u0627\u0635\u064a\u0629 | TBHM v2.1 | Burp Pro | ZAP |",
+        "value": "2.1"
+      },
+      {
+        "line": 788,
+        "path": "README.md",
+        "text": "**TBHM v2.0** \u2014 \u0645\u0628\u0646\u064a \u0628\u0640 Python\u060c \u0645\u062f\u0641\u0648\u0639 \u0628\u0640 SecLists\u060c \u0645\u0633\u062a\u0644\u0647\u0645 \u0645\u0646 \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629\u060c \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646\u0647\u0627.",
+        "value": "2.0"
+      },
+      {
+        "line": 3,
+        "path": "tbhm.py",
+        "text": "TBHM v2.16-fixed - The Bug Hunter Master",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 1,
+        "path": "PATCH_NOTES-v2.16-fixed.md",
+        "text": "# TBHM v2.16-fixed Patch Notes",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 145,
+        "path": "core/curl_probes.py",
+        "text": "v2.16 incorrectly treated a plain 405 as vulnerable. This fixed version uses",
+        "value": "2.16"
+      },
+      {
+        "line": 311,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.0\",",
+        "value": "2.0"
+      }
+    ],
+    "duplicated_roots": false,
+    "generated_evidence_or_results": [],
+    "label": "v2.16",
+    "nested_archives": [],
+    "os_metadata": [],
+    "potential_secret_or_private_info_files": [],
+    "project_root": "/mnt/data/tbhm_3971_work/extracted/TBHM-v2.16-fixed_2_/TBHM-v2",
+    "sha256": "a2080c17e3decabce2cef1bb68125a3e52b32236c7b0f45002c19bd64ce0325d",
+    "symlinks": [],
+    "temporary_files": [],
+    "top_level_roots": [
+      "TBHM-v2"
+    ],
+    "uploaded_filename": "TBHM-v2.16-fixed(2).zip",
+    "zip_integrity": "ok"
+  },
+  {
+    "actual_version": "2.21",
+    "broken_links": [],
+    "byte_size": 323982,
+    "caches": [],
+    "conflicting_version_strings": [
+      "2.0",
+      "2.1",
+      "2.1.0",
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14",
+      "2.15",
+      "2.16",
+      "2.16-fixed",
+      "2.17",
+      "2.18",
+      "2.19",
+      "2.20",
+      "2.21",
+      "3.5.1.js"
+    ],
+    "counts": {
+      "archive_entries": 143,
+      "directories": 11,
+      "files": 132,
+      "json_files": 0,
+      "markdown_files": 7,
+      "payload_files": 7,
+      "phase_modules": 44,
+      "profiles": 5,
+      "python_files": 82,
+      "shell_scripts": 2,
+      "templates": 1,
+      "test_modules": 0,
+      "wordlists": 6,
+      "yaml_files": 27
+    },
+    "detected_version_candidates": [
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.11 \u2014 Changelog",
+        "value": "2.11"
+      },
+      {
+        "line": 96,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.12 \u2014 Ineligible-finding suppression",
+        "value": "2.12"
+      },
+      {
+        "line": 136,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.13 \u2014 Catch-all-aware API fuzzing",
+        "value": "2.13"
+      },
+      {
+        "line": 193,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.14 \u2014 Authoritative rate limiting",
+        "value": "2.14"
+      },
+      {
+        "line": 214,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.15 \u2014 Enforced scope (--scope now actually works)",
+        "value": "2.15"
+      },
+      {
+        "line": 242,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.17 \u2014 Source-code & mobile static analysis",
+        "value": "2.17"
+      },
+      {
+        "line": 285,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.18 \u2014 SBOM/CVE, source-map recovery, GraphQL/WS, XXE+crypto, SARIF report",
+        "value": "2.18"
+      },
+      {
+        "line": 320,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.19 \u2014 API spec discovery, extra interfaces, PWA, CNAME takeover, SSE",
+        "value": "2.19"
+      },
+      {
+        "line": 348,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.20 \u2014 two long-standing defects fixed",
+        "value": "2.20"
+      },
+      {
+        "line": 363,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.21 \u2014 catch-all false-positive fix (Filen scan: 2312 findings, ~all FP)",
+        "value": "2.21"
+      },
+      {
+        "line": 384,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "- code_patterns.is_minified: catch versioned-min (jquery.min.3.5.1.js) + vendor +",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 1,
+        "path": "README.md",
+        "text": "# TBHM v2.0 \u2014 The Bug Hunter Master",
+        "value": "2.0"
+      },
+      {
+        "line": 329,
+        "path": "README.md",
+        "text": "**TBHM v2 \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646 Burp Suite Pro \u0623\u0648 OWASP ZAP.** \u062f\u0648\u0644 tools \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629 \u0641\u064a\u0647\u0627 \u0633\u0646\u064a\u0646 R&D \u0648\u0645\u0634 \u0645\u0645\u0643\u0646 \u0623\u062f\u0627\u0629 CLI \u0648\u0627\u062d\u062f\u0629 \u062a\u0639\u0645\u0644 \u0645\u0627 \u064a\u0639\u0645\u0644\u0648\u0647. \u0627\u0644\u0644\u064a \u0628\u062a\u0639\u0645\u0644\u0647 v2.1:",
+        "value": "2.1"
+      },
+      {
+        "line": 331,
+        "path": "README.md",
+        "text": "| \u0627\u0644\u062e\u0627\u0635\u064a\u0629 | TBHM v2.1 | Burp Pro | ZAP |",
+        "value": "2.1"
+      },
+      {
+        "line": 788,
+        "path": "README.md",
+        "text": "**TBHM v2.0** \u2014 \u0645\u0628\u0646\u064a \u0628\u0640 Python\u060c \u0645\u062f\u0641\u0648\u0639 \u0628\u0640 SecLists\u060c \u0645\u0633\u062a\u0644\u0647\u0645 \u0645\u0646 \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629\u060c \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646\u0647\u0627.",
+        "value": "2.0"
+      },
+      {
+        "line": 1,
+        "path": "PATCH_NOTES-v2.16-fixed.md",
+        "text": "# TBHM v2.16-fixed Patch Notes",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 3,
+        "path": "tbhm.py",
+        "text": "TBHM v2.21 - The Bug Hunter Master",
+        "value": "2.21"
+      },
+      {
+        "line": 167,
+        "path": "core/curl_probes.py",
+        "text": "v2.16 incorrectly treated a plain 405 as vulnerable. This fixed version uses",
+        "value": "2.16"
+      },
+      {
+        "line": 190,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "2.20"
+      },
+      {
+        "line": 190,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 91,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.1.0\",",
+        "value": "2.1.0"
+      },
+      {
+        "line": 93,
+        "path": "core/reporter.py",
+        "text": "\"tool\": {\"driver\": {\"name\": \"TBHM\", \"version\": \"2.18\",",
+        "value": "2.18"
+      },
+      {
+        "line": 376,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.0\",",
+        "value": "2.0"
+      }
+    ],
+    "duplicated_roots": false,
+    "generated_evidence_or_results": [],
+    "label": "v2.21",
+    "nested_archives": [],
+    "os_metadata": [],
+    "potential_secret_or_private_info_files": [],
+    "project_root": "/mnt/data/tbhm_3971_work/extracted/TBHM-v2.21_4_/TBHM-v2",
+    "sha256": "703fdbf6075d175c3166a2d48e853189f3defe5f5872f3c6156ba9be61f1956d",
+    "symlinks": [],
+    "temporary_files": [],
+    "top_level_roots": [
+      "TBHM-v2"
+    ],
+    "uploaded_filename": "TBHM-v2.21(4).zip",
+    "zip_integrity": "ok"
+  },
+  {
+    "actual_version": "3.0-redteam-safe",
+    "broken_links": [],
+    "byte_size": 551019,
+    "caches": [],
+    "conflicting_version_strings": [
+      "2.0",
+      "2.1",
+      "2.1.0",
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14",
+      "2.15",
+      "2.16",
+      "2.16-fixed",
+      "2.17",
+      "2.18",
+      "2.19",
+      "2.20",
+      "2.21",
+      "2.22-redteam",
+      "2.23",
+      "2.24",
+      "3.0-redteam-safe",
+      "3.0.0-integrated",
+      "3.1-redteam-safe",
+      "3.2-redteam-safe",
+      "3.3-redteam-safe",
+      "3.4-redteam-safe",
+      "3.5",
+      "3.5.1.js",
+      "3.6",
+      "3.7",
+      "3.8"
+    ],
+    "counts": {
+      "archive_entries": 220,
+      "directories": 13,
+      "files": 207,
+      "json_files": 0,
+      "markdown_files": 22,
+      "payload_files": 7,
+      "phase_modules": 88,
+      "profiles": 6,
+      "python_files": 141,
+      "shell_scripts": 2,
+      "templates": 1,
+      "test_modules": 1,
+      "wordlists": 6,
+      "yaml_files": 28
+    },
+    "detected_version_candidates": [
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.24.md",
+        "text": "# TBHM v2.24 \u2014 Full playbook alignment: interface coverage + objective taxonomy",
+        "value": "2.24"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.1.md",
+        "text": "# TBHM v3.1-redteam-safe Changelog",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.22-redteam.md",
+        "text": "# TBHM v2.22-redteam changelog",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.11 \u2014 Changelog",
+        "value": "2.11"
+      },
+      {
+        "line": 96,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.12 \u2014 Ineligible-finding suppression",
+        "value": "2.12"
+      },
+      {
+        "line": 136,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.13 \u2014 Catch-all-aware API fuzzing",
+        "value": "2.13"
+      },
+      {
+        "line": 193,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.14 \u2014 Authoritative rate limiting",
+        "value": "2.14"
+      },
+      {
+        "line": 214,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.15 \u2014 Enforced scope (--scope now actually works)",
+        "value": "2.15"
+      },
+      {
+        "line": 242,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.17 \u2014 Source-code & mobile static analysis",
+        "value": "2.17"
+      },
+      {
+        "line": 285,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.18 \u2014 SBOM/CVE, source-map recovery, GraphQL/WS, XXE+crypto, SARIF report",
+        "value": "2.18"
+      },
+      {
+        "line": 320,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.19 \u2014 API spec discovery, extra interfaces, PWA, CNAME takeover, SSE",
+        "value": "2.19"
+      },
+      {
+        "line": 348,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.20 \u2014 two long-standing defects fixed",
+        "value": "2.20"
+      },
+      {
+        "line": 363,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.21 \u2014 catch-all false-positive fix (Filen scan: 2312 findings, ~all FP)",
+        "value": "2.21"
+      },
+      {
+        "line": 384,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "- code_patterns.is_minified: catch versioned-min (jquery.min.3.5.1.js) + vendor +",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.4.md",
+        "text": "# TBHM v3.4-redteam-safe Changelog \u2014 False-Positive Reduction",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "README.md",
+        "text": "# TBHM v2.0 \u2014 The Bug Hunter Master",
+        "value": "2.0"
+      },
+      {
+        "line": 329,
+        "path": "README.md",
+        "text": "**TBHM v2 \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646 Burp Suite Pro \u0623\u0648 OWASP ZAP.** \u062f\u0648\u0644 tools \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629 \u0641\u064a\u0647\u0627 \u0633\u0646\u064a\u0646 R&D \u0648\u0645\u0634 \u0645\u0645\u0643\u0646 \u0623\u062f\u0627\u0629 CLI \u0648\u0627\u062d\u062f\u0629 \u062a\u0639\u0645\u0644 \u0645\u0627 \u064a\u0639\u0645\u0644\u0648\u0647. \u0627\u0644\u0644\u064a \u0628\u062a\u0639\u0645\u0644\u0647 v2.1:",
+        "value": "2.1"
+      },
+      {
+        "line": 331,
+        "path": "README.md",
+        "text": "| \u0627\u0644\u062e\u0627\u0635\u064a\u0629 | TBHM v2.1 | Burp Pro | ZAP |",
+        "value": "2.1"
+      },
+      {
+        "line": 788,
+        "path": "README.md",
+        "text": "**TBHM v2.0** \u2014 \u0645\u0628\u0646\u064a \u0628\u0640 Python\u060c \u0645\u062f\u0641\u0648\u0639 \u0628\u0640 SecLists\u060c \u0645\u0633\u062a\u0644\u0647\u0645 \u0645\u0646 \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629\u060c \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646\u0647\u0627.",
+        "value": "2.0"
+      },
+      {
+        "line": 794,
+        "path": "README.md",
+        "text": "TBHM v2.22-redteam keeps the original web/API/mobile bug-hunting pipeline and adds a safe enterprise red-team layer.",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.3.md",
+        "text": "# TBHM v3.3-redteam-safe Changelog",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.6.md",
+        "text": "# TBHM v3.6 \u2014 Confirmation Engine",
+        "value": "3.6"
+      },
+      {
+        "line": 1,
+        "path": "PATCH_NOTES-v2.16-fixed.md",
+        "text": "# TBHM v2.16-fixed Patch Notes",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.2.md",
+        "text": "# TBHM v3.2-redteam-safe Changelog",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 3,
+        "path": "tbhm.py",
+        "text": "TBHM v3.0-redteam-safe - The Bug Hunter Master",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.5.md",
+        "text": "# TBHM v3.5 \u2014 False-Positive Hardening",
+        "value": "3.5"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.0.md",
+        "text": "# TBHM v3.0-redteam-safe Changelog",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.23.md",
+        "text": "# TBHM v2.23 \u2014 Red-team alignment, global safe-writes, honest leads",
+        "value": "2.23"
+      },
+      {
+        "line": 1,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.4-redteam-safe",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 23,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.3-redteam-safe",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 41,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.2-redteam-safe",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 66,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.1-redteam-safe",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 87,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.0-redteam-safe",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "# What TBHM v2.22-redteam tests",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 3,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "TBHM v2.22-redteam is an authorized security-testing orchestrator. It keeps the original web/API/mobile pentest engine and adds enterprise red-team coverage. The expansion is intentionally safe: it inventories, validates, simulates, records evidence, and tracks residual risk. It does not automate ma",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.7.md",
+        "text": "# TBHM v3.7 \u2014 Security Tooling Coverage Expansion",
+        "value": "3.7"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.8.md",
+        "text": "# TBHM v3.8 \u2014 Additive Safe Capability Expansion",
+        "value": "3.8"
+      },
+      {
+        "line": 1,
+        "path": "tbhm_addons/__init__.py",
+        "text": "\"\"\"TBHM v2.24 add-on package: logging subsystem + three drop-in modules.\"\"\"",
+        "value": "2.24"
+      },
+      {
+        "line": 11,
+        "path": "tbhm_addons/__init__.py",
+        "text": "__version__ = \"3.0.0-integrated\"",
+        "value": "3.0.0-integrated"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/logging_core.py",
+        "text": "Logging subsystem for TBHM v2.24 red-team orchestration.",
+        "value": "2.24"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/adapter.py",
+        "text": "Integration shim so the three modules drop into TBHM v2.24 no matter what",
+        "value": "2.24"
+      },
+      {
+        "line": 132,
+        "path": "tbhm_addons/adapter.py",
+        "text": "lines = [\"TBHM v2.24 add-on phases:\"]",
+        "value": "2.24"
+      },
+      {
+        "line": 1,
+        "path": "docs/REDTEAM_v2.22.md",
+        "text": "# TBHM v2.22-redteam upgrade notes",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 167,
+        "path": "core/curl_probes.py",
+        "text": "v2.16 incorrectly treated a plain 405 as vulnerable. This fixed version uses",
+        "value": "2.16"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "2.20"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 104,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.1.0\",",
+        "value": "2.1.0"
+      },
+      {
+        "line": 106,
+        "path": "core/reporter.py",
+        "text": "\"tool\": {\"driver\": {\"name\": \"TBHM\", \"version\": \"2.18\",",
+        "value": "2.18"
+      },
+      {
+        "line": 400,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.0\",",
+        "value": "2.0"
+      }
+    ],
+    "duplicated_roots": false,
+    "generated_evidence_or_results": [],
+    "label": "v3.8",
+    "nested_archives": [],
+    "os_metadata": [],
+    "potential_secret_or_private_info_files": [
+      "CHANGELOG-v3.0.md",
+      "CHANGELOG-v3.1.md",
+      "CHANGELOG-v3.5.md",
+      "README.md",
+      "V3_README.md",
+      "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+      "core/code_patterns.py",
+      "core/fp_filters.py"
+    ],
+    "project_root": "/mnt/data/tbhm_3971_work/extracted/TBHM-v3-redteam-safe-v3_8-expanded_1__5_/TBHM-v3",
+    "sha256": "ce7eb2b568a4cc63cc6628f4d25510417c60cd8aace32a2b53ce2a8832691dd1",
+    "symlinks": [],
+    "temporary_files": [],
+    "top_level_roots": [
+      "TBHM-v3"
+    ],
+    "uploaded_filename": "TBHM-v3-redteam-safe-v3_8-expanded(1)(5).zip",
+    "zip_integrity": "ok"
+  },
+  {
+    "actual_version": "3.9.5",
+    "broken_links": [],
+    "byte_size": 802862,
+    "caches": [],
+    "conflicting_version_strings": [
+      "2.0",
+      "2.1",
+      "2.1.0",
+      "2.1.0.json",
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14",
+      "2.15",
+      "2.16",
+      "2.16-fixed",
+      "2.17",
+      "2.18",
+      "2.19",
+      "2.20",
+      "2.21",
+      "2.22-redteam",
+      "2.23",
+      "2.24",
+      "3.0-redteam-safe",
+      "3.0.0-integrated",
+      "3.1-redteam-safe",
+      "3.2-redteam-safe",
+      "3.3-redteam-safe",
+      "3.4-redteam-safe",
+      "3.5",
+      "3.5.1.js",
+      "3.6",
+      "3.7",
+      "3.8",
+      "3.9-local-ai-safe",
+      "3.9.1-integrated-llm-evidence-safe",
+      "3.9.2",
+      "3.9.3",
+      "3.9.4.1",
+      "3.9.5",
+      "3.9.5-corporate-intelligence"
+    ],
+    "counts": {
+      "archive_entries": 299,
+      "directories": 0,
+      "files": 299,
+      "json_files": 2,
+      "markdown_files": 36,
+      "payload_files": 7,
+      "phase_modules": 116,
+      "profiles": 7,
+      "python_files": 207,
+      "shell_scripts": 2,
+      "templates": 8,
+      "test_modules": 8,
+      "wordlists": 6,
+      "yaml_files": 36
+    },
+    "detected_version_candidates": [
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.11 \u2014 Changelog",
+        "value": "2.11"
+      },
+      {
+        "line": 96,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.12 \u2014 Ineligible-finding suppression",
+        "value": "2.12"
+      },
+      {
+        "line": 136,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.13 \u2014 Catch-all-aware API fuzzing",
+        "value": "2.13"
+      },
+      {
+        "line": 193,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.14 \u2014 Authoritative rate limiting",
+        "value": "2.14"
+      },
+      {
+        "line": 214,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.15 \u2014 Enforced scope (--scope now actually works)",
+        "value": "2.15"
+      },
+      {
+        "line": 242,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.17 \u2014 Source-code & mobile static analysis",
+        "value": "2.17"
+      },
+      {
+        "line": 285,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.18 \u2014 SBOM/CVE, source-map recovery, GraphQL/WS, XXE+crypto, SARIF report",
+        "value": "2.18"
+      },
+      {
+        "line": 320,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.19 \u2014 API spec discovery, extra interfaces, PWA, CNAME takeover, SSE",
+        "value": "2.19"
+      },
+      {
+        "line": 348,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.20 \u2014 two long-standing defects fixed",
+        "value": "2.20"
+      },
+      {
+        "line": 363,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.21 \u2014 catch-all false-positive fix (Filen scan: 2312 findings, ~all FP)",
+        "value": "2.21"
+      },
+      {
+        "line": 384,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "- code_patterns.is_minified: catch versioned-min (jquery.min.3.5.1.js) + vendor +",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.22-redteam.md",
+        "text": "# TBHM v2.22-redteam changelog",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.23.md",
+        "text": "# TBHM v2.23 \u2014 Red-team alignment, global safe-writes, honest leads",
+        "value": "2.23"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.24.md",
+        "text": "# TBHM v2.24 \u2014 Full playbook alignment: interface coverage + objective taxonomy",
+        "value": "2.24"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.0.md",
+        "text": "# TBHM v3.0-redteam-safe Changelog",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.1.md",
+        "text": "# TBHM v3.1-redteam-safe Changelog",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.2.md",
+        "text": "# TBHM v3.2-redteam-safe Changelog",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.3.md",
+        "text": "# TBHM v3.3-redteam-safe Changelog",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.4.md",
+        "text": "# TBHM v3.4-redteam-safe Changelog \u2014 False-Positive Reduction",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.5.md",
+        "text": "# TBHM v3.5 \u2014 False-Positive Hardening",
+        "value": "3.5"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.6.md",
+        "text": "# TBHM v3.6 \u2014 Confirmation Engine",
+        "value": "3.6"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.7.md",
+        "text": "# TBHM v3.7 \u2014 Security Tooling Coverage Expansion",
+        "value": "3.7"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.8.md",
+        "text": "# TBHM v3.8 \u2014 Additive Safe Capability Expansion",
+        "value": "3.8"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "# TBHM v3.9-local-ai-safe \u2014 Additive Change Log",
+        "value": "3.9-local-ai-safe"
+      },
+      {
+        "line": 39,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "- Executable and report version labels were synchronized to `v3.9-local-ai-safe` while preserving SARIF schema version `2.1.0`.",
+        "value": "3.9-local-ai-safe"
+      },
+      {
+        "line": 39,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "- Executable and report version labels were synchronized to `v3.9-local-ai-safe` while preserving SARIF schema version `2.1.0`.",
+        "value": "2.1.0"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.1-integrated-llm-evidence-safe.md",
+        "text": "# TBHM v3.9.1-integrated-llm-evidence-safe \u2014 Additive Change Log",
+        "value": "3.9.1-integrated-llm-evidence-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.2-evidence-confirmation-reverse.md",
+        "text": "# TBHM v3.9.2 \u2014 Evidence Confirmation, Reporting, and Reverse Engineering",
+        "value": "3.9.2"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.3.md",
+        "text": "# TBHM v3.9.3 \u2014 restore completion, phase connectivity, whole-run LLM",
+        "value": "3.9.3"
+      },
+      {
+        "line": 24,
+        "path": "CHANGELOG-v3.9.3.md",
+        "text": "- Product/report version bumped to **v3.9.3** (banner, tbhm.py title,",
+        "value": "3.9.3"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.5.md",
+        "text": "# TBHM v3.9.5 \u2014 Corporate Intelligence, Standards, Data, and Supervised Learning",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "PATCH_NOTES-v2.16-fixed.md",
+        "text": "# TBHM v2.16-fixed Patch Notes",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 1,
+        "path": "README.md",
+        "text": "# TBHM v3.9.5 \u2014 Corporate Intelligence and Supervised Learning",
+        "value": "3.9.5"
+      },
+      {
+        "line": 25,
+        "path": "README.md",
+        "text": "# TBHM v3.9.4.1 \u2014 AI-plane correctness and safety hardening",
+        "value": "3.9.4.1"
+      },
+      {
+        "line": 51,
+        "path": "README.md",
+        "text": "# TBHM v2.0 \u2014 The Bug Hunter Master",
+        "value": "2.0"
+      },
+      {
+        "line": 379,
+        "path": "README.md",
+        "text": "**TBHM v2 \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646 Burp Suite Pro \u0623\u0648 OWASP ZAP.** \u062f\u0648\u0644 tools \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629 \u0641\u064a\u0647\u0627 \u0633\u0646\u064a\u0646 R&D \u0648\u0645\u0634 \u0645\u0645\u0643\u0646 \u0623\u062f\u0627\u0629 CLI \u0648\u0627\u062d\u062f\u0629 \u062a\u0639\u0645\u0644 \u0645\u0627 \u064a\u0639\u0645\u0644\u0648\u0647. \u0627\u0644\u0644\u064a \u0628\u062a\u0639\u0645\u0644\u0647 v2.1:",
+        "value": "2.1"
+      },
+      {
+        "line": 381,
+        "path": "README.md",
+        "text": "| \u0627\u0644\u062e\u0627\u0635\u064a\u0629 | TBHM v2.1 | Burp Pro | ZAP |",
+        "value": "2.1"
+      },
+      {
+        "line": 838,
+        "path": "README.md",
+        "text": "**TBHM v2.0** \u2014 \u0645\u0628\u0646\u064a \u0628\u0640 Python\u060c \u0645\u062f\u0641\u0648\u0639 \u0628\u0640 SecLists\u060c \u0645\u0633\u062a\u0644\u0647\u0645 \u0645\u0646 \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629\u060c \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646\u0647\u0627.",
+        "value": "2.0"
+      },
+      {
+        "line": 844,
+        "path": "README.md",
+        "text": "TBHM v2.22-redteam keeps the original web/API/mobile bug-hunting pipeline and adds a safe enterprise red-team layer.",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.9.5 \u2014 Corporate Intelligence and Supervised Learning",
+        "value": "3.9.5"
+      },
+      {
+        "line": 25,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.9.4.1 \u2014 AI-plane correctness and safety hardening",
+        "value": "3.9.4.1"
+      },
+      {
+        "line": 51,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.4-redteam-safe",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 73,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.3-redteam-safe",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 91,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.2-redteam-safe",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 116,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.1-redteam-safe",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 137,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.0-redteam-safe",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "# What TBHM v2.22-redteam tests",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 3,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "TBHM v2.22-redteam is an authorized security-testing orchestrator. It keeps the original web/API/mobile pentest engine and adds enterprise red-team coverage. The expansion is intentionally safe: it inventories, validates, simulates, records evidence, and tracks residual risk. It does not automate ma",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 2,
+        "path": "install.sh",
+        "text": "# TBHM v3.9.5-corporate-intelligence installer",
+        "value": "3.9.5-corporate-intelligence"
+      },
+      {
+        "line": 17,
+        "path": "install.sh",
+        "text": "info \"TBHM v3.9.5-corporate-intelligence installer starting\"",
+        "value": "3.9.5-corporate-intelligence"
+      },
+      {
+        "line": 2,
+        "path": "integration_test_v392.py",
+        "text": "\"\"\"Structural and report-quality checks for TBHM v3.9.2.\"\"\"",
+        "value": "3.9.2"
+      },
+      {
+        "line": 120,
+        "path": "integration_test_v393.py",
+        "text": "print(\"TBHM v3.9.3 regression tests\")",
+        "value": "3.9.3"
+      },
+      {
+        "line": 2,
+        "path": "integration_test_v395.py",
+        "text": "\"\"\"Offline regression/integration suite for TBHM v3.9.5.",
+        "value": "3.9.5"
+      },
+      {
+        "line": 126,
+        "path": "integration_test_v39_safe.py",
+        "text": "\"version\": \"2.1.0\",",
+        "value": "2.1.0"
+      },
+      {
+        "line": 3,
+        "path": "tbhm.py",
+        "text": "TBHM v3.9.5-corporate-intelligence - The Bug Hunter Master",
+        "value": "3.9.5-corporate-intelligence"
+      },
+      {
+        "line": 72,
+        "path": "tbhm.py",
+        "text": "\"toolchain_readiness\", # v3.9.5: versioned catalog/readiness, registered != operational",
+        "value": "3.9.5"
+      },
+      {
+        "line": 75,
+        "path": "tbhm.py",
+        "text": "\"standards_knowledge_sync\", # v3.9.5: versioned standards/feed inventory and offline sync status",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1758,
+        "path": "tbhm.py",
+        "text": "ctx._ai_tbhm_version = \"v3.9.5\"",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1860,
+        "path": "tbhm.py",
+        "text": "args.notify, version=\"3.9.5-corporate-intelligence\",",
+        "value": "3.9.5-corporate-intelligence"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "2.20"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 167,
+        "path": "core/curl_probes.py",
+        "text": "v2.16 incorrectly treated a plain 405 as vulnerable. This fixed version uses",
+        "value": "2.16"
+      },
+      {
+        "line": 178,
+        "path": "core/entity_graph.py",
+        "text": "\"type\": \"x-tbhm-entity\", \"spec_version\": \"2.1\", \"id\": sid,",
+        "value": "2.1"
+      },
+      {
+        "line": 191,
+        "path": "core/entity_graph.py",
+        "text": "\"type\": \"relationship\", \"spec_version\": \"2.1\",",
+        "value": "2.1"
+      },
+      {
+        "line": 1,
+        "path": "core/reporter.py",
+        "text": "\"\"\"TBHM v3.9.5 multi-audience and final technical report renderer.",
+        "value": "3.9.5"
+      },
+      {
+        "line": 21,
+        "path": "core/reporter.py",
+        "text": "VERSION = \"3.9.5-corporate-intelligence\"",
+        "value": "3.9.5-corporate-intelligence"
+      },
+      {
+        "line": 550,
+        "path": "core/reporter.py",
+        "text": "lines = [\"# Developer Report - Full Technical Detail\", \"\", f\"Generated: {datetime.utcnow().isoformat()}Z\", f\"Profile: `{self.ctx.profile['name']}`\", f\"Targets: {', '.join(self.ctx.targets)}\", \"\", \"## Table of Contents\", \"- Confirmed findings\", \"- Supported findings\", \"- Leads\", \"\", \"## Methodology\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 605,
+        "path": "core/reporter.py",
+        "text": "sarif = {\"$schema\": \"https://json.schemastore.org/sarif-2.1.0.json\", \"version\": \"2.1.0\", \"runs\": [{\"tool\": {\"driver\": {\"name\": \"TBHM\", \"version\": VERSION, \"rules\": list(rules.values())}}, \"results\": results}]}",
+        "value": "2.1.0.json"
+      },
+      {
+        "line": 605,
+        "path": "core/reporter.py",
+        "text": "sarif = {\"$schema\": \"https://json.schemastore.org/sarif-2.1.0.json\", \"version\": \"2.1.0\", \"runs\": [{\"tool\": {\"driver\": {\"name\": \"TBHM\", \"version\": VERSION, \"rules\": list(rules.values())}}, \"results\": results}]}",
+        "value": "2.1.0"
+      },
+      {
+        "line": 1,
+        "path": "core/tool_catalog.py",
+        "text": "\"\"\"Versioned external-tool catalog and readiness helpers for TBHM v3.9.5.",
+        "value": "3.9.5"
+      },
+      {
+        "line": 3,
+        "path": "docs/CORPORATE_INTELLIGENCE_AND_AI_SUPERVISION_v3.9.5.md",
+        "text": "TBHM v3.9.5 adds corporate intelligence as a separate evidence workflow rather",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "docs/REDTEAM_v2.22.md",
+        "text": "# TBHM v2.22-redteam upgrade notes",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 2,
+        "path": "knowledge/standards_manifest_v395.json",
+        "text": "\"manifest_version\": \"3.9.5\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 35,
+        "path": "phases/exploitability_assessment.py",
+        "text": "\"version\": \"3.9.5\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 68,
+        "path": "phases/reverse_correlation.py",
+        "text": "\"version\": \"3.9.5\", \"artifacts\": artifacts,",
+        "value": "3.9.5"
+      },
+      {
+        "line": 228,
+        "path": "phases/reverse_dynamic_evidence.py",
+        "text": "\"version\": \"3.9.5\", \"sources\": records, \"findings\": findings,",
+        "value": "3.9.5"
+      },
+      {
+        "line": 153,
+        "path": "phases/reverse_static_analysis.py",
+        "text": "\"version\": \"3.9.5\", \"artifacts\": index, \"normalized_observations\": import_count,",
+        "value": "3.9.5"
+      },
+      {
+        "line": 72,
+        "path": "phases/reverse_symbolic_analysis.py",
+        "text": "\"version\": \"3.9.5\", \"runs\": runs, \"imported_observations\": imported,",
+        "value": "3.9.5"
+      },
+      {
+        "line": 113,
+        "path": "phases/reverse_triage.py",
+        "text": "\"version\": \"3.9.5\", \"artifacts\": records,",
+        "value": "3.9.5"
+      },
+      {
+        "line": 20,
+        "path": "phases/standards_knowledge_sync.py",
+        "text": "manifest = {\"manifest_version\": \"3.9.5\", \"frameworks\": [], \"feeds\": []}",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "tbhm_addons/__init__.py",
+        "text": "\"\"\"TBHM v2.24 add-on package: logging subsystem + three drop-in modules.\"\"\"",
+        "value": "2.24"
+      },
+      {
+        "line": 11,
+        "path": "tbhm_addons/__init__.py",
+        "text": "__version__ = \"3.0.0-integrated\"",
+        "value": "3.0.0-integrated"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/adapter.py",
+        "text": "Integration shim so the three modules drop into TBHM v2.24 no matter what",
+        "value": "2.24"
+      },
+      {
+        "line": 132,
+        "path": "tbhm_addons/adapter.py",
+        "text": "lines = [\"TBHM v2.24 add-on phases:\"]",
+        "value": "2.24"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/logging_core.py",
+        "text": "Logging subsystem for TBHM v2.24 red-team orchestration.",
+        "value": "2.24"
+      },
+      {
+        "line": 2,
+        "path": "tooling/tool_catalog_v395.json",
+        "text": "\"catalog_version\": \"3.9.5\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "scripts/ida/export_tbhm.py",
+        "text": "# TBHM v3.9.2 IDAPython static export. Run through IDA batch mode.",
+        "value": "3.9.2"
+      },
+      {
+        "line": 20,
+        "path": "core/ai_plane/__init__.py",
+        "text": "__version__ = \"3.9.5-corporate-intelligence\"",
+        "value": "3.9.5-corporate-intelligence"
+      }
+    ],
+    "duplicated_roots": false,
+    "generated_evidence_or_results": [],
+    "label": "v3.9.5",
+    "nested_archives": [],
+    "os_metadata": [],
+    "potential_secret_or_private_info_files": [
+      "CHANGELOG-v3.0.md",
+      "CHANGELOG-v3.1.md",
+      "CHANGELOG-v3.5.md",
+      "README.md",
+      "V3_README.md",
+      "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+      "core/code_patterns.py",
+      "core/fp_filters.py",
+      "docs/AD_ACCESS_SAFE_BOUNDARY_v3.9.md",
+      "integration_test_v393.py",
+      "integration_test_v3941.py"
+    ],
+    "project_root": "/mnt/data/tbhm_3971_work/extracted/TBHM-v3.9.5-corporate-intelligence_2_/TBHM-v3",
+    "sha256": "cfe126cfda799e5d4c9c82b242c7bdcfed4502f3cd30d1430f04c70db83360bd",
+    "symlinks": [],
+    "temporary_files": [],
+    "top_level_roots": [
+      "TBHM-v3"
+    ],
+    "uploaded_filename": "TBHM-v3.9.5-corporate-intelligence(2).zip",
+    "zip_integrity": "ok"
+  },
+  {
+    "actual_version": "3.9.6-enterprise-control-plane",
+    "broken_links": [],
+    "byte_size": 880878,
+    "caches": [],
+    "conflicting_version_strings": [
+      "2.0",
+      "2.1",
+      "2.1.0",
+      "2.11",
+      "2.12",
+      "2.13",
+      "2.14",
+      "2.15",
+      "2.16",
+      "2.16-fixed",
+      "2.17",
+      "2.18",
+      "2.19",
+      "2.20",
+      "2.21",
+      "2.22-redteam",
+      "2.23",
+      "2.24",
+      "3.0-redteam-safe",
+      "3.0.0-integrated",
+      "3.1-redteam-safe",
+      "3.2-redteam-safe",
+      "3.3-redteam-safe",
+      "3.4-redteam-safe",
+      "3.5",
+      "3.5.1.js",
+      "3.6",
+      "3.7",
+      "3.8",
+      "3.9-local-ai-safe",
+      "3.9.1-integrated-llm-evidence-safe",
+      "3.9.2",
+      "3.9.3",
+      "3.9.4.1",
+      "3.9.5",
+      "3.9.6",
+      "3.9.6-enterprise-control-plane"
+    ],
+    "counts": {
+      "archive_entries": 342,
+      "directories": 20,
+      "files": 322,
+      "json_files": 6,
+      "markdown_files": 38,
+      "payload_files": 7,
+      "phase_modules": 124,
+      "profiles": 7,
+      "python_files": 220,
+      "shell_scripts": 2,
+      "templates": 12,
+      "test_modules": 9,
+      "wordlists": 6,
+      "yaml_files": 40
+    },
+    "detected_version_candidates": [
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.11 \u2014 Changelog",
+        "value": "2.11"
+      },
+      {
+        "line": 96,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.12 \u2014 Ineligible-finding suppression",
+        "value": "2.12"
+      },
+      {
+        "line": 136,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.13 \u2014 Catch-all-aware API fuzzing",
+        "value": "2.13"
+      },
+      {
+        "line": 193,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.14 \u2014 Authoritative rate limiting",
+        "value": "2.14"
+      },
+      {
+        "line": 214,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.15 \u2014 Enforced scope (--scope now actually works)",
+        "value": "2.15"
+      },
+      {
+        "line": 242,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.17 \u2014 Source-code & mobile static analysis",
+        "value": "2.17"
+      },
+      {
+        "line": 285,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.18 \u2014 SBOM/CVE, source-map recovery, GraphQL/WS, XXE+crypto, SARIF report",
+        "value": "2.18"
+      },
+      {
+        "line": 320,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.19 \u2014 API spec discovery, extra interfaces, PWA, CNAME takeover, SSE",
+        "value": "2.19"
+      },
+      {
+        "line": 348,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.20 \u2014 two long-standing defects fixed",
+        "value": "2.20"
+      },
+      {
+        "line": 363,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "# TBHM v2.21 \u2014 catch-all false-positive fix (Filen scan: 2312 findings, ~all FP)",
+        "value": "2.21"
+      },
+      {
+        "line": 384,
+        "path": "CHANGELOG-v2.11.md",
+        "text": "- code_patterns.is_minified: catch versioned-min (jquery.min.3.5.1.js) + vendor +",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.22-redteam.md",
+        "text": "# TBHM v2.22-redteam changelog",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.23.md",
+        "text": "# TBHM v2.23 \u2014 Red-team alignment, global safe-writes, honest leads",
+        "value": "2.23"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v2.24.md",
+        "text": "# TBHM v2.24 \u2014 Full playbook alignment: interface coverage + objective taxonomy",
+        "value": "2.24"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.0.md",
+        "text": "# TBHM v3.0-redteam-safe Changelog",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.1.md",
+        "text": "# TBHM v3.1-redteam-safe Changelog",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.2.md",
+        "text": "# TBHM v3.2-redteam-safe Changelog",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.3.md",
+        "text": "# TBHM v3.3-redteam-safe Changelog",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.4.md",
+        "text": "# TBHM v3.4-redteam-safe Changelog \u2014 False-Positive Reduction",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.5.md",
+        "text": "# TBHM v3.5 \u2014 False-Positive Hardening",
+        "value": "3.5"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.6.md",
+        "text": "# TBHM v3.6 \u2014 Confirmation Engine",
+        "value": "3.6"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.7.md",
+        "text": "# TBHM v3.7 \u2014 Security Tooling Coverage Expansion",
+        "value": "3.7"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.8.md",
+        "text": "# TBHM v3.8 \u2014 Additive Safe Capability Expansion",
+        "value": "3.8"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "# TBHM v3.9-local-ai-safe \u2014 Additive Change Log",
+        "value": "3.9-local-ai-safe"
+      },
+      {
+        "line": 39,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "- Executable and report version labels were synchronized to `v3.9-local-ai-safe` while preserving SARIF schema version `2.1.0`.",
+        "value": "3.9-local-ai-safe"
+      },
+      {
+        "line": 39,
+        "path": "CHANGELOG-v3.9-local-ai-safe.md",
+        "text": "- Executable and report version labels were synchronized to `v3.9-local-ai-safe` while preserving SARIF schema version `2.1.0`.",
+        "value": "2.1.0"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.1-integrated-llm-evidence-safe.md",
+        "text": "# TBHM v3.9.1-integrated-llm-evidence-safe \u2014 Additive Change Log",
+        "value": "3.9.1-integrated-llm-evidence-safe"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.2-evidence-confirmation-reverse.md",
+        "text": "# TBHM v3.9.2 \u2014 Evidence Confirmation, Reporting, and Reverse Engineering",
+        "value": "3.9.2"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.3.md",
+        "text": "# TBHM v3.9.3 \u2014 restore completion, phase connectivity, whole-run LLM",
+        "value": "3.9.3"
+      },
+      {
+        "line": 24,
+        "path": "CHANGELOG-v3.9.3.md",
+        "text": "- Product/report version bumped to **v3.9.3** (banner, tbhm.py title,",
+        "value": "3.9.3"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.5.md",
+        "text": "# TBHM v3.9.5 \u2014 Corporate Intelligence, Standards, Data, and Supervised Learning",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "PATCH_NOTES-v2.16-fixed.md",
+        "text": "# TBHM v2.16-fixed Patch Notes",
+        "value": "2.16-fixed"
+      },
+      {
+        "line": 1,
+        "path": "README.md",
+        "text": "# TBHM v3.9.6 \u2014 Enterprise Control Plane and Intelligence Depth",
+        "value": "3.9.6"
+      },
+      {
+        "line": 26,
+        "path": "README.md",
+        "text": "# TBHM v3.9.4.1 \u2014 AI-plane correctness and safety hardening",
+        "value": "3.9.4.1"
+      },
+      {
+        "line": 52,
+        "path": "README.md",
+        "text": "# TBHM v2.0 \u2014 The Bug Hunter Master",
+        "value": "2.0"
+      },
+      {
+        "line": 380,
+        "path": "README.md",
+        "text": "**TBHM v2 \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646 Burp Suite Pro \u0623\u0648 OWASP ZAP.** \u062f\u0648\u0644 tools \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629 \u0641\u064a\u0647\u0627 \u0633\u0646\u064a\u0646 R&D \u0648\u0645\u0634 \u0645\u0645\u0643\u0646 \u0623\u062f\u0627\u0629 CLI \u0648\u0627\u062d\u062f\u0629 \u062a\u0639\u0645\u0644 \u0645\u0627 \u064a\u0639\u0645\u0644\u0648\u0647. \u0627\u0644\u0644\u064a \u0628\u062a\u0639\u0645\u0644\u0647 v2.1:",
+        "value": "2.1"
+      },
+      {
+        "line": 382,
+        "path": "README.md",
+        "text": "| \u0627\u0644\u062e\u0627\u0635\u064a\u0629 | TBHM v2.1 | Burp Pro | ZAP |",
+        "value": "2.1"
+      },
+      {
+        "line": 839,
+        "path": "README.md",
+        "text": "**TBHM v2.0** \u2014 \u0645\u0628\u0646\u064a \u0628\u0640 Python\u060c \u0645\u062f\u0641\u0648\u0639 \u0628\u0640 SecLists\u060c \u0645\u0633\u062a\u0644\u0647\u0645 \u0645\u0646 \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629 \u0627\u0644\u064a\u062f\u0648\u064a\u0629\u060c \u0645\u0634 \u0628\u062f\u064a\u0644 \u0639\u0646\u0647\u0627.",
+        "value": "2.0"
+      },
+      {
+        "line": 845,
+        "path": "README.md",
+        "text": "TBHM v2.22-redteam keeps the original web/API/mobile bug-hunting pipeline and adds a safe enterprise red-team layer.",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 1,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.9.6 \u2014 Enterprise Control Plane and Intelligence Depth",
+        "value": "3.9.6"
+      },
+      {
+        "line": 26,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.9.4.1 \u2014 AI-plane correctness and safety hardening",
+        "value": "3.9.4.1"
+      },
+      {
+        "line": 52,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.4-redteam-safe",
+        "value": "3.4-redteam-safe"
+      },
+      {
+        "line": 74,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.3-redteam-safe",
+        "value": "3.3-redteam-safe"
+      },
+      {
+        "line": 92,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.2-redteam-safe",
+        "value": "3.2-redteam-safe"
+      },
+      {
+        "line": 117,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.1-redteam-safe",
+        "value": "3.1-redteam-safe"
+      },
+      {
+        "line": 138,
+        "path": "V3_README.md",
+        "text": "# TBHM v3.0-redteam-safe",
+        "value": "3.0-redteam-safe"
+      },
+      {
+        "line": 1,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "# What TBHM v2.22-redteam tests",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 3,
+        "path": "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+        "text": "TBHM v2.22-redteam is an authorized security-testing orchestrator. It keeps the original web/API/mobile pentest engine and adds enterprise red-team coverage. The expansion is intentionally safe: it inventories, validates, simulates, records evidence, and tracks residual risk. It does not automate ma",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 2,
+        "path": "install.sh",
+        "text": "# TBHM v3.9.6-enterprise-control-plane installer",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 17,
+        "path": "install.sh",
+        "text": "info \"TBHM v3.9.6-enterprise-control-plane installer starting\"",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 2,
+        "path": "integration_test_v392.py",
+        "text": "\"\"\"Structural and report-quality checks for TBHM v3.9.2.\"\"\"",
+        "value": "3.9.2"
+      },
+      {
+        "line": 120,
+        "path": "integration_test_v393.py",
+        "text": "print(\"TBHM v3.9.3 regression tests\")",
+        "value": "3.9.3"
+      },
+      {
+        "line": 2,
+        "path": "integration_test_v395.py",
+        "text": "\"\"\"Offline regression/integration suite for TBHM v3.9.5.",
+        "value": "3.9.5"
+      },
+      {
+        "line": 126,
+        "path": "integration_test_v39_safe.py",
+        "text": "\"version\": \"2.1.0\",",
+        "value": "2.1.0"
+      },
+      {
+        "line": 3,
+        "path": "tbhm.py",
+        "text": "TBHM v3.9.6-enterprise-control-plane - The Bug Hunter Master",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 72,
+        "path": "tbhm.py",
+        "text": "\"toolchain_readiness\", # v3.9.5: versioned catalog/readiness, registered != operational",
+        "value": "3.9.5"
+      },
+      {
+        "line": 76,
+        "path": "tbhm.py",
+        "text": "\"standards_knowledge_sync\", # v3.9.5: versioned standards/feed inventory and offline sync status",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1843,
+        "path": "tbhm.py",
+        "text": "ctx._ai_tbhm_version = \"v3.9.6\"",
+        "value": "3.9.6"
+      },
+      {
+        "line": 1945,
+        "path": "tbhm.py",
+        "text": "args.notify, version=\"3.9.6-enterprise-control-plane\",",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 1,
+        "path": "CHANGELOG-v3.9.6.md",
+        "text": "# TBHM v3.9.6 \u2014 Enterprise Control Plane and Intelligence Depth",
+        "value": "3.9.6"
+      },
+      {
+        "line": 72,
+        "path": "CHANGELOG-v3.9.6.md",
+        "text": "- Version synchronized to `3.9.6-enterprise-control-plane` in the main CLI and",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 2,
+        "path": "integration_test_v396.py",
+        "text": "\"\"\"Offline regression suite for TBHM v3.9.6 enterprise-control-plane.",
+        "value": "3.9.6"
+      },
+      {
+        "line": 90,
+        "path": "integration_test_v396.py",
+        "text": "self.assertEqual(reporter.VERSION, \"3.9.6-enterprise-control-plane\")",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 237,
+        "path": "integration_test_v396.py",
+        "text": "self.assertEqual(event[\"metadata\"][\"product\"][\"version\"], \"3.9.6-enterprise-control-plane\")",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 248,
+        "path": "integration_test_v396.py",
+        "text": "self.assertEqual(sarif[\"version\"], \"2.1.0\")",
+        "value": "2.1.0"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "2.20"
+      },
+      {
+        "line": 238,
+        "path": "core/code_patterns.py",
+        "text": "# v2.20: catch .min.js AND versioned variants like jquery.min.3.5.1.js,",
+        "value": "3.5.1.js"
+      },
+      {
+        "line": 167,
+        "path": "core/curl_probes.py",
+        "text": "v2.16 incorrectly treated a plain 405 as vulnerable. This fixed version uses",
+        "value": "2.16"
+      },
+      {
+        "line": 178,
+        "path": "core/entity_graph.py",
+        "text": "\"type\": \"x-tbhm-entity\", \"spec_version\": \"2.1\", \"id\": sid,",
+        "value": "2.1"
+      },
+      {
+        "line": 191,
+        "path": "core/entity_graph.py",
+        "text": "\"type\": \"relationship\", \"spec_version\": \"2.1\",",
+        "value": "2.1"
+      },
+      {
+        "line": 1,
+        "path": "core/reporter.py",
+        "text": "\"\"\"TBHM v3.9.6 multi-audience and final technical report renderer.",
+        "value": "3.9.6"
+      },
+      {
+        "line": 22,
+        "path": "core/reporter.py",
+        "text": "VERSION = \"3.9.6-enterprise-control-plane\"",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 551,
+        "path": "core/reporter.py",
+        "text": "lines = [\"# Developer Report - Full Technical Detail\", \"\", f\"Generated: {datetime.utcnow().isoformat()}Z\", f\"Profile: `{self.ctx.profile['name']}`\", f\"Targets: {', '.join(self.ctx.targets)}\", \"\", \"## Table of Contents\", \"- Confirmed findings\", \"- Supported findings\", \"- Leads\", \"\", \"## Methodology\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 630,
+        "path": "core/reporter.py",
+        "text": "\"version\": \"2.1.0\",",
+        "value": "2.1.0"
+      },
+      {
+        "line": 636,
+        "path": "core/reporter.py",
+        "text": "\"semanticVersion\": \"3.9.6\", \"rules\": list(rules.values()),",
+        "value": "3.9.6"
+      },
+      {
+        "line": 1,
+        "path": "core/tool_catalog.py",
+        "text": "\"\"\"Versioned external-tool catalog and readiness helpers for TBHM v3.9.6.",
+        "value": "3.9.6"
+      },
+      {
+        "line": 1,
+        "path": "core/execution_registry.py",
+        "text": "\"\"\"Declarative execution-adapter registry for TBHM v3.9.6.",
+        "value": "3.9.6"
+      },
+      {
+        "line": 1,
+        "path": "core/compliance_catalog.py",
+        "text": "\"\"\"Policy-driven compliance catalog loader for TBHM v3.9.6.\"\"\"",
+        "value": "3.9.6"
+      },
+      {
+        "line": 3,
+        "path": "docs/CORPORATE_INTELLIGENCE_AND_AI_SUPERVISION_v3.9.5.md",
+        "text": "TBHM v3.9.5 adds corporate intelligence as a separate evidence workflow rather",
+        "value": "3.9.5"
+      },
+      {
+        "line": 1,
+        "path": "docs/REDTEAM_v2.22.md",
+        "text": "# TBHM v2.22-redteam upgrade notes",
+        "value": "2.22-redteam"
+      },
+      {
+        "line": 2,
+        "path": "knowledge/standards_manifest_v395.json",
+        "text": "\"manifest_version\": \"3.9.5\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 2,
+        "path": "knowledge/compliance_frameworks_v396.json",
+        "text": "\"catalog_version\": \"3.9.6\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 2,
+        "path": "knowledge/standards_manifest_v396.json",
+        "text": "\"manifest_version\": \"3.9.6\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 35,
+        "path": "phases/exploitability_assessment.py",
+        "text": "\"version\": \"3.9.6\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 68,
+        "path": "phases/reverse_correlation.py",
+        "text": "\"version\": \"3.9.6\", \"artifacts\": artifacts,",
+        "value": "3.9.6"
+      },
+      {
+        "line": 228,
+        "path": "phases/reverse_dynamic_evidence.py",
+        "text": "\"version\": \"3.9.6\", \"sources\": records, \"findings\": findings,",
+        "value": "3.9.6"
+      },
+      {
+        "line": 153,
+        "path": "phases/reverse_static_analysis.py",
+        "text": "\"version\": \"3.9.6\", \"artifacts\": index, \"normalized_observations\": import_count,",
+        "value": "3.9.6"
+      },
+      {
+        "line": 72,
+        "path": "phases/reverse_symbolic_analysis.py",
+        "text": "\"version\": \"3.9.6\", \"runs\": runs, \"imported_observations\": imported,",
+        "value": "3.9.6"
+      },
+      {
+        "line": 113,
+        "path": "phases/reverse_triage.py",
+        "text": "\"version\": \"3.9.6\", \"artifacts\": records,",
+        "value": "3.9.6"
+      },
+      {
+        "line": 20,
+        "path": "phases/standards_knowledge_sync.py",
+        "text": "manifest = {\"manifest_version\": \"3.9.6\", \"frameworks\": [], \"feeds\": []}",
+        "value": "3.9.6"
+      },
+      {
+        "line": 16,
+        "path": "phases/ocsf_normalization.py",
+        "text": "version = \"3.9.6-enterprise-control-plane\"",
+        "value": "3.9.6-enterprise-control-plane"
+      },
+      {
+        "line": 1,
+        "path": "tbhm_addons/__init__.py",
+        "text": "\"\"\"TBHM v2.24 add-on package: logging subsystem + three drop-in modules.\"\"\"",
+        "value": "2.24"
+      },
+      {
+        "line": 11,
+        "path": "tbhm_addons/__init__.py",
+        "text": "__version__ = \"3.0.0-integrated\"",
+        "value": "3.0.0-integrated"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/adapter.py",
+        "text": "Integration shim so the three modules drop into TBHM v2.24 no matter what",
+        "value": "2.24"
+      },
+      {
+        "line": 132,
+        "path": "tbhm_addons/adapter.py",
+        "text": "lines = [\"TBHM v2.24 add-on phases:\"]",
+        "value": "2.24"
+      },
+      {
+        "line": 5,
+        "path": "tbhm_addons/logging_core.py",
+        "text": "Logging subsystem for TBHM v2.24 red-team orchestration.",
+        "value": "2.24"
+      },
+      {
+        "line": 2,
+        "path": "tooling/tool_catalog_v395.json",
+        "text": "\"catalog_version\": \"3.9.5\",",
+        "value": "3.9.5"
+      },
+      {
+        "line": 2,
+        "path": "tooling/execution_adapter_registry_v396.json",
+        "text": "\"version\": \"3.9.6\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 2,
+        "path": "tooling/tool_catalog_v396.json",
+        "text": "\"catalog_version\": \"3.9.6\",",
+        "value": "3.9.6"
+      },
+      {
+        "line": 1,
+        "path": "scripts/ida/export_tbhm.py",
+        "text": "# TBHM v3.9.2 IDAPython static export. Run through IDA batch mode.",
+        "value": "3.9.2"
+      },
+      {
+        "line": 20,
+        "path": "core/ai_plane/__init__.py",
+        "text": "__version__ = \"3.9.6-enterprise-control-plane\"",
+        "value": "3.9.6-enterprise-control-plane"
+      }
+    ],
+    "duplicated_roots": false,
+    "generated_evidence_or_results": [],
+    "label": "v3.9.6",
+    "nested_archives": [],
+    "os_metadata": [],
+    "potential_secret_or_private_info_files": [
+      "CHANGELOG-v3.0.md",
+      "CHANGELOG-v3.1.md",
+      "CHANGELOG-v3.5.md",
+      "README.md",
+      "V3_README.md",
+      "WHAT_TBHM_v2.22_REDTEAM_TESTS.md",
+      "core/code_patterns.py",
+      "core/fp_filters.py",
+      "docs/AD_ACCESS_SAFE_BOUNDARY_v3.9.md",
+      "integration_test_v393.py",
+      "integration_test_v3941.py"
+    ],
+    "project_root": "/mnt/data/tbhm_3971_work/extracted/TBHM-v3.9.6-enterprise-control-plane_1_/TBHM-v3",
+    "sha256": "c061a6ac8259633e40d0bb69d893444ed8e16848cfa15cc3f1a7fff54fcc266c",
+    "symlinks": [],
+    "temporary_files": [],
+    "top_level_roots": [
+      "TBHM-v3"
+    ],
+    "uploaded_filename": "TBHM-v3.9.6-enterprise-control-plane(1).zip",
+    "zip_integrity": "ok"
+  }
+]

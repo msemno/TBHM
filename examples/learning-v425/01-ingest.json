@@ -1,0 +1,31 @@
+{
+  "schema": "tbhm.learning-operation/1",
+  "project_id": "owned-lab",
+  "operation": "ingest",
+  "record": {
+    "scenario_id": "owned-example",
+    "project_id": "owned-lab",
+    "run_id": "run-owned-lab",
+    "split": "train",
+    "scope_reference": "owned-lab-permission",
+    "vulnerability_class": "access_control",
+    "test_objective": "Validate owned object authorization",
+    "observation_summary": "Private object content is returned after changing the authenticated actor",
+    "evidence": [
+      {
+        "id": "E1",
+        "sha256": "44a648a41fbddf755c749c4e9aec459a1450627d83bd10cb5bfb118d741d6839",
+        "summary": "Owned sanitized observation owned-example",
+        "kind": "controlled_observation"
+      }
+    ],
+    "root_cause_id": "root-owned-example",
+    "source_license": "operator-owned synthetic fixture",
+    "permission_reference": "synthetic-test-permission",
+    "reuse_approved": true,
+    "training_allowed": false,
+    "technology": "json-api",
+    "control_failure": "anonymous control missing",
+    "verification_method": "owned canary and independent negative controls"
+  }
+}

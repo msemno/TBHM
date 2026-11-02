@@ -1,0 +1,6 @@
+test_explicit_inference_budget_allows_slow_valid_response (test_v427_service_wait.ModelWaitRegression.test_explicit_inference_budget_allows_slow_valid_response) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 15.527s
+
+OK

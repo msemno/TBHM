@@ -1,0 +1,7 @@
+test_normalized_paths (test_remediation_f01.SourceMapBoundaryTests.test_normalized_paths) ... ok
+test_traversal_and_symlink_preserve_outside (test_remediation_f01.SourceMapBoundaryTests.test_traversal_and_symlink_preserve_outside) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.014s
+
+OK

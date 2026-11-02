@@ -1,0 +1,28 @@
+policy_id: example-program-2026-07
+program_name: Example Authorized Security Program
+reviewed_at: 2026-07-26T00:00:00Z
+source_reference: internal-rules-of-engagement-or-program-page
+included_assets:
+  - "*.example.test"
+  - "api.example.test"
+excluded_assets:
+  - "status.example.test"
+eligible_vulnerability_types:
+  - idor
+  - authentication
+  - injection
+  - business_logic
+  - sensitive_data_exposure
+ineligible_vulnerability_types:
+  - denial_of_service
+  - social_engineering
+prohibited_actions:
+  - credential_attack
+  - phishing
+  - destructive_testing
+  - real_data_exfiltration
+allowed_http_methods: [GET, HEAD, OPTIONS, POST]
+max_requests_per_second: 2
+notes:
+  - Mutating requests require disposable test data and documented cleanup.
+  - Third-party services are out of scope unless listed explicitly.

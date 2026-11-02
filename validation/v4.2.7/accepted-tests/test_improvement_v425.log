@@ -1,0 +1,15 @@
+test_cancel_event_discards_model_response (test_improvement_v425.Improvement.test_cancel_event_discards_model_response) ... ok
+test_comparative_gate_rejects_false_negatives_and_fabricated_citations (test_improvement_v425.Improvement.test_comparative_gate_rejects_false_negatives_and_fabricated_citations) ... ok
+test_complete_synthetic_comparative_workflow_promote_rollback (test_improvement_v425.Improvement.test_complete_synthetic_comparative_workflow_promote_rollback) ... ok
+test_disk_pressure_records_retryable_failure (test_improvement_v425.Improvement.test_disk_pressure_records_retryable_failure) ... ok
+test_global_single_worker_claim_and_interrupted_recovery (test_improvement_v425.Improvement.test_global_single_worker_claim_and_interrupted_recovery) ... ok
+test_promotion_requires_candidate_existing_approval_and_no_authority_changes (test_improvement_v425.Improvement.test_promotion_requires_candidate_existing_approval_and_no_authority_changes) ... ok
+test_proposal_traversal_and_symlink_rejected (test_improvement_v425.Improvement.test_proposal_traversal_and_symlink_rejected) ... ok
+test_queue_backpressure_config_boundary_and_foreign_jobs (test_improvement_v425.Improvement.test_queue_backpressure_config_boundary_and_foreign_jobs) ... ok
+test_retrieved_data_does_not_execute_commands (test_improvement_v425.Improvement.test_retrieved_data_does_not_execute_commands) ... ok
+test_unavailable_model_job_failure_retry_cancel (test_improvement_v425.Improvement.test_unavailable_model_job_failure_retry_cancel) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.504s
+
+OK

@@ -1,0 +1,8 @@
+Producer,Surfaces,Reviewed boundary,Executable evidence
+core/ai_plane/scenarios.py,SQLite records/reviews,"Allowlisted metadata, recognized secret/PII redaction, no raw evidence paths",tests/test_scenarios_v425.py
+core/ai_plane/self_evaluation.py,SQLite predictions/evaluation manifests/reports,"Bounded strict JSON, valid supplied IDs, current project and frozen source hashes",tests/test_self_evaluation_v425.py
+core/ai_plane/improvement.py,SQLite config history and existing proposal writer,Bounded retrieval configuration only; no source/weight writes,tests/test_improvement_v425.py
+core/ai_plane/learning_jobs.py,SQLite queue/job results,"Bounded job IDs, resource limits and sanitized failures; one active worker",tests/test_improvement_v425.py
+core/ai_plane/learning_cli.py,JSON/training export and static HTML,"Explicit output, no symlink/overwrite, HTML escaping, 0600 output",integration_test_v425_learning.py
+core/ai_plane/observer.py,Optional run learning HTML/JSON,Explicit project/permission; generated before seal; capture failure event,integration_test_v425_learning.py
+core/strict_replay.py,"Signed captures, validation attempts, JSON report","Existing pinned approved broker, sanitized authenticated proof; BOLA seven-role contract",tests/test_bola_v425.py

@@ -1,0 +1,13 @@
+{
+  "baseline_actions": 469,
+  "candidate_actions": 470,
+  "added_actions": [
+    "--gcp-project"
+  ],
+  "removed_actions": [],
+  "changed_old_actions": [],
+  "phase_count": 145,
+  "phase_list_equal": true,
+  "sqlite_schema_equal": true,
+  "ai_tables_equal": true
+}

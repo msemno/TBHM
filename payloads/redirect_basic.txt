@@ -1,0 +1,11 @@
+https://evil.example.com/
+//evil.example.com/
+//evil.example.com\@target.com
+/\evil.example.com
+/%2f/evil.example.com
+/%5cevil.example.com
+//google.com/%2f..
+https://target.com.evil.example.com
+https://target.com@evil.example.com
+javascript:alert(document.domain)
+data:text/html,<script>alert(1)</script>

@@ -1,0 +1,17 @@
+test_contradictions_quarantine_and_disposition_separation (test_scenarios_v425.Scenarios.test_contradictions_quarantine_and_disposition_separation) ... ok
+test_duplicates_conflicts_and_forged_flags (test_scenarios_v425.Scenarios.test_duplicates_conflicts_and_forged_flags) ... ok
+test_explicit_permission_and_cross_project_isolation (test_scenarios_v425.Scenarios.test_explicit_permission_and_cross_project_isolation) ... ok
+test_memory_database_and_wal_are_private (test_scenarios_v425.Scenarios.test_memory_database_and_wal_are_private) ... ok
+test_missing_permissions_retention_and_budget (test_scenarios_v425.Scenarios.test_missing_permissions_retention_and_budget) ... ok
+test_pending_review_hash_binding_and_persistence (test_scenarios_v425.Scenarios.test_pending_review_hash_binding_and_persistence) ... ok
+test_real_v5_database_additive_migration_and_rollback_copy (test_scenarios_v425.Scenarios.test_real_v5_database_additive_migration_and_rollback_copy) ... ok
+test_review_requires_operator_and_supplied_evidence (test_scenarios_v425.Scenarios.test_review_requires_operator_and_supplied_evidence) ... ok
+test_secrets_pii_and_poison_are_not_trusted (test_scenarios_v425.Scenarios.test_secrets_pii_and_poison_are_not_trusted) ... ok
+test_tampered_scenario_refused (test_scenarios_v425.Scenarios.test_tampered_scenario_refused) ... ok
+test_training_inconclusive_and_training_permission (test_scenarios_v425.Scenarios.test_training_inconclusive_and_training_permission) ... ok
+test_training_permission_and_revocation (test_scenarios_v425.Scenarios.test_training_permission_and_revocation) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.213s
+
+OK

@@ -1,0 +1,62 @@
+{
+  "tool": "TBHM",
+  "version": "4.2.7",
+  "started_at": "2026-10-29T23:10:57.554655",
+  "source_build_sha256": "a7fbbff5aea4ddf697ab5bfd644603b893e78c1cd8fbd83d6558f9efb3047060",
+  "report_snapshot_at": "2026-10-29T23:11:02.737963+00:00",
+  "execution_status": "running",
+  "phase_outcomes": {
+    "ci_cd_supply_chain_security": {
+      "body_seconds": 0.002,
+      "observer_and_dispatch_seconds": 0.007,
+      "wall_seconds": 0.009,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "supply_chain_review": {
+      "body_seconds": 0.003,
+      "observer_and_dispatch_seconds": 0.987,
+      "wall_seconds": 0.99,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "code_security_tooling": {
+      "body_seconds": 0.005,
+      "observer_and_dispatch_seconds": 1.991,
+      "wall_seconds": 1.995,
+      "state": "COMPLETED",
+      "issue_count": 0
+    }
+  },
+  "execution_note": "Report snapshot precedes final sealing; execution_ledger.json is authoritative for final run completion. Phase completion is not vulnerability-test coverage.",
+  "profile": "passive_only",
+  "targets": [
+    "local-analysis.invalid"
+  ],
+  "summary": {
+    "confirmed": 0,
+    "supported": 0,
+    "unconfirmed": 0
+  },
+  "evidence_lifecycle": {
+    "test_executions": 0,
+    "test_statuses": {},
+    "observations": 0,
+    "candidates": 0,
+    "validation_attempts": 0,
+    "validation_results": {},
+    "campaigns": 0,
+    "operations": 0,
+    "operation_statuses": {},
+    "detection_outcomes": 0,
+    "cleanup_actions": 0
+  },
+  "findings": [],
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  }
+}

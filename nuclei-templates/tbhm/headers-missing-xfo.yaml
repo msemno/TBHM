@@ -1,0 +1,39 @@
+id: tbhm-missing-x-frame-options
+
+info:
+  name: Missing X-Frame-Options / frame-ancestors (Clickjacking)
+  author: tbhm
+  severity: low
+  description: |
+    The HTML response sets neither X-Frame-Options nor a CSP frame-ancestors
+    directive, so it can be embedded in a hostile iframe and used for clickjacking
+    or UI-redress attacks.
+  remediation: "Add 'X-Frame-Options: DENY' or CSP 'frame-ancestors none'."
+  reference:
+    - https://owasp.org/www-community/attacks/Clickjacking
+  tags: tbhm,headers,misconfig,clickjacking
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code >= 200 && status_code < 400"
+      - type: word
+        part: header
+        words:
+          - "text/html"
+        case-insensitive: true
+      - type: word
+        part: header
+        words:
+          - "x-frame-options"
+          - "frame-ancestors"
+        case-insensitive: true
+        condition: or
+        negative: true

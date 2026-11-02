@@ -1,0 +1,12 @@
+test_actual_cross_actor_capture_persists_confirmation (test_api_authz_v422.AuthzTests.test_actual_cross_actor_capture_persists_confirmation) ... ok
+test_benign_and_adversarial_runtime_pairs_do_not_confirm (test_api_authz_v422.AuthzTests.test_benign_and_adversarial_runtime_pairs_do_not_confirm) ... ok
+test_nested_object_paths_and_tamper_refusal (test_api_authz_v422.AuthzTests.test_nested_object_paths_and_tamper_refusal) ... ok
+test_numeric_owner_identifier_is_bound_to_explicit_plan (test_api_authz_v422.AuthzTests.test_numeric_owner_identifier_is_bound_to_explicit_plan) ... ok
+test_opaque_bearer_echo_is_redacted_from_captures (test_api_authz_v422.AuthzTests.test_opaque_bearer_echo_is_redacted_from_captures) ... ok
+test_preflight_validates_whole_plan_before_network (test_api_authz_v422.AuthzTests.test_preflight_validates_whole_plan_before_network) ... ok
+test_shared_request_budget_prevents_proof_completion (test_api_authz_v422.AuthzTests.test_shared_request_budget_prevents_proof_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 29.550s
+
+OK

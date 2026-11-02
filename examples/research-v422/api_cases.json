@@ -1,0 +1,10 @@
+[
+  {"id":"owned-cross-account-1","mode":"vulnerable","vulnerable":true,"category":"access_control"},
+  {"id":"owned-cross-account-2","mode":"vulnerable","vulnerable":true,"category":"access_control"},
+  {"id":"nested-object-1","mode":"nested","vulnerable":true,"category":"access_control"},
+  {"id":"nested-object-2","mode":"nested","vulnerable":true,"category":"access_control"},
+  {"id":"secure-object-1","mode":"secure","vulnerable":false,"category":"access_control"},
+  {"id":"secure-object-2","mode":"secure","vulnerable":false,"category":"access_control"},
+  {"id":"wrong-object-lookalike-1","mode":"lookalike","vulnerable":false,"category":"access_control"},
+  {"id":"wrong-object-lookalike-2","mode":"lookalike","vulnerable":false,"category":"access_control"}
+]

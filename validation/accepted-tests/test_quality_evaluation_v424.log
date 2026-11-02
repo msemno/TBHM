@@ -1,0 +1,8 @@
+test_abstentions_are_retained_in_full_denominator_bounds (test_quality_evaluation_v424.Quality.test_abstentions_are_retained_in_full_denominator_bounds) ... ok
+test_all_four_cells_and_stage_separation (test_quality_evaluation_v424.Quality.test_all_four_cells_and_stage_separation) ... ok
+test_leakage_duplicates_and_unlabeled_rows_refused (test_quality_evaluation_v424.Quality.test_leakage_duplicates_and_unlabeled_rows_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK

@@ -1,0 +1,18 @@
+{
+  "total_seconds": 0.31,
+  "per_phase": {
+    "content_discovery": 0.31
+  },
+  "per_phase_details": {
+    "content_discovery": {
+      "body_seconds": 0.313,
+      "observer_and_dispatch_seconds": 0.0,
+      "wall_seconds": 0.314,
+      "state": "CANCELLED",
+      "issue_count": 1
+    }
+  },
+  "phase_loop_wall_seconds": 0.323,
+  "ai_runtime_control_seconds": 0,
+  "semantics": "total_seconds/per_phase retain body time; per_phase_details include observer work"
+}

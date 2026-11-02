@@ -1,0 +1,659 @@
+[
+  {
+    "decision_id": "HIST-0001",
+    "affected_domain": "source_precedence",
+    "old_version": "v2.16-v3.9.6",
+    "old_path_and_symbol": "all historical trees",
+    "newer_path_and_symbol": "v3.9.6 source tree",
+    "old_behavior": "Older trees provide behavioral references.",
+    "newer_behavior": "v3.9.6 remains the only implementation baseline; older code is merged selectively.",
+    "identified_regression_or_improvement": "Prevents wholesale downgrade while allowing safer/correct behavior recovery.",
+    "safety_comparison": "Newer safety boundaries win unless an older implementation is demonstrably stricter.",
+    "evidence_quality_comparison": "Every merge is tied to a focused offline test and decision record.",
+    "compatibility_impact": "No public path is replaced wholesale.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Undocumented external consumers may depend on private internals not visible in supplied archives."
+  },
+  {
+    "decision_id": "HIST-0002",
+    "affected_domain": "curl_method_override",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "core/curl_probes.py::probe_method_override",
+    "newer_path_and_symbol": "core/curl_probes.py::probe_method_override",
+    "old_behavior": "Synthetic DEBUG override; plain 405 must not confirm.",
+    "newer_behavior": "Same-request GET control plus explicit DEBUG-context or status differential.",
+    "identified_regression_or_improvement": "Strengthened the old false-positive fix with a direct control.",
+    "safety_comparison": "Non-destructive fake method only; no state-changing method is sent.",
+    "evidence_quality_comparison": "Requires meaningful response evidence, not status alone.",
+    "compatibility_impact": "Same function and return tuple retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/curl_probes.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Some frameworks normalize both control and override responses, producing an intentional false negative rather than an unsafe false positive."
+  },
+  {
+    "decision_id": "HIST-0003",
+    "affected_domain": "curl_sensitive_files",
+    "old_version": "v2.16-fixed/v2.21",
+    "old_path_and_symbol": "core/curl_probes.py::probe_sensitive_files",
+    "newer_path_and_symbol": "core/curl_probes.py::probe_sensitive_files",
+    "old_behavior": "GET probes with body signatures.",
+    "newer_behavior": "Adds random same-host control, content-type filtering and distinctive-body checks.",
+    "identified_regression_or_improvement": "Generic SPA/soft-404 HTML no longer confirms .env or .git/config exposure.",
+    "safety_comparison": "Read-only GET requests, throttled and timed out.",
+    "evidence_quality_comparison": "Body signature and control differential are stored in the reproducer evidence.",
+    "compatibility_impact": "Same public function retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/curl_probes.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Highly customized raw-file renderers may require manual review."
+  },
+  {
+    "decision_id": "HIST-0004",
+    "affected_domain": "curl_admin_bypass",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "core/curl_probes.py::probe_admin_bypass",
+    "newer_path_and_symbol": "core/curl_probes.py::probe_admin_bypass",
+    "old_behavior": "Header routing probe looked only at the injected response.",
+    "newer_behavior": "Direct /admin control is compared with the header-routed request.",
+    "identified_regression_or_improvement": "Eliminates root-dashboard false positives and requires access-control differential.",
+    "safety_comparison": "Read-only request; localhost forwarding header removed from the bypass claim.",
+    "evidence_quality_comparison": "Admin-specific content plus denied/absent direct control is required.",
+    "compatibility_impact": "Same function and output contract retained.",
+    "final_decision": "RESTORE_OLDER_BEHAVIOR",
+    "implementation_files": [
+      "core/curl_probes.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Reverse proxies that intentionally mask direct responses may still need manual confirmation."
+  },
+  {
+    "decision_id": "HIST-0005",
+    "affected_domain": "curl_range_indicator",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "core/curl_probes.py::probe_range_overflow",
+    "newer_path_and_symbol": "core/curl_probes.py::probe_range_overflow",
+    "old_behavior": "Bounded overlapping Range header indicator.",
+    "newer_behavior": "Retained as a 20-range, read-only indicator with timeout and qualified language.",
+    "identified_regression_or_improvement": "No destructive denial-of-service workload added.",
+    "safety_comparison": "Safe bounded request only.",
+    "evidence_quality_comparison": "206 is a lead requiring manual safe retest, not proof of service exhaustion.",
+    "compatibility_impact": "Same function retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/curl_probes.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "206 may be standards-compliant on some servers; report language remains qualified."
+  },
+  {
+    "decision_id": "HIST-0006",
+    "affected_domain": "nuclei_template_management",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "core/bootstrap.py::nuclei_template_count/ensure_nuclei_templates",
+    "newer_path_and_symbol": "core/bootstrap.py::_template_is_valid/_valid_template_count/ensure_nuclei_templates",
+    "old_behavior": "Known paths and bounded self-healing update.",
+    "newer_behavior": "Common paths retained; only structurally valid YAML is counted; nonzero update exits are reported.",
+    "identified_regression_or_improvement": "Malformed or empty stores can no longer be reported healthy.",
+    "safety_comparison": "Updates are explicit, bounded and only attempted when nuclei exists and store is below threshold.",
+    "evidence_quality_comparison": "stderr/exit code and post-update valid count determine result.",
+    "compatibility_impact": "Existing functions and return keys preserved; error field is additive.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/bootstrap.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Template schemas evolve; structural validation intentionally checks mandatory fields rather than every Nuclei schema rule."
+  },
+  {
+    "decision_id": "HIST-0007",
+    "affected_domain": "nuclei_workflows",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "phases/nuclei_extended.py::_resolve_sweep_args",
+    "newer_path_and_symbol": "phases/nuclei_extended.py::_resolve_sweep_args",
+    "old_behavior": "Absolute workflow directory with tag fallback.",
+    "newer_behavior": "Retained unchanged when valid workflows exist; tags used when absent.",
+    "identified_regression_or_improvement": "Avoids silent no-template runs caused by fragile relative paths.",
+    "safety_comparison": "No workflow execution during tests.",
+    "evidence_quality_comparison": "Resolved command arguments reveal whether workflow or tag coverage was used.",
+    "compatibility_impact": "Same helper retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "phases/nuclei_extended.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Installed templates may omit expected technology workflows; tag fallback provides partial coverage only."
+  },
+  {
+    "decision_id": "HIST-0008",
+    "affected_domain": "installer_tool_identity",
+    "old_version": "v2.16-fixed",
+    "old_path_and_symbol": "install.sh::go_tool_name/tool_is_usable",
+    "newer_path_and_symbol": "install.sh::go_tool_name/tool_is_usable",
+    "old_behavior": "Go semantic-import suffixes and ProjectDiscovery httpx identity handling.",
+    "newer_behavior": "Retained and regression-checked; no privileged pip install added.",
+    "identified_regression_or_improvement": "Prevents false detection of binaries named v2/v3 or unrelated Python httpx.",
+    "safety_comparison": "Installation remains explicit; optional failures degrade gracefully.",
+    "evidence_quality_comparison": "Tool version output is used for identity validation.",
+    "compatibility_impact": "Shell function behavior retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "install.sh"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Installer still depends on external package managers and network availability when the operator invokes it."
+  },
+  {
+    "decision_id": "HIST-0009",
+    "affected_domain": "false_positive_baselines",
+    "old_version": "v2.20-v2.21",
+    "old_path_and_symbol": "core/api_baseline.py/core/fp_engine.py/core/soft404.py",
+    "newer_path_and_symbol": "same modules",
+    "old_behavior": "Random-path, status, body, length, redirect and JSON-code controls.",
+    "newer_behavior": "Retained and tested across wildcard 200, custom 404, redirect and JSON catch-all fixtures.",
+    "identified_regression_or_improvement": "Prevents status-200-only endpoint confirmation.",
+    "safety_comparison": "At most a small bounded number of control requests; shared rate limiter remains authoritative.",
+    "evidence_quality_comparison": "Differential evidence is required to classify an endpoint as distinct.",
+    "compatibility_impact": "Public helpers retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/api_baseline.py",
+      "core/fp_engine.py",
+      "core/soft404.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Dynamic pages with highly variable bodies may need manual baselining."
+  },
+  {
+    "decision_id": "HIST-0010",
+    "affected_domain": "source_mobile_interfaces",
+    "old_version": "v2.17-v2.21",
+    "old_path_and_symbol": "phases/code_scan.py, phases/mobile_scan.py and interface phases",
+    "newer_path_and_symbol": "same paths plus later enrichment phases",
+    "old_behavior": "Source/mobile/SBOM/API/GraphQL/WebSocket/SSE/PWA/CNAME/safe-smuggling discovery.",
+    "newer_behavior": "All historical paths remain; newer confirmation model keeps static results as leads.",
+    "identified_regression_or_improvement": "Newer implementation is a functional and safety superset.",
+    "safety_comparison": "No static observation self-confirms; active checks remain scope- and profile-gated.",
+    "evidence_quality_comparison": "Reachability, provenance and evidence strength are separated.",
+    "compatibility_impact": "All v3.9.6 paths and phase names retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "phases/code_scan.py",
+      "phases/mobile_scan.py",
+      "phases/interface_identity_discovery.py",
+      "phases/sbom.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3961.py",
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Optional external analyzers may be unavailable and are reported as coverage gaps."
+  },
+  {
+    "decision_id": "HIST-0011",
+    "affected_domain": "governance_coverage",
+    "old_version": "v2.22-v2.24",
+    "old_path_and_symbol": "core/reporter.py legacy branch helpers and governance phases",
+    "newer_path_and_symbol": "core/reporter.py::_load_branch_matrix/_branch_status_from_findings and current governance summaries",
+    "old_behavior": "Branch matrix, objective map, approval register, safe-write policy and conservative status language.",
+    "newer_behavior": "Structured governance architecture retained with compatibility helpers restored.",
+    "identified_regression_or_improvement": "Detailed branch table had disappeared from newer report output and is restored.",
+    "safety_comparison": "Not Tested is never rendered Safe; absence of findings is not a pass.",
+    "evidence_quality_comparison": "Coverage status references actual phase/finding evidence.",
+    "compatibility_impact": "Legacy helper names restored where externally callable.",
+    "final_decision": "PRESERVE_WITH_COMPATIBILITY_ALIAS",
+    "implementation_files": [
+      "core/reporter.py",
+      "phases/coverage_map.py",
+      "phases/redteam_governance.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3961.py",
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Automated branch mapping remains partial and requires human review."
+  },
+  {
+    "decision_id": "HIST-0012",
+    "affected_domain": "addon_compatibility",
+    "old_version": "v3.0-v3.3",
+    "old_path_and_symbol": "tbhm_addons/* and safe add-on phases",
+    "newer_path_and_symbol": "same paths and current phase graph",
+    "old_behavior": "Opt-in SQLi, read-only AD, service primitive and code-intelligence add-ons.",
+    "newer_behavior": "Preserved as opt-in/local-only or approval-controlled paths.",
+    "identified_regression_or_improvement": "No historical add-on becomes active by default.",
+    "safety_comparison": "Write-capable or sensitive actions remain disabled/external.",
+    "evidence_quality_comparison": "Add-on outputs flow through evidence manifests as leads unless confirmed separately.",
+    "compatibility_impact": "Paths, imports and phase names retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "tbhm_addons",
+      "tbhm.py"
+    ],
+    "regression_test_files": [
+      "integration_test_addons.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "Third-party tool/API availability remains environment-dependent."
+  },
+  {
+    "decision_id": "HIST-0013",
+    "affected_domain": "confirmation_model",
+    "old_version": "v3.4-v3.6",
+    "old_path_and_symbol": "core/fp_filters.py and confirmation phases",
+    "newer_path_and_symbol": "core/fp_filters.py, core/exploitability.py and confirmation phases",
+    "old_behavior": "Path/test/doc/placeholder/entropy suppression and runtime proof parsing.",
+    "newer_behavior": "Five-level evidence distinction is retained: observation, reachable observation, supported, reproduced, confirmed.",
+    "identified_regression_or_improvement": "Static traces cannot confirm themselves.",
+    "safety_comparison": "Live validation is authorization-gated and bounded.",
+    "evidence_quality_comparison": "Confirmation basis, negative controls and provenance are report fields.",
+    "compatibility_impact": "Existing status keys retained with additive fields.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/fp_filters.py",
+      "core/exploitability.py",
+      "phases/exploitability_assessment.py",
+      "phases/fp_review.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v393.py",
+      "integration_test_v3941.py",
+      "integration_test_v395.py"
+    ],
+    "residual_risk": "Business-logic confirmation still requires suitable test accounts and manual judgment."
+  },
+  {
+    "decision_id": "HIST-0014",
+    "affected_domain": "scanner_normalization",
+    "old_version": "v3.7-v3.8",
+    "old_path_and_symbol": "phases/code_security_tooling.py::sev/walk",
+    "newer_path_and_symbol": "core/scanner_normalizer.py plus compatibility wrappers",
+    "old_behavior": "Tool-specific recursive generic parser.",
+    "newer_behavior": "Shared JSON/JSONL/SARIF normalizer with bounded recursion, deduplication, CWE, location and provenance preservation.",
+    "identified_regression_or_improvement": "The shared implementation is stricter and avoids duplicate SARIF parsing.",
+    "safety_comparison": "Imported records remain leads; malformed input is ignored safely.",
+    "evidence_quality_comparison": "Source, rule, file, line, CWE and raw record provenance are retained.",
+    "compatibility_impact": "sev/walk wrappers retained for import compatibility; shared normalizer is preferred.",
+    "final_decision": "REPLACE_OLD_WITH_NEW",
+    "implementation_files": [
+      "core/scanner_normalizer.py",
+      "phases/code_security_tooling.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "Highly proprietary scanner formats may need an explicit reviewed adapter."
+  },
+  {
+    "decision_id": "HIST-0015",
+    "affected_domain": "reporter_migration",
+    "old_version": "v2.16-v3.8",
+    "old_path_and_symbol": "core/reporter.py::_top_concerns_md/_defender_ioc_for/_write_html",
+    "newer_path_and_symbol": "core/reporter.py compatibility helpers plus structured renderers",
+    "old_behavior": "Legacy private helpers produced audience summaries and HTML.",
+    "newer_behavior": "Modern structured report remains authoritative; helper names restored as wrappers/compatible implementations.",
+    "identified_regression_or_improvement": "Avoids blindly reverting to the old reporter while preserving callable surfaces.",
+    "safety_comparison": "Report language remains evidence-bounded and redacted.",
+    "evidence_quality_comparison": "All confirmation fields and per-finding kits are generated from normalized assessments.",
+    "compatibility_impact": "Legacy names and old REPORT.html path preserved.",
+    "final_decision": "PRESERVE_WITH_COMPATIBILITY_ALIAS",
+    "implementation_files": [
+      "core/reporter.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3961.py",
+      "integration_test_historical_regressions_v3971.py"
+    ],
+    "residual_risk": "Private-helper consumers outside the supplied tree may still rely on undocumented exact formatting."
+  },
+  {
+    "decision_id": "HIST-0016",
+    "affected_domain": "report_output_contracts",
+    "old_version": "v2.16-v3.9.6",
+    "old_path_and_symbol": "report.json/report.csv/report.sarif and REPORT* outputs",
+    "newer_path_and_symbol": "lowercase canonical outputs plus uppercase compatibility writers",
+    "old_behavior": "Machine-readable and multi-audience reports evolved across releases.",
+    "newer_behavior": "Both lowercase current names and uppercase compatibility names are written deterministically.",
+    "identified_regression_or_improvement": "Restores REPORT.json, REPORT.csv and REPORT.sarif consumers without removing current paths.",
+    "safety_comparison": "No finding is upgraded by export.",
+    "evidence_quality_comparison": "Exports preserve evidence references, confirmation, confidence and provenance.",
+    "compatibility_impact": "Additive aliases; no old path removed.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/reporter.py",
+      "phases/report.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "Duplicate aliases consume modest disk space by design."
+  },
+  {
+    "decision_id": "HIST-0017",
+    "affected_domain": "reverse_engineering_fallback",
+    "old_version": "v3.8",
+    "old_path_and_symbol": "phases/reverse_engineering_tooling.py::import_json/static_strings",
+    "newer_path_and_symbol": "core/reverse_utils.py, core/scanner_normalizer.py and compatibility wrappers",
+    "old_behavior": "Dependency-free strings/import/JSON fallback.",
+    "newer_behavior": "Modern five-stage workflow is primary; bounded dependency-free fallback and legacy wrappers are retained.",
+    "identified_regression_or_improvement": "Short dangerous APIs, canonical hashes, valid IPs, secret redaction and bounded reads are improved.",
+    "safety_comparison": "No target artifact is executed.",
+    "evidence_quality_comparison": "Canonical artifact ID and per-binary metadata correlate all stages; capa/imported output stays non-confirming.",
+    "compatibility_impact": "Legacy helper names and evidence directories supported.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/reverse_utils.py",
+      "phases/reverse_engineering_tooling.py",
+      "phases/reverse_triage.py",
+      "phases/reverse_static_analysis.py",
+      "phases/reverse_dynamic_evidence.py",
+      "phases/reverse_symbolic_analysis.py",
+      "phases/reverse_correlation.py"
+    ],
+    "regression_test_files": [
+      "integration_test_historical_regressions_v3971.py",
+      "integration_test_v3961.py",
+      "integration_test_v392.py"
+    ],
+    "residual_risk": "Packed/encrypted binaries and unsupported formats require external manual analysis."
+  },
+  {
+    "decision_id": "HIST-0018",
+    "affected_domain": "phase_ordering",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "tbhm.py::PHASE_ORDER and profile YAML",
+    "newer_path_and_symbol": "tbhm.py::canonicalize_profile_phases and PHASE_ORDER",
+    "old_behavior": "Profiles could place OSINT before preflight or Web3 after report finalization.",
+    "newer_behavior": "All profile subsets are canonicalized against one graph; preflight first and evidence_finalize last.",
+    "identified_regression_or_improvement": "Corrects orchestration regressions without deleting explicit operator phase overrides.",
+    "safety_comparison": "Safety preflight precedes operational phases.",
+    "evidence_quality_comparison": "Report/finalization cannot precede optional operational phases in canonical profiles.",
+    "compatibility_impact": "All old phase identifiers retained; five real opt-in phases added.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "tbhm.py",
+      "profiles/authorized_assumed_breach.yaml",
+      "profiles/authorized_redteam.yaml",
+      "profiles/quick_recon.yaml"
+    ],
+    "regression_test_files": [
+      "integration_test_v3961.py",
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Explicit --phases remains intentionally operator-controlled and may choose a custom subset."
+  },
+  {
+    "decision_id": "HIST-0019",
+    "affected_domain": "capability_truthfulness",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "distributed tool/phase claims",
+    "newer_path_and_symbol": "core/capability_registry.py and tooling/capability_registry_v3971.json",
+    "old_behavior": "Capabilities were inferred from phases and documentation.",
+    "newer_behavior": "Central registry declares native/adapter/import/proposal/planned/unavailable state and requirements.",
+    "identified_regression_or_improvement": "Prevents planned or unavailable functions from being presented as operational.",
+    "safety_comparison": "Approval, network and safety classes are explicit.",
+    "evidence_quality_comparison": "Status command reports exact availability reasons and dependencies.",
+    "compatibility_impact": "Existing phases remain; registry is additive.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/capability_registry.py",
+      "tooling/capability_registry_v3971.json",
+      "tbhm.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Registry metadata must be updated when integrations change."
+  },
+  {
+    "decision_id": "HIST-0020",
+    "affected_domain": "environment_doctor",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "diagnostics/bootstrap checks",
+    "newer_path_and_symbol": "core/doctor.py and --doctor",
+    "old_behavior": "Checks were distributed and focused mainly on scan tooling.",
+    "newer_behavior": "Unified truthful environment, policy, evidence-store, package, executable and secret-presence checks.",
+    "identified_regression_or_improvement": "Missing optional dependencies no longer imply global failure.",
+    "safety_comparison": "Secret values are never printed; service probes are opt-in.",
+    "evidence_quality_comparison": "Every failed check includes a reason/remediation.",
+    "compatibility_impact": "Additive management command; old diagnostics retained.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/doctor.py",
+      "tbhm.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Service reachability is not checked unless explicitly requested."
+  },
+  {
+    "decision_id": "HIST-0021",
+    "affected_domain": "safe_plan_execution",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "proposal/plan-only orchestration",
+    "newer_path_and_symbol": "core/safe_plan_executor.py and phases/safe_plan_execution.py",
+    "old_behavior": "Plans were generated but not natively executable.",
+    "newer_behavior": "Only RDAP, Sherlock, Maigret and local cosign verify-blob are allowlisted with structured arguments.",
+    "identified_regression_or_improvement": "Adds real capability without arbitrary command execution.",
+    "safety_comparison": "Unknown actions, shell fields, metacharacters and unapproved actions are rejected; shell=False.",
+    "evidence_quality_comparison": "Timestamps, exit code, version, stdout/stderr and provenance are recorded.",
+    "compatibility_impact": "Opt-in phase; no old behavior removed.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/safe_plan_executor.py",
+      "phases/safe_plan_execution.py",
+      "tbhm.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "External tools may change CLI syntax; failures are captured honestly."
+  },
+  {
+    "decision_id": "HIST-0022",
+    "affected_domain": "session_beacon_import",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "external evidence import concepts",
+    "newer_path_and_symbol": "core/session_importer.py and phases/session_beacon_import.py",
+    "old_behavior": "No normalized dedicated session/beacon importer.",
+    "newer_behavior": "JSON/CSV import-only tracker with validation, deterministic IDs and deduplication.",
+    "identified_regression_or_improvement": "Adds reporting depth without C2 startup, payload generation or control.",
+    "safety_comparison": "Import-only safety class.",
+    "evidence_quality_comparison": "Every record retains source/provenance and malformed records are counted.",
+    "compatibility_impact": "Additive opt-in phase.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/session_importer.py",
+      "phases/session_beacon_import.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Vendor-specific fields outside the normalized schema remain in raw provenance only where safe."
+  },
+  {
+    "decision_id": "HIST-0023",
+    "affected_domain": "osint_api_collectors",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "OSINT depth collectors",
+    "newer_path_and_symbol": "core/osint_collectors.py and phases/osint_api_collectors.py",
+    "old_behavior": "Mixed external tools and proposal-only provider coverage.",
+    "newer_behavior": "Provider framework with one genuinely implemented native RDAP collector; other providers are not falsely advertised.",
+    "identified_regression_or_improvement": "Adds bounded retry, rate, timeout, PII policy, redaction and offline transport fixtures.",
+    "safety_comparison": "No real service calls occur in tests; credentials are presence-checked only.",
+    "evidence_quality_comparison": "Provider errors and provenance are normalized.",
+    "compatibility_impact": "Additive opt-in capability.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/osint_collectors.py",
+      "phases/osint_api_collectors.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Only RDAP is native in this release; additional APIs require reviewed implementations."
+  },
+  {
+    "decision_id": "HIST-0024",
+    "affected_domain": "cloud_iam_graph",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "phases/cloud_identity_path_analysis.py legacy indicators",
+    "newer_path_and_symbol": "core/cloud_iam_graph.py and upgraded phase",
+    "old_behavior": "Permission-name indicators and limited normalized paths.",
+    "newer_behavior": "AWS/Azure/GCP/generic graph import with evidence-backed paths and compatibility output.",
+    "identified_regression_or_improvement": "Restores CreateAccessKey and Azure Application Administrator indicators while avoiding exploitability claims.",
+    "safety_comparison": "Read-only import/analyze only.",
+    "evidence_quality_comparison": "Paths list prerequisites, uncertainty and source evidence.",
+    "compatibility_impact": "cloud_identity_paths.json and legacy helper behavior retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/cloud_iam_graph.py",
+      "phases/cloud_identity_path_analysis.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "Provider exports vary; partially recognized data is imported generically with lower confidence."
+  },
+  {
+    "decision_id": "HIST-0025",
+    "affected_domain": "compliance_predicates",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "phases/compliance_reporting_extended.py",
+    "newer_path_and_symbol": "core/compliance_predicates.py and upgraded phase",
+    "old_behavior": "Some summaries could imply coverage from tool execution.",
+    "newer_behavior": "Control predicates evaluate actual evidence with pass/fail/unknown/not_applicable/not_tested.",
+    "identified_regression_or_improvement": "A scanner run alone cannot produce pass.",
+    "safety_comparison": "Read-only evidence evaluation.",
+    "evidence_quality_comparison": "Reason, confidence, evaluator version and references are mandatory.",
+    "compatibility_impact": "Existing mappings and output keys retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/compliance_predicates.py",
+      "phases/compliance_reporting_extended.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Control mappings remain advisory and require assessor review for formal certification."
+  },
+  {
+    "decision_id": "HIST-0026",
+    "affected_domain": "cicd_dataflow",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "phases/ci_cd_supply_chain_security.py",
+    "newer_path_and_symbol": "core/cicd_dataflow.py and upgraded phase",
+    "old_behavior": "Workflow checks and optional external tool summaries.",
+    "newer_behavior": "Native trust/dataflow analysis plus honest actionlint/zizmor/cosign availability.",
+    "identified_regression_or_improvement": "Untrusted sources reaching shell and risky trust boundaries are modeled without command execution.",
+    "safety_comparison": "Workflow commands are parsed only, never executed.",
+    "evidence_quality_comparison": "Findings include source, sink, path, permissions and uncertainty.",
+    "compatibility_impact": "Legacy summary keys retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/cicd_dataflow.py",
+      "phases/ci_cd_supply_chain_security.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "Complex reusable workflows and generated YAML may require manual graph expansion."
+  },
+  {
+    "decision_id": "HIST-0027",
+    "affected_domain": "ocsf_export",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "core/ocsf.py and phases/ocsf_normalization.py",
+    "newer_path_and_symbol": "core/ocsf_export.py plus compatibility fields",
+    "old_behavior": "Generic event normalization and earlier field names.",
+    "newer_behavior": "Class-aware export with stable fingerprints excluding volatile fields; old fields retained.",
+    "identified_regression_or_improvement": "Same logical event receives the same fingerprint across order/time changes.",
+    "safety_comparison": "Export cannot change finding confirmation.",
+    "evidence_quality_comparison": "Original evidence reference and observable/finding IDs are preserved.",
+    "compatibility_impact": "Legacy _fingerprint/vulnerabilities/unmapped compatibility retained.",
+    "final_decision": "MERGE_OLD_AND_NEW",
+    "implementation_files": [
+      "core/ocsf_export.py",
+      "core/ocsf.py",
+      "phases/ocsf_normalization.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py",
+      "integration_test_v3961.py"
+    ],
+    "residual_risk": "OCSF coverage is intentionally subset-based; unknown mappings are explicit."
+  },
+  {
+    "decision_id": "HIST-0028",
+    "affected_domain": "passive_wireless",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "wireless/physical planning and imported evidence",
+    "newer_path_and_symbol": "core/wireless_inventory.py and phases/passive_wireless_inventory.py",
+    "old_behavior": "No dedicated normalized passive wireless observation importer.",
+    "newer_behavior": "SSID/BSSID/channel/frequency/encryption/signal/vendor/time/source/location-label import only.",
+    "identified_regression_or_improvement": "Adds passive inventory without capture, deauthentication, cracking or impersonation.",
+    "safety_comparison": "Observational/import-only.",
+    "evidence_quality_comparison": "Deterministic observations retain source and risk notes.",
+    "compatibility_impact": "Additive opt-in phase.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/wireless_inventory.py",
+      "phases/passive_wireless_inventory.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Vendor resolution is local/best-effort and location labels are user supplied."
+  },
+  {
+    "decision_id": "HIST-0029",
+    "affected_domain": "adapter_proposals",
+    "old_version": "v3.9.6",
+    "old_path_and_symbol": "adapter/tool catalog definitions",
+    "newer_path_and_symbol": "core/adapter_proposals.py and phases/integration_adapter_proposal.py",
+    "old_behavior": "Adapters were manually authored or cataloged.",
+    "newer_behavior": "Generator emits unapproved proposal metadata, parser/test/doc skeleton descriptions and risk classification.",
+    "identified_regression_or_improvement": "Generated content cannot auto-install, activate or execute.",
+    "safety_comparison": "Proposal-only state and human review are mandatory.",
+    "evidence_quality_comparison": "Proposal includes explicit implementation state and review status.",
+    "compatibility_impact": "Additive opt-in phase.",
+    "final_decision": "PRESERVE_WITH_TEST",
+    "implementation_files": [
+      "core/adapter_proposals.py",
+      "phases/integration_adapter_proposal.py"
+    ],
+    "regression_test_files": [
+      "integration_test_v3971.py"
+    ],
+    "residual_risk": "Human reviewers remain responsible for validating commands and parsers before implementation."
+  }
+]

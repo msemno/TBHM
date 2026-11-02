@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": {
+    "legacy_source_retained": true,
+    "pending_lesson_not_promoted": true,
+    "finding_retained": true,
+    "lead_not_promoted": true,
+    "evidence_retained": true
+  },
+  "source": "real 4.2.6 Store/Storage population then 4.2.7 reopen"
+}

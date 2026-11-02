@@ -1,0 +1,222 @@
+{
+  "tool": "TBHM",
+  "version": "4.2.7",
+  "started_at": "2026-10-29T23:10:12.055813",
+  "source_build_sha256": "a7fbbff5aea4ddf697ab5bfd644603b893e78c1cd8fbd83d6558f9efb3047060",
+  "report_snapshot_at": "2026-10-29T23:10:13.514278+00:00",
+  "execution_status": "running",
+  "phase_outcomes": {
+    "controlled_validation_plane": {
+      "body_seconds": 1.273,
+      "observer_and_dispatch_seconds": 0.001,
+      "wall_seconds": 1.274,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "strict_finding_validation": {
+      "body_seconds": 0.018,
+      "observer_and_dispatch_seconds": 0.001,
+      "wall_seconds": 0.018,
+      "state": "COMPLETED",
+      "issue_count": 0
+    },
+    "test_coverage_ledger": {
+      "body_seconds": 0.004,
+      "observer_and_dispatch_seconds": 0.0,
+      "wall_seconds": 0.005,
+      "state": "COMPLETED",
+      "issue_count": 0
+    }
+  },
+  "execution_note": "Report snapshot precedes final sealing; execution_ledger.json is authoritative for final run completion. Phase completion is not vulnerability-test coverage.",
+  "profile": "authorized_safe",
+  "targets": [
+    "http://127.0.0.1:38207"
+  ],
+  "summary": {
+    "confirmed": 1,
+    "supported": 0,
+    "unconfirmed": 0
+  },
+  "evidence_lifecycle": {
+    "test_executions": 2,
+    "test_statuses": {
+      "failed-security-control": 2
+    },
+    "observations": 1,
+    "candidates": 1,
+    "validation_attempts": 2,
+    "validation_results": {
+      "pass": 2
+    },
+    "campaigns": 0,
+    "operations": 0,
+    "operation_statuses": {},
+    "detection_outcomes": 0,
+    "cleanup_actions": 0
+  },
+  "findings": [
+    {
+      "id": 1,
+      "run_id": 1,
+      "fingerprint": "18b61d145d43b1f3127bc21b",
+      "phase": "controlled_validation_plane",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Owned cross-tenant object read",
+      "target": "http://127.0.0.1:38207/objects/owned-a",
+      "url": "http://127.0.0.1:38207/objects/owned-a",
+      "method": "GET",
+      "parameter": "",
+      "payload": "",
+      "description": "Read-only controlled-fixture proof; baseline, denied/missing controls and two authenticated repeats satisfy the class contract.",
+      "evidence": "Authenticated proof-v2 captures; no scanner/model judgment used.",
+      "impact": "The challenger obtained the exact reviewed private object of the other owned tenant.",
+      "remediation": "Enforce server-side object ownership and tenant authorization on every read.",
+      "cwe": "CWE-639",
+      "cvss": {
+        "score": 6.1,
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "references_json": "[]",
+      "request_raw": "",
+      "response_raw": "",
+      "discovered_at": "2026-10-29T23:10:13.423977",
+      "verified_at": "2026-10-29T23:10:13.465948+00:00",
+      "verification_method": "structured assertion + negative control + repeatability",
+      "mrs_score": null,
+      "user_decision": null,
+      "finding_class": "confirmed",
+      "verified": true,
+      "status": "confirmed",
+      "assertion": {
+        "test_id": "strict.bola-owned-tenants",
+        "vulnerability_class": "bola",
+        "controlled_fixture": true,
+        "owned_two_tenant_fixture": true,
+        "scope_reference": "owned loopback two-tenant JSON canary fixture",
+        "canary": "TBHM_6e2d7fc2cac2436a8c610cbaaa0e2cb7",
+        "challenger_canary": "TBHM_2a5427c601514f7cafc5cfbf19f96a3e",
+        "owner_actor": "admin",
+        "challenger_actor": "member",
+        "owner_tenant": "tenant-a",
+        "challenger_tenant": "tenant-b",
+        "object_id": "object-a",
+        "challenger_object_id": "object-b",
+        "expected_cross_tenant_access": "deny",
+        "schema": "tbhm.proof/2",
+        "failure_conditions": [
+          {
+            "type": "body_contains",
+            "value": "TBHM_6e2d7fc2cac2436a8c610cbaaa0e2cb7"
+          }
+        ],
+        "negative_control_conditions": [
+          {
+            "type": "body_not_contains",
+            "source": "negative_control",
+            "value": "TBHM_6e2d7fc2cac2436a8c610cbaaa0e2cb7"
+          }
+        ]
+      },
+      "proof": {
+        "schema": "tbhm.proof/2",
+        "captures": {
+          "baseline": {
+            "path": "evidence/captures/7e98ea8a08ee41abb4e679599a0eea5c.json",
+            "sha256": "fe589f0b87d0e3b01cf20035b3dde571a8376db43eb605dc2fecbc3c49ac8ef7",
+            "signature": "66babf59f6de5a2bca5107402c17da7da153e3b78e705fa2916af0dbfd481acc"
+          },
+          "mutation": {
+            "path": "evidence/captures/ec9e4aeb9a4a41f5b2cced5c80a59818.json",
+            "sha256": "6aec3f956158a2c462eb6a6e49f23d119dc8e200ea64fe92c4c7fbcc0938962b",
+            "signature": "d3a45c31623d16b4d593d09e14c6c47ec1345bb02bd097d9d9c7c96757eb9b60"
+          },
+          "negative_control": {
+            "path": "evidence/captures/0532fd6dea684596bd63461b596b94cd.json",
+            "sha256": "4a827d2e3227b8820b3a4f7f7a252b6782704d4677aac7100ae398a2ff596362",
+            "signature": "b139718eb2dc89fdcac4e26daa2b788411246362cbd55a61185f1853a2ebf406"
+          },
+          "actor_control": {
+            "path": "evidence/captures/e1c771ed6ad0444f8daf1f6dcd738100.json",
+            "sha256": "c03d1deebb7691901487ee62ae6ea9375c5910b57614d9d0c9f32b4b3897c966",
+            "signature": "cde00c78ece667663b17d60755207f4c71f740f49163bf097c5ea96373ad3311"
+          },
+          "privacy_control": {
+            "path": "evidence/captures/4cdc781ba61646e58e9e5adc2c59f818.json",
+            "sha256": "857a6de5121424d279bbe8539881976da9d07992ae780093cb8380ca6d23fd4f",
+            "signature": "c4b19a72951246c624f6088ff1fc00fd88cfaa2d468c0f644f14563a92573878"
+          },
+          "repeats": [
+            {
+              "path": "evidence/captures/b9a67eda6c02469ea114bfcd98aa534d.json",
+              "sha256": "641ba8b1690fc0d39a027b79b2e7d6cb3a9162be6096d48e62d5aa27c128312f",
+              "signature": "06d18fc95595f230dbb21c31ff93f5282cb40d0a5abf1b65c82bb6c61837a5b4"
+            },
+            {
+              "path": "evidence/captures/d9d137a0005f48f99afd4259a0d68692.json",
+              "sha256": "74d0fe0f2c4f1cb172c7c6d956fc6a0f9003fefb130be65f51a567f2407351f7",
+              "signature": "7f77e4aa5f3cf3eac41f38c0fc72faedd1fa72639043b03b815361d1452028c6"
+            }
+          ]
+        }
+      },
+      "assertion_passed": true,
+      "negative_control_passed": true,
+      "repeatability_passed": true,
+      "validation_attempt_id": 2,
+      "verification_state": "confirmed",
+      "scope_decision": "in_scope",
+      "policy_id": "owned-fixture",
+      "reproducer_curl": "curl -i -sk -X GET http://127.0.0.1:38207/objects/owned-a",
+      "candidate_id": 1,
+      "root_cause_fingerprint": "e8e2fca04d13e3f9901e7a75",
+      "enrichment": {
+        "exploitability": {
+          "confirmation_status": "CONFIRMED",
+          "exploitability_status": "PROVEN",
+          "evidence_strength": "strong",
+          "confirmation_reasons": [
+            "The strict evidence classifier accepted the stored verification proof.",
+            "Verification method recorded: structured assertion + negative control + repeatability."
+          ],
+          "summary": "Read-only controlled-fixture proof; baseline, denied/missing controls and two authenticated repeats satisfy the class contract.",
+          "proof_of_concept": "curl -i -sk -X GET http://127.0.0.1:38207/objects/owned-a",
+          "confirmed_steps": [
+            "Open `http://127.0.0.1:38207/objects/owned-a` using an authorized test account or unauthenticated context matching the finding prerequisites.",
+            "Send GET with `the proof value recorded in the evidence` or use the stored request in the reproducer kit.",
+            "Capture the complete request, response status, relevant response body, and before/after state.",
+            "Confirm the result by observing: Authenticated proof-v2 captures; no scanner/model judgment used.",
+            "Repeat with a negative-control request and, where applicable, a second account or object to prove the authorization boundary."
+          ],
+          "attack_prerequisites": [
+            "A valid low-privilege or otherwise specified authenticated session may be required."
+          ],
+          "attack_scenario": "No attacker access path has been demonstrated for http://127.0.0.1:38207/objects/owned-a. The record identifies an observation or prerequisite that requires the listed validation steps before exploitability can be claimed. The available evidence does not demonstrate unauthorized access or code execution.",
+          "access_level": "no_access_demonstrated",
+          "access_possible": false,
+          "security_impact": "The challenger obtained the exact reviewed private object of the other owned tenant.",
+          "remediation": "Enforce server-side object ownership and tenant authorization on every read.",
+          "retest_criteria": "Apply the remediation, repeat the same steps and negative controls, and confirm that the security boundary is enforced without regression.",
+          "non_executing_assessment": true,
+          "status_not_promoted_by_assessment": true
+        }
+      },
+      "_confirmation_receipt": {
+        "verifier_version": "tbhm-proof-v2",
+        "test_id": "strict.bola-owned-tenants"
+      },
+      "references_cve": [
+        "CVE-2019-5715 (IDOR)",
+        "CVE-2020-2140 (Jenkins IDOR)"
+      ]
+    }
+  ],
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 1,
+    "LOW": 0,
+    "INFO": 0
+  }
+}

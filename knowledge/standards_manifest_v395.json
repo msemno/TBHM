@@ -1,0 +1,32 @@
+{
+  "manifest_version": "3.9.5",
+  "policy": "Metadata and operator-provided datasets only. TBHM does not redistribute copyrighted standards text.",
+  "frameworks": [
+    {"id":"OWASP-TOP10-2025","family":"web","status":"mapping-ready","expected_file":"owasp_top10_2025.json"},
+    {"id":"OWASP-WSTG-4.2","family":"web-testing","status":"mapping-ready","expected_file":"owasp_wstg_4_2.json"},
+    {"id":"OWASP-ASVS","family":"application-verification","status":"mapping-ready","expected_file":"owasp_asvs.json"},
+    {"id":"OWASP-API-TOP10-2023","family":"api","status":"mapping-ready","expected_file":"owasp_api_top10_2023.json"},
+    {"id":"OWASP-MASVS-MASTG","family":"mobile","status":"mapping-ready","expected_file":"owasp_mobile.json"},
+    {"id":"OWASP-LLMSVS","family":"ai","status":"mapping-ready","expected_file":"owasp_llmsvs.json"},
+    {"id":"OWASP-IOT-ISVS","family":"iot","status":"mapping-ready","expected_file":"owasp_iot_isvs.json"},
+    {"id":"OWASP-OT-TOP10","family":"ot","status":"mapping-ready","expected_file":"owasp_ot_top10.json"},
+    {"id":"OWASP-SCSVS-SMART-CONTRACT-TOP10","family":"web3","status":"mapping-ready","expected_file":"owasp_smart_contract.json"},
+    {"id":"NIST-SP-800-115","family":"testing-methodology","status":"mapping-ready","expected_file":"nist_800_115.json"},
+    {"id":"NIST-CSF-2.0","family":"governance","status":"mapping-ready","expected_file":"nist_csf_2.json"},
+    {"id":"NIST-SP-800-53","family":"controls","status":"mapping-ready","expected_file":"nist_800_53.json"},
+    {"id":"NIST-SSDF-800-218","family":"secure-development","status":"mapping-ready","expected_file":"nist_ssdf.json"},
+    {"id":"NIST-AI-RMF","family":"ai-governance","status":"mapping-ready","expected_file":"nist_ai_rmf.json"},
+    {"id":"MITRE-ATTACK","family":"offense","status":"stix-import","expected_file":"enterprise-attack.json"},
+    {"id":"MITRE-ATLAS","family":"ai-offense","status":"stix-import","expected_file":"atlas.json"},
+    {"id":"MITRE-CAPEC","family":"attack-patterns","status":"mapping-ready","expected_file":"capec.json"},
+    {"id":"MITRE-D3FEND","family":"defensive-countermeasures","status":"mapping-ready","expected_file":"d3fend.json"},
+    {"id":"STIX-2.1-TAXII-2.1","family":"interchange","status":"adapter-ready","expected_file":"taxii_sources.json"},
+    {"id":"CYCLONEDX-1.7-SPDX-3.0","family":"sbom","status":"export-roadmap","expected_file":"sbom_profiles.json"},
+    {"id":"CSAF-2.0-OPENVEX","family":"vulnerability-advisory","status":"import-roadmap","expected_file":"vex_sources.json"}
+  ],
+  "feeds": [
+    {"id":"CISA-KEV","expected_file":"known_exploited_vulnerabilities.json","required_for":"vulnerability_intelligence_enrichment"},
+    {"id":"FIRST-EPSS","expected_file":"epss_scores-YYYY-MM-DD.csv.gz","required_for":"vulnerability_intelligence_enrichment"},
+    {"id":"OSV","expected_directory":"osv","required_for":"vulnerability_intelligence_enrichment"}
+  ]
+}

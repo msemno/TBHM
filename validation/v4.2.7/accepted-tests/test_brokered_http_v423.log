@@ -1,0 +1,12 @@
+test_cooldown_is_shared_across_new_contexts (test_brokered_http_v423.BrokerTests.test_cooldown_is_shared_across_new_contexts) ... ok
+test_cross_process_reservations_are_atomic (test_brokered_http_v423.BrokerTests.test_cross_process_reservations_are_atomic) ... ok
+test_denied_origin_and_method_never_contact_target (test_brokered_http_v423.BrokerTests.test_denied_origin_and_method_never_contact_target) ... ok
+test_large_body_is_incomplete_and_not_proof (test_brokered_http_v423.BrokerTests.test_large_body_is_incomplete_and_not_proof) ... ok
+test_native_and_actual_isolated_child_share_counter_and_budget (test_brokered_http_v423.BrokerTests.test_native_and_actual_isolated_child_share_counter_and_budget) ... ok
+test_response_reservation_aborts_before_second_dispatch (test_brokered_http_v423.BrokerTests.test_response_reservation_aborts_before_second_dispatch) ... ok
+test_unsupported_driver_and_offline_never_spawn (test_brokered_http_v423.BrokerTests.test_unsupported_driver_and_offline_never_spawn) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.712s
+
+OK

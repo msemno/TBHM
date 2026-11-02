@@ -1,0 +1,8 @@
+test_broker_plan_runs_native_and_real_isolated_worker_via_cli (integration_test_v423_workflows.Workflows.test_broker_plan_runs_native_and_real_isolated_worker_via_cli) ... ok
+test_combined_llm_import_and_reviewed_cards_reach_sealed_delivery (integration_test_v423_workflows.Workflows.test_combined_llm_import_and_reviewed_cards_reach_sealed_delivery) ... ok
+test_prior_delivery_audit_cli_fails_for_opaque_coverage (integration_test_v423_workflows.Workflows.test_prior_delivery_audit_cli_fails_for_opaque_coverage) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.178s
+
+OK

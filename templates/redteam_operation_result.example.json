@@ -1,0 +1,84 @@
+{
+  "schema_version": "2",
+  "operation_id": "op-exploit-validation-01",
+  "operation_type": "exploit_validation",
+  "target": "approved-isolated-clone",
+  "operator": "authorized-operator-id",
+  "authorization_reference": "ROE-CHANGE-0001",
+  "scope_reference": "SCOPE-REGISTER-0001",
+  "started_at": "2026-07-27T10:00:00Z",
+  "completed_at": "2026-07-27T10:10:00Z",
+  "outcome": "A controlled security invariant failed in the disposable clone.",
+  "title": "Approved exploit validation demonstrated a controlled boundary failure",
+  "severity": "HIGH",
+  "description": "The imported operator evidence demonstrates only the approved controlled effect.",
+  "evidence": {
+    "artifact": "sanitized-proof.json",
+    "note": "No credentials, payload bytes, command output, or sensitive target data are stored in this record."
+  },
+  "evidence_sha256": "b611559e944f7c0a9b33e57593a2bce8ef09c9a1d0c180a4caaaa2955cf1d95d",
+  "cleanup_status": "VERIFIED",
+  "cleanup_actions": [
+    {
+      "action": "Restore disposable snapshot and remove marker",
+      "status": "VERIFIED",
+      "verified_at": "2026-07-27T10:12:00Z",
+      "evidence": {
+        "artifact_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    }
+  ],
+  "detection": {
+    "prevented": "no",
+    "logged": "yes",
+    "detected": "yes",
+    "alert_routed": "yes",
+    "analyst_response": "completed",
+    "response_correct": "yes",
+    "timing": {
+      "seconds_to_log": 2,
+      "seconds_to_alert": 18
+    },
+    "telemetry_gaps": []
+  },
+  "assertion": {
+    "schema_version": "1",
+    "test_id": "controlled-exploit-validation-v1",
+    "invariant": "The approved input must not create the controlled marker effect.",
+    "failure_conditions": [
+      {
+        "type": "controlled_artifact_manifest",
+        "source": "mutation"
+      }
+    ],
+    "negative_control_conditions": [
+      {
+        "type": "state_equals",
+        "source": "negative_control",
+        "value": "no-controlled-effect"
+      }
+    ]
+  },
+  "proof": {
+    "baseline": {
+      "state": "no-controlled-effect"
+    },
+    "mutation": {
+      "state": "controlled-effect-observed",
+      "manifest": {
+        "approved": true,
+        "controlled": true,
+        "reproduced": true,
+        "artifact_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "scope_reference": "SCOPE-REGISTER-0001"
+      }
+    },
+    "negative_control": {
+      "state": "no-controlled-effect"
+    },
+    "repeatability": {
+      "attempts": 2,
+      "successful_proofs": 2
+    }
+  }
+}

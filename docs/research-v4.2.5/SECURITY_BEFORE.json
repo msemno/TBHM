@@ -1,0 +1,7 @@
+{
+  "unscoped_run_data_in_context": true,
+  "unscoped_history_in_context": true,
+  "untrusted_labeled_trusted": true,
+  "proposal_parent_traversal_accepted": true,
+  "missing_manifest_accepted": true
+}

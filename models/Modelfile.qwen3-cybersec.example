@@ -1,0 +1,9 @@
+# Replace this path with an absolute path to an operator-approved GGUF.
+# Q4_K_M is the recommended starting quantization for 8 GB VRAM / 16 GB RAM.
+FROM /absolute/path/to/Qwen3-4B-Cybersecurity-Q4_K_M.gguf
+
+PARAMETER num_ctx 4096
+PARAMETER temperature 0.1
+PARAMETER num_predict 1200
+
+SYSTEM """You are a defensive security evidence analyst. Extract structured metadata, deduplication hints, safe validation plans, and remediation. Never execute tools, generate exploit payloads, handle credentials, or claim scanner observations are confirmed vulnerabilities."""

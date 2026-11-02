@@ -1,0 +1,21 @@
+TBHM v2.24 add-on phases:
+  ADD-SQLI     -> phase_sqli  (extends BR09, BR10, IMP-03)
+  ADD-NETAD    -> phase_net_ad  (extends BR06, IMP-07, FR-022)
+  ADD-SVCPRIM  -> phase_service_primitive  (extends BR07, BR08, IMP-07-049)
+
+SQLi findings: 1
+  - error    on id: DB error signature: 'you have an error in your sql syntax'
+Net/AD errors (expected 'network only'): ['no dc_ip/base_dn supplied; ran network only']
+Service platform_supported: False | errors: ['unsupported_platform: Windows required for live checks (logic is unit-tested on Linux)']
+
+--- log channel line counts ---
+  full.jsonl           14 lines  [OK]
+  audit.jsonl          14 lines  [OK]
+  full.log             14 lines  [OK]
+  background.json       3 lines  [OK]
+
+--- sample reproducibility record (argv captured) ---
+   ["GET", "http://127.0.0.1:45459/product.php?id=1%27"]
+
+RUN ROOT: /tmp/tbhm_integ_1ay6pqk4
+RESULT: PASS

@@ -1,0 +1,14 @@
+{
+  "schema": "tbhm.test-receipt/1",
+  "module": "test_standards_v421.py",
+  "version": "4.2.6",
+  "source_build_sha256": "3a689a411dfe5dde0a4e5c255c41a00d700e24af3b01f493a28214d0017ccf91",
+  "expected_cases": 3,
+  "executed_cases": 3,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.035,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "passed": true
+}

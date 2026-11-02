@@ -1,0 +1,2075 @@
+{
+  "schema": "tbhm.research-gap-matrix/1",
+  "baseline": "4.1.0",
+  "release": "4.2.0",
+  "quality_scale": {
+    "0": "missing/nonfunctional/not accepted",
+    "1": "inventory/heuristic/unverified or material limitations",
+    "2": "functional narrow implementation with significant gaps",
+    "3": "bounded integration verified with representative local fixtures",
+    "4": "broad representative integration validation",
+    "5": "well-tested production operation across declared environments"
+  },
+  "interpretation": "Quality is scoped to the stated capability, not a security/coverage guarantee. No score 4 or 5 is assigned from mere code presence. External runtimes not provisioned remain unverified.",
+  "requirements": [
+    {
+      "id": "G001",
+      "domain": "Architecture",
+      "recommendation": "Preserve the current application and installable offline core",
+      "sources": "R8 \u00a7\u00a72\u20133,12,14",
+      "code_evidence": [
+        "tbhm.py",
+        "install.sh",
+        "requirements.lock",
+        "vendor/wheels"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "preserve",
+      "rationale": "Use the exact delivered 4.1.0 ZIP, not an older patch tree. Keep locked core dependencies and all baseline file paths.",
+      "verification": "Baseline install + 41 groups; archive install + complete release suite"
+    },
+    {
+      "id": "G002",
+      "domain": "Architecture",
+      "recommendation": "One normalized finding store with extensible metadata",
+      "sources": "R2 \u00a7\u00a72,14; R3 \u00a78.2; R8 \u00a73",
+      "code_evidence": [
+        "core/storage.py",
+        "core/evidence_redaction.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "architecture change",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "SQLite and extra_json already work. New analyzers use the same persistence boundary. Not every legacy rule has a uniform rich schema.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G003",
+      "domain": "Architecture",
+      "recommendation": "Reuse established scanners instead of rebuilding all engines",
+      "sources": "R2 \u00a715; R5 \u00a75; R8 \u00a712",
+      "code_evidence": [
+        "core/adapter_contract.py",
+        "phases/sast_tooling.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "external tools",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Existing scanner adapters/imports are retained. A catalog entry does not mean installation, execution or validated detection.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G004",
+      "domain": "Architecture",
+      "recommendation": "Capability status distinguishes native, adapter, import and proposal",
+      "sources": "R8 \u00a7\u00a73,12,17",
+      "code_evidence": [
+        "core/capability_registry.py",
+        "tooling/capability_registry_v420.json"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "extend",
+      "rationale": "Retain the 16 earlier capabilities and register six new bounded capabilities. Model readiness is a separate check.",
+      "verification": "Registry validation and existing capability tests"
+    },
+    {
+      "id": "G005",
+      "domain": "Architecture",
+      "recommendation": "Distributed scanner workers and task queues",
+      "sources": "R1 pp4\u20137; R2 \u00a72; R6 pipeline",
+      "code_evidence": [
+        "core/runner.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "architecture change + infrastructure",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "Requires authenticated worker contracts, cancellation, durable queue semantics and multi-tenant isolation. No evidence of need on the stated local hardware.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G006",
+      "domain": "Architecture",
+      "recommendation": "Docker isolation for every scanner",
+      "sources": "R1 pp5\u20137; R4 containerization; R8 \u00a710",
+      "code_evidence": [
+        "core/firmware_safety.py",
+        "core/runner.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "external runtime",
+      "priority": "P2",
+      "decision": "defer expansion",
+      "rationale": "Some controlled firmware execution has container contracts. Ordinary native commands are not universally containerized; Docker alone is not a complete sandbox.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G007",
+      "domain": "Architecture",
+      "recommendation": "MCP-based unrestricted autonomous tool execution",
+      "sources": "R1 pp4\u20136; R4 MCP; R8 \u00a76.1",
+      "code_evidence": [
+        "core/safe_plan_executor.py",
+        "phases/safe_plan_execution.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 2,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 2,
+      "feasibility": "architecture change",
+      "priority": "P3",
+      "decision": "retain bounded alternative",
+      "rationale": "Existing typed plans/adapters provide a limited execution boundary. Do not connect arbitrary model text to a shell or expose all tools through a new server.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G008",
+      "domain": "Architecture",
+      "recommendation": "Linux cgroup v2 memory/CPU limits",
+      "sources": "R1 pp12\u201313; R4 resource section",
+      "code_evidence": [
+        "core/safety.py",
+        "core/runner.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 2,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 2,
+      "feasibility": "OS delegation/privilege",
+      "priority": "P2",
+      "decision": "defer hard quotas",
+      "rationale": "Resource monitoring and subprocess deadlines exist. They are not equivalent to delegated cgroup limits; deployment support and failure semantics need design.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G009",
+      "domain": "Architecture",
+      "recommendation": "SQLite-backed graph instead of mandatory Neo4j",
+      "sources": "R1 pp5\u20137; R3 \u00a74.2; R6 pipeline",
+      "code_evidence": [
+        "core/entity_graph.py",
+        "core/evidence_graph.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 2,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P2",
+      "decision": "extend existing",
+      "rationale": "Use dependency-free typed exports and candidate groups; no new graph service is required. GraphML/STIX support already exists in the entity graph.",
+      "verification": "Graph and end-to-end operator-view cases"
+    },
+    {
+      "id": "G010",
+      "domain": "Architecture",
+      "recommendation": "Current tool and standard catalogs imply complete coverage",
+      "sources": "R3 \u00a77.1; R5 \u00a73; R8 \u00a717",
+      "code_evidence": [
+        "tooling/tool_catalog_v3975.json",
+        "phases/standards_knowledge_sync.py"
+      ],
+      "baseline_status": "UNSAFE OR UNSUITABLE",
+      "baseline_quality": 1,
+      "release_status": "UNSAFE OR UNSUITABLE",
+      "release_quality": 1,
+      "feasibility": "not suitable",
+      "priority": "P0",
+      "decision": "reject assumption",
+      "rationale": "Catalog size, checklist entries and taxonomy counts are inventories, not executed security tests or coverage percentages.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G011",
+      "domain": "AI",
+      "recommendation": "Loopback-only local Ollama with no cloud fallback",
+      "sources": "R1 pp1\u20134; R2 \u00a73; R7 \u00a75",
+      "code_evidence": [
+        "core/llm_local.py",
+        "core/request_guard.py"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "installed local model",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Existing client ignores proxy environment, rejects redirects and redacts model input. No model weights are redistributed.",
+      "verification": "Existing local-client tests + loopback model HTTP workflow"
+    },
+    {
+      "id": "G012",
+      "domain": "AI",
+      "recommendation": "Refute-first review of candidate findings",
+      "sources": "R3 \u00a73.3; R6 FP section; R8 \u00a77",
+      "code_evidence": [
+        "core/llm_review.py",
+        "phases/local_llm_triage.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "existing local model",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Opt-in sequential counterevidence review with exact finding IDs and supplied evidence references. All verdicts remain advisory.",
+      "verification": "Refutation schema/ID/citation cases + CLI model fixture"
+    },
+    {
+      "id": "G013",
+      "domain": "AI",
+      "recommendation": "Cross-file source context retrieval",
+      "sources": "R1 pp2\u20136; R2 \u00a73.2; R3 \u00a73.2",
+      "code_evidence": [
+        "core/llm_review.py",
+        "phases/code_intel.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct for bounded context",
+      "priority": "P1",
+      "decision": "implement bounded subset",
+      "rationale": "Read the recorded source location and one-hop local Python imports only. Confine paths, reject symlinks, cap bytes and redact excerpts. This is not whole-project semantic RAG.",
+      "verification": "Import, path traversal, symlink, redaction and partial-context tests"
+    },
+    {
+      "id": "G014",
+      "domain": "AI",
+      "recommendation": "Advisory LLM suggestions must not become authoritative CWE/CVSS",
+      "sources": "R2 \u00a73; R7 \u00a7\u00a74\u20135; R8 \u00a76",
+      "code_evidence": [
+        "phases/local_llm_triage.py",
+        "core/storage.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 2,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "fix",
+      "rationale": "Store suggestions inside non-authoritative enrichment rather than filling main classification fields. Keep the general storage API for explicit human/tool enrichment.",
+      "verification": "Stored severity/class/CWE unchanged under model response fixture"
+    },
+    {
+      "id": "G015",
+      "domain": "AI",
+      "recommendation": "Strict response binding to the current batch",
+      "sources": "R8 \u00a7\u00a76,10,13",
+      "code_evidence": [
+        "phases/local_llm_triage.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "fix",
+      "rationale": "Reject boolean/non-integer, duplicate and foreign IDs; record omissions and required-mode failures.",
+      "verification": "Foreign/duplicate/omitted ID cases; required-mode failure checks"
+    },
+    {
+      "id": "G016",
+      "domain": "AI",
+      "recommendation": "LLM agreement or a failed reproduction confirms/refutes a bug",
+      "sources": "R1 pp5\u20136; R2 \u00a73.2; R3 \u00a73; R7 \u00a75",
+      "code_evidence": [
+        "core/proof_contracts.py",
+        "core/llm_review.py"
+      ],
+      "baseline_status": "UNSAFE OR UNSUITABLE",
+      "baseline_quality": 0,
+      "release_status": "UNSAFE OR UNSUITABLE",
+      "release_quality": 0,
+      "feasibility": "not suitable",
+      "priority": "P0",
+      "decision": "reject",
+      "rationale": "Model agreement is not independent captured proof. Failed reproduction, timeout and unavailable context remain unresolved, not false-positive verdicts.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G017",
+      "domain": "AI",
+      "recommendation": "Automatically discard model-identified false positives",
+      "sources": "R1 pp5\u20136; R2 \u00a7\u00a73.2\u20133.3; R7 \u00a75",
+      "code_evidence": [
+        "phases/local_llm_triage.py",
+        "core/ai_plane"
+      ],
+      "baseline_status": "UNSAFE OR UNSUITABLE",
+      "baseline_quality": 0,
+      "release_status": "UNSAFE OR UNSUITABLE",
+      "release_quality": 0,
+      "feasibility": "not suitable",
+      "priority": "P0",
+      "decision": "reject",
+      "rationale": "Conflicts with the master prompt and cautious blueprint. Preserve findings and show counterevidence for operator review.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G018",
+      "domain": "AI",
+      "recommendation": "Use small and large models as a confidence cascade",
+      "sources": "R2 \u00a73.2; R3 \u00a73.2; R5 \u00a72",
+      "code_evidence": [
+        "core/llm_local.py",
+        "core/hardware_profile.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "additional model + evaluation",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "No calibrated routing threshold or measured local accuracy. Sequential single-model advice fits current resource constraints better.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G019",
+      "domain": "AI",
+      "recommendation": "Parallel multi-agent debate/Mixture-of-Agents",
+      "sources": "R1 pp3\u20136; R2 \u00a73.2; R5 \u00a72",
+      "code_evidence": [
+        "core/llm_local.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "resource-heavy architecture",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "Would multiply memory and latency without an independent quality evaluation. A paper result is not a guarantee for this tool or model.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G020",
+      "domain": "AI",
+      "recommendation": "Persistent operator feedback and learned memories",
+      "sources": "R2 \u00a73.3; R3 \u00a75; R6 FP section",
+      "code_evidence": [
+        "core/ai_plane"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "existing portable AI state",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing lesson/proposal approval and audit storage provide a foundation. Feedback is advisory; no forever-applied automatic suppression is added.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G021",
+      "domain": "AI",
+      "recommendation": "Hash provenance, trust boundaries and prompt injection resistance",
+      "sources": "R7 \u00a75; R8 \u00a76.1",
+      "code_evidence": [
+        "core/llm_review.py",
+        "core/ai_plane"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct + further adversarial evaluation",
+      "priority": "P1",
+      "decision": "strengthen",
+      "rationale": "Bind excerpts to local file manifests and source IDs. Treat comments/findings as data; no tool calls exist. Prompt instructions alone do not establish general model robustness.",
+      "verification": "Injected comment retained as data; citation/path boundary tests"
+    },
+    {
+      "id": "G022",
+      "domain": "AI",
+      "recommendation": "Vector RAG with Milvus/Chroma and continuous internet ingestion",
+      "sources": "R1 pp3\u20135; R2 \u00a73.2; R4 RAG",
+      "code_evidence": [
+        "core/ai_plane"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 2,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 2,
+      "feasibility": "additional services/curation",
+      "priority": "P3",
+      "decision": "retain lightweight alternative",
+      "rationale": "Existing portable index and operator-ingested resources are retained. Automatic arbitrary research ingestion would need licensing, provenance and trust review.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G023",
+      "domain": "AI",
+      "recommendation": "14B/32B default models on an 8GB GPU in a constrained VM",
+      "sources": "R1 pp1\u20134; R4 hardware; R8 \u00a719",
+      "code_evidence": [
+        "core/hardware_profile.py",
+        "core/llm_local.py"
+      ],
+      "baseline_status": "NOT APPLICABLE",
+      "baseline_quality": 0,
+      "release_status": "NOT APPLICABLE",
+      "release_quality": 0,
+      "feasibility": "model-specific resource study",
+      "priority": "P2",
+      "decision": "reject universal default",
+      "rationale": "VM RAM, KV cache, host headroom, GPU passthrough and quantization determine feasibility. Keep the existing small-model setting and bounded context; no actual model benchmark was run.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G024",
+      "domain": "AI",
+      "recommendation": "Inference engines vLLM/SGLang/TensorRT and MTP/speculative decoding",
+      "sources": "R1 pp2\u20134,12; R4 engine table",
+      "code_evidence": [
+        "core/llm_local.py"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 0,
+      "feasibility": "new backend + resource study",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "Research-engine comparisons do not establish a compatible or efficient local deployment. Preserve the existing tested Ollama API boundary.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G025",
+      "domain": "AI",
+      "recommendation": "LLM-generated payloads, scanner templates or automatic attack execution",
+      "sources": "R2 \u00a7\u00a73,15; R5 \u00a75; R8 \u00a76",
+      "code_evidence": [
+        "core/safe_plan_executor.py",
+        "core/llm_review.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 1,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 1,
+      "feasibility": "validation infrastructure",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "No automatic model-to-execution path is added. Existing typed plan/import modes remain available within their current contracts.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G026",
+      "domain": "AI",
+      "recommendation": "Advisory report writing and deduplication hints",
+      "sources": "R2 \u00a7\u00a73,14; R3 \u00a78; R8 \u00a76",
+      "code_evidence": [
+        "phases/local_llm_triage.py",
+        "core/reporter.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "existing local model",
+      "priority": "P1",
+      "decision": "preserve and bind",
+      "rationale": "Report summaries and hints are non-authoritative enrichment. Model-suggested duplicates never delete findings.",
+      "verification": "Stored enrichment and operator-queue workflow tests"
+    },
+    {
+      "id": "G027",
+      "domain": "AI",
+      "recommendation": "89\u201391% false-positive reduction applies to TBHM",
+      "sources": "R2 \u00a73.1; R5 \u00a72; R6 FP section",
+      "code_evidence": [
+        "core/evaluation.py"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 0,
+      "feasibility": "representative labeled evaluation",
+      "priority": "P0",
+      "decision": "reject transfer claim",
+      "rationale": "Primary papers report results on their own tools, models and datasets. The local regression corpus is not a replication or an estimate of bounty precision.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G028",
+      "domain": "AI",
+      "recommendation": "Composite confidence weights are calibrated probabilities",
+      "sources": "R3 \u00a73.4; R7 \u00a74; R8 \u00a77",
+      "code_evidence": [
+        "core/fp_engine.py",
+        "core/scoring.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "release_quality": 1,
+      "feasibility": "labeled calibration dataset",
+      "priority": "P2",
+      "decision": "document limitation",
+      "rationale": "Existing heuristic scores are retained for prioritization. No calibrated probability, universal threshold or precision promise is claimed.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G029",
+      "domain": "AI",
+      "recommendation": "Measure precision/recall and unresolved coverage honestly",
+      "sources": "R7 \u00a7\u00a74\u20135; R8 \u00a7\u00a77,13",
+      "code_evidence": [
+        "core/evaluation.py",
+        "scripts/evaluate_taint_fixtures.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct for supplied fixtures",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Explicit labels and predictions, per-category confusion counts, undefined denominators and unresolved/missing predictions.",
+      "verification": "Exact confusion-matrix and malformed-label tests; 18-case regression corpus"
+    },
+    {
+      "id": "G030",
+      "domain": "Scope/recon",
+      "recommendation": "Reviewed program scope, prohibited actions, methods and rate limits",
+      "sources": "R2 \u00a716; R7 \u00a7\u00a72,7; R8 \u00a710",
+      "code_evidence": [
+        "core/program_policy.py",
+        "core/targets.py",
+        "core/http_policy.py"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "reviewed policy input",
+      "priority": "P0",
+      "decision": "preserve",
+      "rationale": "Policy and explicit scope remain fail closed at request and finding boundaries. Imported ownership hints do not grant authorization.",
+      "verification": "Existing policy/HTTP/proof boundary groups"
+    },
+    {
+      "id": "G031",
+      "domain": "Scope/recon",
+      "recommendation": "Separate observed, owned, in-scope and actively authorized assets",
+      "sources": "R7 \u00a7\u00a72,6\u20137; R8 \u00a7\u00a78,10",
+      "code_evidence": [
+        "core/evidence_graph.py",
+        "core/program_policy.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct + asset inventory design",
+      "priority": "P1",
+      "decision": "strengthen",
+      "rationale": "Graph nodes leave ownership/active permission unknown or not inferred. Stored scope decisions remain independent of observed-host grouping.",
+      "verification": "Graph permission-unknown and canonical-host cases"
+    },
+    {
+      "id": "G032",
+      "domain": "Scope/recon",
+      "recommendation": "Automatic HackerOne/Bugcrowd/Intigriti program import",
+      "sources": "R3 \u00a78.3; R6 program workflow; R8 \u00a75.1",
+      "code_evidence": [
+        "core/program_policy.py",
+        "phases/bug_bounty_workspace.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 2,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 2,
+      "feasibility": "provider credentials/API contracts",
+      "priority": "P2",
+      "decision": "defer provider automation",
+      "rationale": "Reviewed local policy/workspace inputs already work. Provider-specific synchronization needs current APIs, account access, change reconciliation and tests.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G033",
+      "domain": "Scope/recon",
+      "recommendation": "Strict redirects, TLS, proxies, budgets and passive/offline boundaries",
+      "sources": "R7 \u00a77; R8 \u00a710",
+      "code_evidence": [
+        "core/request_guard.py",
+        "core/scoped_http.py",
+        "core/http_policy.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "fix known gaps",
+      "rationale": "Migrate Web3 GETs to the shared broker and block early offline setup/pull combinations. Native Requests coverage does not imply a quota on child-scanner traffic.",
+      "verification": "Web3 offline guard + real HTTP/redirect/TLS/proxy regression cases"
+    },
+    {
+      "id": "G034",
+      "domain": "Scope/recon",
+      "recommendation": "429/503 backoff and stop controls",
+      "sources": "R7 \u00a77; R8 \u00a710",
+      "code_evidence": [
+        "core/http_policy.py",
+        "core/execution_ledger.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "implement broker cooldown",
+      "rationale": "Shared host cooldown honors bounded Retry-After without retries or long blocking sleeps. Child scanners and browsers retain their own controls.",
+      "verification": "Real loopback 429/503 responses block a second adapter before dispatch"
+    },
+    {
+      "id": "G035",
+      "domain": "Scope/recon",
+      "recommendation": "Passive CT/DNS/subdomain and historical URL discovery",
+      "sources": "R2 \u00a75; R3 \u00a72.7; R5 \u00a71",
+      "code_evidence": [
+        "phases/recon.py",
+        "phases/discovery.py",
+        "phases/osint_depth_collectors.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "provider/tool availability",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing recon pipelines remain; upstream provider access, credentials and external-tool versions were not live tested.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G036",
+      "domain": "Scope/recon",
+      "recommendation": "Wildcard DNS resolution and duplicate normalization",
+      "sources": "R2 \u00a7\u00a75,13; R3 \u00a72.7; R6 pipeline",
+      "code_evidence": [
+        "core/targets.py",
+        "phases/recon.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "DNS fixtures + live authorized environment",
+      "priority": "P2",
+      "decision": "defer broader calibration",
+      "rationale": "Target wildcard matching is distinct from wildcard DNS noise handling. Do not equate a suffix match with resolved ownership or live coverage.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G037",
+      "domain": "Scope/recon",
+      "recommendation": "Technology fingerprints, live URLs and screenshots",
+      "sources": "R2 \u00a75; R3 \u00a76.7",
+      "code_evidence": [
+        "phases/recon.py",
+        "phases/smart_crawl.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional tools/browser",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing modules provide surface evidence; browser/runtime availability and third-party fingerprints require separate operational validation.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G038",
+      "domain": "Scope/recon",
+      "recommendation": "JavaScript, source maps and hidden endpoint collection",
+      "sources": "R2 \u00a7\u00a75,13; R3 \u00a76.7; R8 \u00a75.1",
+      "code_evidence": [
+        "phases/js_analysis.py",
+        "phases/deep_crawl.py",
+        "phases/surface_correlation.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "existing adapters",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Keep the prior JS/source-map and source/mobile endpoint correlation work. Extracted hosts remain candidates until scope permits use.",
+      "verification": "Existing JS/remediation/source-correlation regression groups"
+    },
+    {
+      "id": "G039",
+      "domain": "Scope/recon",
+      "recommendation": "Soft-404 and catch-all noise rejection",
+      "sources": "R3 \u00a75.2; R6 pipeline; R8 \u00a77",
+      "code_evidence": [
+        "core/soft404.py",
+        "core/api_baseline.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "fix conservative matching",
+      "rationale": "Remove status-only and broad hex-normalization suppression, require body equality, and reset calibration per run. Dynamic catch-all baselines can remain inconclusive.",
+      "verification": "Different same-status bodies and existing baseline tests"
+    },
+    {
+      "id": "G040",
+      "domain": "Scope/recon",
+      "recommendation": "Continuous scan scheduling and cross-run surface diffs",
+      "sources": "R2 \u00a75; R3 \u00a78.3; R5 \u00a74",
+      "code_evidence": [
+        "core/execution_ledger.py",
+        "phases/reverse_diff_analysis.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "scheduler + baseline/schema design",
+      "priority": "P2",
+      "decision": "defer general surface monitoring",
+      "rationale": "Resume fingerprints and binary diff support exist. They are not a continuous asset-monitoring service or full endpoint-change tracker.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G041",
+      "domain": "Scope/recon",
+      "recommendation": "Cloud buckets, IAM and public configuration review",
+      "sources": "R2 \u00a75; R3 \u00a72.7; R8 \u00a75.7",
+      "code_evidence": [
+        "phases/cloud_recon.py",
+        "phases/cloud_identity_path_analysis.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "reviewed cloud inputs/credentials",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Static imports and existing read-only checks are retained. A named bucket or public empty resource is not automatically an eligible vulnerability.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G042",
+      "domain": "Scope/recon",
+      "recommendation": "Historical DNS/certificate/provider-based origin hypotheses",
+      "sources": "R2 \u00a712.1; R3 \u00a72.7; R6 origin section",
+      "code_evidence": [
+        "phases/osint_depth_collectors.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "provider APIs + origin evidence design",
+      "priority": "P2",
+      "decision": "defer dedicated origin engine",
+      "rationale": "Existing collectors can produce DNS/fingerprint leads. No calibrated origin-attribution engine or validated CDN-bypass verifier is present.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G043",
+      "domain": "Scope/recon",
+      "recommendation": "Direct Host/SNI origin verification",
+      "sources": "R2 \u00a712.1; R3 \u00a72.7; R6 origin section",
+      "code_evidence": [
+        "core/targets.py",
+        "core/program_policy.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "explicit IP scope + TLS-aware transport",
+      "priority": "P2",
+      "decision": "defer",
+      "rationale": "Requires separate IP authorization, SNI/Host compatibility, body/certificate controls and negative baselines. A matching favicon or certificate does not prove ownership.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G044",
+      "domain": "Scope/recon",
+      "recommendation": "Origin score 60% HTTP,25% certificate,15% favicon",
+      "sources": "R3 \u00a72.7",
+      "code_evidence": [
+        "core/scoring.py"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 0,
+      "feasibility": "labeled origin ground truth",
+      "priority": "P3",
+      "decision": "reject as probability",
+      "rationale": "Weights are unvalidated heuristics. Do not publish a percentage certainty or promote an origin based on this formula.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G045",
+      "domain": "Scope/recon",
+      "recommendation": "ASN/CIDR and neighbor /24 expansion",
+      "sources": "R2 \u00a712.1; R6 origin section; R7 \u00a77",
+      "code_evidence": [
+        "core/targets.py",
+        "core/program_policy.py"
+      ],
+      "baseline_status": "UNSAFE OR UNSUITABLE",
+      "baseline_quality": 0,
+      "release_status": "UNSAFE OR UNSUITABLE",
+      "release_quality": 0,
+      "feasibility": "explicit separately reviewed scope",
+      "priority": "P0",
+      "decision": "reject automatic expansion",
+      "rationale": "Nearby addresses, ASN membership and a wildcard domain are not permission to probe an IP range. Existing explicit network scope remains required.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G046",
+      "domain": "Scope/recon",
+      "recommendation": "WAF fingerprints and permitted request parsing checks",
+      "sources": "R2 \u00a712.2; R3 \u00a72.7; R5 \u00a71",
+      "code_evidence": [
+        "core/fp_engine.py",
+        "phases/waf_evasion_ssrf.py",
+        "phases/smuggling.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "authorized lab + protocol fixtures",
+      "priority": "P2",
+      "decision": "preserve limited checks",
+      "rationale": "Existing opt-in checks remain. WAF bypass is context dependent and was not validated against production edge devices in this release.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G047",
+      "domain": "Scope/recon",
+      "recommendation": "Universal stealth/IP rotation or aggressive evasion defaults",
+      "sources": "R2 \u00a712.2; R5 \u00a74; R6 WAF section; R7 \u00a77",
+      "code_evidence": [
+        "profiles"
+      ],
+      "baseline_status": "UNSAFE OR UNSUITABLE",
+      "baseline_quality": 0,
+      "release_status": "UNSAFE OR UNSUITABLE",
+      "release_quality": 0,
+      "feasibility": "not suitable as a default",
+      "priority": "P0",
+      "decision": "reject",
+      "rationale": "Program policy, identification and rate ceilings remain authoritative; there is no evidence that stealth or automatic proxy rotation is generally permitted or improves quality.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G048",
+      "domain": "Source",
+      "recommendation": "Python intra-procedural source-to-sink analysis",
+      "sources": "R2 \u00a76; R3 \u00a7\u00a72.6,6.6; R8 \u00a75.4",
+      "code_evidence": [
+        "core/taint_engine.py",
+        "core/code_intel.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "fix existing engine",
+      "rationale": "Add reassignment kills, conservative branch/loop/exception joins, nested source expressions and subprocess shell semantics. Does not prove path feasibility or model every Python construct.",
+      "verification": "18 selected snippets + overwrite/branch/shell and source workflow tests"
+    },
+    {
+      "id": "G049",
+      "domain": "Source",
+      "recommendation": "Sink-specific sanitizer handling and mitigation evidence",
+      "sources": "R3 \u00a75; R6 FP section; R8 \u00a77",
+      "code_evidence": [
+        "core/taint_engine.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "fix",
+      "rationale": "Stop considering arbitrary escape/validate words as sanitizers. Numeric conversion on the whole tracked value is the narrow modeled control; other control contexts remain review leads.",
+      "verification": "HTML-to-SQL/shell, unrelated escape and numeric controls"
+    },
+    {
+      "id": "G050",
+      "domain": "Source",
+      "recommendation": "Bind AST flow to the correct sink/CWE/location",
+      "sources": "R8 \u00a7\u00a75.4,7",
+      "code_evidence": [
+        "core/code_intel.py",
+        "phases/code_intel.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "fix",
+      "rationale": "Match the sink line and CWE, retain source file/line/function metadata for context. File-level route reachability is still supporting context, not runtime sink proof.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G051",
+      "domain": "Source",
+      "recommendation": "Full semantic JavaScript/TypeScript taint analysis",
+      "sources": "R2 \u00a76; R3 \u00a76.6; R8 \u00a75.4",
+      "code_evidence": [
+        "core/taint_engine.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "real parser/CFG/dataflow",
+      "priority": "P2",
+      "decision": "fix false mitigation; defer semantic engine",
+      "rationale": "Lexical tracking remains explicitly approximate. Do not mark a sink mitigated simply because encodeURIComponent or a sanitizer word appears on the line.",
+      "verification": "Lexical HTML encoding counterexample"
+    },
+    {
+      "id": "G052",
+      "domain": "Source",
+      "recommendation": "Cross-file interprocedural analysis for all source languages",
+      "sources": "R1 pp5\u20137; R2 \u00a76; R3 \u00a76.6",
+      "code_evidence": [
+        "core/interprocedural_taint.py",
+        "core/llm_review.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "language IR + comprehensive tests",
+      "priority": "P2",
+      "decision": "defer universal engine",
+      "rationale": "Existing reverse-IR taint and bounded source excerpts are not a whole-project Python/JS/Java/Go call-graph taint engine.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G053",
+      "domain": "Source",
+      "recommendation": "Semgrep/CodeQL/Bandit multi-language adapters",
+      "sources": "R2 \u00a76; R3 \u00a76.6; R5 \u00a75",
+      "code_evidence": [
+        "phases/sast_tooling.py",
+        "phases/code_security_tooling.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional executables/databases",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing adapter/import code is retained; no local installations or real CodeQL databases were available for validating all languages.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G054",
+      "domain": "Source",
+      "recommendation": "Dependency SBOM and advisory enrichment",
+      "sources": "R2 \u00a76; R3 \u00a72.6; R8 \u00a75.4",
+      "code_evidence": [
+        "core/sbom.py",
+        "phases/supply_chain_review.py",
+        "phases/code_scan.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional advisory feeds",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Native local SBOM generation stays offline. OSV metadata is opt-in and never a substitute for version/reachability analysis.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G055",
+      "domain": "Source",
+      "recommendation": "Secret detection, placeholders, redaction and reversible review",
+      "sources": "R2 \u00a76; R3 \u00a75.2; R8 \u00a77",
+      "code_evidence": [
+        "core/code_patterns.py",
+        "core/fp_filters.py",
+        "core/evidence_redaction.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Existing dummy/example gates and redacted drop archive remain. A string pattern alone does not establish live credentials.",
+      "verification": "Existing secret, runner, storage and delivery redaction groups"
+    },
+    {
+      "id": "G056",
+      "domain": "Source",
+      "recommendation": "Live validation of discovered credentials",
+      "sources": "R3 \u00a75.2; R5 \u00a74",
+      "code_evidence": [
+        "core/secret_validator.py",
+        "core/proof_contracts.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "third-party API permission",
+      "priority": "P2",
+      "decision": "retain explicit boundary",
+      "rationale": "Existing optional verifier behavior is retained, but API acceptance alone is not a strict proof contract for all credential classes; no live keys were exercised.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G057",
+      "domain": "Source",
+      "recommendation": "IaC, CI/CD, supply-chain and signing review",
+      "sources": "R2 \u00a76; R3 \u00a72.6; R8 \u00a75.4",
+      "code_evidence": [
+        "phases/ci_cd_supply_chain_security.py",
+        "phases/cloud_posture_tooling.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional tools/attestations",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing native imports and configured adapters are retained; not every IaC provider or pipeline rule is natively implemented.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G058",
+      "domain": "Source",
+      "recommendation": "Business logic and authorization inferred from source names",
+      "sources": "R2 \u00a76; R3 \u00a72.6; R8 \u00a75.4",
+      "code_evidence": [
+        "phases/code_intel.py",
+        "core/code_intel.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "application policy + controlled replay",
+      "priority": "P1",
+      "decision": "retain as candidates",
+      "rationale": "Source route/auth/payment pattern branches guide review. Names and missing-looking decorators do not prove an authorization or workflow failure.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G059",
+      "domain": "Source",
+      "recommendation": "Binary IR, symbols, taint and source/binary correlation",
+      "sources": "R2 \u00a710; R3 \u00a76.4; R8 \u00a75.6",
+      "code_evidence": [
+        "core/interprocedural_taint.py",
+        "phases/reverse_ir_analysis.py",
+        "phases/reverse_taint_analysis.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional reverse tools/input contracts",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing reverse-analysis contracts and imports remain; stripped binaries and arbitrary architectures do not receive universal precision guarantees.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G060",
+      "domain": "Web/API",
+      "recommendation": "Benign differential verification with negative controls and repeats",
+      "sources": "R2 \u00a715; R3 \u00a7\u00a75,7.2; R7 \u00a74",
+      "code_evidence": [
+        "core/proof_contracts.py",
+        "core/assertion_engine.py"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "captured proof for supported classes",
+      "priority": "P0",
+      "decision": "preserve",
+      "rationale": "Strict v2 proof classes currently cover access control, sensitive data exposure and open redirect. Other classes remain leads without a supported proof contract.",
+      "verification": "Existing authenticated capture/proof acceptance/tampering groups"
+    },
+    {
+      "id": "G061",
+      "domain": "Web/API",
+      "recommendation": "Replayable reports, captured requests and reproducer kits",
+      "sources": "R2 \u00a714; R3 \u00a78; R8 \u00a713",
+      "code_evidence": [
+        "core/reporter.py",
+        "core/curl_reproducer.py",
+        "core/evidence_manifest.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "approved evidence capture",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Curls and scanner prose are reproducibility aids; a generated request is not a successful PoC. Final redacted artifacts and SQLite backup are sealed.",
+      "verification": "Report and sealed snapshot tests"
+    },
+    {
+      "id": "G062",
+      "domain": "Web/API",
+      "recommendation": "Offline OpenAPI/Swagger intake with inherited security and parameters",
+      "sources": "R2 \u00a78; R3 \u00a7\u00a72.2,6.2; R8 \u00a75.3",
+      "code_evidence": [
+        "core/api_contracts.py",
+        "phases/spec_scan.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Extend the existing spec phase. Support bounded Swagger 2.0/OpenAPI 3.0/3.1, local parameter/request-body refs and root/operation security semantics. Never follow remote refs.",
+      "verification": "Inheritance, empty overrides, OR-anonymous, local ref and malformed input tests"
+    },
+    {
+      "id": "G063",
+      "domain": "Web/API",
+      "recommendation": "API operation/security/schema change review",
+      "sources": "R3 \u00a7\u00a76.2,8.3; R5 \u00a74; R8 \u00a75.3",
+      "code_evidence": [
+        "core/api_contracts.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "implement bounded diff",
+      "rationale": "Compare operations, security, parameter/body structures and shared-schema hashes. Full JSON Schema semantic equivalence and breaking-change reasoning are not implemented.",
+      "verification": "Operation removal/security and shared-schema change cases"
+    },
+    {
+      "id": "G064",
+      "domain": "Web/API",
+      "recommendation": "Compare declared APIs with HAR observations",
+      "sources": "R2 \u00a78; R3 \u00a76.2; R6 pipeline; R8 \u00a75.3",
+      "code_evidence": [
+        "core/api_contracts.py",
+        "phases/authenticated_session_model.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "operator HAR input",
+      "priority": "P1",
+      "decision": "implement inventory comparison",
+      "rationale": "Method/path/declared-host and server-prefix matches only. No token/body copying or replay, no assumption that an observed endpoint was security tested.",
+      "verification": "Declared-host, route-template and base-prefix HAR tests"
+    },
+    {
+      "id": "G065",
+      "domain": "Web/API",
+      "recommendation": "Published API documentation itself is a vulnerability",
+      "sources": "R3 \u00a72.2; R7 \u00a74",
+      "code_evidence": [
+        "phases/spec_scan.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "fix classification",
+      "rationale": "Machine-readable documentation is an INFO surface observation. Intent and sensitive contents require separate evidence.",
+      "verification": "Source change and full CLI workflow"
+    },
+    {
+      "id": "G066",
+      "domain": "Web/API",
+      "recommendation": "Authenticated multi-role BOLA/BFLA/tenant comparisons",
+      "sources": "R2 \u00a78; R3 \u00a76.2; R8 \u00a75.3",
+      "code_evidence": [
+        "phases/authenticated_session_model.py",
+        "phases/bug_bounty_workspace.py",
+        "core/idor_engine.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "approved accounts + policy + captures",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Offline role matrices and explicit proof contracts exist. A general autonomous stateful multi-tenant API tester is not complete.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G067",
+      "domain": "Web/API",
+      "recommendation": "Stateful business workflows, races, quotas and mass assignment",
+      "sources": "R2 \u00a7\u00a77\u20138; R3 \u00a72.2; R8 \u00a7\u00a75.2\u20135.3",
+      "code_evidence": [
+        "phases/business_logic.py",
+        "phases/upload_race.py",
+        "phases/bug_bounty_workspace.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "application-specific invariants/test accounts",
+      "priority": "P2",
+      "decision": "defer universal automation",
+      "rationale": "Generic workflow labels cannot establish policy or safe mutation semantics. Existing limited checks and planned invariants remain.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G068",
+      "domain": "Web/API",
+      "recommendation": "GraphQL introspection, authorization, batching and complexity",
+      "sources": "R2 \u00a78; R3 \u00a72.2; R8 \u00a75.3",
+      "code_evidence": [
+        "phases/graphql_audit.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "authorized API lab + safe budgets",
+      "priority": "P2",
+      "decision": "preserve limited checks",
+      "rationale": "Existing probes do not provide complete resolver-level authorization or business-logic coverage; exhaustion/DoS checks are not added.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G069",
+      "domain": "Web/API",
+      "recommendation": "OAuth/OIDC/JWT, WebSockets and modern browser security",
+      "sources": "R2 \u00a7\u00a77\u20138; R3 \u00a72.1; R8 \u00a75.2",
+      "code_evidence": [
+        "phases/auth_modern_review.py",
+        "phases/auth_advanced.py",
+        "phases/smart_crawl.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "stateful browser/account fixtures",
+      "priority": "P2",
+      "decision": "defer broader verification",
+      "rationale": "Retain existing modules and policy gates. Full federation, token lifecycle and protocol-state testing require dedicated fixtures.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G070",
+      "domain": "Web/API",
+      "recommendation": "OOB SSRF/XXE confirmation and callback infrastructure",
+      "sources": "R2 \u00a7\u00a77\u20138; R3 \u00a76.1; R8 \u00a75.2",
+      "code_evidence": [
+        "phases/waf_evasion_ssrf.py",
+        "phases/nuclei_extended.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "owned callback service + correlation proof",
+      "priority": "P2",
+      "decision": "defer general OOB proof",
+      "rationale": "No external collaborator service was provisioned. A callback alone needs request correlation, negative controls and authorized external interaction handling.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G071",
+      "domain": "Web/API",
+      "recommendation": "Schemathesis schema-conformance fuzzing",
+      "sources": "R2 \u00a78; R3 \u00a76.2",
+      "code_evidence": [
+        "phases/spec_scan.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "optional versioned executable + staging",
+      "priority": "P2",
+      "decision": "defer adapter modernization",
+      "rationale": "Existing opt-in invocation is retained but its upstream CLI compatibility and actual fuzzing were not validated. New contract intake does not automatically fuzz imported specs.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G072",
+      "domain": "Mobile",
+      "recommendation": "Safe APK/IPA extraction and string/endpoint intake",
+      "sources": "R2 \u00a79; R3 \u00a76.3; R8 \u00a75.5",
+      "code_evidence": [
+        "phases/mobile_scan.py",
+        "core/safe_archive.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "local artifact; optional decoder",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Archive containment/size controls and native string discovery remain. No device or emulator is required for static intake.",
+      "verification": "Existing archive/manifest groups + combined source/mobile workflow"
+    },
+    {
+      "id": "G073",
+      "domain": "Mobile",
+      "recommendation": "Structured exported components, permissions, SDK and deep links",
+      "sources": "R2 \u00a79; R3 \u00a72.3; R8 \u00a75.5",
+      "code_evidence": [
+        "core/android_manifest.py",
+        "phases/mobile_scan.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "decoded Android XML",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Permission inheritance, explicit enabled/exported values, provider read/write permissions and URI/path markers. Defaults/resources stay unknown; no blanket exported-component vulnerability.",
+      "verification": "Permission/signature, disabled, unknown SDK/exported and source XML tests"
+    },
+    {
+      "id": "G074",
+      "domain": "Mobile",
+      "recommendation": "Android application settings and network-security policy",
+      "sources": "R2 \u00a79; R3 \u00a72.3",
+      "code_evidence": [
+        "core/android_manifest.py",
+        "phases/mobile_scan.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "decoded XML + optional aapt",
+      "priority": "P1",
+      "decision": "preserve and qualify",
+      "rationale": "Explicit booleans remain verified declarations. networkSecurityConfig is identified but referenced XML resources, effective backup policy and runtime traffic are not fully resolved.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G075",
+      "domain": "Mobile",
+      "recommendation": "Binary AXML component semantics without a decoder",
+      "sources": "R8 \u00a7\u00a75.5,13",
+      "code_evidence": [
+        "core/android_manifest.py",
+        "phases/mobile_scan.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "AXML decoder/tool contract",
+      "priority": "P2",
+      "decision": "defer",
+      "rationale": "Existing AAPT boolean support is retained. Component inventory is explicitly incomplete without decoded XML instead of guessing from strings.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G076",
+      "domain": "Mobile",
+      "recommendation": "iOS ATS, URL schemes, keychain, entitlements and local storage",
+      "sources": "R2 \u00a79; R3 \u00a72.3; R8 \u00a75.5",
+      "code_evidence": [
+        "phases/mobile_scan.py",
+        "phases/mobile_reverse_extended.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "IPA/source + platform fixtures",
+      "priority": "P2",
+      "decision": "preserve limited coverage",
+      "rationale": "ATS/plist/string checks and imports are not a full iOS storage, entitlement or keychain security assessment.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G077",
+      "domain": "Mobile",
+      "recommendation": "MobSF static/dynamic integration",
+      "sources": "R2 \u00a79; R3 \u00a76.3; R5 \u00a75",
+      "code_evidence": [
+        "phases/mobile_tooling.py",
+        "phases/mobile_reverse_extended.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "external service/credentials",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing adapters/import paths remain. A MobSF service and real mobile projects were not provisioned in this release.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G078",
+      "domain": "Mobile",
+      "recommendation": "Frida/Objection, pinning bypass and runtime instrumentation",
+      "sources": "R1 pp8\u20139; R2 \u00a79; R3 \u00a76.3; R5 \u00a75",
+      "code_evidence": [
+        "phases/mobile_tooling.py",
+        "phases/mobile_reverse_extended.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "device/emulator + explicit authorization",
+      "priority": "P3",
+      "decision": "defer dynamic expansion",
+      "rationale": "Keep existing proposal/import/tooling paths. No claim that device instrumentation, pinning bypass or exploit execution has been tested.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G079",
+      "domain": "Mobile",
+      "recommendation": "MASVS/MSTG mappings guarantee control compliance",
+      "sources": "R2 \u00a79; R3 \u00a72.3; R8 \u00a75.5",
+      "code_evidence": [
+        "knowledge/standards_manifest_v396.json"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 1,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 1,
+      "feasibility": "current standard mapping + evidence",
+      "priority": "P2",
+      "decision": "reject compliance inference",
+      "rationale": "Use standards as review guidance. A checklist label or exported flag is not proof of failing a MASVS control.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G080",
+      "domain": "IoT/reverse",
+      "recommendation": "Firmware extraction, SBOM, credentials and unsafe library inventory",
+      "sources": "R2 \u00a710; R3 \u00a76.4; R8 \u00a75.6",
+      "code_evidence": [
+        "phases/firmware_reverse_safe.py",
+        "phases/firmware_tooling_extended.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "local firmware + optional external tools",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing bounded static and import workflows remain. Binary strings, default credential patterns or unsafe function imports do not prove exploitable memory corruption.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G081",
+      "domain": "IoT/reverse",
+      "recommendation": "EMBA and RouterSploit capability integration",
+      "sources": "R8 \u00a7\u00a75.6,12",
+      "code_evidence": [
+        "phases/firmware_tooling_extended.py",
+        "core/firmware_safety.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional installed runtime",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Retain EMBA static adapter/imports and isolated-mode contracts. RouterSploit catalog/import does not imply autonomous exploit execution.",
+      "verification": "Earlier installer/firmware/import regression groups"
+    },
+    {
+      "id": "G082",
+      "domain": "IoT/reverse",
+      "recommendation": "QEMU/FirmAE/FAT dynamic emulation and exploit proofs",
+      "sources": "R1 pp9\u201310; R2 \u00a710; R3 \u00a76.4",
+      "code_evidence": [
+        "phases/firmware_tooling_extended.py",
+        "phases/reverse_sandbox_analysis.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "disposable VM/container + firmware-specific setup",
+      "priority": "P3",
+      "decision": "defer broad support",
+      "rationale": "CPU architecture, kernel, NVRAM, network services and hardware peripherals need target-specific work. No universal emulator or runtime vulnerability claim is added.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G083",
+      "domain": "IoT/reverse",
+      "recommendation": "MQTT/CoAP/UPnP/BLE/Zigbee protocol testing",
+      "sources": "R2 \u00a710; R3 \u00a72.4; R8 \u00a75.6",
+      "code_evidence": [
+        "phases/passive_wireless_inventory.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "hardware/radio lab + scope",
+      "priority": "P3",
+      "decision": "defer active expansion",
+      "rationale": "Existing passive wireless import is narrow; it is not active fuzzing or coverage of all embedded protocols.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G084",
+      "domain": "IoT/reverse",
+      "recommendation": "angr/Triton symbolic analysis and crash/fuzz triage",
+      "sources": "R1 pp9\u201310; R3 \u00a76.4; R8 \u00a75.6",
+      "code_evidence": [
+        "phases/reverse_symbolic_analysis.py",
+        "phases/reverse_crash_triage.py",
+        "phases/reverse_fuzzing.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 2,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "optional engines + harness + budget",
+      "priority": "P2",
+      "decision": "preserve",
+      "rationale": "Existing import/harness contracts remain. Symbolic states, dangerous API names and sanitizer crashes still require exploitability review.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G085",
+      "domain": "IoT/reverse",
+      "recommendation": "FAT is a Rust command-injection taint engine",
+      "sources": "R3 \u00a72.4; R8 \u00a717",
+      "code_evidence": [
+        "phases/firmware_tooling_extended.py"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 0,
+      "feasibility": "upstream attribution check",
+      "priority": "P2",
+      "decision": "flag unsubstantiated description",
+      "rationale": "The supplied FAT description conflates tooling roles. Do not build an integration on an unverified language/analysis claim.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G086",
+      "domain": "Web3",
+      "recommendation": "Frontend prose, hashes and ordinary read RPC are vulnerabilities",
+      "sources": "R3 \u00a72.5; R7 \u00a74; R8 \u00a77",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "PRESENT BUT BROKEN",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "fix",
+      "rationale": "Remove arbitrary 12-word/64-hex secret matches. Require key/seed assignment context and redact values. Read block-number/IPFS-version endpoints become INFO observations.",
+      "verification": "Prose/hash/key counterexamples + offline network guard tests"
+    },
+    {
+      "id": "G087",
+      "domain": "Web3",
+      "recommendation": "Import Slither detector JSON into actual findings/reporting",
+      "sources": "R2 \u00a711; R3 \u00a76.5; R5 \u00a75; R8 \u00a75.8",
+      "code_evidence": [
+        "phases/web3.py",
+        "tooling/capability_registry_v420.json"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "operator-provided Slither JSON",
+      "priority": "P1",
+      "decision": "implement native import",
+      "rationale": "Validate success flag and record structure, bound input, deduplicate detector records, persist static leads and expose import status. No compiler/build hooks run.",
+      "verification": "Error/partial/dedup/lead classification and combined CLI workflow"
+    },
+    {
+      "id": "G088",
+      "domain": "Web3",
+      "recommendation": "Execute Slither compiler pipeline automatically",
+      "sources": "R2 \u00a711; R3 \u00a76.5",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "Solidity compiler + reviewed builds",
+      "priority": "P2",
+      "decision": "defer",
+      "rationale": "Solidity compilation and arbitrary project build hooks need a disposable environment and pinned toolchain. Import support is not live scanner execution.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G089",
+      "domain": "Web3",
+      "recommendation": "Echidna/Medusa/Foundry invariant fuzzing and fork simulation",
+      "sources": "R2 \u00a711; R3 \u00a76.5; R5 \u00a75",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "project invariants + chain fixtures + isolation",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "Requires contract-specific invariants, compiler versions, RPC/fork fixtures and budgeted harness execution. No generic confirmed oracle or flash-loan detector is claimed.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G090",
+      "domain": "Web3",
+      "recommendation": "Mythril/Manticore symbolic contract execution",
+      "sources": "R1 pp10\u201311; R2 \u00a711; R3 \u00a76.5",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "external symbolic engine + semantic validation",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "State explosion, compiler/chain semantics and validation costs exceed a trustworthy dependency-free release addition.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G091",
+      "domain": "Web3",
+      "recommendation": "Solidity/Vyper/Rust/Move/Cairo universal analysis",
+      "sources": "R2 \u00a711; R3 \u00a72.5; R8 \u00a75.8",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "NOT IMPLEMENTED",
+      "release_quality": 0,
+      "feasibility": "multiple compiler/IR ecosystems",
+      "priority": "P3",
+      "decision": "defer",
+      "rationale": "Do not substitute generic regex scans for language-specific contract semantics. Slither import covers its supported output only.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G092",
+      "domain": "Web3",
+      "recommendation": "BIP39 seed/private-key validity and ownership validation",
+      "sources": "R3 \u00a72.5; R8 \u00a77",
+      "code_evidence": [
+        "phases/web3.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 0,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "wordlist/checksum and private validation design",
+      "priority": "P2",
+      "decision": "defer validity checks",
+      "rationale": "New assignment indicators are explicitly unvalidated. No mnemonic is logged, derived, used to access a wallet or sent to a service.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G093",
+      "domain": "Web3",
+      "recommendation": "OWASP Smart Contract Top 10 2026 as a coverage checklist",
+      "sources": "R3 \u00a72.5; R5 \u00a73; R8 \u00a75.8",
+      "code_evidence": [
+        "docs/research-v4.2.0/PRIMARY_SOURCES.json"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "versioned detector mapping",
+      "priority": "P2",
+      "decision": "verify taxonomy, defer complete coverage",
+      "rationale": "Current primary taxonomy can guide future work. A Slither detector name or imported result is not a complete control test or universal OWASP mapping.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G094",
+      "domain": "Graph",
+      "recommendation": "Canonical assets before correlating findings",
+      "sources": "R2 \u00a74.4; R6 pipeline; R7 \u00a76; R8 \u00a78",
+      "code_evidence": [
+        "core/evidence_graph.py",
+        "core/correlation.py",
+        "phases/attack_path.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Normalize exact host identity, prefer actual URL host, distinguish local artifacts; never merge sibling domains or infer scope from DNS/certificates.",
+      "verification": "Canonical host/local file and cross-asset cases"
+    },
+    {
+      "id": "G095",
+      "domain": "Graph",
+      "recommendation": "Co-occurrence, hypothesis and verified path remain different",
+      "sources": "R2 \u00a74.3; R7 \u00a76; R8 \u00a78",
+      "code_evidence": [
+        "phases/attack_path.py",
+        "core/evidence_graph.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct for hypotheses",
+      "priority": "P0",
+      "decision": "fix",
+      "rationale": "Honor --chain-simulate, require distinct records on one asset, list missing preconditions and never claim a verified transition.",
+      "verification": "Flag, distinct-step, cross-asset and no synthetic finding tests"
+    },
+    {
+      "id": "G096",
+      "domain": "Graph",
+      "recommendation": "Automatically raise severity based on generated attack narratives",
+      "sources": "R2 \u00a74; R3 \u00a74; R8 \u00a78",
+      "code_evidence": [
+        "phases/attack_path.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 0,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "remove unsupported inflation",
+      "rationale": "Do not create high/critical chain findings from title matches; exclude earlier attack_path records from inputs. Existing source findings remain intact.",
+      "verification": "No synthetic findings and recursive-source exclusion cases"
+    },
+    {
+      "id": "G097",
+      "domain": "Graph",
+      "recommendation": "Evidence-driven deduplication by root cause",
+      "sources": "R2 \u00a7\u00a74,14; R3 \u00a74.2; R8 \u00a77",
+      "code_evidence": [
+        "core/evidence_graph.py",
+        "core/storage.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct for candidate groups",
+      "priority": "P1",
+      "decision": "implement conservative candidates",
+      "rationale": "Stable title-independent candidate keys suggest review. They do not delete, consolidate or prove a shared cause; site-wide authorization logic can require manual grouping.",
+      "verification": "Candidate grouping preserves both record IDs"
+    },
+    {
+      "id": "G098",
+      "domain": "Graph",
+      "recommendation": "Preconditions/postconditions and verified exploit-enables edges",
+      "sources": "R2 \u00a74.1; R3 \u00a74.2; R8 \u00a78",
+      "code_evidence": [
+        "core/entity_graph.py",
+        "core/evidence_graph.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "typed capability ontology + captured transitions",
+      "priority": "P2",
+      "decision": "defer verified path engine",
+      "rationale": "The new export intentionally contains observations and candidate groups. A full capability planner or verified multi-stage path engine is not implemented.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G099",
+      "domain": "Graph",
+      "recommendation": "MITRE ATT&CK mapping demonstrates observed adversary behavior",
+      "sources": "R2 \u00a74; R3 \u00a74.3; R8 \u00a78",
+      "code_evidence": [
+        "core/attack_knowledge.py",
+        "phases/attack_path.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 2,
+      "feasibility": "current taxonomy mapping validation",
+      "priority": "P2",
+      "decision": "qualify",
+      "rationale": "Navigator/maps remain conceptual keyword associations. They are not observed execution, attribution or proof; the embedded legacy taxonomy version is not presented as the latest.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G100",
+      "domain": "Graph",
+      "recommendation": "Automated credential dumping, persistence and lateral movement chains",
+      "sources": "R1 pp6\u20137; R4 chain example; R8 \u00a710",
+      "code_evidence": [
+        "phases/redteam_campaign_control.py",
+        "phases/engagement_evidence_review.py"
+      ],
+      "baseline_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "baseline_quality": 1,
+      "release_status": "ALTERNATIVE IMPLEMENTATION EXISTS",
+      "release_quality": 1,
+      "feasibility": "external authorized engagement",
+      "priority": "P3",
+      "decision": "retain plan/import boundary",
+      "rationale": "Keep existing campaign governance and imported evidence; do not add autonomous credential dumping or persistence as a bounty optimization.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G101",
+      "domain": "Workflow/reporting",
+      "recommendation": "One operator view derived from persisted state",
+      "sources": "R3 \u00a78.3; R7 \u00a76; R8 \u00a79",
+      "code_evidence": [
+        "core/operator_view.py",
+        "phases/report.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "implement",
+      "rationale": "Searchable review queue, evidence state, advisory review status, real artifact links and ledger outcome counts. No simulated progress or fake coverage percentage.",
+      "verification": "Combined CLI workflow, model fixture and sealed operator artifacts"
+    },
+    {
+      "id": "G102",
+      "domain": "Workflow/reporting",
+      "recommendation": "Resume detects changed input bytes and re-runs derived reporting",
+      "sources": "R3 \u00a78.3; R5 \u00a74; R8 \u00a79",
+      "code_evidence": [
+        "core/execution_ledger.py",
+        "tbhm.py"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "New flags use fingerprint-recognized input suffixes. Resume is not a continuous monitoring scheduler.",
+      "verification": "Existing resume tests; contract fingerprint regression"
+    },
+    {
+      "id": "G103",
+      "domain": "Workflow/reporting",
+      "recommendation": "Target-free local source/import workflows",
+      "sources": "R8 \u00a7\u00a79,12",
+      "code_evidence": [
+        "tbhm.py"
+      ],
+      "baseline_status": "IMPLEMENTED WITH QUALITY ISSUES",
+      "baseline_quality": 1,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "fix and extend",
+      "rationale": "Correct code-repos names and compose source/mobile/API/Slither flags into one local subset. Explicit --phases remains an operator override.",
+      "verification": "Combined targetless CLI workflow and repository-intent tests"
+    },
+    {
+      "id": "G104",
+      "domain": "Workflow/reporting",
+      "recommendation": "Markdown/HTML/JSON/CSV/SARIF and role-oriented reporting",
+      "sources": "R2 \u00a714; R3 \u00a78.1; R8 \u00a79",
+      "code_evidence": [
+        "core/reporter.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 3,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "preserve",
+      "rationale": "Existing report formats and audience views remain. SARIF/result identifiers are not guaranteed stable across arbitrary refactoring.",
+      "verification": "Existing report groups and new workflow tests"
+    },
+    {
+      "id": "G105",
+      "domain": "Workflow/reporting",
+      "recommendation": "Auto-submit to bounty platforms or messaging",
+      "sources": "R2 \u00a714; R3 \u00a78.3; R8 \u00a75.1",
+      "code_evidence": [
+        "core/notifier.py",
+        "core/reporter.py"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "provider credentials + explicit operator action",
+      "priority": "P3",
+      "decision": "defer platform submission",
+      "rationale": "Keep local evidence packages. No program report, email, chat message or external submission was sent during this work.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G106",
+      "domain": "Workflow/reporting",
+      "recommendation": "Calibrated bounty ROI, payout predictions and coverage counts",
+      "sources": "R3 \u00a77; R5 \u00a76; R8 \u00a717",
+      "code_evidence": [
+        "core/scoring.py",
+        "docs/research-v4.2.0/GAP_MATRIX.json"
+      ],
+      "baseline_status": "REQUIRES FURTHER RESEARCH",
+      "baseline_quality": 0,
+      "release_status": "REQUIRES FURTHER RESEARCH",
+      "release_quality": 0,
+      "feasibility": "representative field outcomes",
+      "priority": "P0",
+      "decision": "reject numerical promises",
+      "rationale": "Bounty eligibility and payouts depend on each program and demonstrated impact. No 555-check, zero-FP or earnings guarantee is attached to this release.",
+      "verification": "Source inspection; existing regression suite only"
+    },
+    {
+      "id": "G107",
+      "domain": "Workflow/reporting",
+      "recommendation": "Complete research inventory and duplicate/conflict assessment",
+      "sources": "R8 \u00a7\u00a72,15",
+      "code_evidence": [
+        "docs/research-v4.2.0/INPUT_REGISTER.json",
+        "docs/research-v4.2.0/PRIMARY_SOURCES.json"
+      ],
+      "baseline_status": "NOT IMPLEMENTED",
+      "baseline_quality": 0,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P1",
+      "decision": "deliver",
+      "rationale": "All eight attachments read; PDF body overlaps the text copy, PDF includes bibliography, and the master prompt is process guidance.",
+      "verification": "Attachment byte/hash register and extracted PDF text inspection"
+    },
+    {
+      "id": "G108",
+      "domain": "Workflow/reporting",
+      "recommendation": "Install, CLI, package integrity, security regressions and reproducibility",
+      "sources": "R8 \u00a7\u00a713\u201314",
+      "code_evidence": [
+        "scripts/run_tests.py",
+        "scripts/validate_v4_release.py",
+        "core/package_verifier.py"
+      ],
+      "baseline_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "baseline_quality": 3,
+      "release_status": "FULLY IMPLEMENTED AND VERIFIED",
+      "release_quality": 3,
+      "feasibility": "direct",
+      "priority": "P0",
+      "decision": "extend and verify",
+      "rationale": "Retain earlier groups, add targeted behavioral and CLI groups, install from the final ZIP, verify pinned dependencies and exact manifest.",
+      "verification": "Verification report and machine-readable final test results"
+    },
+    {
+      "id": "G109",
+      "domain": "Workflow/reporting",
+      "recommendation": "Maintain every external scanner and cross-platform integration",
+      "sources": "R8 \u00a7\u00a73,14,19",
+      "code_evidence": [
+        "runtime.json",
+        "tooling/tool_catalog_v3975.json"
+      ],
+      "baseline_status": "PARTIALLY IMPLEMENTED",
+      "baseline_quality": 1,
+      "release_status": "PARTIALLY IMPLEMENTED",
+      "release_quality": 1,
+      "feasibility": "multiple OS/tool services and lab assets",
+      "priority": "P3",
+      "decision": "document limits",
+      "rationale": "This distribution is tested on Linux x86-64 / Python 3.12. No claim of all optional scanner, Windows/macOS, mobile-device, firmware or blockchain integration readiness.",
+      "verification": "Source inspection; existing regression suite only"
+    }
+  ]
+}

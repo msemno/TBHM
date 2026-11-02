@@ -1,0 +1,7 @@
+test_all_three_original_contracts_match_executed_baseline_vectors (test_proof_behavior_v424.LegacyProofBehavior.test_all_three_original_contracts_match_executed_baseline_vectors) ... ok
+test_proof_files_are_not_in_old_hash_freeze (test_proof_behavior_v424.LegacyProofBehavior.test_proof_files_are_not_in_old_hash_freeze) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.091s
+
+OK

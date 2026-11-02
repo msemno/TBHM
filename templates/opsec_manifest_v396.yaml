@@ -1,0 +1,15 @@
+engagement_id: CLIENT-CHANGE-ME
+evidence_encrypted: true
+operator_identity_separated: true
+dedicated_research_accounts: true
+egress_verified: true
+tls_fingerprint_profile: operator-managed-reference-profile
+egress_rotation_policy: operator-managed-approved-egress
+persona_inventory: encrypted-operator-managed-register
+source_request_budget: 100
+collection_window: approved-business-window
+honeypot_policy: stop-and-review
+data_retention_days: 30
+notes: >-
+  TBHM verifies that controls are declared. It does not spoof TLS fingerprints,
+  rotate infrastructure or manage deceptive personas.

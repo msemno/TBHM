@@ -1,0 +1,967 @@
+{
+  "schema": "tbhm.proof-comparison/1",
+  "baseline": "4.2.4",
+  "candidate": "4.2.5",
+  "scope": "Six synthetic owned-loopback two-tenant fixtures. Confirmation, not discovery or representative field accuracy.",
+  "cases": [
+    {
+      "mode": "vulnerable",
+      "baseline": "inconclusive",
+      "candidate": "pass",
+      "requests": 7,
+      "candidate_receipt": true
+    },
+    {
+      "mode": "secure",
+      "baseline": "inconclusive",
+      "candidate": "fail",
+      "requests": 7,
+      "candidate_receipt": false
+    },
+    {
+      "mode": "public",
+      "baseline": "inconclusive",
+      "candidate": "inconclusive",
+      "requests": 7,
+      "candidate_receipt": false
+    },
+    {
+      "mode": "expired",
+      "baseline": "inconclusive",
+      "candidate": "inconclusive",
+      "requests": 7,
+      "candidate_receipt": false
+    },
+    {
+      "mode": "echo",
+      "baseline": "inconclusive",
+      "candidate": "inconclusive",
+      "requests": 7,
+      "candidate_receipt": false
+    },
+    {
+      "mode": "wrong_tenant",
+      "baseline": "inconclusive",
+      "candidate": "inconclusive",
+      "requests": 7,
+      "candidate_receipt": false
+    }
+  ],
+  "baseline_metrics": {
+    "schema": "tbhm.quality-evaluation/1",
+    "by_stage_class": [
+      {
+        "stage": "confirmation",
+        "class": "bola",
+        "TP": 0,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "inconclusive": 6,
+        "inconclusive_positive": 1,
+        "inconclusive_negative": 5,
+        "sample_size": 6,
+        "prediction_coverage": 0.0,
+        "conditional_precision": null,
+        "conditional_recall": null,
+        "conditional_false_positive_rate": null,
+        "conditional_false_negative_rate": null,
+        "recall_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "precision_wilson_95": null,
+        "recall_wilson_95_conditional": null,
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      }
+    ],
+    "sample_size": 6,
+    "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+  },
+  "candidate_metrics": {
+    "schema": "tbhm.quality-evaluation/1",
+    "by_stage_class": [
+      {
+        "stage": "confirmation",
+        "class": "bola",
+        "TP": 1,
+        "FP": 0,
+        "TN": 1,
+        "FN": 0,
+        "inconclusive": 4,
+        "inconclusive_positive": 0,
+        "inconclusive_negative": 4,
+        "sample_size": 6,
+        "prediction_coverage": 0.3333333333333333,
+        "conditional_precision": 1.0,
+        "conditional_recall": 1.0,
+        "conditional_false_positive_rate": 0.0,
+        "conditional_false_negative_rate": 0.0,
+        "recall_bounds": [
+          1.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          0.8
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "precision_wilson_95": [
+          0.20654931437723745,
+          1
+        ],
+        "recall_wilson_95_conditional": [
+          0.20654931437723745,
+          1
+        ],
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      }
+    ],
+    "sample_size": 6,
+    "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+  },
+  "legacy_behavior": {
+    "vectors": 62,
+    "all_equal": true
+  },
+  "legacy_extended_vectors": [
+    {
+      "id": "vulnerable-0",
+      "baseline": {
+        "result": "pass",
+        "assertion_passed": true,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "failure condition: body_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "negative control: body_not_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "repeatability: 2 distinct authenticated captures -> True"
+        ],
+        "receipt_issued": true
+      },
+      "candidate": {
+        "result": "pass",
+        "assertion_passed": true,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "failure condition: body_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "negative control: body_not_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "repeatability: 2 distinct authenticated captures -> True"
+        ],
+        "receipt_issued": true
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-1",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-2",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-3",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-4",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-5",
+      "baseline": {
+        "result": "pass",
+        "assertion_passed": true,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "failure condition: body_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "negative control: body_not_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "repeatability: 2 distinct authenticated captures -> True"
+        ],
+        "receipt_issued": true
+      },
+      "candidate": {
+        "result": "pass",
+        "assertion_passed": true,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "failure condition: body_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "negative control: body_not_contains: 'TBHM_683782a802f143f6ab69e676ad4bef5d' -> True",
+          "repeatability: 2 distinct authenticated captures -> True"
+        ],
+        "receipt_issued": true
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-6",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-7",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-8",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "vulnerable-9",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-0",
+      "baseline": {
+        "result": "fail",
+        "assertion_passed": false,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "reviewed mutation and both repeats were denied; this exact control held"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "fail",
+        "assertion_passed": false,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "reviewed mutation and both repeats were denied; this exact control held"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-1",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-2",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-3",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-4",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-5",
+      "baseline": {
+        "result": "fail",
+        "assertion_passed": false,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "reviewed mutation and both repeats were denied; this exact control held"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "fail",
+        "assertion_passed": false,
+        "negative_control_passed": true,
+        "repeatability_passed": true,
+        "reasons": [
+          "reviewed mutation and both repeats were denied; this exact control held"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-6",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "'negative_control'"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-7",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture authentication failed"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-8",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "capture replay/duplicate refused"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    },
+    {
+      "id": "secure-9",
+      "baseline": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "candidate": {
+        "result": "inconclusive",
+        "assertion_passed": false,
+        "negative_control_passed": false,
+        "repeatability_passed": false,
+        "reasons": [
+          "no audited confirmation contract for this vulnerability class"
+        ],
+        "receipt_issued": false
+      },
+      "equal": true
+    }
+  ],
+  "new_vectors": [
+    {
+      "id": "vulnerable-golden",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "golden",
+      "result": "pass",
+      "receipt_issued": true
+    },
+    {
+      "id": "vulnerable-missing_control",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-missing_actor",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-missing_privacy",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-tampered",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-replayed",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-unrelated_class",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-golden",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "golden",
+      "result": "fail",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_control",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_actor",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_privacy",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-tampered",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-replayed",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-unrelated_class",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-golden",
+      "class": "bola",
+      "mode": "public",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_control",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_actor",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_privacy",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-tampered",
+      "class": "bola",
+      "mode": "public",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-replayed",
+      "class": "bola",
+      "mode": "public",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-unrelated_class",
+      "class": "bola",
+      "mode": "public",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-golden",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_control",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_actor",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_privacy",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-tampered",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-replayed",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-unrelated_class",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-golden",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_control",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_actor",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_privacy",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-tampered",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-replayed",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-unrelated_class",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-golden",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_control",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_actor",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_privacy",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-tampered",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-replayed",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-unrelated_class",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    }
+  ],
+  "passed": true
+}

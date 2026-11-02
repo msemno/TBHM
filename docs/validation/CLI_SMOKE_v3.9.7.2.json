@@ -1,0 +1,24 @@
+{
+  "release": "3.9.7.2-historical-coverage-restored",
+  "commands": [
+    "python tbhm.py --capability-status",
+    "python tbhm.py --doctor",
+    "python tbhm.py --list-profiles",
+    "python tbhm.py --help",
+    "python tbhm.py -y --code-dir <fixture> --code-scan-data-files --phases code_scan -o <output>"
+  ],
+  "capability_registry_version": "3.9.7.2",
+  "capabilities_registered": 16,
+  "capabilities_available_now": 12,
+  "doctor_ok": true,
+  "doctor_check_count": 20,
+  "help_contains_code_scan_data_files": true,
+  "help_contains_code_scan_extra_extensions": true,
+  "profiles_nonempty": true,
+  "report_generated": true,
+  "report_aliases_generated": true,
+  "findings_total": 2,
+  "raw_fixture_secret_persisted": false,
+  "result": "PASS",
+  "network_target_contacted": false
+}

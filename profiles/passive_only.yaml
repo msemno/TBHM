@@ -1,0 +1,20 @@
+name: passive_only
+description: Zero-touch reconnaissance only. Safe for any target.
+
+active_probes: false
+send_payloads: false
+
+rate_limit:
+  global_rps: 0
+  per_target_rps: 0
+  per_endpoint_rps: 0
+
+phases_enabled:
+  - recon
+  - discovery
+  - secrets_misc
+
+# Nuclei disabled in this profile
+nuclei:
+  severity: []
+  tags: []

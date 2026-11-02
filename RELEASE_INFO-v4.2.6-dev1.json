@@ -1,0 +1,28 @@
+{
+  "version": "4.2.6-dev1",
+  "status": "development-unvalidated",
+  "source_baseline": "TBHM-4.2.5-knowledge-and-migration(1).zip",
+  "source_repairs_merged": false,
+  "phase_names_changed": false,
+  "full_regression_passed": false,
+  "kali_runtime_validated": false,
+  "real_origin_scanning_implemented": false,
+  "waf_bypass_implemented": false,
+  "strict_classes_added": 0,
+  "new_tests_passed": 10,
+  "safety_model": {
+    "external_scanner_traffic_globally_metered": false,
+    "global_wire_enforcement": false,
+    "offline_is_os_network_namespace": false,
+    "all_sensitive_writers_reviewed": false,
+    "all_vulnerability_classes_auto_confirmable": false,
+    "strict_classes": [
+      "access_control",
+      "sensitive_data_exposure",
+      "open_redirect",
+      "path_traversal",
+      "bfla",
+      "bola"
+    ]
+  }
+}

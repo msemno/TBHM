@@ -1,0 +1,14 @@
+test_cicd_restores_build_files_and_container_rules (integration_test_v3972.HistoricalCoverageRestorationTests.test_cicd_restores_build_files_and_container_rules) ... ok
+test_cloud_iam_restores_roles_and_mixed_provider_records (integration_test_v3972.HistoricalCoverageRestorationTests.test_cloud_iam_restores_roles_and_mixed_provider_records) ... ok
+test_compliance_aliases_preserve_old_consumers_without_fake_pass (integration_test_v3972.HistoricalCoverageRestorationTests.test_compliance_aliases_preserve_old_consumers_without_fake_pass) ... ok
+test_compliance_csv_contains_new_and_historical_columns (integration_test_v3972.HistoricalCoverageRestorationTests.test_compliance_csv_contains_new_and_historical_columns) ... ok
+test_data_document_scanning_is_default_off_and_safe_opt_in (integration_test_v3972.HistoricalCoverageRestorationTests.test_data_document_scanning_is_default_off_and_safe_opt_in) ... ok
+test_every_v396_cicd_rule_has_a_live_v3972_fixture (integration_test_v3972.HistoricalCoverageRestorationTests.test_every_v396_cicd_rule_has_a_live_v3972_fixture) ... ok
+test_every_v396_cloud_indicator_remains_detectable (integration_test_v3972.HistoricalCoverageRestorationTests.test_every_v396_cloud_indicator_remains_detectable) ... ok
+test_historical_scan_catalog_union_and_cli_switches (integration_test_v3972.HistoricalCoverageRestorationTests.test_historical_scan_catalog_union_and_cli_switches) ... ok
+test_ocsf_preserves_legacy_uid_and_new_stable_fingerprint (integration_test_v3972.HistoricalCoverageRestorationTests.test_ocsf_preserves_legacy_uid_and_new_stable_fingerprint) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.314s
+
+OK

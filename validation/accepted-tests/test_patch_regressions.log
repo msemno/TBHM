@@ -1,0 +1,21 @@
+unittest.case.FunctionTestCase (test_injection_payload_no_regex_corruption)
+test_patch_regressions.py:test_injection_payload_no_regex_corruption ... ok
+unittest.case.FunctionTestCase (test_llm_generate_fallback_exists)
+test_patch_regressions.py:test_llm_generate_fallback_exists ... ok
+unittest.case.FunctionTestCase (test_open_redirect_host_parsing)
+test_patch_regressions.py:test_open_redirect_host_parsing ... ok
+unittest.case.FunctionTestCase (test_resume_rerun_set)
+test_patch_regressions.py:test_resume_rerun_set ... ok
+unittest.case.FunctionTestCase (test_scope_exact_vs_wildcard_typing)
+test_patch_regressions.py:test_scope_exact_vs_wildcard_typing ... ok
+unittest.case.FunctionTestCase (test_scope_no_allowlist_denies_external)
+test_patch_regressions.py:test_scope_no_allowlist_denies_external ... ok
+unittest.case.FunctionTestCase (test_smart_crawl_uses_central_scope)
+test_patch_regressions.py:test_smart_crawl_uses_central_scope ... ok
+unittest.case.FunctionTestCase (test_takeover_downgrade_and_cve_guard)
+test_patch_regressions.py:test_takeover_downgrade_and_cve_guard ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.055s
+
+OK

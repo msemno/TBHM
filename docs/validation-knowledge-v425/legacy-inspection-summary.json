@@ -1,0 +1,153 @@
+[
+  {
+    "schema": "tbhm.legacy-backup-inspection/1",
+    "archive": "tbhm-tool-backup.tar.gz",
+    "sha256": "d615753a54960c4cbd16e82ba238ea3a2159651ff08117b924ea491a79a6847f",
+    "execution_performed": false,
+    "merged_into_active_memory": false,
+    "members": 1157,
+    "files": 1064,
+    "expanded_bytes": 66662480,
+    "roots": [
+      "TBHM-v4.0.0-unified-safe"
+    ],
+    "databases": [
+      {
+        "role": "scanner run",
+        "quick_check": "ok",
+        "counts": {
+          "runs": 1,
+          "findings": 27
+        }
+      }
+    ]
+  },
+  {
+    "schema": "tbhm.legacy-backup-inspection/1",
+    "archive": "tbhm-ai-backup.tar.gz",
+    "sha256": "d2a47b1ef30ea4c2746747e95a4826bba6b4ddd2db1bef5c2aee006677ded021",
+    "execution_performed": false,
+    "merged_into_active_memory": false,
+    "members": 37,
+    "files": 14,
+    "expanded_bytes": 54998147,
+    "roots": [
+      "tbhm-ai"
+    ],
+    "databases": [
+      {
+        "role": "AI memory",
+        "quick_check": "ok",
+        "counts": {
+          "documents": 1200,
+          "document_chunks": 7855,
+          "runs": 27,
+          "phase_events": 817,
+          "findings": 194,
+          "lesson_candidates": 4,
+          "approved_lessons": 0,
+          "change_proposals": 6
+        },
+        "schema_versions": [
+          4,
+          5
+        ],
+        "audit": {
+          "intact": true,
+          "entries_checked": 62,
+          "meaning": "hash consistency, not independent validation of finding labels"
+        }
+      }
+    ]
+  },
+  {
+    "schema": "tbhm.legacy-backup-inspection/1",
+    "archive": "tbhm-ai-before-v3973-20260719-133756.tar.gz",
+    "sha256": "8733d3e9c777b29e931e17c161a529bbc53bae044b58cda6f89186a483203c35",
+    "execution_performed": false,
+    "merged_into_active_memory": false,
+    "members": 23,
+    "files": 6,
+    "expanded_bytes": 6396982,
+    "roots": [
+      "tbhm-ai"
+    ],
+    "databases": [
+      {
+        "role": "AI memory",
+        "quick_check": "ok",
+        "counts": {
+          "documents": 356,
+          "document_chunks": 2423,
+          "runs": 0,
+          "phase_events": 0,
+          "findings": 0,
+          "lesson_candidates": 0,
+          "approved_lessons": 0,
+          "change_proposals": 0
+        },
+        "schema_versions": [
+          4
+        ],
+        "audit": {
+          "intact": true,
+          "entries_checked": 1,
+          "meaning": "hash consistency, not independent validation of finding labels"
+        }
+      }
+    ]
+  },
+  {
+    "schema_migration_check": {
+      "archive_db": "tbhm-ai-before-v3973-20260719-133756.sqlite3",
+      "before": {
+        "runs": 0,
+        "findings": 0,
+        "lesson_candidates": 0,
+        "approved_lessons": 0
+      },
+      "after": {
+        "runs": 0,
+        "findings": 0,
+        "lesson_candidates": 0,
+        "approved_lessons": 0
+      },
+      "preserved": true,
+      "migrations": [
+        4,
+        6
+      ],
+      "audit": [
+        true,
+        "audit chain intact (1 entries)"
+      ]
+    }
+  },
+  {
+    "schema_migration_check": {
+      "archive_db": "tbhm-ai-backup.sqlite3",
+      "before": {
+        "runs": 27,
+        "findings": 194,
+        "lesson_candidates": 4,
+        "approved_lessons": 0
+      },
+      "after": {
+        "runs": 27,
+        "findings": 194,
+        "lesson_candidates": 4,
+        "approved_lessons": 0
+      },
+      "preserved": true,
+      "migrations": [
+        4,
+        5,
+        6
+      ],
+      "audit": [
+        true,
+        "audit chain intact (62 entries)"
+      ]
+    }
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "shell-direct",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-inline",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-escaped-html",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-unrelated-escape",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-conditional-kill",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-overwrite",
+    "category": "CWE-78",
+    "vulnerable": false
+  },
+  {
+    "id": "argv-values",
+    "category": "CWE-78",
+    "vulnerable": false
+  },
+  {
+    "id": "argv-explicit-noshell",
+    "category": "CWE-78",
+    "vulnerable": false
+  },
+  {
+    "id": "shell-enabled",
+    "category": "CWE-78",
+    "vulnerable": true
+  },
+  {
+    "id": "shell-numeric",
+    "category": "CWE-78",
+    "vulnerable": false
+  },
+  {
+    "id": "sql-unsafe",
+    "category": "CWE-89",
+    "vulnerable": true
+  },
+  {
+    "id": "sql-html-escape",
+    "category": "CWE-89",
+    "vulnerable": true
+  },
+  {
+    "id": "sql-safe-parameter",
+    "category": "CWE-89",
+    "vulnerable": false
+  },
+  {
+    "id": "sql-overwrite",
+    "category": "CWE-89",
+    "vulnerable": false
+  },
+  {
+    "id": "sql-numeric",
+    "category": "CWE-89",
+    "vulnerable": false
+  },
+  {
+    "id": "eval-user",
+    "category": "CWE-95",
+    "vulnerable": true
+  },
+  {
+    "id": "eval-overwrite",
+    "category": "CWE-95",
+    "vulnerable": false
+  },
+  {
+    "id": "constant-shell",
+    "category": "CWE-78",
+    "vulnerable": false
+  }
+]

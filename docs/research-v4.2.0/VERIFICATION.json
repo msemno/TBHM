@@ -1,0 +1,469 @@
+{
+  "release": "4.2.0",
+  "date": "2026-10-18",
+  "baseline": {
+    "groups": 41,
+    "passed": 41,
+    "tests": [
+      {
+        "test": "integration_test_addons.py",
+        "returncode": 0,
+        "seconds": 0.83
+      },
+      {
+        "test": "integration_test_ai_plane.py",
+        "returncode": 0,
+        "seconds": 8.13
+      },
+      {
+        "test": "integration_test_historical_regressions_v3971.py",
+        "returncode": 0,
+        "seconds": 0.3
+      },
+      {
+        "test": "integration_test_v391_safe.py",
+        "returncode": 0,
+        "seconds": 0.44
+      },
+      {
+        "test": "integration_test_v392.py",
+        "returncode": 0,
+        "seconds": 0.5
+      },
+      {
+        "test": "integration_test_v393.py",
+        "returncode": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "integration_test_v3941.py",
+        "returncode": 0,
+        "seconds": 1.19
+      },
+      {
+        "test": "integration_test_v395.py",
+        "returncode": 0,
+        "seconds": 0.58
+      },
+      {
+        "test": "integration_test_v396.py",
+        "returncode": 0,
+        "seconds": 0.37
+      },
+      {
+        "test": "integration_test_v3961.py",
+        "returncode": 0,
+        "seconds": 2.14
+      },
+      {
+        "test": "integration_test_v3971.py",
+        "returncode": 0,
+        "seconds": 1.05
+      },
+      {
+        "test": "integration_test_v3972.py",
+        "returncode": 0,
+        "seconds": 0.34
+      },
+      {
+        "test": "integration_test_v3973_installer.py",
+        "returncode": 0,
+        "seconds": 0.97
+      },
+      {
+        "test": "integration_test_v3974_reverse.py",
+        "returncode": 0,
+        "seconds": 0.38
+      },
+      {
+        "test": "integration_test_v3975_deep_reverse.py",
+        "returncode": 0,
+        "seconds": 0.57
+      },
+      {
+        "test": "integration_test_v398_safe_lifecycle.py",
+        "returncode": 0,
+        "seconds": 4.53
+      },
+      {
+        "test": "integration_test_v39_safe.py",
+        "returncode": 0,
+        "seconds": 0.45
+      },
+      {
+        "test": "integration_test_v4_ai_learning.py",
+        "returncode": 0,
+        "seconds": 0.47
+      },
+      {
+        "test": "tests/test_continuation_android_manifest.py",
+        "returncode": 0,
+        "seconds": 0.13
+      },
+      {
+        "test": "tests/test_continuation_archive_deadline.py",
+        "returncode": 0,
+        "seconds": 0.37
+      },
+      {
+        "test": "tests/test_continuation_git_intake.py",
+        "returncode": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "tests/test_continuation_har.py",
+        "returncode": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "tests/test_continuation_http_broker.py",
+        "returncode": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "tests/test_continuation_package_deadline.py",
+        "returncode": 0,
+        "seconds": 0.36
+      },
+      {
+        "test": "tests/test_continuation_recon_preflight.py",
+        "returncode": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "tests/test_continuation_redaction.py",
+        "returncode": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "tests/test_continuation_run_metadata.py",
+        "returncode": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "tests/test_continuation_runner_duplex.py",
+        "returncode": 0,
+        "seconds": 5.7
+      },
+      {
+        "test": "tests/test_continuation_runner_redaction.py",
+        "returncode": 0,
+        "seconds": 0.32
+      },
+      {
+        "test": "tests/test_patch_regressions.py",
+        "returncode": 0,
+        "seconds": 0.04
+      },
+      {
+        "test": "tests/test_release_v410.py",
+        "returncode": 0,
+        "seconds": 1.26
+      },
+      {
+        "test": "tests/test_remediation_f01.py",
+        "returncode": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "tests/test_remediation_f01_js.py",
+        "returncode": 0,
+        "seconds": 0.23
+      },
+      {
+        "test": "tests/test_remediation_f02_f03.py",
+        "returncode": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "tests/test_remediation_f04.py",
+        "returncode": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "tests/test_remediation_f05.py",
+        "returncode": 0,
+        "seconds": 0.64
+      },
+      {
+        "test": "tests/test_remediation_f07.py",
+        "returncode": 0,
+        "seconds": 1.2
+      },
+      {
+        "test": "tests/test_remediation_f10.py",
+        "returncode": 0,
+        "seconds": 0.24
+      },
+      {
+        "test": "tests/test_remediation_f11.py",
+        "returncode": 0,
+        "seconds": 0.22
+      },
+      {
+        "test": "tests/test_remediation_f12.py",
+        "returncode": 0,
+        "seconds": 0.21
+      },
+      {
+        "test": "tests/test_remediation_r09.py",
+        "returncode": 0,
+        "seconds": 0.4
+      }
+    ]
+  },
+  "candidate": {
+    "groups": 44,
+    "passed": 44,
+    "workers": 1,
+    "new_script_groups": 3,
+    "new_unittest_methods": 40,
+    "tests": [
+      {
+        "test": "integration_test_addons.py",
+        "returncode": 0,
+        "seconds": 1.62
+      },
+      {
+        "test": "integration_test_ai_plane.py",
+        "returncode": 0,
+        "seconds": 10.43
+      },
+      {
+        "test": "integration_test_historical_regressions_v3971.py",
+        "returncode": 0,
+        "seconds": 0.28
+      },
+      {
+        "test": "integration_test_v391_safe.py",
+        "returncode": 0,
+        "seconds": 0.31
+      },
+      {
+        "test": "integration_test_v392.py",
+        "returncode": 0,
+        "seconds": 0.34
+      },
+      {
+        "test": "integration_test_v393.py",
+        "returncode": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "integration_test_v3941.py",
+        "returncode": 0,
+        "seconds": 0.96
+      },
+      {
+        "test": "integration_test_v395.py",
+        "returncode": 0,
+        "seconds": 0.48
+      },
+      {
+        "test": "integration_test_v396.py",
+        "returncode": 0,
+        "seconds": 0.33
+      },
+      {
+        "test": "integration_test_v3961.py",
+        "returncode": 0,
+        "seconds": 1.95
+      },
+      {
+        "test": "integration_test_v3971.py",
+        "returncode": 0,
+        "seconds": 1.11
+      },
+      {
+        "test": "integration_test_v3972.py",
+        "returncode": 0,
+        "seconds": 0.3
+      },
+      {
+        "test": "integration_test_v3973_installer.py",
+        "returncode": 0,
+        "seconds": 0.76
+      },
+      {
+        "test": "integration_test_v3974_reverse.py",
+        "returncode": 0,
+        "seconds": 0.24
+      },
+      {
+        "test": "integration_test_v3975_deep_reverse.py",
+        "returncode": 0,
+        "seconds": 0.53
+      },
+      {
+        "test": "integration_test_v398_safe_lifecycle.py",
+        "returncode": 0,
+        "seconds": 4.15
+      },
+      {
+        "test": "integration_test_v39_safe.py",
+        "returncode": 0,
+        "seconds": 0.45
+      },
+      {
+        "test": "integration_test_v420_workflows.py",
+        "returncode": 0,
+        "seconds": 6.78
+      },
+      {
+        "test": "integration_test_v4_ai_learning.py",
+        "returncode": 0,
+        "seconds": 0.43
+      },
+      {
+        "test": "tests/test_continuation_android_manifest.py",
+        "returncode": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "tests/test_continuation_archive_deadline.py",
+        "returncode": 0,
+        "seconds": 0.36
+      },
+      {
+        "test": "tests/test_continuation_git_intake.py",
+        "returncode": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "tests/test_continuation_har.py",
+        "returncode": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "tests/test_continuation_http_broker.py",
+        "returncode": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "tests/test_continuation_package_deadline.py",
+        "returncode": 0,
+        "seconds": 0.38
+      },
+      {
+        "test": "tests/test_continuation_recon_preflight.py",
+        "returncode": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "tests/test_continuation_redaction.py",
+        "returncode": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "tests/test_continuation_run_metadata.py",
+        "returncode": 0,
+        "seconds": 0.15
+      },
+      {
+        "test": "tests/test_continuation_runner_duplex.py",
+        "returncode": 0,
+        "seconds": 5.42
+      },
+      {
+        "test": "tests/test_continuation_runner_redaction.py",
+        "returncode": 0,
+        "seconds": 0.25
+      },
+      {
+        "test": "tests/test_patch_regressions.py",
+        "returncode": 0,
+        "seconds": 0.04
+      },
+      {
+        "test": "tests/test_release_v410.py",
+        "returncode": 0,
+        "seconds": 1.21
+      },
+      {
+        "test": "tests/test_remediation_f01.py",
+        "returncode": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "tests/test_remediation_f01_js.py",
+        "returncode": 0,
+        "seconds": 0.25
+      },
+      {
+        "test": "tests/test_remediation_f02_f03.py",
+        "returncode": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "tests/test_remediation_f04.py",
+        "returncode": 0,
+        "seconds": 0.21
+      },
+      {
+        "test": "tests/test_remediation_f05.py",
+        "returncode": 0,
+        "seconds": 0.52
+      },
+      {
+        "test": "tests/test_remediation_f07.py",
+        "returncode": 0,
+        "seconds": 0.91
+      },
+      {
+        "test": "tests/test_remediation_f10.py",
+        "returncode": 0,
+        "seconds": 0.22
+      },
+      {
+        "test": "tests/test_remediation_f11.py",
+        "returncode": 0,
+        "seconds": 0.17
+      },
+      {
+        "test": "tests/test_remediation_f12.py",
+        "returncode": 0,
+        "seconds": 0.15
+      },
+      {
+        "test": "tests/test_remediation_r09.py",
+        "returncode": 0,
+        "seconds": 0.39
+      },
+      {
+        "test": "tests/test_research_v420_evidence.py",
+        "returncode": 0,
+        "seconds": 0.87
+      },
+      {
+        "test": "tests/test_research_v420_static.py",
+        "returncode": 0,
+        "seconds": 0.25
+      }
+    ]
+  },
+  "execution_content_sha256": "410fbcae47e05b98d351dfac1286b289c5777e20be35655b067d89df6f575239",
+  "execution_digest_policy": "Sorted path/SHA256 pairs for packaged files except docs, README, CHANGELOG and RELEASE_* metadata; excludes .venv, .git and caches. Final archive is checked against this content digest.",
+  "model_validation": "Loopback HTTP model fixture only; no real model judgment, weights, GPU or LLM accuracy benchmark.",
+  "live_validation": "Local HTTP and synthetic fixture workflows only; no public target/provider/cloud/device/firmware/blockchain execution.",
+  "timing_note": "An intermediate parallel suite under concurrent browser/package work had one unchanged 3-second deadline assertion at 3.098 seconds. The assertion was retained; the final candidate serial suite passed. Hard real-time behavior under arbitrary CPU contention is not claimed.",
+  "test_updates": "Only historical release-version expectations changed from 4.1.0 to 4.2.0. No regression group was removed or disabled.",
+  "browser": {
+    "mobileMetrics": {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "x": 0
+    },
+    "overflowNodes": [],
+    "errors": [],
+    "duplicateIds": [],
+    "badAnchors": [],
+    "matrixVisible": 1,
+    "cliVisible": 3,
+    "catalogVisible": 1,
+    "desktopOverflow": false,
+    "mobileOverflow": false,
+    "operatorRows": 3,
+    "operatorFiltered": 1
+  }
+}

@@ -1,0 +1,9 @@
+area,acceptance_goal,status
+external_adapters,"Demonstrate per-adapter scope, rate, method, redirect and cancellation behavior with owned fixtures",open
+evidence_contracts,"Expand class-specific assertions with independent positive controls and negative controls",open
+model_reasoning,"Measure the selected real model on held-out evidence and adversarial cases",open
+retrieval_maintenance,"Retain and measure deferred embedding work without replacing durable memory",open
+browser_validation,"Establish observed JavaScript execution separately from reflection and process exit",open
+authenticated_workflows,"Use controlled accounts and test objects for actor, role and tenant boundaries",open
+release_operation,"Retain reproducible install, manifest, regression and fresh-clone evidence",ongoing
+publication_privacy,"Keep engagement records outside the source checkout and review new fixtures before publishing",ongoing

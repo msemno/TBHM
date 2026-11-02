@@ -1,0 +1,8 @@
+{
+  "capability_rows": 19,
+  "audited_proof_classes": 5,
+  "new_narrow_classes": 2,
+  "writer_candidates": 1426,
+  "all_sensitive_writers_reviewed": false,
+  "global_wire_enforcement": false
+}

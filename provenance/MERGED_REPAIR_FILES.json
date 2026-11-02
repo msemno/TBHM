@@ -1,0 +1,17 @@
+[
+  "tests/test_flow_contract_v423.py",
+  "core/request_guard.py",
+  "core/llm_local.py",
+  "core/llm_review.py",
+  "core/runner.py",
+  "core/evidence_redaction.py",
+  "phases/local_llm_triage.py",
+  "phases/recon.py",
+  "phases/discovery.py",
+  "core/ai_plane/cli.py",
+  "core/ai_plane/public_knowledge.py",
+  "core/ai_plane/advisor.py",
+  "core/ai_plane/run_learning.py",
+  "core/ai_plane/embeddings.py",
+  "core/ai_plane/observer.py"
+]

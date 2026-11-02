@@ -1,0 +1,81 @@
+{
+  "archive": "TBHM-4.2.4-preflight.zip",
+  "passed": true,
+  "tested_code_hashes_match": 379,
+  "checks": [
+    {
+      "command": [
+        "bash",
+        "install.sh",
+        "--offline"
+      ],
+      "returncode": 0,
+      "seconds": 5.442,
+      "stdout": "Package integrity verified.\nLooking in links: /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/vendor/wheels\nProcessing ./vendor/wheels/certifi-2026.7.22-py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 2))\nProcessing ./vendor/wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 3))\nProcessing ./vendor/wheels/idna-3.20-py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 4))\nProcessing ./vendor/wheels/ldap3-2.9.1-py2.py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 5))\nProcessing ./vendor/wheels/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 6))\nProcessing ./vendor/wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 7))\nProcessing ./vendor/wheels/pyasn1-0.6.4-py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 8))\nProcessing ./vendor/wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 9))\nProcessing ./vendor/wheels/requests-2.34.2-py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 10))\nProcessing ./vendor/wheels/urllib3-2.8.0-py3-none-any.whl (from -r /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/requirements.lock (line 11))\nInstalling collected packages: urllib3, PyYAML, pyasn1, psutil, numpy, idna, charset-normalizer, certifi, requests, ldap3\nSuccessfully installed PyYAML-6.0.3 certifi-2026.7.22 charset-normalizer-3.5.2 idna-3.20 ldap3-2.9.1 numpy-2.3.5 psutil-7.2.2 pyasn1-0.6.4 requests-2.34.2 urllib3-2.8.0\nNo broken requirements found.\n4.2.4\n\nInstalled TBHM 4.2.4 in /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/.venv\nRun: /workspace/scratch/275c82ed021c/fresh-install-424/TBHM-4.2.4/tbhm --help\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "returncode": 0,
+      "seconds": 0.201,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "./tbhm",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.093,
+      "stdout": "4.2.4\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "integration_test_v424_workflows.py"
+      ],
+      "returncode": 0,
+      "seconds": 3.972,
+      "stdout": "",
+      "stderr": "test_live_pinned_proofs_persist_restore_report_graph_and_seal (__main__.Workflows.test_live_pinned_proofs_persist_restore_report_graph_and_seal) ... ok\ntest_missing_approval_and_offline_make_no_target_contact (__main__.Workflows.test_missing_approval_and_offline_make_no_target_contact) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 3.866s\n\nOK\n"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "integration_test_v423_workflows.py"
+      ],
+      "returncode": 0,
+      "seconds": 2.044,
+      "stdout": "",
+      "stderr": "test_broker_plan_runs_native_and_real_isolated_worker_via_cli (__main__.Workflows.test_broker_plan_runs_native_and_real_isolated_worker_via_cli) ... ok\ntest_combined_llm_import_and_reviewed_cards_reach_sealed_delivery (__main__.Workflows.test_combined_llm_import_and_reviewed_cards_reach_sealed_delivery) ... ok\ntest_prior_delivery_audit_cli_fails_for_opaque_coverage (__main__.Workflows.test_prior_delivery_audit_cli_fails_for_opaque_coverage) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 1.969s\n\nOK\n"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "tests/test_offline_v422.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.284,
+      "stdout": "",
+      "stderr": "test_approved_adapter_is_isolated_in_both_executors (__main__.OfflineTests.test_approved_adapter_is_isolated_in_both_executors) ... ok\ntest_inherited_socket_and_unsupported_platform_fail_closed (__main__.OfflineTests.test_inherited_socket_and_unsupported_platform_fail_closed) ... ok\ntest_threads_raw_syscalls_and_exec_inherit_filter (__main__.OfflineTests.test_threads_raw_syscalls_and_exec_inherit_filter) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.229s\n\nOK\n"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "scripts/build_release_manifest.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "seconds": 0.349,
+      "stdout": "Manifest matches source tree.\n",
+      "stderr": ""
+    }
+  ]
+}

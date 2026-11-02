@@ -1,0 +1,7 @@
+test_live_pinned_proofs_persist_restore_report_graph_and_seal (integration_test_v424_workflows.Workflows.test_live_pinned_proofs_persist_restore_report_graph_and_seal) ... ok
+test_missing_approval_and_offline_make_no_target_contact (integration_test_v424_workflows.Workflows.test_missing_approval_and_offline_make_no_target_contact) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 10.876s
+
+OK

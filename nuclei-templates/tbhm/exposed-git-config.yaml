@@ -1,0 +1,30 @@
+id: tbhm-exposed-git-config
+
+info:
+  name: Exposed .git/config (Source Code Disclosure)
+  author: tbhm
+  severity: high
+  description: |
+    The .git/config file is accessible, indicating the whole .git directory is
+    likely exposed. An attacker can reconstruct source code and history, often
+    recovering hard-coded secrets.
+  remediation: "Deny access to .git/; do not deploy VCS metadata to production."
+  tags: tbhm,exposure,git,source
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/.git/config"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: word
+        part: body
+        words:
+          - "[core]"
+          - "repositoryformatversion"
+        condition: and

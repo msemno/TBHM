@@ -1,0 +1,7 @@
+test_linked_private_files_never_become_model_context (test_ai_boundary_v422.AIBoundaryTests.test_linked_private_files_never_become_model_context) ... ok
+test_regular_artifacts_remain_untrusted_sanitized_context (test_ai_boundary_v422.AIBoundaryTests.test_regular_artifacts_remain_untrusted_sanitized_context) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

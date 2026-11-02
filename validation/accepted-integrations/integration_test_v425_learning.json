@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_v425_learning.py",
+  "expected_cases": 4,
+  "executed_cases": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 13.392,
+  "passed": true
+}

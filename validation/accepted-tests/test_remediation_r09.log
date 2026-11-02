@@ -1,0 +1,14 @@
+test_missing_and_empty_prior_are_blocked (test_remediation_r09.EmptyRecheckTests.test_missing_and_empty_prior_are_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.545s
+
+OK
+[32m[LEGAL][0m Authorization confirmed by user.
+        Targets: 1  Profile: authorized_safe
+        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).
+
+[32m[LEGAL][0m Authorization confirmed by user.
+        Targets: 1  Profile: authorized_safe
+        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).
+

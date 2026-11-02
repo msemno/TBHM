@@ -1,0 +1,41 @@
+id: tbhm-exposed-dotenv
+
+info:
+  name: Exposed .env Configuration File
+  author: tbhm
+  severity: high
+  description: |
+    A .env file is reachable over HTTP. These commonly contain database
+    credentials, API keys, and app secrets.
+  remediation: "Block dotfiles at the web server; never deploy .env to web roots."
+  tags: tbhm,exposure,config,secret
+  metadata:
+    max-request: 2
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/.env"
+      - "{{BaseURL}}/.env.local"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: regex
+        part: body
+        condition: or
+        regex:
+          - "(?m)^[A-Z0-9_]+=.+$"
+          - "(?i)(APP_KEY|DB_PASSWORD|SECRET|API_KEY|AWS_ACCESS_KEY)="
+      - type: word
+        part: header
+        words:
+          - "text/html"
+        case-insensitive: true
+        negative: true
+    extractors:
+      - type: regex
+        part: body
+        regex:
+          - "(?i)(DB_PASSWORD|SECRET[_A-Z]*|API_KEY|AWS_[A-Z_]+)=[^\\r\\n]+"

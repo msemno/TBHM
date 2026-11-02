@@ -1,0 +1,611 @@
+[
+  {
+    "test": "integration_test_addons.py",
+    "returncode": 0,
+    "stdout": "TBHM v2.24 add-on phases:\n  ADD-SQLI     -> phase_sqli  (extends BR09, BR10, IMP-03)\n  ADD-NETAD    -> phase_net_ad  (extends BR06, IMP-07, FR-022)\n  ADD-SVCPRIM  -> phase_service_primitive  (extends BR07, BR08, IMP-07-049)\n\nSQLi findings: 1\n  - error    on id: DB error signature: 'you have an error in your sql syntax'\nNet/AD errors (expected 'network only'): ['no dc_ip/base_dn supplied; ran network only']\nService platform_supported: False | errors: ['unsupported_platform: Windows required for live checks (logic is unit-tested on Linux)']\n\n--- log channel line counts ---\n  full.jsonl           14 lines  [OK]\n  audit.jsonl          14 lines  [OK]\n  full.log             14 lines  [OK]\n  background.json       3 lines  [OK]\n\n--- sample reproducibility record (argv captured) ---\n   [\"GET\", \"http://127.0.0.1:36495/product.php?id=1%27\"]\n\nRUN ROOT: /tmp/tbhm_integ_td228wo9\nRESULT: PASS\n",
+    "stderr": "",
+    "seconds": 0.73
+  },
+  {
+    "test": "integration_test_ai_plane.py",
+    "returncode": 0,
+    "stdout": "[PASS] home layout created \u2014 /tmp/tbhm-ai-test-r4wq4pi0/aihome\n[PASS] db schema present\n[PASS] source indexed \u2014 644 files, 5201 chunks\n[PASS] vector index built (fallback ok) \u2014 rows=5201 mode=fallback\n[PASS] retrieval returns hits \u2014 5 hits\n[PASS] delta detects modification \u2014 modified=1\n[PASS] forged nested CONFIRMED rejected\n[PASS] authenticated confirmation resolved\n[PASS] nested SUPPORTED resolved\n[PASS] bare finding computed via assess()\n[PASS] is_confirmed only true for CONFIRMED\n[PASS] schema coerces bad correlations to list\n[PASS] schema keeps valid verify_next rows\n[PASS] proposal created (pending, not applied)\n[PASS] approval archives, does not auto-apply\n[PASS] audit hash-chain intact \u2014 audit chain intact (2 entries)\n{\n  \"archive\": \"/tmp/tbhm-ai-test-r4wq4pi0/aihome/tbhm-ai-backup-20261029-190935.tar.gz\",\n  \"compression\": \"gzip\",\n  \"includes\": [\n    \"config\",\n    \"audit\",\n    \"proposals\",\n    \"knowledge/approved-lessons\",\n    \"indexes/vector-manifest.json\",\n    \"backups/memory-backup.sqlite3\"\n  ],\n  \"excludes\": [\n    \"model weights (re-pull via model-lock.json)\",\n    \"rebuildable vector matrix\",\n    \"legacy/raw imported resources\"\n  ],\n  \"restore\": \"./tbhm.py --ai-restore /tmp/tbhm-ai-test-r4wq4pi0/aihome/tbhm-ai-backup-20261029-190935.tar.gz\"\n}\n[PASS] backup produced archive\n[PASS] backup archive on disk \u2014 tbhm-ai-backup-20261029-190935.tar.gz\n{\n  \"ok\": true,\n  \"home\": \"/tmp/tbhm-ai-test-r4wq4pi0/aihome-restored\",\n  \"db\": \"/tmp/tbhm-ai-test-r4wq4pi0/aihome-restored/database/memory.sqlite3\",\n  \"index_rebuilt_rows\": 5201,\n  \"embedding_mode\": \"fallback\",\n  \"tool_source_stale_vs_restored_index\": false,\n  \"next\": \"ready\"\n}\n[PASS] restore succeeded\n[PASS] restored db has the indexed chunks \u2014 5201 chunks\n\nRESULT: ALL PASS\n",
+    "stderr": "",
+    "seconds": 7.13
+  },
+  {
+    "test": "integration_test_historical_regressions_v3971.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_admin_bypass_requires_direct_control_differential (__main__.CurlProbeHistoricalTests.test_admin_bypass_requires_direct_control_differential) ... ok\ntest_curl_runner_throttles_times_out_and_quotes (__main__.CurlProbeHistoricalTests.test_curl_runner_throttles_times_out_and_quotes) ... ok\ntest_injected_method_reference_is_method_override_signal (__main__.CurlProbeHistoricalTests.test_injected_method_reference_is_method_override_signal) ... ok\ntest_plain_405_is_not_method_override (__main__.CurlProbeHistoricalTests.test_plain_405_is_not_method_override) ... ok\ntest_range_probe_is_bounded_non_destructive_indicator (__main__.CurlProbeHistoricalTests.test_range_probe_is_bounded_non_destructive_indicator) ... ok\ntest_sensitive_file_rejects_generic_soft_404_html (__main__.CurlProbeHistoricalTests.test_sensitive_file_rejects_generic_soft_404_html) ... ok\ntest_sensitive_file_requires_distinctive_non_html_body (__main__.CurlProbeHistoricalTests.test_sensitive_file_requires_distinctive_non_html_body) ... ok\ntest_server_status_requires_recognizable_distinct_content (__main__.CurlProbeHistoricalTests.test_server_status_requires_recognizable_distinct_content) ... ok\ntest_endpoint_vs_wildcard_and_custom_404 (__main__.FalsePositiveHistoricalTests.test_endpoint_vs_wildcard_and_custom_404) ... ok\ntest_redirect_json_and_status_body_controls (__main__.FalsePositiveHistoricalTests.test_redirect_json_and_status_body_controls) ... ok\ntest_soft404_body_and_length_similarity (__main__.FalsePositiveHistoricalTests.test_soft404_body_and_length_similarity) ... ok\ntest_failed_update_is_not_silent_success (__main__.NucleiAndInstallerHistoricalTests.test_failed_update_is_not_silent_success) ... ok\ntest_installer_preserves_go_v2_names_and_rejects_wrong_httpx (__main__.NucleiAndInstallerHistoricalTests.test_installer_preserves_go_v2_names_and_rejects_wrong_httpx) ... ok\ntest_missing_nuclei_is_explicit (__main__.NucleiAndInstallerHistoricalTests.test_missing_nuclei_is_explicit) ... ok\ntest_template_listing_fallback_is_counted_only_on_success (__main__.NucleiAndInstallerHistoricalTests.test_template_listing_fallback_is_counted_only_on_success) ... ok\ntest_valid_empty_and_malformed_template_stores (__main__.NucleiAndInstallerHistoricalTests.test_valid_empty_and_malformed_template_stores) ... ok\ntest_workflow_paths_are_absolute_and_fallback_to_tags (__main__.NucleiAndInstallerHistoricalTests.test_workflow_paths_are_absolute_and_fallback_to_tags) ... ok\ntest_report_outputs_qualified_posture_and_compatibility_aliases (__main__.ReporterHistoricalTests.test_report_outputs_qualified_posture_and_compatibility_aliases) ... ok\ntest_file_and_string_limits_are_bounded (__main__.ReverseFallbackHistoricalTests.test_file_and_string_limits_are_bounded) ... ok\ntest_hashes_magic_entropy_strings_short_imports_and_redaction (__main__.ReverseFallbackHistoricalTests.test_hashes_magic_entropy_strings_short_imports_and_redaction) ... ok\ntest_bounded_recursion_malformed_input_and_max_items (__main__.ScannerNormalizerHistoricalTests.test_bounded_recursion_malformed_input_and_max_items) ... ok\ntest_json_jsonl_sarif_nested_cwe_and_dedup (__main__.ScannerNormalizerHistoricalTests.test_json_jsonl_sarif_nested_cwe_and_dedup) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.131s\n\nOK\n",
+    "seconds": 0.23
+  },
+  {
+    "test": "integration_test_v391_safe.py",
+    "returncode": 0,
+    "stdout": "v3.9.1 integrated LLM/evidence-safe tests: PASS\n",
+    "stderr": "",
+    "seconds": 0.23
+  },
+  {
+    "test": "integration_test_v392.py",
+    "returncode": 0,
+    "stdout": "v3.9.2 reverse/report/confirmation tests: PASS\n",
+    "stderr": "",
+    "seconds": 0.27
+  },
+  {
+    "test": "integration_test_v393.py",
+    "returncode": 0,
+    "stdout": "TBHM v3.9.3 regression tests\n\n[test_p03_runtime_proof_status]\n  PASS  200 is runtime proof\n  PASS  302 is runtime proof\n  PASS  401 is NOT runtime proof\n  PASS  403 is NOT runtime proof\n  PASS  404 is NOT runtime proof\n  PASS  500 is NOT runtime proof\n\n[test_p02_taint_no_self_confirm]\n  PASS  taint flow detected\n  PASS  static-only flow is NOT confirmed\n  PASS  confirmed after reachability corroboration\n\n[test_a_secret_value_before_redaction]\n  PASS  secret_candidates keeps the real value in memory\n  PASS  real key NOT treated as dummy\n  PASS  placeholder IS treated as dummy\n  PASS  redacted form never contains the real value\n\n[test_b_raw_short_imports]\n  PASS  short API 'gets' caught\n  PASS  short API 'system' caught\n  PASS  short API 'WinExec' caught\n\n[test_full_binary_phase]\n  PASS  binary phase produced findings (not a no-op)\n  PASS  exactly one real secret (example dropped even w/ sample.bin name)\n  PASS  stored secret evidence is redacted\n  PASS  short dangerous imports surfaced\n\nALL PASSED\n",
+    "stderr": "",
+    "seconds": 0.07
+  },
+  {
+    "test": "integration_test_v3941.py",
+    "returncode": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"source_type\": \"operator_note\",\n  \"sanitized_copy\": \"/tmp/tmpsamhsb89/ai-home/knowledge/imported-resources/62070180cc3e-note.txt.sanitized.txt\",\n  \"metadata\": \"/tmp/tmpsamhsb89/ai-home/knowledge/imported-resources/62070180cc3e-note.txt.meta.json\",\n  \"raw_stored\": false,\n  \"chunks_added\": 1,\n  \"chunks_reused\": 0,\n  \"raw_sha256\": \"62070180cc3e2595dd266261740a7d7dea0dd8b2d60b531b389516ec72e0254b\",\n  \"sanitized_sha256\": \"f67f9710cb69820ca2dfadd296e9f98ced5eb8a1e06f6aa9c171fcff7eb58607\",\n  \"vector_index\": {\n    \"rows\": 1,\n    \"embedding_mode\": \"fallback\",\n    \"model\": \"tbhm-hash-v1\",\n    \"dim\": 256,\n    \"updated_rows\": 1,\n    \"rebuild\": true\n  },\n  \"advisory\": {\n    \"related_tbhm_components\": [],\n    \"note\": \"Knowledge added. Any source change must go through review/proposal governance.\"\n  }\n}\n{\n  \"archive\": \"/tmp/tmpsamhsb89/ai-home/tbhm-ai-backup-20261029-190931.tar.gz\",\n  \"compression\": \"gzip\",\n  \"includes\": [\n    \"config\",\n    \"audit\",\n    \"proposals\",\n    \"knowledge/approved-lessons\",\n    \"indexes/vector-manifest.json\",\n    \"backups/memory-backup.sqlite3\",\n    \"knowledge/imported-resources/62070180cc3e-note.txt.meta.json\",\n    \"knowledge/imported-resources/62070180cc3e-note.txt.sanitized.txt\"\n  ],\n  \"excludes\": [\n    \"model weights (re-pull via model-lock.json)\",\n    \"rebuildable vector matrix\",\n    \"legacy/raw imported resources\"\n  ],\n  \"restore\": \"./tbhm.py --ai-restore /tmp/tmpsamhsb89/ai-home/tbhm-ai-backup-20261029-190931.tar.gz\"\n}\n{\"ok\": false, \"detail\": \"safe extract failed: special archive members are not allowed in AI backups: bad-fifo\"}\n",
+    "stderr": "test_ai_delta_replaces_stale_document_and_updates_incrementally (__main__.V3941RegressionTests.test_ai_delta_replaces_stale_document_and_updates_incrementally) ... ok\ntest_ai_embedding_batch_never_mixes_spaces (__main__.V3941RegressionTests.test_ai_embedding_batch_never_mixes_spaces) ... ok\ntest_ai_ingestion_and_backup_never_store_raw_secret_and_include_proposals (__main__.V3941RegressionTests.test_ai_ingestion_and_backup_never_store_raw_secret_and_include_proposals) ... ok\ntest_ai_model_lock_is_authoritative (__main__.V3941RegressionTests.test_ai_model_lock_is_authoritative) ... ok\ntest_ai_restore_rejects_special_tar_members (__main__.V3941RegressionTests.test_ai_restore_rejects_special_tar_members) ... ok\ntest_boundary_aware_short_api_and_capa_parser (__main__.V3941RegressionTests.test_boundary_aware_short_api_and_capa_parser) ... ok\ntest_deep_crawl_passive_and_404_handling (__main__.V3941RegressionTests.test_deep_crawl_passive_and_404_handling) ... ok\ntest_deep_crawl_uses_final_redirect_base_for_relative_links (__main__.V3941RegressionTests.test_deep_crawl_uses_final_redirect_base_for_relative_links) ... ok\ntest_js_analysis_blocks_out_of_scope_before_request (__main__.V3941RegressionTests.test_js_analysis_blocks_out_of_scope_before_request) ... ok\ntest_observer_lesson_candidates_are_current_run_only (__main__.V3941RegressionTests.test_observer_lesson_candidates_are_current_run_only) ... ok\ntest_profile_phase_order_rate_and_local_only_gate (__main__.V3941RegressionTests.test_profile_phase_order_rate_and_local_only_gate) ... ok\ntest_public_suffix_and_ip_scope (__main__.V3941RegressionTests.test_public_suffix_and_ip_scope) ... ok\ntest_reverse_correlation_groups_by_artifact_id (__main__.V3941RegressionTests.test_reverse_correlation_groups_by_artifact_id) ... ok\ntest_scope_safe_redirect_stops_before_external_request (__main__.V3941RegressionTests.test_scope_safe_redirect_stops_before_external_request) ... ok\ntest_static_taint_is_supported_not_mitigated_or_confirmed (__main__.V3941RegressionTests.test_static_taint_is_supported_not_mitigated_or_confirmed) ... ok\ntest_storage_redacts_secrets_but_preserves_artifact_hash (__main__.V3941RegressionTests.test_storage_redacts_secrets_but_preserves_artifact_hash) ... ok\ntest_structured_http_differential_only (__main__.V3941RegressionTests.test_structured_http_differential_only) ... ok\ntest_supported_static_survives_false_positive_gate (__main__.V3941RegressionTests.test_supported_static_survives_false_positive_gate) ... ok\ntest_surface_correlation_consumes_source_hosts_urls_and_excludes (__main__.V3941RegressionTests.test_surface_correlation_consumes_source_hosts_urls_and_excludes) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.595s\n\nOK\n",
+    "seconds": 0.74
+  },
+  {
+    "test": "integration_test_v395.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_adapter_contract_and_provenance (__main__.V395Tests.test_adapter_contract_and_provenance) ... ok\ntest_approval_domain_url_ip_and_cidr (__main__.V395Tests.test_approval_domain_url_ip_and_cidr) ... ok\ntest_authenticated_har_role_matrix_is_offline_supported_lead (__main__.V395Tests.test_authenticated_har_role_matrix_is_offline_supported_lead) ... ok\ntest_catalog_and_safe_installer_policy (__main__.V395Tests.test_catalog_and_safe_installer_policy) ... ok\ntest_controlled_validation_requires_matching_approval_for_findings (__main__.V395Tests.test_controlled_validation_requires_matching_approval_for_findings) ... ok\ntest_corporate_osint_hashes_email_without_pii_policy (__main__.V395Tests.test_corporate_osint_hashes_email_without_pii_policy) ... ok\ntest_data_analysis_hashes_email_and_exports_graph (__main__.V395Tests.test_data_analysis_hashes_email_and_exports_graph) ... ok\ntest_notifier_rejects_insecure_remote_http (__main__.V395Tests.test_notifier_rejects_insecure_remote_http) ... ok\ntest_phase_order_and_profiles (__main__.V395Tests.test_phase_order_and_profiles) ... ok\ntest_report_confidence_and_dependency_gates_demote_not_delete (__main__.V395Tests.test_report_confidence_and_dependency_gates_demote_not_delete) ... ok\ntest_run_learning_redacts_untrusted_secret (__main__.V395Tests.test_run_learning_redacts_untrusted_secret) ... ok\ntest_thread_clamp_and_test_path_policy (__main__.V395Tests.test_thread_clamp_and_test_path_policy) ... ok\ntest_vulnerability_enrichment_local_feeds_never_confirms (__main__.V395Tests.test_vulnerability_enrichment_local_feeds_never_confirms) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.265s\n\nOK\n",
+    "seconds": 0.33
+  },
+  {
+    "test": "integration_test_v396.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_ci_cd_static_review_and_attestation_inventory (__main__.V396Tests.test_ci_cd_static_review_and_attestation_inventory) ... ok\ntest_cloud_identity_analysis_is_read_only_lead (__main__.V396Tests.test_cloud_identity_analysis_is_read_only_lead) ... ok\ntest_compliance_matrix_is_policy_driven_not_certification (__main__.V396Tests.test_compliance_matrix_is_policy_driven_not_certification) ... ok\ntest_execution_plan_is_approval_gated_and_contains_no_commands (__main__.V396Tests.test_execution_plan_is_approval_gated_and_contains_no_commands) ... ok\ntest_execution_registry_enforces_plan_import_boundary (__main__.V396Tests.test_execution_registry_enforces_plan_import_boundary) ... ok\ntest_invalid_high_impact_registry_override_is_blocked (__main__.V396Tests.test_invalid_high_impact_registry_override_is_blocked) ... ok\ntest_ocsf_and_mcp_manifests_are_non_authoritative (__main__.V396Tests.test_ocsf_and_mcp_manifests_are_non_authoritative) ... ok\ntest_osint_depth_generates_plan_and_hashes_username (__main__.V396Tests.test_osint_depth_generates_plan_and_hashes_username) ... ok\ntest_phase_order_profiles_and_version (__main__.V396Tests.test_phase_order_profiles_and_version) ... ok\ntest_richer_sarif_has_provenance_and_fingerprint (__main__.V396Tests.test_richer_sarif_has_provenance_and_fingerprint) ... ok\ntest_social_engineering_unsafe_plan_is_blocked (__main__.V396Tests.test_social_engineering_unsafe_plan_is_blocked) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.204s\n\nOK\n",
+    "seconds": 0.27
+  },
+  {
+    "test": "integration_test_v3961.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_all_historical_cli_flags_are_retained (__main__.V3961RegressionTests.test_all_historical_cli_flags_are_retained) ... ok\ntest_all_historical_phases_are_retained (__main__.V3961RegressionTests.test_all_historical_phases_are_retained) ... ok\ntest_all_python_and_data_files_parse (__main__.V3961RegressionTests.test_all_python_and_data_files_parse) ... ok\ntest_detailed_branch_table_is_restored (__main__.V3961RegressionTests.test_detailed_branch_table_is_restored) ... ok\ntest_historical_payload_and_wordlist_entries_are_retained (__main__.V3961RegressionTests.test_historical_payload_and_wordlist_entries_are_retained) ... ok\ntest_historical_public_symbols_are_retained (__main__.V3961RegressionTests.test_historical_public_symbols_are_retained) ... ok\ntest_historical_source_and_config_paths_are_retained (__main__.V3961RegressionTests.test_historical_source_and_config_paths_are_retained) ... ok\ntest_historical_structured_catalog_identifiers_are_retained (__main__.V3961RegressionTests.test_historical_structured_catalog_identifiers_are_retained) ... ok\ntest_profiles_are_canonicalized_and_finalization_is_last (__main__.V3961RegressionTests.test_profiles_are_canonicalized_and_finalization_is_last) ... ok\ntest_release_versions_are_synchronized (__main__.V3961RegressionTests.test_release_versions_are_synchronized) ... ok\ntest_restored_http_reproducer_kit_is_complete (__main__.V3961RegressionTests.test_restored_http_reproducer_kit_is_complete) ... ok\ntest_reverse_kit_never_executes_the_artifact (__main__.V3961RegressionTests.test_reverse_kit_never_executes_the_artifact) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 1.961s\n\nOK\n",
+    "seconds": 2.02
+  },
+  {
+    "test": "integration_test_v3971.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_adapter_generator_is_unapproved_proposal_only (__main__.V3971Tests.test_adapter_generator_is_unapproved_proposal_only) ... ok\ntest_cicd_native_dataflow_and_no_execution (__main__.V3971Tests.test_cicd_native_dataflow_and_no_execution) ... ok\ntest_cli_and_phase_backward_compatibility (__main__.V3971Tests.test_cli_and_phase_backward_compatibility) ... ok\ntest_cloud_graph_detects_required_indicators_without_claiming_exploitability (__main__.V3971Tests.test_cloud_graph_detects_required_indicators_without_claiming_exploitability) ... ok\ntest_compliance_phase_completion_alone_is_not_pass (__main__.V3971Tests.test_compliance_phase_completion_alone_is_not_pass) ... ok\ntest_doctor_never_prints_secret_values (__main__.V3971Tests.test_doctor_never_prints_secret_values) ... ok\ntest_ocsf_fingerprint_repeatability_and_classes (__main__.V3971Tests.test_ocsf_fingerprint_repeatability_and_classes) ... ok\ntest_passive_wireless_inventory_boundary (__main__.V3971Tests.test_passive_wireless_inventory_boundary) ... ok\ntest_rdap_retry_redaction_and_unknown_provider (__main__.V3971Tests.test_rdap_retry_redaction_and_unknown_provider) ... ok\ntest_registry_is_truthful_and_valid (__main__.V3971Tests.test_registry_is_truthful_and_valid) ... ok\ntest_safe_plan_rdap_mock_and_username_approval (__main__.V3971Tests.test_safe_plan_rdap_mock_and_username_approval) ... ok\ntest_safe_plan_rejects_arbitrary_commands_and_shell_metacharacters (__main__.V3971Tests.test_safe_plan_rejects_arbitrary_commands_and_shell_metacharacters) ... ok\ntest_session_import_dedup_malformed_and_redaction (__main__.V3971Tests.test_session_import_dedup_malformed_and_redaction) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.001s\n\nOK\n",
+    "seconds": 1.06
+  },
+  {
+    "test": "integration_test_v3972.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cicd_restores_build_files_and_container_rules (__main__.HistoricalCoverageRestorationTests.test_cicd_restores_build_files_and_container_rules) ... ok\ntest_cloud_iam_restores_roles_and_mixed_provider_records (__main__.HistoricalCoverageRestorationTests.test_cloud_iam_restores_roles_and_mixed_provider_records) ... ok\ntest_compliance_aliases_preserve_old_consumers_without_fake_pass (__main__.HistoricalCoverageRestorationTests.test_compliance_aliases_preserve_old_consumers_without_fake_pass) ... ok\ntest_compliance_csv_contains_new_and_historical_columns (__main__.HistoricalCoverageRestorationTests.test_compliance_csv_contains_new_and_historical_columns) ... ok\ntest_data_document_scanning_is_default_off_and_safe_opt_in (__main__.HistoricalCoverageRestorationTests.test_data_document_scanning_is_default_off_and_safe_opt_in) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py:940: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/tbhm-source-recovery-v1c7wie4'>\n  _warnings.warn(warn_message, ResourceWarning)\n/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/tempfile.py:940: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/tbhm-source-recovery-qp2dgbbq'>\n  _warnings.warn(warn_message, ResourceWarning)\nok\ntest_every_v396_cicd_rule_has_a_live_v3972_fixture (__main__.HistoricalCoverageRestorationTests.test_every_v396_cicd_rule_has_a_live_v3972_fixture) ... ok\ntest_every_v396_cloud_indicator_remains_detectable (__main__.HistoricalCoverageRestorationTests.test_every_v396_cloud_indicator_remains_detectable) ... ok\ntest_historical_scan_catalog_union_and_cli_switches (__main__.HistoricalCoverageRestorationTests.test_historical_scan_catalog_union_and_cli_switches) ... ok\ntest_ocsf_preserves_legacy_uid_and_new_stable_fingerprint (__main__.HistoricalCoverageRestorationTests.test_ocsf_preserves_legacy_uid_and_new_stable_fingerprint) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.198s\n\nOK\n",
+    "seconds": 0.26
+  },
+  {
+    "test": "integration_test_v3973_installer.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_dependency_conflict_is_incompatible_not_generic_failure (__main__.AptPreflightTests.test_dependency_conflict_is_incompatible_not_generic_failure) ... ok\ntest_missing_apt_package_is_unavailable_not_failed (__main__.AptPreflightTests.test_missing_apt_package_is_unavailable_not_failed) ... ok\ntest_transient_apt_failure_retries_with_ipv4_and_fix_missing (__main__.AptPreflightTests.test_transient_apt_failure_retries_with_ipv4_and_fix_missing) ... ok\ntest_apply_interruption_writes_partial_state_without_traceback (__main__.InstallerRecipeTests.test_apply_interruption_writes_partial_state_without_traceback) ... ok\ntest_apply_progress_goes_to_stderr_without_exposing_command_args (__main__.InstallerRecipeTests.test_apply_progress_goes_to_stderr_without_exposing_command_args) ... ok\ntest_cargo_audit_is_locked (__main__.InstallerRecipeTests.test_cargo_audit_is_locked) ... ok\ntest_compatible_side_python_is_selected_for_isolated_plan (__main__.InstallerRecipeTests.test_compatible_side_python_is_selected_for_isolated_plan) ... ok\ntest_invalid_archived_kubeaudit_recipe_is_never_executed (__main__.InstallerRecipeTests.test_invalid_archived_kubeaudit_recipe_is_never_executed) ... ok\ntest_library_install_does_not_require_a_cli_executable (__main__.InstallerRecipeTests.test_library_install_does_not_require_a_cli_executable) ... ok\ntest_npm_recipes_use_user_prefix (__main__.InstallerRecipeTests.test_npm_recipes_use_user_prefix) ... ok\ntest_paramspider_uses_upstream_source_in_isolated_venv (__main__.InstallerRecipeTests.test_paramspider_uses_upstream_source_in_isolated_venv) ... ok\ntest_python3_catalog_placeholder_does_not_mean_library_is_installed (__main__.InstallerRecipeTests.test_python3_catalog_placeholder_does_not_mean_library_is_installed) ... ok\ntest_python_313_incompatible_tools_are_skipped_before_pip (__main__.InstallerRecipeTests.test_python_313_incompatible_tools_are_skipped_before_pip) ... ok\ntest_ruby_and_composer_user_binaries_are_normalized (__main__.InstallerRecipeTests.test_ruby_and_composer_user_binaries_are_normalized) ... ok\ntest_safe_cli_install_fails_when_upstream_executable_is_missing (__main__.InstallerRecipeTests.test_safe_cli_install_fails_when_upstream_executable_is_missing) ... ok\ntest_suzieq_catalog_uses_real_cli_name_and_aliases (__main__.InstallerRecipeTests.test_suzieq_catalog_uses_real_cli_name_and_aliases) ... ok\ntest_duckdb_isolated_subprocess_contract (__main__.SourceAndRuntimeTests.test_duckdb_isolated_subprocess_contract) ... ok\ntest_install_script_has_isolation_and_exact_dpkg_check (__main__.SourceAndRuntimeTests.test_install_script_has_isolation_and_exact_dpkg_check) ... ok\ntest_legacy_cleanup_is_plan_only_by_default (__main__.SourceAndRuntimeTests.test_legacy_cleanup_is_plan_only_by_default) ... ok\ntest_no_unrestricted_shell_execution_in_install_helpers (__main__.SourceAndRuntimeTests.test_no_unrestricted_shell_execution_in_install_helpers) ... ok\ntest_optional_absence_is_not_rendered_as_failure (__main__.SourceAndRuntimeTests.test_optional_absence_is_not_rendered_as_failure) ... ok\ntest_playwright_system_chromium_fallback (__main__.SourceAndRuntimeTests.test_playwright_system_chromium_fallback) ... ok\ntest_release_version_and_installer_doctor (__main__.SourceAndRuntimeTests.test_release_version_and_installer_doctor) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 0.527s\n\nOK\n",
+    "seconds": 0.61
+  },
+  {
+    "test": "integration_test_v3974_reverse.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_container_magic_beyond_4k (__main__.V3974ReverseTests.test_container_magic_beyond_4k) ... ok\ntest_emba_static_command_and_emulation_gate (__main__.V3974ReverseTests.test_emba_static_command_and_emulation_gate) ... ok\ntest_failed_unsquashfs_uses_sasquatch_fallback (__main__.V3974ReverseTests.test_failed_unsquashfs_uses_sasquatch_fallback) ... ok\ntest_hardening_failure_is_unknown (__main__.V3974ReverseTests.test_hardening_failure_is_unknown) ... ok\ntest_local_firmware_inputs_need_no_fake_target (__main__.V3974ReverseTests.test_local_firmware_inputs_need_no_fake_target) ... ok\ntest_relative_firmware_path_and_binwalk_root_compatibility (__main__.V3974ReverseTests.test_relative_firmware_path_and_binwalk_root_compatibility) ... ok\ntest_release_identity (__main__.V3974ReverseTests.test_release_identity) ... ok\ntest_rootfs_audit_cert_service_sbom_update_and_priorities (__main__.V3974ReverseTests.test_rootfs_audit_cert_service_sbom_update_and_priorities) ... ok\ntest_rootfs_symlink_cannot_read_host_file (__main__.V3974ReverseTests.test_rootfs_symlink_cannot_read_host_file) ... ok\ntest_routersploit_catalog_is_static_only (__main__.V3974ReverseTests.test_routersploit_catalog_is_static_only) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.043s\n\nOK\n",
+    "seconds": 0.2
+  },
+  {
+    "test": "integration_test_v3975_deep_reverse.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cross_language_jni_correlation (__main__.DeepReverseTests.test_cross_language_jni_correlation) ... ok\ntest_dynamic_mapping_fuzz_crash_diff_and_campaign (__main__.DeepReverseTests.test_dynamic_mapping_fuzz_crash_diff_and_campaign) ... ok\ntest_emba_mode_safety_contract (__main__.DeepReverseTests.test_emba_mode_safety_contract) ... ok\ntest_inline_source_map_and_explicit_limits (__main__.DeepReverseTests.test_inline_source_map_and_explicit_limits) ... ok\ntest_js_analysis_content_classification (__main__.DeepReverseTests.test_js_analysis_content_classification) ... ok\ntest_js_sources_from_katana_paramspider_zap_and_source_map (__main__.DeepReverseTests.test_js_sources_from_katana_paramspider_zap_and_source_map) ... ok\ntest_managed_mobile_family_and_package_verification (__main__.DeepReverseTests.test_managed_mobile_family_and_package_verification) ... ok\ntest_package_manifest_validation_and_protocol_cap_detection (__main__.DeepReverseTests.test_package_manifest_validation_and_protocol_cap_detection) ... ok\ntest_phase_and_cli_registration (__main__.DeepReverseTests.test_phase_and_cli_registration) ... ok\ntest_sandbox_command_parser_and_angr_cli_surface (__main__.DeepReverseTests.test_sandbox_command_parser_and_angr_cli_surface) ... ok\ntest_sandboxed_crash_minimization_contract (__main__.DeepReverseTests.test_sandboxed_crash_minimization_contract) ... ok\ntest_taint_memory_model_and_aslr_rebasing (__main__.DeepReverseTests.test_taint_memory_model_and_aslr_rebasing) ... ok\ntest_universal_ir_and_interprocedural_taint (__main__.DeepReverseTests.test_universal_ir_and_interprocedural_taint) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.282s\n\nOK\n",
+    "seconds": 0.46
+  },
+  {
+    "test": "integration_test_v398_safe_lifecycle.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_bug_bounty_workspace_and_campaign_phase_integration (__main__.StrictLifecycleTests.test_bug_bounty_workspace_and_campaign_phase_integration) ... ok\ntest_campaign_templates_bind_proof_and_redact_imported_secrets (__main__.StrictLifecycleTests.test_campaign_templates_bind_proof_and_redact_imported_secrets) ... ok\ntest_disproved_assertion_is_a_lead_not_supported (__main__.StrictLifecycleTests.test_disproved_assertion_is_a_lead_not_supported) ... ok\ntest_high_confidence_or_liveness_cannot_confirm (__main__.StrictLifecycleTests.test_high_confidence_or_liveness_cannot_confirm) ... ok\ntest_high_impact_redteam_operations_are_import_only (__main__.StrictLifecycleTests.test_high_impact_redteam_operations_are_import_only) ... ok\ntest_program_policy_fails_closed_for_unclear_scope_and_methods (__main__.StrictLifecycleTests.test_program_policy_fails_closed_for_unclear_scope_and_methods) ... ok\ntest_report_assessment_uses_strict_confirmation (__main__.StrictLifecycleTests.test_report_assessment_uses_strict_confirmation) ... ok\ntest_request_url_userinfo_and_fragment_are_redacted (__main__.StrictLifecycleTests.test_request_url_userinfo_and_fragment_are_redacted) ... ok\ntest_request_workspace_redacts_url_headers_and_bodies (__main__.StrictLifecycleTests.test_request_workspace_redacts_url_headers_and_bodies) ... ok\ntest_reverse_metadata_cache_and_bounded_embedding_workers (__main__.StrictLifecycleTests.test_reverse_metadata_cache_and_bounded_embedding_workers) ... ok\ntest_runner_streams_bounded_output_times_out_and_runs_parallel (__main__.StrictLifecycleTests.test_runner_streams_bounded_output_times_out_and_runs_parallel) ... ok\ntest_storage_separates_test_observation_candidate_validation_and_finding (__main__.StrictLifecycleTests.test_storage_separates_test_observation_candidate_validation_and_finding) ... ok\ntest_structured_assertion_requires_negative_control_and_repeatability (__main__.StrictLifecycleTests.test_structured_assertion_requires_negative_control_and_repeatability) ... ok\ntest_unsupported_liveness_assertion_is_inconclusive (__main__.StrictLifecycleTests.test_unsupported_liveness_assertion_is_inconclusive) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 3.913s\n\nOK\n",
+    "seconds": 3.99
+  },
+  {
+    "test": "integration_test_v39_safe.py",
+    "returncode": 0,
+    "stdout": "v3.9-safe integration tests: PASS\n",
+    "stderr": "",
+    "seconds": 0.31
+  },
+  {
+    "test": "integration_test_v420_workflows.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_combined_local_inputs_reach_report_operator_view_and_sealed_delivery (__main__.WorkflowTests.test_combined_local_inputs_reach_report_operator_view_and_sealed_delivery) ... ok\ntest_local_model_http_contract_refutation_persists_advice_only (__main__.WorkflowTests.test_local_model_http_contract_refutation_persists_advice_only) ... ok\ntest_malformed_contract_keeps_partial_report_and_returns_failure (__main__.WorkflowTests.test_malformed_contract_keeps_partial_report_and_returns_failure) ... ok\ntest_offline_maintenance_conflicts_fail_before_downloads (__main__.WorkflowTests.test_offline_maintenance_conflicts_fail_before_downloads) ... ok\ntest_optional_analyzer_failure_remains_incomplete (__main__.WorkflowTests.test_optional_analyzer_failure_remains_incomplete) ... ok\ntest_targetless_evaluation_cli_and_undefined_metrics (__main__.WorkflowTests.test_targetless_evaluation_cli_and_undefined_metrics) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 7.282s\n\nOK\n",
+    "seconds": 7.36
+  },
+  {
+    "test": "integration_test_v422_workflows.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cli_account_replay_reaches_database_report_and_sealed_delivery (__main__.WorkflowTests.test_cli_account_replay_reaches_database_report_and_sealed_delivery) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.961s\n\nOK\n",
+    "seconds": 2.05
+  },
+  {
+    "test": "integration_test_v423_workflows.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_broker_plan_runs_native_and_real_isolated_worker_via_cli (__main__.Workflows.test_broker_plan_runs_native_and_real_isolated_worker_via_cli) ... ok\ntest_combined_llm_import_and_reviewed_cards_reach_sealed_delivery (__main__.Workflows.test_combined_llm_import_and_reviewed_cards_reach_sealed_delivery) ... ok\ntest_prior_delivery_audit_cli_fails_for_opaque_coverage (__main__.Workflows.test_prior_delivery_audit_cli_fails_for_opaque_coverage) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 2.007s\n\nOK\n",
+    "seconds": 2.09
+  },
+  {
+    "test": "integration_test_v424_workflows.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_live_pinned_proofs_persist_restore_report_graph_and_seal (__main__.Workflows.test_live_pinned_proofs_persist_restore_report_graph_and_seal) ... ok\ntest_missing_approval_and_offline_make_no_target_contact (__main__.Workflows.test_missing_approval_and_offline_make_no_target_contact) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 4.889s\n\nOK\n",
+    "seconds": 5.0
+  },
+  {
+    "test": "integration_test_v425_learning.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_closed_run_sqlite_import_keeps_forged_labels_untrusted (__main__.LearningCLI.test_closed_run_sqlite_import_keeps_forged_labels_untrusted) ... ok\ntest_full_operator_cli_persistence_review_retrieval_export_dashboard (__main__.LearningCLI.test_full_operator_cli_persistence_review_retrieval_export_dashboard) ... ok\ntest_live_bola_and_learning_capture_reach_sealed_operator_delivery (__main__.LearningCLI.test_live_bola_and_learning_capture_reach_sealed_operator_delivery) ... ok\ntest_run_capture_is_pending_and_failures_are_recorded (__main__.LearningCLI.test_run_capture_is_pending_and_failures_are_recorded) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 4.520s\n\nOK\n",
+    "seconds": 4.65
+  },
+  {
+    "test": "integration_test_v4_ai_learning.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_learning_loop (__main__.V4AILearningTests.test_learning_loop) ... ok\ntest_pre_v4_home_migrates_without_loss (__main__.V4AILearningTests.test_pre_v4_home_migrates_without_loss) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.292s\n\nOK\n",
+    "seconds": 0.37
+  },
+  {
+    "test": "tests/test_ai_boundary_v422.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_linked_private_files_never_become_model_context (__main__.AIBoundaryTests.test_linked_private_files_never_become_model_context) ... ok\ntest_regular_artifacts_remain_untrusted_sanitized_context (__main__.AIBoundaryTests.test_regular_artifacts_remain_untrusted_sanitized_context) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n",
+    "seconds": 0.12
+  },
+  {
+    "test": "tests/test_api_authz_v422.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_cross_actor_capture_persists_confirmation (__main__.AuthzTests.test_actual_cross_actor_capture_persists_confirmation) ... ok\ntest_benign_and_adversarial_runtime_pairs_do_not_confirm (__main__.AuthzTests.test_benign_and_adversarial_runtime_pairs_do_not_confirm) ... ok\ntest_nested_object_paths_and_tamper_refusal (__main__.AuthzTests.test_nested_object_paths_and_tamper_refusal) ... ok\ntest_numeric_owner_identifier_is_bound_to_explicit_plan (__main__.AuthzTests.test_numeric_owner_identifier_is_bound_to_explicit_plan) ... ok\ntest_opaque_bearer_echo_is_redacted_from_captures (__main__.AuthzTests.test_opaque_bearer_echo_is_redacted_from_captures) ... ok\ntest_preflight_validates_whole_plan_before_network (__main__.AuthzTests.test_preflight_validates_whole_plan_before_network) ... ok\ntest_shared_request_budget_prevents_proof_completion (__main__.AuthzTests.test_shared_request_budget_prevents_proof_completion) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 16.683s\n\nOK\n",
+    "seconds": 16.89
+  },
+  {
+    "test": "tests/test_bola_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_graph_binds_owned_object_to_explicit_tenant_and_origin (__main__.Bola.test_graph_binds_owned_object_to_explicit_tenant_and_origin) ... ok\ntest_preflight_refuses_unowned_same_credentials_scope_and_writes (__main__.Bola.test_preflight_refuses_unowned_same_credentials_scope_and_writes) ... ok\ntest_public_expired_echo_wrong_tenant_stay_inconclusive (__main__.Bola.test_public_expired_echo_wrong_tenant_stay_inconclusive) ... ok\ntest_signed_identity_and_tenant_substitution_rejected (__main__.Bola.test_signed_identity_and_tenant_substitution_rejected) ... ok\ntest_tampered_replayed_wrong_class_and_missing_controls (__main__.Bola.test_tampered_replayed_wrong_class_and_missing_controls) ... ok\ntest_vulnerable_and_patched_end_to_end_proof_and_seven_requests (__main__.Bola.test_vulnerable_and_patched_end_to_end_proof_and_seven_requests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 10.484s\n\nOK\n",
+    "seconds": 10.62
+  },
+  {
+    "test": "tests/test_brokered_http_v423.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cooldown_is_shared_across_new_contexts (__main__.BrokerTests.test_cooldown_is_shared_across_new_contexts) ... ok\ntest_cross_process_reservations_are_atomic (__main__.BrokerTests.test_cross_process_reservations_are_atomic) ... ok\ntest_denied_origin_and_method_never_contact_target (__main__.BrokerTests.test_denied_origin_and_method_never_contact_target) ... ok\ntest_large_body_is_incomplete_and_not_proof (__main__.BrokerTests.test_large_body_is_incomplete_and_not_proof) ... ok\ntest_native_and_actual_isolated_child_share_counter_and_budget (__main__.BrokerTests.test_native_and_actual_isolated_child_share_counter_and_budget) ... ok\ntest_response_reservation_aborts_before_second_dispatch (__main__.BrokerTests.test_response_reservation_aborts_before_second_dispatch) ... ok\ntest_unsupported_driver_and_offline_never_spawn (__main__.BrokerTests.test_unsupported_driver_and_offline_never_spawn) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 3.668s\n\nOK\n",
+    "seconds": 3.82
+  },
+  {
+    "test": "tests/test_compatibility_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_disabled_new_options_preserve_legacy_resume_identity (__main__.Compatibility.test_disabled_new_options_preserve_legacy_resume_identity) ... ok\ntest_new_plan_routing_remains_opt_in_and_manual_override_wins (__main__.Compatibility.test_new_plan_routing_remains_opt_in_and_manual_override_wins) ... ok\ntest_old_cli_signatures_and_sqlite_semantics_are_retained (__main__.Compatibility.test_old_cli_signatures_and_sqlite_semantics_are_retained) ... ok\ntest_original_phase_prefix_ordinals_and_every_dispatch_resolves (__main__.Compatibility.test_original_phase_prefix_ordinals_and_every_dispatch_resolves) ... ok\ntest_real_v423_database_rows_and_evidence_ids_survive_open (__main__.Compatibility.test_real_v423_database_rows_and_evidence_ids_survive_open) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.861s\n\nOK\n",
+    "seconds": 0.94
+  },
+  {
+    "test": "tests/test_connection_doctor_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_external_or_credentialed_endpoints_are_rejected (__main__.DoctorTests.test_external_or_credentialed_endpoints_are_rejected) ... ok\ntest_inventory_generation_embeddings_and_gpu_are_separate (__main__.DoctorTests.test_inventory_generation_embeddings_and_gpu_are_separate) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.511s\n\nOK\n",
+    "seconds": 0.66
+  },
+  {
+    "test": "tests/test_continuation_android_manifest.py",
+    "returncode": 0,
+    "stdout": "paired_application_booleans: TP=6 FP=0 FN=0 TN=6 cases=12\n",
+    "stderr": "test_paired_xml_and_aapt_fixtures (__main__.ManifestTests.test_paired_xml_and_aapt_fixtures) ... ok\ntest_unstructured_wrong_namespace_and_non_application_are_not_proof (__main__.ManifestTests.test_unstructured_wrong_namespace_and_non_application_are_not_proof) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.010s\n\nOK\n",
+    "seconds": 0.11
+  },
+  {
+    "test": "tests/test_continuation_archive_deadline.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_clean_archive_still_extracts_with_the_same_report (__main__.ArchiveDeadlineTests.test_clean_archive_still_extracts_with_the_same_report) ... ok\ntest_stalled_extractor_is_killed_by_its_own_deadline (__main__.ArchiveDeadlineTests.test_stalled_extractor_is_killed_by_its_own_deadline) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.248s\n\nOK\n",
+    "seconds": 0.34
+  },
+  {
+    "test": "tests/test_continuation_git_intake.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_credential_urls_options_and_external_helpers_never_reach_git (__main__.GitIntakeTests.test_credential_urls_options_and_external_helpers_never_reach_git) ... ok\ntest_private_clone_uses_environment_askpass_and_cleans_it_up (__main__.GitIntakeTests.test_private_clone_uses_environment_askpass_and_cleans_it_up) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.012s\n\nOK\n",
+    "seconds": 0.13
+  },
+  {
+    "test": "tests/test_continuation_har.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_url_credentials_are_removed_while_route_and_status_survive (__main__.HarRedactionTests.test_url_credentials_are_removed_while_route_and_status_survive) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.009s\n\nOK\n",
+    "seconds": 0.07
+  },
+  {
+    "test": "tests/test_continuation_http_broker.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_discovery_uses_scope_action_tls_proxy_and_neutral_user_agent (__main__.HttpBrokerTests.test_discovery_uses_scope_action_tls_proxy_and_neutral_user_agent) ... ok\ntest_new_adapters_cannot_reset_the_context_budget (__main__.HttpBrokerTests.test_new_adapters_cannot_reset_the_context_budget) ... ok\ntest_zero_budget_passive_denied_and_invalid_rates_do_not_dispatch (__main__.HttpBrokerTests.test_zero_budget_passive_denied_and_invalid_rates_do_not_dispatch) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.009s\n\nOK\n",
+    "seconds": 0.19
+  },
+  {
+    "test": "tests/test_continuation_package_deadline.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_budget_rejection_never_enters_crc (__main__.PackageDeadlineTests.test_budget_rejection_never_enters_crc) ... ok\ntest_clean_package_is_still_verified (__main__.PackageDeadlineTests.test_clean_package_is_still_verified) ... ok\ntest_stalled_worker_is_stopped_without_external_watchdog (__main__.PackageDeadlineTests.test_stalled_worker_is_stopped_without_external_watchdog) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.243s\n\nOK\n",
+    "seconds": 0.33
+  },
+  {
+    "test": "tests/test_continuation_recon_preflight.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_bruteforce_filters_candidates_before_dnsx_and_uses_ceiling (__main__.ReconPreflightTests.test_bruteforce_filters_candidates_before_dnsx_and_uses_ceiling) ... ok\ntest_denied_apex_is_not_sent_to_dns_basics (__main__.ReconPreflightTests.test_denied_apex_is_not_sent_to_dns_basics) ... ok\ntest_fractional_child_rate_fails_closed_instead_of_rounding_up (__main__.ReconPreflightTests.test_fractional_child_rate_fails_closed_instead_of_rounding_up) ... ok\ntest_passive_and_policy_zero_never_call_any_source (__main__.ReconPreflightTests.test_passive_and_policy_zero_never_call_any_source) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.006s\n\nOK\n",
+    "seconds": 0.12
+  },
+  {
+    "test": "tests/test_continuation_redaction.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_short_provider_flags_and_inline_flags (__main__.RedactionBoundaryTests.test_actual_short_provider_flags_and_inline_flags) ... ok\ntest_every_split_of_known_secret_and_url (__main__.RedactionBoundaryTests.test_every_split_of_known_secret_and_url) ... ok\ntest_multiline_private_key_and_oversize_line_fail_closed (__main__.RedactionBoundaryTests.test_multiline_private_key_and_oversize_line_fail_closed) ... ok\ntest_structured_credentials_and_url_keep_hashes (__main__.RedactionBoundaryTests.test_structured_credentials_and_url_keep_hashes) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.014s\n\nOK\n",
+    "seconds": 0.08
+  },
+  {
+    "test": "tests/test_continuation_run_metadata.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_arguments_targets_and_program_urls_are_redacted_without_mutating_input (__main__.RunMetadataTests.test_arguments_targets_and_program_urls_are_redacted_without_mutating_input) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.060s\n\nOK\n",
+    "seconds": 0.13
+  },
+  {
+    "test": "tests/test_continuation_runner_duplex.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cancel_during_blocked_input_stops_feeder_and_process (__main__.RunnerDuplexTests.test_cancel_during_blocked_input_stops_feeder_and_process) ... ok\ntest_nonreading_helper_cannot_block_parent_job_input (__main__.RunnerDuplexTests.test_nonreading_helper_cannot_block_parent_job_input) ... ok\ntest_successful_bidirectional_transfer_loses_no_bytes (__main__.RunnerDuplexTests.test_successful_bidirectional_transfer_loses_no_bytes) ... ok\ntest_writes_before_reading_still_times_out_in_both_backends (__main__.RunnerDuplexTests.test_writes_before_reading_still_times_out_in_both_backends) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 3.807s\n\nOK\n",
+    "seconds": 3.88
+  },
+  {
+    "test": "tests/test_continuation_runner_redaction.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_provider_short_flags_and_clean_output_remain_usable (__main__.RunnerRedactionTests.test_provider_short_flags_and_clean_output_remain_usable) ... ok\ntest_split_scanner_secret_absent_from_tails_logs_and_artifacts (__main__.RunnerRedactionTests.test_split_scanner_secret_absent_from_tails_logs_and_artifacts) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.154s\n\nOK\n",
+    "seconds": 0.23
+  },
+  {
+    "test": "tests/test_delivery_v422.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_export_redacts_supported_text_and_sqlite_without_touching_live (__main__.DeliveryTests.test_export_redacts_supported_text_and_sqlite_without_touching_live) ... ok\ntest_missing_predictions_keep_empty_classes_visible (__main__.DeliveryTests.test_missing_predictions_keep_empty_classes_visible) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.032s\n\nOK\n",
+    "seconds": 0.1
+  },
+  {
+    "test": "tests/test_egress_v421.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+    "seconds": 0.08
+  },
+  {
+    "test": "tests/test_flow_contract_v423.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_dispatcher_context_runner_scope_proof_and_storage_are_preserved (__main__.FlowContractTests.test_dispatcher_context_runner_scope_proof_and_storage_are_preserved) ... ok\ntest_new_capabilities_are_typed_and_off_by_default (__main__.FlowContractTests.test_new_capabilities_are_typed_and_off_by_default) ... ok\ntest_new_inputs_choose_only_existing_phases_and_manual_override_wins (__main__.FlowContractTests.test_new_inputs_choose_only_existing_phases_and_manual_override_wins) ... ok\ntest_original_phase_behavior_is_retained_after_opt_in_hook (__main__.FlowContractTests.test_original_phase_behavior_is_retained_after_opt_in_hook) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.135s\n\nOK\n",
+    "seconds": 0.22
+  },
+  {
+    "test": "tests/test_improvement_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cancel_event_discards_model_response (__main__.Improvement.test_cancel_event_discards_model_response) ... ok\ntest_comparative_gate_rejects_false_negatives_and_fabricated_citations (__main__.Improvement.test_comparative_gate_rejects_false_negatives_and_fabricated_citations) ... ok\ntest_complete_synthetic_comparative_workflow_promote_rollback (__main__.Improvement.test_complete_synthetic_comparative_workflow_promote_rollback) ... ok\ntest_disk_pressure_records_retryable_failure (__main__.Improvement.test_disk_pressure_records_retryable_failure) ... ok\ntest_global_single_worker_claim_and_interrupted_recovery (__main__.Improvement.test_global_single_worker_claim_and_interrupted_recovery) ... ok\ntest_promotion_requires_candidate_existing_approval_and_no_authority_changes (__main__.Improvement.test_promotion_requires_candidate_existing_approval_and_no_authority_changes) ... ok\ntest_proposal_traversal_and_symlink_rejected (__main__.Improvement.test_proposal_traversal_and_symlink_rejected) ... ok\ntest_queue_backpressure_config_boundary_and_foreign_jobs (__main__.Improvement.test_queue_backpressure_config_boundary_and_foreign_jobs) ... ok\ntest_retrieved_data_does_not_execute_commands (__main__.Improvement.test_retrieved_data_does_not_execute_commands) ... ok\ntest_unavailable_model_job_failure_retry_cancel (__main__.Improvement.test_unavailable_model_job_failure_retry_cancel) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.609s\n\nOK\n",
+    "seconds": 0.81
+  },
+  {
+    "test": "tests/test_incident_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_browser_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_browser_regex_exec_is_not_a_shell_sink) ... ok\ntest_cancel_content_stops_after_first_tool_and_keeps_partial_parse (__main__.IncidentRegressions.test_cancel_content_stops_after_first_tool_and_keeps_partial_parse) ... ok\ntest_diagnostic_wrapper_is_never_executed (__main__.IncidentRegressions.test_diagnostic_wrapper_is_never_executed) ... ok\ntest_exact_host_archive_intake_never_queries_shared_parent (__main__.IncidentRegressions.test_exact_host_archive_intake_never_queries_shared_parent) ... ok\ntest_generated_curl_is_not_an_original_request (__main__.IncidentRegressions.test_generated_curl_is_not_an_original_request) ... ok\ntest_httpx_fixture_parses_and_reports_invalid_records (__main__.IncidentRegressions.test_httpx_fixture_parses_and_reports_invalid_records) ... ok\ntest_ledger_snapshots_are_amortized_and_journal_recovers (__main__.IncidentRegressions.test_ledger_snapshots_are_amortized_and_journal_recovers) ... ok\ntest_mfa_url_match_is_a_lead_at_its_actual_host (__main__.IncidentRegressions.test_mfa_url_match_is_a_lead_at_its_actual_host) ... ok\ntest_nmap_leaf_address_preserves_host (__main__.IncidentRegressions.test_nmap_leaf_address_preserves_host) ... ok\ntest_node_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_node_regex_exec_is_not_a_shell_sink) ... ok\ntest_runtime_learning_commits_progress_before_later_row_fails (__main__.IncidentRegressions.test_runtime_learning_commits_progress_before_later_row_fails) ... ok\ntest_service_budget_does_not_consume_target_budget (__main__.IncidentRegressions.test_service_budget_does_not_consume_target_budget) ... ok\ntest_service_budget_survives_target_exhaustion (__main__.IncidentRegressions.test_service_budget_survives_target_exhaustion) ... ok\ntest_strict_missing_proof_has_explicit_coverage (__main__.IncidentRegressions.test_strict_missing_proof_has_explicit_coverage) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.396s\n\nOK\n",
+    "seconds": 0.5
+  },
+  {
+    "test": "tests/test_incident_workflows_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_cli_vulnerable_patched_and_public_bola (__main__.WorkflowTests.test_cli_vulnerable_patched_and_public_bola) ... ok\ntest_gcp_project_is_positional_and_explicit_on_every_command (__main__.WorkflowTests.test_gcp_project_is_positional_and_explicit_on_every_command) ... ok\ntest_mandatory_external_containment_fails_before_process_launch (__main__.WorkflowTests.test_mandatory_external_containment_fails_before_process_launch) ... ok\ntest_native_inference_records_success_after_target_budget_is_spent (__main__.WorkflowTests.test_native_inference_records_success_after_target_budget_is_spent) ... ok\ntest_nuclei_timeout_retains_valid_capture_and_records_malformed_output (__main__.WorkflowTests.test_nuclei_timeout_retains_valid_capture_and_records_malformed_output) ... ok\ntest_owned_term_ignoring_child_is_killed_and_unrelated_child_survives (__main__.WorkflowTests.test_owned_term_ignoring_child_is_killed_and_unrelated_child_survives) ... ok\ntest_phase_deadline_cannot_be_swallowed_as_a_probe_error (__main__.WorkflowTests.test_phase_deadline_cannot_be_swallowed_as_a_probe_error) ... ok\ntest_real_httpx_fixture_process_uses_json_and_preserves_partial_metadata (__main__.WorkflowTests.test_real_httpx_fixture_process_uses_json_and_preserves_partial_metadata) ... ok\ntest_sigint_stops_ffuf_without_post_cancel_model_requests (__main__.WorkflowTests.test_sigint_stops_ffuf_without_post_cancel_model_requests) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 8.614s\n\nOK\n",
+    "seconds": 8.73
+  },
+  {
+    "test": "tests/test_llm_research_v423.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_garak_eval_counts_are_observations_not_confirmed_findings (__main__.LLMResearchTests.test_garak_eval_counts_are_observations_not_confirmed_findings) ... ok\ntest_hash_bound_review_exports_only_train_and_preserves_outcome_label (__main__.LLMResearchTests.test_hash_bound_review_exports_only_train_and_preserves_outcome_label) ... ok\ntest_json_contracts_reject_duplicates_nonfinite_and_links (__main__.LLMResearchTests.test_json_contracts_reject_duplicates_nonfinite_and_links) ... ok\ntest_normalized_pyrit_export_is_import_only (__main__.LLMResearchTests.test_normalized_pyrit_export_is_import_only) ... ok\ntest_paid_report_without_reuse_permission_is_blocked (__main__.LLMResearchTests.test_paid_report_without_reuse_permission_is_blocked) ... ok\ntest_project_root_cause_and_content_split_leaks_are_all_visible (__main__.LLMResearchTests.test_project_root_cause_and_content_split_leaks_are_all_visible) ... ok\ntest_promptfoo_scores_errors_and_missing_grades_never_imply_security_proof (__main__.LLMResearchTests.test_promptfoo_scores_errors_and_missing_grades_never_imply_security_proof) ... ok\ntest_revoked_permission_removes_only_unchanged_generated_cards (__main__.LLMResearchTests.test_revoked_permission_removes_only_unchanged_generated_cards) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.019s\n\nOK\n",
+    "seconds": 0.08
+  },
+  {
+    "test": "tests/test_local_placeholder_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_local_source_placeholder_never_becomes_a_live_base (__main__.LocalPlaceholder.test_local_source_placeholder_never_becomes_a_live_base) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+    "seconds": 0.07
+  },
+  {
+    "test": "tests/test_oast_v421.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 1.031s\n\nOK\n",
+    "seconds": 1.11
+  },
+  {
+    "test": "tests/test_offline_v422.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_approved_adapter_is_isolated_in_both_executors (__main__.OfflineTests.test_approved_adapter_is_isolated_in_both_executors) ... ok\ntest_inherited_socket_and_unsupported_platform_fail_closed (__main__.OfflineTests.test_inherited_socket_and_unsupported_platform_fail_closed) ... ok\ntest_threads_raw_syscalls_and_exec_inherit_filter (__main__.OfflineTests.test_threads_raw_syscalls_and_exec_inherit_filter) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.273s\n\nOK\n",
+    "seconds": 0.35
+  },
+  {
+    "test": "tests/test_operational_repairs_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.006s\n\nOK\n",
+    "seconds": 0.11
+  },
+  {
+    "test": "tests/test_patch_regressions.py",
+    "returncode": 0,
+    "stdout": "PASS test_injection_payload_no_regex_corruption\nPASS test_llm_generate_fallback_exists\nPASS test_open_redirect_host_parsing\nPASS test_resume_rerun_set\nPASS test_scope_exact_vs_wildcard_typing\nPASS test_scope_no_allowlist_denies_external\nPASS test_smart_crawl_uses_central_scope\nPASS test_takeover_downgrade_and_cve_guard\n\n8/8 passed\n",
+    "stderr": "",
+    "seconds": 0.06
+  },
+  {
+    "test": "tests/test_pinned_transport_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_compressed_chunked_and_aborted_bodies_do_not_escape_cap (__main__.PinnedTransport.test_compressed_chunked_and_aborted_bodies_do_not_escape_cap) ... ok\ntest_concurrent_process_lock_blocks_before_http (__main__.PinnedTransport.test_concurrent_process_lock_blocks_before_http) ... ok\ntest_cross_origin_redirect_is_not_followed (__main__.PinnedTransport.test_cross_origin_redirect_is_not_followed) ... ok\ntest_dns_rebinding_and_mixed_answers_fail_before_contact (__main__.PinnedTransport.test_dns_rebinding_and_mixed_answers_fail_before_contact) ... ok\ntest_ipv6_numeric_destination (__main__.PinnedTransport.test_ipv6_numeric_destination) ... ok\ntest_numeric_connect_keeps_host_without_dns_at_socket_connect (__main__.PinnedTransport.test_numeric_connect_keeps_host_without_dns_at_socket_connect) ... ok\ntest_offline_unsupported_driver_proxy_and_unreviewed_pins_fail_closed (__main__.PinnedTransport.test_offline_unsupported_driver_proxy_and_unreviewed_pins_fail_closed) ... ok\ntest_pinned_native_and_real_socket_isolated_pipe_driver (__main__.PinnedTransport.test_pinned_native_and_real_socket_isolated_pipe_driver) ... ok\ntest_tls_certificate_and_hostname_validation_survive_ip_pinning (__main__.PinnedTransport.test_tls_certificate_and_hostname_validation_survive_ip_pinning) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 5.721s\n\nOK\n",
+    "seconds": 5.91
+  },
+  {
+    "test": "tests/test_privacy_audit_v423.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_clean_supported_delivery_and_later_mutation (__main__.PrivacyAuditTests.test_clean_supported_delivery_and_later_mutation) ... ok\ntest_decompression_budgets_remain_incomplete (__main__.PrivacyAuditTests.test_decompression_budgets_remain_incomplete) ... ok\ntest_missing_canary_fails_before_any_privacy_claim (__main__.PrivacyAuditTests.test_missing_canary_fails_before_any_privacy_claim) ... ok\ntest_opaque_formats_never_receive_a_clean_result (__main__.PrivacyAuditTests.test_opaque_formats_never_receive_a_clean_result) ... ok\ntest_unsafe_zip_member_never_extracts (__main__.PrivacyAuditTests.test_unsafe_zip_member_never_extracts) ... ok\ntest_zip_utf16_and_gzip_tar_contents_are_scanned_without_extracting (__main__.PrivacyAuditTests.test_zip_utf16_and_gzip_tar_contents_are_scanned_without_extracting) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.028s\n\nOK\n",
+    "seconds": 0.13
+  },
+  {
+    "test": "tests/test_privacy_graph_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_extra_encodings_and_nested_bzip_xz (__main__.PrivacyGraph.test_extra_encodings_and_nested_bzip_xz) ... ok\ntest_graph_rejects_imported_confirmation_flags (__main__.PrivacyGraph.test_graph_rejects_imported_confirmation_flags) ... ok\ntest_graph_retains_receipt_authority_without_confirming_chain (__main__.PrivacyGraph.test_graph_retains_receipt_authority_without_confirming_chain) ... ok\ntest_integrity_checked_empty_lock_has_no_unreviewed_content (__main__.PrivacyGraph.test_integrity_checked_empty_lock_has_no_unreviewed_content) ... ok\ntest_operator_queue_uses_the_same_receipt_authority (__main__.PrivacyGraph.test_operator_queue_uses_the_same_receipt_authority) ... ok\ntest_unknown_image_and_expansion_budget_are_not_clean (__main__.PrivacyGraph.test_unknown_image_and_expansion_budget_are_not_clean) ... ok\ntest_xz_memory_and_concatenated_surfaces_remain_incomplete (__main__.PrivacyGraph.test_xz_memory_and_concatenated_surfaces_remain_incomplete) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.125s\n\nOK\n",
+    "seconds": 0.28
+  },
+  {
+    "test": "tests/test_proof_behavior_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_all_three_original_contracts_match_executed_baseline_vectors (__main__.LegacyProofBehavior.test_all_three_original_contracts_match_executed_baseline_vectors) ... ok\ntest_proof_files_are_not_in_old_hash_freeze (__main__.LegacyProofBehavior.test_proof_files_are_not_in_old_hash_freeze) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.100s\n\nOK\n",
+    "seconds": 0.14
+  },
+  {
+    "test": "tests/test_public_knowledge_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_advisor_consumes_public_data_and_null_catalog_is_compatible (__main__.PublicKnowledgeTests.test_advisor_consumes_public_data_and_null_catalog_is_compatible) ... ok\ntest_backup_restore_carries_catalog_and_source_vectors_are_separate (__main__.PublicKnowledgeTests.test_backup_restore_carries_catalog_and_source_vectors_are_separate) ... /tmp/tbhm-release-suite-2hbveum4/source/core/ai_plane/cli.py:353: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.\n  tf.extractall(base)\nok\ntest_complete_snapshot_incremental_updates_rejection_and_deletion (__main__.PublicKnowledgeTests.test_complete_snapshot_incremental_updates_rejection_and_deletion) ... ok\ntest_cwe_xml_import_metadata_deprecation_and_entity_rejection (__main__.PublicKnowledgeTests.test_cwe_xml_import_metadata_deprecation_and_entity_rejection) ... ok\ntest_legacy_export_discards_labels_and_requires_scoped_ingest_review (__main__.PublicKnowledgeTests.test_legacy_export_discards_labels_and_requires_scoped_ingest_review) ... ok\ntest_legacy_safe_stage_rejects_escape_links_and_existing_destinations (__main__.PublicKnowledgeTests.test_legacy_safe_stage_rejects_escape_links_and_existing_destinations) ... ok\ntest_local_triage_uses_catalog_without_acquiring_confirmation_authority (__main__.PublicKnowledgeTests.test_local_triage_uses_catalog_without_acquiring_confirmation_authority) ... ok\ntest_methods_chunking_and_non_execution (__main__.PublicKnowledgeTests.test_methods_chunking_and_non_execution) ... ok\ntest_partial_import_cannot_claim_complete_or_withdraw_previous_records (__main__.PublicKnowledgeTests.test_partial_import_cannot_claim_complete_or_withdraw_previous_records) ... ok\ntest_reference_fields_containers_ranges_budgets_and_safe_fts (__main__.PublicKnowledgeTests.test_reference_fields_containers_ranges_budgets_and_safe_fts) ... ok\ntest_union_includes_late_published_old_id_and_rejects_future_publication (__main__.PublicKnowledgeTests.test_union_includes_late_published_old_id_and_rejects_future_publication) ... ok\ntest_loopback_inference_timeout_and_proxy_are_distinct_from_scan_traffic (__main__.RunRegressions.test_loopback_inference_timeout_and_proxy_are_distinct_from_scan_traffic) ... ok\ntest_report_does_not_silently_retry_a_failed_refutation_in_the_same_run (__main__.RunRegressions.test_report_does_not_silently_retry_a_failed_refutation_in_the_same_run) ... ok\ntest_source_index_excludes_arbitrary_run_names_ai_homes_and_symlinks (__main__.RunRegressions.test_source_index_excludes_arbitrary_run_names_ai_homes_and_symlinks) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.484s\n\nOK\n",
+    "seconds": 0.67
+  },
+  {
+    "test": "tests/test_quality_evaluation_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_abstentions_are_retained_in_full_denominator_bounds (__main__.Quality.test_abstentions_are_retained_in_full_denominator_bounds) ... ok\ntest_all_four_cells_and_stage_separation (__main__.Quality.test_all_four_cells_and_stage_separation) ... ok\ntest_leakage_duplicates_and_unlabeled_rows_refused (__main__.Quality.test_leakage_duplicates_and_unlabeled_rows_refused) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+    "seconds": 0.06
+  },
+  {
+    "test": "tests/test_release_v410.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_legacy_flags_status_only_and_counters_never_confirm (__main__.ReleaseTests.test_legacy_flags_status_only_and_counters_never_confirm) ... ok\ntest_native_http_guard_applies_before_transport_and_caps_responses (__main__.ReleaseTests.test_native_http_guard_applies_before_transport_and_caps_responses) ... ok\ntest_native_redirect_verifier_creates_a_linked_confirmed_finding (__main__.ReleaseTests.test_native_redirect_verifier_creates_a_linked_confirmed_finding) ... ok\ntest_observation_validation_enrichment_and_notes_are_redacted (__main__.ReleaseTests.test_observation_validation_enrichment_and_notes_are_redacted) ... ok\ntest_other_confirmation_contracts_accept_captured_positive_pairs (__main__.ReleaseTests.test_other_confirmation_contracts_accept_captured_positive_pairs) ... ok\ntest_provider_credentials_are_never_in_live_argv (__main__.ReleaseTests.test_provider_credentials_are_never_in_live_argv) ... ok\ntest_raw_json_cannot_restore_confirmation_receipt (__main__.ReleaseTests.test_raw_json_cannot_restore_confirmation_receipt) ... ok\ntest_real_capture_contract_survives_database_reopen (__main__.ReleaseTests.test_real_capture_contract_survives_database_reopen) ... ok\ntest_recovered_sources_are_analyzed_raw_and_exported_redacted (__main__.ReleaseTests.test_recovered_sources_are_analyzed_raw_and_exported_redacted) ... ok\ntest_replayed_tampered_unsigned_and_wrong_class_proof_is_refused (__main__.ReleaseTests.test_replayed_tampered_unsigned_and_wrong_class_proof_is_refused) ... ok\ntest_resume_detects_changed_source_even_with_preserved_mtime (__main__.ReleaseTests.test_resume_detects_changed_source_even_with_preserved_mtime) ... ok\ntest_sealed_snapshot_includes_consistent_database_and_survives_later_writes (__main__.ReleaseTests.test_sealed_snapshot_includes_consistent_database_and_survives_later_writes) ... ok\ntest_snapshot_reports_tampering_and_rejects_symlinks (__main__.ReleaseTests.test_snapshot_reports_tampering_and_rejects_symlinks) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.029s\n\nOK\n",
+    "seconds": 1.18
+  },
+  {
+    "test": "tests/test_remediation_f01.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_normalized_paths (__main__.SourceMapBoundaryTests.test_normalized_paths) ... ok\ntest_traversal_and_symlink_preserve_outside (__main__.SourceMapBoundaryTests.test_traversal_and_symlink_preserve_outside) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.012s\n\nOK\n",
+    "seconds": 0.06
+  },
+  {
+    "test": "tests/test_remediation_f01_js.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_preplanted_recovery_directory_link (__main__.JsRecoveryBoundaryTests.test_preplanted_recovery_directory_link) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nOK\n",
+    "seconds": 0.2
+  },
+  {
+    "test": "tests/test_remediation_f02_f03.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_blocked_redirect_still_marks_authorized_origin_live (__main__.ReconAuthorityTests.test_blocked_redirect_still_marks_authorized_origin_live) ... ok\ntest_direct_liveness_filters_urls_and_file_before_child (__main__.ReconAuthorityTests.test_direct_liveness_filters_urls_and_file_before_child) ... ok\ntest_no_child_dispatch_for_an_empty_authorized_file (__main__.ReconAuthorityTests.test_no_child_dispatch_for_an_empty_authorized_file) ... ok\ntest_sibling_and_denied_seed (__main__.ReconAuthorityTests.test_sibling_and_denied_seed) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.080s\n\nOK\n",
+    "seconds": 0.19
+  },
+  {
+    "test": "tests/test_remediation_f04.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_denied_and_zero_and_calibration_budget (__main__.ApiBoundaryTests.test_denied_and_zero_and_calibration_budget) ... ok\ntest_policy_methods_assets_and_zero_ceiling (__main__.ApiBoundaryTests.test_policy_methods_assets_and_zero_ceiling) ... ok\ntest_shared_fractional_rate_and_budget_across_workers (__main__.ApiBoundaryTests.test_shared_fractional_rate_and_budget_across_workers) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.013s\n\nOK\n",
+    "seconds": 0.16
+  },
+  {
+    "test": "tests/test_remediation_f05.py",
+    "returncode": 0,
+    "stdout": "\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n",
+    "stderr": "test_missing_mandatory_module_is_fatal (__main__.RequiredGateTests.test_missing_mandatory_module_is_fatal) ... /tmp/tbhm-release-suite-ty5rvn0c/source/tbhm.py:349: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  self.start_ts = datetime.utcnow().isoformat()\n/tmp/tbhm-release-suite-ty5rvn0c/source/tbhm.py:374: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  ts = datetime.utcnow().strftime(\"%H:%M:%S\")\n/tmp/tbhm-release-suite-ty5rvn0c/source/tbhm.py:389: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  jf.write(json.dumps({\"ts\": datetime.utcnow().isoformat() + \"Z\",\nok\ntest_required_gate_halts_before_any_later_work (__main__.RequiredGateTests.test_required_gate_halts_before_any_later_work) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.437s\n\nOK\n",
+    "seconds": 0.61
+  },
+  {
+    "test": "tests/test_remediation_f07.py",
+    "returncode": 0,
+    "stdout": "\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\n\u250c\u2500 SCAN SUMMARY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Output:   /tmp/tmppvxyuk1a                                       \u2502\n\u2502 Targets:  1                                                      \u2502\n\u2502 Findings: 0                                                      \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\nOpen the HTML report: file:///tmp/tmppvxyuk1a/REPORT.html\nCI gate: scan incomplete \u2014 exiting non-zero.\nDelivery snapshot: /tmp/tmppvxyuk1a/delivery/run-e5e533e2e31a4af69ae5c15a87e441b6\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\n\u250c\u2500 SCAN SUMMARY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Output:   /tmp/tmpgk6s0hjg                                       \u2502\n\u2502 Targets:  1                                                      \u2502\n\u2502 Findings: 0                                                      \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\nOpen the HTML report: file:///tmp/tmpgk6s0hjg/REPORT.html\nCI gate: scan incomplete \u2014 exiting non-zero.\nDelivery snapshot: /tmp/tmpgk6s0hjg/delivery/run-f7f271eeafcf42bdbdfd1c8989c64c9b\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\n\u250c\u2500 SCAN SUMMARY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Output:   /tmp/tmp47l0tix9                                       \u2502\n\u2502 Targets:  1                                                      \u2502\n\u2502 Findings: 0                                                      \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\nOpen the HTML report: file:///tmp/tmp47l0tix9/REPORT.html\nCI gate: scan incomplete \u2014 exiting non-zero.\nDelivery snapshot: /tmp/tmp47l0tix9/delivery/run-7d8e6763d7b342a68f99422f7b9509e4\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\n\u250c\u2500 SCAN SUMMARY \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Output:   /tmp/tmplcbmjifc                                       \u2502\n\u2502 Targets:  1                                                      \u2502\n\u2502 Findings: 0                                                      \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\nOpen the HTML report: file:///tmp/tmplcbmjifc/REPORT.html\nDelivery snapshot: /tmp/tmplcbmjifc/delivery/run-0fc166e20aea49bda1e76d0c1b714acc\n",
+    "stderr": "test_confirmed_gate_keeps_leads (__main__.CiGateTests.test_confirmed_gate_keeps_leads) ... /tmp/tbhm-release-suite-ioziybd8/source/phases/evidence_finalize.py:77: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  \"generated_at\": datetime.utcnow().isoformat() + \"Z\",\nok\ntest_main_detects_crashes_missing_modules_and_missing_reports (__main__.CiGateTests.test_main_detects_crashes_missing_modules_and_missing_reports) ... /tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:349: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  self.start_ts = datetime.utcnow().isoformat()\n/tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:374: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  ts = datetime.utcnow().strftime(\"%H:%M:%S\")\n/tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:389: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  jf.write(json.dumps({\"ts\": datetime.utcnow().isoformat() + \"Z\",\n/tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:374: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  ts = datetime.utcnow().strftime(\"%H:%M:%S\")\n/tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:389: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  jf.write(json.dumps({\"ts\": datetime.utcnow().isoformat() + \"Z\",\n/tmp/tbhm-release-suite-ioziybd8/source/phases/evidence_finalize.py:77: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  \"generated_at\": datetime.utcnow().isoformat() + \"Z\",\n/tmp/tbhm-release-suite-ioziybd8/source/tbhm.py:349: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  self.start_ts = datetime.utcnow().isoformat()\nok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.663s\n\nOK\n",
+    "seconds": 0.84
+  },
+  {
+    "test": "tests/test_remediation_f10.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_budget_rejects_before_any_decompression (__main__.ArchivePreflightTests.test_budget_rejects_before_any_decompression) ... ok\ntest_streaming_crc_detects_corruption (__main__.ArchivePreflightTests.test_streaming_crc_detects_corruption) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.079s\n\nOK\n",
+    "seconds": 0.16
+  },
+  {
+    "test": "tests/test_remediation_f11.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_optional_base_keeps_existing_one_argument_calls (__main__.RedirectTests.test_optional_base_keeps_existing_one_argument_calls) ... ok\ntest_status_and_destination_pairs (__main__.RedirectTests.test_status_and_destination_pairs) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n",
+    "seconds": 0.16
+  },
+  {
+    "test": "tests/test_remediation_f12.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_real_flag_pair (__main__.AuthorizationSnapshotTests.test_real_flag_pair) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+    "seconds": 0.12
+  },
+  {
+    "test": "tests/test_remediation_r09.py",
+    "returncode": 0,
+    "stdout": "\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n\u001b[32m[LEGAL]\u001b[0m Authorization confirmed by user.\n        Targets: 1  Profile: authorized_safe\n        Hard limits ENFORCED (no destructive payloads, no DoS, no real data exfil, no credential theft/persistence).\n\n",
+    "stderr": "test_missing_and_empty_prior_are_blocked (__main__.EmptyRecheckTests.test_missing_and_empty_prior_are_blocked) ... /tmp/tbhm-release-suite-5em5tmz5/source/tbhm.py:349: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  self.start_ts = datetime.utcnow().isoformat()\n/tmp/tbhm-release-suite-5em5tmz5/source/tbhm.py:374: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  ts = datetime.utcnow().strftime(\"%H:%M:%S\")\n/tmp/tbhm-release-suite-5em5tmz5/source/tbhm.py:389: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  jf.write(json.dumps({\"ts\": datetime.utcnow().isoformat() + \"Z\",\nok\n\n----------------------------------------------------------------------\nRan 1 test in 0.190s\n\nOK\n",
+    "seconds": 0.33
+  },
+  {
+    "test": "tests/test_research_v420_evidence.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_canonical_asset_prefers_url_and_keeps_local_files_distinct (__main__.EvidenceTests.test_canonical_asset_prefers_url_and_keeps_local_files_distinct) ... ok\ntest_chain_flag_cross_asset_and_single_finding_do_not_form_paths (__main__.EvidenceTests.test_chain_flag_cross_asset_and_single_finding_do_not_form_paths) ... ok\ntest_context_imports_are_bounded_redacted_and_never_follow_outside_symlinks (__main__.EvidenceTests.test_context_imports_are_bounded_redacted_and_never_follow_outside_symlinks) ... ok\ntest_contract_and_import_bytes_change_resume_identity (__main__.EvidenceTests.test_contract_and_import_bytes_change_resume_identity) ... ok\ntest_llm_batch_rejects_foreign_ids_and_preserves_classification_and_cwe (__main__.EvidenceTests.test_llm_batch_rejects_foreign_ids_and_preserves_classification_and_cwe) ... ok\ntest_missing_prediction_is_unresolved_and_metrics_are_exact (__main__.EvidenceTests.test_missing_prediction_is_unresolved_and_metrics_are_exact) ... ok\ntest_offline_web3_and_model_setup_never_dispatch (__main__.EvidenceTests.test_offline_web3_and_model_setup_never_dispatch) ... ok\ntest_real_http_429_and_503_pause_other_adapters_without_retry (__main__.EvidenceTests.test_real_http_429_and_503_pause_other_adapters_without_retry) ... ok\ntest_refutation_rejects_fake_evidence_wrong_ids_and_authoritative_verdicts (__main__.EvidenceTests.test_refutation_rejects_fake_evidence_wrong_ids_and_authoritative_verdicts) ... ok\ntest_root_cause_candidates_retain_records_and_do_not_infer_permission (__main__.EvidenceTests.test_root_cause_candidates_retain_records_and_do_not_infer_permission) ... ok\ntest_same_asset_chain_is_hypothesis_with_distinct_ids_and_no_new_finding (__main__.EvidenceTests.test_same_asset_chain_is_hypothesis_with_distinct_ids_and_no_new_finding) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.702s\n\nOK\n",
+    "seconds": 0.91
+  },
+  {
+    "test": "tests/test_research_v420_static.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_diff_reports_security_change_and_removed_operation (__main__.ContractTests.test_diff_reports_security_change_and_removed_operation) ... ok\ntest_har_observation_is_scoped_to_declared_host_and_not_security_coverage (__main__.ContractTests.test_har_observation_is_scoped_to_declared_host_and_not_security_coverage) ... ok\ntest_inherited_security_empty_override_and_or_anonymous (__main__.ContractTests.test_inherited_security_empty_override_and_or_anonymous) ... ok\ntest_python_parse_failure_is_explicit_analysis_coverage (__main__.ContractTests.test_python_parse_failure_is_explicit_analysis_coverage) ... ok\ntest_reference_cycles_remote_refs_and_malformed_security_are_partial (__main__.ContractTests.test_reference_cycles_remote_refs_and_malformed_security_are_partial) ... ok\ntest_repeated_large_reference_shapes_do_not_expand_without_bounds (__main__.ContractTests.test_repeated_large_reference_shapes_do_not_expand_without_bounds) ... ok\ntest_server_base_path_and_shared_schema_changes_are_visible (__main__.ContractTests.test_server_base_path_and_shared_schema_changes_are_visible) ... ok\ntest_source_analyzer_failure_is_not_a_clean_result (__main__.ContractTests.test_source_analyzer_failure_is_not_a_clean_result) ... ok\ntest_yaml_alias_cycle_oversize_and_unsupported_version (__main__.ContractTests.test_yaml_alias_cycle_oversize_and_unsupported_version) ... ok\ntest_finally_can_observe_taint_before_a_failed_assignment (__main__.StaticTests.test_finally_can_observe_taint_before_a_failed_assignment) ... ok\ntest_html_escaping_does_not_sanitize_sql_or_shell (__main__.StaticTests.test_html_escaping_does_not_sanitize_sql_or_shell) ... ok\ntest_labeled_static_regression_corpus (__main__.StaticTests.test_labeled_static_regression_corpus) ... ok\ntest_lexical_js_does_not_pretend_url_encoding_is_html_sanitization (__main__.StaticTests.test_lexical_js_does_not_pretend_url_encoding_is_html_sanitization) ... ok\ntest_manifest_exported_permissions_inheritance_and_enabled (__main__.StaticTests.test_manifest_exported_permissions_inheritance_and_enabled) ... ok\ntest_manifest_unknown_exported_default_and_deep_link_not_verified (__main__.StaticTests.test_manifest_unknown_exported_default_and_deep_link_not_verified) ... ok\ntest_numeric_control_is_tracked_only_on_complete_value (__main__.StaticTests.test_numeric_control_is_tracked_only_on_complete_value) ... ok\ntest_overwrite_kills_taint_but_conditional_overwrite_does_not (__main__.StaticTests.test_overwrite_kills_taint_but_conditional_overwrite_does_not) ... ok\ntest_parameterized_sql_values_are_not_query_taint (__main__.StaticTests.test_parameterized_sql_values_are_not_query_taint) ... ok\ntest_shadowed_numeric_function_is_not_a_control (__main__.StaticTests.test_shadowed_numeric_function_is_not_a_control) ... ok\ntest_slither_import_errors_dedup_and_no_confirmation (__main__.StaticTests.test_slither_import_errors_dedup_and_no_confirmation) ... ok\ntest_soft404_different_bodies_with_same_status_do_not_suppress (__main__.StaticTests.test_soft404_different_bodies_with_same_status_do_not_suppress) ... ok\ntest_subprocess_shell_semantics_and_inline_flow (__main__.StaticTests.test_subprocess_shell_semantics_and_inline_flow) ... ok\ntest_unrelated_sanitizer_does_not_hide_source (__main__.StaticTests.test_unrelated_sanitizer_does_not_hide_source) ... ok\ntest_wallet_prose_hashes_and_redaction (__main__.StaticTests.test_wallet_prose_hashes_and_redaction) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.039s\n\nOK\n",
+    "seconds": 0.21
+  },
+  {
+    "test": "tests/test_review_collector_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_alias_map_is_not_copied (__main__.CollectorTests.test_alias_map_is_not_copied) ... ok\ntest_bad_alias_map_is_rejected (__main__.CollectorTests.test_bad_alias_map_is_rejected) ... ok\ntest_cli_argv_keeps_tbhm_target_and_removes_curl_login (__main__.CollectorTests.test_cli_argv_keeps_tbhm_target_and_removes_curl_login) ... ok\ntest_cli_empty_path_returns_error_not_current_directory (__main__.CollectorTests.test_cli_empty_path_returns_error_not_current_directory) ... ok\ntest_database_html_and_raw_secret_reports_are_excluded (__main__.CollectorTests.test_database_html_and_raw_secret_reports_are_excluded) ... ok\ntest_embedded_json_quoted_assignment (__main__.CollectorTests.test_embedded_json_quoted_assignment) ... ok\ntest_extra_unrecorded_file_is_detected (__main__.CollectorTests.test_extra_unrecorded_file_is_detected) ... ok\ntest_fifo_is_not_opened (__main__.CollectorTests.test_fifo_is_not_opened) ... ok\ntest_file_count_limit_and_priority (__main__.CollectorTests.test_file_count_limit_and_priority) ... ok\ntest_file_replacement_or_mutation_is_detected (__main__.CollectorTests.test_file_replacement_or_mutation_is_detected) ... ok\ntest_hard_link_file_is_rejected (__main__.CollectorTests.test_hard_link_file_is_rejected) ... ok\ntest_header_pairs (__main__.CollectorTests.test_header_pairs) ... ok\ntest_include_evidence_retains_benign_context_and_removes_secret (__main__.CollectorTests.test_include_evidence_retains_benign_context_and_removes_secret) ... ok\ntest_invalid_json_is_not_silently_copied (__main__.CollectorTests.test_invalid_json_is_not_silently_copied) ... ok\ntest_invalid_utf8_is_held_back (__main__.CollectorTests.test_invalid_utf8_is_held_back) ... ok\ntest_inventory_budget_is_enforced_before_unbounded_listing (__main__.CollectorTests.test_inventory_budget_is_enforced_before_unbounded_listing) ... ok\ntest_jsonl_remains_parseable (__main__.CollectorTests.test_jsonl_remains_parseable) ... ok\ntest_known_value_encoded_forms (__main__.CollectorTests.test_known_value_encoded_forms) ... ok\ntest_manifest_path_traversal_is_rejected (__main__.CollectorTests.test_manifest_path_traversal_is_rejected) ... ok\ntest_minimal_omits_json_evidence_but_not_verdict (__main__.CollectorTests.test_minimal_omits_json_evidence_but_not_verdict) ... ok\ntest_missing_primary_is_disclosed_as_partial (__main__.CollectorTests.test_missing_primary_is_disclosed_as_partial) ... ok\ntest_no_network_or_subprocess_is_used (__main__.CollectorTests.test_no_network_or_subprocess_is_used) ... ok\ntest_ordinary_tool_logs_need_explicit_option (__main__.CollectorTests.test_ordinary_tool_logs_need_explicit_option) ... ok\ntest_output_inside_source_is_rejected (__main__.CollectorTests.test_output_inside_source_is_rejected) ... ok\ntest_oversize_file_is_not_truncated_to_success (__main__.CollectorTests.test_oversize_file_is_not_truncated_to_success) ... ok\ntest_private_key_complete_and_incomplete (__main__.CollectorTests.test_private_key_complete_and_incomplete) ... ok\ntest_private_permissions_and_archive_members (__main__.CollectorTests.test_private_permissions_and_archive_members) ... ok\ntest_read_only_source_and_preserved_outcome (__main__.CollectorTests.test_read_only_source_and_preserved_outcome) ... ok\ntest_recon_and_ai_artifacts_are_collected (__main__.CollectorTests.test_recon_and_ai_artifacts_are_collected) ... ok\ntest_short_or_whitespace_only_known_values_are_rejected (__main__.CollectorTests.test_short_or_whitespace_only_known_values_are_rejected) ... ok\ntest_source_identity_is_read_without_execution (__main__.CollectorTests.test_source_identity_is_read_without_execution) ... ok\ntest_symbolic_link_file_is_rejected (__main__.CollectorTests.test_symbolic_link_file_is_rejected) ... ok\ntest_symlink_directory_is_rejected (__main__.CollectorTests.test_symlink_directory_is_rejected) ... ok\ntest_symlink_input_parent_is_rejected (__main__.CollectorTests.test_symlink_input_parent_is_rejected) ... ok\ntest_symlink_output_parent_does_not_write_through (__main__.CollectorTests.test_symlink_output_parent_does_not_write_through) ... ok\ntest_tamper_is_detected (__main__.CollectorTests.test_tamper_is_detected) ... ok\ntest_total_budget_is_enforced (__main__.CollectorTests.test_total_budget_is_enforced) ... ok\n\n----------------------------------------------------------------------\nRan 37 tests in 0.186s\n\nOK\n",
+    "seconds": 0.26
+  },
+  {
+    "test": "tests/test_scenarios_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_contradictions_quarantine_and_disposition_separation (__main__.Scenarios.test_contradictions_quarantine_and_disposition_separation) ... ok\ntest_duplicates_conflicts_and_forged_flags (__main__.Scenarios.test_duplicates_conflicts_and_forged_flags) ... ok\ntest_explicit_permission_and_cross_project_isolation (__main__.Scenarios.test_explicit_permission_and_cross_project_isolation) ... ok\ntest_memory_database_and_wal_are_private (__main__.Scenarios.test_memory_database_and_wal_are_private) ... ok\ntest_missing_permissions_retention_and_budget (__main__.Scenarios.test_missing_permissions_retention_and_budget) ... ok\ntest_pending_review_hash_binding_and_persistence (__main__.Scenarios.test_pending_review_hash_binding_and_persistence) ... ok\ntest_real_v5_database_additive_migration_and_rollback_copy (__main__.Scenarios.test_real_v5_database_additive_migration_and_rollback_copy) ... ok\ntest_review_requires_operator_and_supplied_evidence (__main__.Scenarios.test_review_requires_operator_and_supplied_evidence) ... ok\ntest_secrets_pii_and_poison_are_not_trusted (__main__.Scenarios.test_secrets_pii_and_poison_are_not_trusted) ... ok\ntest_tampered_scenario_refused (__main__.Scenarios.test_tampered_scenario_refused) ... ok\ntest_training_inconclusive_and_training_permission (__main__.Scenarios.test_training_inconclusive_and_training_permission) ... ok\ntest_training_permission_and_revocation (__main__.Scenarios.test_training_permission_and_revocation) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.238s\n\nOK\n",
+    "seconds": 0.39
+  },
+  {
+    "test": "tests/test_security_corrections_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_canary_in_filename_is_a_delivery_leak (__main__.Defects.test_canary_in_filename_is_a_delivery_leak) ... ok\ntest_operator_queue_cannot_trust_imported_flags (__main__.Defects.test_operator_queue_cannot_trust_imported_flags) ... ok\ntest_oversized_429_still_persists_shared_cooldown (__main__.Defects.test_oversized_429_still_persists_shared_cooldown) ... ok\ntest_untrusted_graph_flags_cannot_verify_proof (__main__.Defects.test_untrusted_graph_flags_cannot_verify_proof) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.528s\n\nOK\n",
+    "seconds": 0.69
+  },
+  {
+    "test": "tests/test_security_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_bounded_learning_input_rejects_symlinks_corrupt_and_oversize (__main__.Security.test_bounded_learning_input_rejects_symlinks_corrupt_and_oversize) ... ok\ntest_installable_release_requires_manifest_but_generic_zip_remains_supported (__main__.Security.test_installable_release_requires_manifest_but_generic_zip_remains_supported) ... ok\ntest_legacy_retrieval_omits_private_run_and_imported_text (__main__.Security.test_legacy_retrieval_omits_private_run_and_imported_text) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.049s\n\nOK\n",
+    "seconds": 0.18
+  },
+  {
+    "test": "tests/test_self_evaluation_v425.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_bounded_context_and_hidden_reference_refusal (__main__.Evaluation.test_bounded_context_and_hidden_reference_refusal) ... ok\ntest_evaluation_rejects_duplicate_and_foreign_predictions (__main__.Evaluation.test_evaluation_rejects_duplicate_and_foreign_predictions) ... ok\ntest_fabricated_citation_is_abstention_and_measured (__main__.Evaluation.test_fabricated_citation_is_abstention_and_measured) ... ok\ntest_four_cells_and_missing_predictions_full_denominator (__main__.Evaluation.test_four_cells_and_missing_predictions_full_denominator) ... ok\ntest_frozen_dataset_immutable_and_revocation_invalidates (__main__.Evaluation.test_frozen_dataset_immutable_and_revocation_invalidates) ... ok\ntest_independent_unknown_label_and_classification_error (__main__.Evaluation.test_independent_unknown_label_and_classification_error) ... ok\ntest_model_cannot_emit_proof_or_grade_itself (__main__.Evaluation.test_model_cannot_emit_proof_or_grade_itself) ... ok\ntest_near_duplicate_detection (__main__.Evaluation.test_near_duplicate_detection) ... ok\ntest_project_root_fixture_source_and_duplicate_leakage (__main__.Evaluation.test_project_root_fixture_source_and_duplicate_leakage) ... ok\ntest_prompt_does_not_expose_current_labels_or_private_other_project (__main__.Evaluation.test_prompt_does_not_expose_current_labels_or_private_other_project) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.220s\n\nOK\n",
+    "seconds": 0.42
+  },
+  {
+    "test": "tests/test_ssrf_v421.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 2.527s\n\nOK\n",
+    "seconds": 2.68
+  },
+  {
+    "test": "tests/test_standards_v421.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+    "seconds": 0.05
+  },
+  {
+    "test": "tests/test_strict_classes_v424.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_complete_plan_is_validated_before_any_contact (__main__.StrictClasses.test_complete_plan_is_validated_before_any_contact) ... ok\ntest_live_vulnerable_filesystem_and_owned_role_function_confirm (__main__.StrictClasses.test_live_vulnerable_filesystem_and_owned_role_function_confirm) ... ok\ntest_metamorphic_order_noise_and_missing_generic_assertion (__main__.StrictClasses.test_metamorphic_order_noise_and_missing_generic_assertion) ... ok\ntest_missing_controls_and_repeats_remain_inconclusive (__main__.StrictClasses.test_missing_controls_and_repeats_remain_inconclusive) ... ok\ntest_patched_controls_hold_without_confirmation (__main__.StrictClasses.test_patched_controls_hold_without_confirmation) ... ok\ntest_public_function_and_expired_privileged_identity_are_inconclusive (__main__.StrictClasses.test_public_function_and_expired_privileged_identity_are_inconclusive) ... ok\ntest_signed_unstable_repeat_and_physical_tamper_are_refused (__main__.StrictClasses.test_signed_unstable_repeat_and_physical_tamper_are_refused) ... ok\ntest_tampered_signature_replayed_capture_wrong_class_and_cross_binding_refused (__main__.StrictClasses.test_tampered_signature_replayed_capture_wrong_class_and_cross_binding_refused) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 12.090s\n\nOK\n",
+    "seconds": 12.2
+  },
+  {
+    "test": "tests/test_supplied_planner_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_argv_quote_can_remain_advisory_counterevidence (__main__.PlannerAndEvidenceTests.test_argv_quote_can_remain_advisory_counterevidence) ... ok\ntest_exact_old_planner_string_arrays_are_rejected (__main__.PlannerAndEvidenceTests.test_exact_old_planner_string_arrays_are_rejected) ... ok\ntest_exact_user_counterclaim_is_qualified_even_when_quote_is_real (__main__.PlannerAndEvidenceTests.test_exact_user_counterclaim_is_qualified_even_when_quote_is_real) ... ok\ntest_explicit_subprocess_shell_true_is_recognized (__main__.PlannerAndEvidenceTests.test_explicit_subprocess_shell_true_is_recognized) ... ok\ntest_invalid_model_plan_is_not_coerced_to_empty_success (__main__.PlannerAndEvidenceTests.test_invalid_model_plan_is_not_coerced_to_empty_success) ... ok\ntest_legacy_two_argument_client_receives_schema_without_private_history (__main__.PlannerAndEvidenceTests.test_legacy_two_argument_client_receives_schema_without_private_history) ... ok\ntest_misleading_comment_does_not_hide_active_shell_syntax (__main__.PlannerAndEvidenceTests.test_misleading_comment_does_not_hide_active_shell_syntax) ... ok\ntest_new_schema_requires_a_supplied_source_line_quote (__main__.PlannerAndEvidenceTests.test_new_schema_requires_a_supplied_source_line_quote) ... ok\ntest_no_source_rag_banner_without_accepted_chunks (__main__.PlannerAndEvidenceTests.test_no_source_rag_banner_without_accepted_chunks) ... ok\ntest_output_bound_survives_template_fallback (__main__.PlannerAndEvidenceTests.test_output_bound_survives_template_fallback) ... ok\ntest_real_loopback_request_uses_typed_schema_and_token_bound (__main__.PlannerAndEvidenceTests.test_real_loopback_request_uses_typed_schema_and_token_bound) ... ok\ntest_rebinding_guarding_and_shadowing_remain_unknown (__main__.PlannerAndEvidenceTests.test_rebinding_guarding_and_shadowing_remain_unknown) ... ok\ntest_request_argument_assignment_retains_narrow_source_fact (__main__.PlannerAndEvidenceTests.test_request_argument_assignment_retains_narrow_source_fact) ... ok\ntest_shell_option_is_syntax_not_a_global_safety_claim (__main__.PlannerAndEvidenceTests.test_shell_option_is_syntax_not_a_global_safety_claim) ... ok\ntest_source_relation_mismatch_is_qualified_and_invalid_type_rejected (__main__.PlannerAndEvidenceTests.test_source_relation_mismatch_is_qualified_and_invalid_type_rejected) ... ok\ntest_typed_but_conflicting_plan_is_rejected (__main__.PlannerAndEvidenceTests.test_typed_but_conflicting_plan_is_rejected) ... ok\ntest_unbounded_legacy_chat_contract_is_retained (__main__.PlannerAndEvidenceTests.test_unbounded_legacy_chat_contract_is_retained) ... ok\ntest_valid_json_at_token_limit_is_not_success (__main__.PlannerAndEvidenceTests.test_valid_json_at_token_limit_is_not_success) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 2.536s\n\nOK\n",
+    "seconds": 2.7
+  },
+  {
+    "test": "tests/test_supplied_prior_ai_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "........................\n----------------------------------------------------------------------\nRan 24 tests in 0.776s\n\nOK\n",
+    "seconds": 0.92
+  },
+  {
+    "test": "tests/test_supplied_runtime_learning_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_loopback_model_timeout_does_not_repeat_for_remaining_chunks (__main__.RuntimeLearningTests.test_actual_loopback_model_timeout_does_not_repeat_for_remaining_chunks) ... ok\ntest_archive_queries_respect_exact_hosts_and_explicit_apex_permission (__main__.RuntimeLearningTests.test_archive_queries_respect_exact_hosts_and_explicit_apex_permission) ... ok\ntest_backlog_survives_process_restart_and_drains_without_new_artifacts (__main__.RuntimeLearningTests.test_backlog_survives_process_restart_and_drains_without_new_artifacts) ... ok\ntest_cancel_before_dispatch_makes_zero_requests (__main__.RuntimeLearningTests.test_cancel_before_dispatch_makes_zero_requests) ... ok\ntest_cancel_during_batch_retains_previous_cache (__main__.RuntimeLearningTests.test_cancel_during_batch_retains_previous_cache) ... ok\ntest_cancelled_guard_blocks_other_model_callers_before_transport (__main__.RuntimeLearningTests.test_cancelled_guard_blocks_other_model_callers_before_transport) ... ok\ntest_changed_dimensions_do_not_replace_cache (__main__.RuntimeLearningTests.test_changed_dimensions_do_not_replace_cache) ... ok\ntest_deadline_is_checked_before_next_request (__main__.RuntimeLearningTests.test_deadline_is_checked_before_next_request) ... ok\ntest_deletions_are_removed_without_model_work (__main__.RuntimeLearningTests.test_deletions_are_removed_without_model_work) ... ok\ntest_mid_batch_failure_stops_immediately_and_never_mixes_spaces (__main__.RuntimeLearningTests.test_mid_batch_failure_stops_immediately_and_never_mixes_spaces) ... ok\ntest_missing_cache_does_not_rebuild_all_chunks (__main__.RuntimeLearningTests.test_missing_cache_does_not_rebuild_all_chunks) ... ok\ntest_model_change_requires_explicit_maintenance (__main__.RuntimeLearningTests.test_model_change_requires_explicit_maintenance) ... ok\ntest_observer_reports_deferred_work_and_skips_cancelled_model_advisories (__main__.RuntimeLearningTests.test_observer_reports_deferred_work_and_skips_cancelled_model_advisories) ... ok\ntest_partial_cache_is_not_reported_complete (__main__.RuntimeLearningTests.test_partial_cache_is_not_reported_complete) ... ok\ntest_provider_urls_are_filtered_by_host_boundary_before_persistence (__main__.RuntimeLearningTests.test_provider_urls_are_filtered_by_host_boundary_before_persistence) ... ok\ntest_redaction_fast_paths_preserve_original_secret_substitutions (__main__.RuntimeLearningTests.test_redaction_fast_paths_preserve_original_secret_substitutions) ... ok\ntest_request_timeout_is_capped_by_remaining_budget (__main__.RuntimeLearningTests.test_request_timeout_is_capped_by_remaining_budget) ... ok\ntest_runtime_search_never_rebuilds_on_model_failure (__main__.RuntimeLearningTests.test_runtime_search_never_rebuilds_on_model_failure) ... ok\ntest_sanitized_phase_notes_are_durable_when_cancelled (__main__.RuntimeLearningTests.test_sanitized_phase_notes_are_durable_when_cancelled) ... ok\ntest_stopped_stream_never_writes_to_closed_log (__main__.RuntimeLearningTests.test_stopped_stream_never_writes_to_closed_log) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 1.049s\n\nOK\n",
+    "seconds": 1.29
+  },
+  {
+    "test": "tests/test_supplied_source_grounding_v426.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_legacy_target_attaches_exact_file_hash_and_line (__main__.SourceGroundingTests.test_actual_legacy_target_attaches_exact_file_hash_and_line) ... ok\ntest_ambiguous_legacy_prefix_is_not_guessed (__main__.SourceGroundingTests.test_ambiguous_legacy_prefix_is_not_guessed) ... ok\ntest_descriptor_read_rejects_fifo_without_blocking (__main__.SourceGroundingTests.test_descriptor_read_rejects_fifo_without_blocking) ... ok\ntest_descriptor_walk_rejects_directory_swap_after_resolution (__main__.SourceGroundingTests.test_descriptor_walk_rejects_directory_swap_after_resolution) ... ok\ntest_evidence_location_only_and_absolute_in_root_are_supported (__main__.SourceGroundingTests.test_evidence_location_only_and_absolute_in_root_are_supported) ... ok\ntest_exact_old_bad_response_becomes_unresolved_and_retains_model_text (__main__.SourceGroundingTests.test_exact_old_bad_response_becomes_unresolved_and_retains_model_text) ... ok\ntest_genuine_comment_quote_remains_non_authoritative_counterevidence (__main__.SourceGroundingTests.test_genuine_comment_quote_remains_non_authoritative_counterevidence) ... ok\ntest_grounding_warnings_persist_only_as_unreviewed_candidates (__main__.SourceGroundingTests.test_grounding_warnings_persist_only_as_unreviewed_candidates) ... ok\ntest_independent_local_shell_marker_and_argument_vector_control (__main__.SourceGroundingTests.test_independent_local_shell_marker_and_argument_vector_control) ... ok\ntest_invented_source_quote_is_not_accepted (__main__.SourceGroundingTests.test_invented_source_quote_is_not_accepted) ... ok\ntest_line_facts_distinguish_comment_code_literal_and_syntax_error (__main__.SourceGroundingTests.test_line_facts_distinguish_comment_code_literal_and_syntax_error) ... ok\ntest_missing_source_schema_forbids_counterevidence_for_source_case (__main__.SourceGroundingTests.test_missing_source_schema_forbids_counterevidence_for_source_case) ... ok\ntest_negated_comment_claim_is_not_reversed_by_narrow_guard (__main__.SourceGroundingTests.test_negated_comment_claim_is_not_reversed_by_narrow_guard) ... ok\ntest_non_source_legacy_client_contract_is_preserved (__main__.SourceGroundingTests.test_non_source_legacy_client_contract_is_preserved) ... ok\ntest_quote_does_not_rescue_comment_claim_contradicting_python_tokens (__main__.SourceGroundingTests.test_quote_does_not_rescue_comment_claim_contradicting_python_tokens) ... ok\ntest_refutation_replay_does_not_mutate_stored_finding_proof_or_severity (__main__.SourceGroundingTests.test_refutation_replay_does_not_mutate_stored_finding_proof_or_severity) ... ok\ntest_source_links_and_linked_directories_are_not_followed (__main__.SourceGroundingTests.test_source_links_and_linked_directories_are_not_followed) ... ok\ntest_traversal_and_outside_absolute_paths_are_not_read (__main__.SourceGroundingTests.test_traversal_and_outside_absolute_paths_are_not_read) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.109s\n\nOK\n",
+    "seconds": 0.25
+  },
+  {
+    "test": "tests/test_v427_findings.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.045s\n\nOK\n",
+    "seconds": 0.29
+  },
+  {
+    "test": "tests/test_v427_runtime_control.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 32.892s\n\nOK\n",
+    "seconds": 33.07
+  },
+  {
+    "test": "tests/test_v427_service_wait.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 15.532s\n\nOK\n",
+    "seconds": 15.7
+  },
+  {
+    "test": "tests/test_v427_upgrade.py",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.144s\n\nOK\n",
+    "seconds": 0.24
+  }
+]

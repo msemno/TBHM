@@ -1,0 +1,15 @@
+test_bounded_context_and_hidden_reference_refusal (test_self_evaluation_v425.Evaluation.test_bounded_context_and_hidden_reference_refusal) ... ok
+test_evaluation_rejects_duplicate_and_foreign_predictions (test_self_evaluation_v425.Evaluation.test_evaluation_rejects_duplicate_and_foreign_predictions) ... ok
+test_fabricated_citation_is_abstention_and_measured (test_self_evaluation_v425.Evaluation.test_fabricated_citation_is_abstention_and_measured) ... ok
+test_four_cells_and_missing_predictions_full_denominator (test_self_evaluation_v425.Evaluation.test_four_cells_and_missing_predictions_full_denominator) ... ok
+test_frozen_dataset_immutable_and_revocation_invalidates (test_self_evaluation_v425.Evaluation.test_frozen_dataset_immutable_and_revocation_invalidates) ... ok
+test_independent_unknown_label_and_classification_error (test_self_evaluation_v425.Evaluation.test_independent_unknown_label_and_classification_error) ... ok
+test_model_cannot_emit_proof_or_grade_itself (test_self_evaluation_v425.Evaluation.test_model_cannot_emit_proof_or_grade_itself) ... ok
+test_near_duplicate_detection (test_self_evaluation_v425.Evaluation.test_near_duplicate_detection) ... ok
+test_project_root_fixture_source_and_duplicate_leakage (test_self_evaluation_v425.Evaluation.test_project_root_fixture_source_and_duplicate_leakage) ... ok
+test_prompt_does_not_expose_current_labels_or_private_other_project (test_self_evaluation_v425.Evaluation.test_prompt_does_not_expose_current_labels_or_private_other_project) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.462s
+
+OK

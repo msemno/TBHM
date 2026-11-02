@@ -1,0 +1,23 @@
+area,current_state,maturity,required_change,priority
+Finding lifecycle,Generic finding dict from phase,Mixed,Typed test → observation → candidate → validation → finding,P0
+Verification,URL liveness and generic replay,Weak,Vulnerability-specific assertion verifiers with controls,P0
+Coverage,Derived from phases that produced findings,Incorrect semantics,Record every executed test and negative outcome,P0
+Scope,Strong persistence gate,Late for network safety,Pre-request/redirect/DNS/callback enforcement,P0
+Bug bounty policy,URL recorded; generic ineligibility filter,Partial,Per-program machine-readable rule engine,P0
+Authorization,ID-shaped heuristics/offline role matrix,Weak,"Two-account, role, tenant, object/property/function engine",P0
+Business logic,Path-name heuristics and limited mutations,Weak,Workflow graph and invariant evaluator,P0
+Web active audit,Baseline/diff/verify mainly GET,Partial-good,Captured POST/JSON/multipart/browser request engine,P1
+Client-side,JS extraction/static hints,Partial,Browser execution and DOM dataflow proof,P1
+API protocols,Discovery and limited GraphQL/gRPC/WebSocket probes,Partial,Stateful authz and business-flow testing,P1
+Race conditions,Endpoint hints,Weak,Bounded synchronized engine plus state controls,P1
+File upload,Limited phase checks,Partial,Full upload/process/serve/access/cleanup lifecycle,P1
+Mobile,Static analysis and MobSF import,Partial-static,Dynamic emulator/device workflow,P1
+AI/LLM,Catalog and canary following,Early,"Trust-boundary, RAG, tool/action and data-flow proof",P1
+AD/internal,Read-only discovery and imports,Partial,Effective privilege-path validation and detection loop,P1
+Cloud/IAM,Recon and adapters,Partial,Provider-native effective permissions and trust paths,P1
+Red-team campaign,Coverage taxonomy and plans,Planning-heavy,Objective/technique/action/outcome/cleanup state model,P1
+Detection validation,Purple-team phases/reports,Partial,Telemetry ingestion and prevent/detect/respond metrics,P1
+Correlation,Text/regex narratives,Partial,"Typed entities, proof-backed graph edges",P1
+Deduplication,Payload/title/phase fingerprint,Observation-level only,Separate observation and root-cause fingerprints,P0
+Severity/CVSS,Often phase hardcoded; CVSS derived from severity,Weak,"Derive from proof, conditions and business impact",P0
+Scheduling,129 phases sequential,Limited scale,Dependency-aware bounded concurrent scheduler,P2

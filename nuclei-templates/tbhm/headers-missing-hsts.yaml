@@ -1,0 +1,32 @@
+id: tbhm-missing-hsts
+
+info:
+  name: Missing Strict-Transport-Security (HSTS) Header
+  author: tbhm
+  severity: low
+  description: |
+    The response over HTTPS does not set Strict-Transport-Security. Without HSTS,
+    a user can be downgraded to plaintext HTTP by an active network attacker
+    (sslstrip), exposing session cookies and traffic.
+  remediation: "Add: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload"
+  reference:
+    - https://owasp.org/www-project-secure-headers/#strict-transport-security
+  tags: tbhm,headers,misconfig,hsts
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code >= 200 && status_code < 400"
+      - type: word
+        part: header
+        words:
+          - "strict-transport-security"
+        case-insensitive: true
+        negative: true

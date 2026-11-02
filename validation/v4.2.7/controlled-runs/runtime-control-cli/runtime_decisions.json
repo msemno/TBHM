@@ -1,0 +1,105 @@
+{
+  "schema": "tbhm.runtime-control/1",
+  "mode": "adaptive",
+  "decisions": [
+    {
+      "sequence": 1,
+      "ready_candidates": [
+        "code_security_tooling",
+        "supply_chain_review",
+        "ci_cd_supply_chain_security"
+      ],
+      "original_next": "code_security_tooling",
+      "selected_next": "ci_cd_supply_chain_security",
+      "status": "accepted",
+      "changed_order": true,
+      "proposal": "{\"next_phase\": \"ci_cd_supply_chain_security\", \"reason\": \"Review dependency provenance before the next independent check.\", \"evidence_ids\": [\"E0\"], \"review_notes\": [\"Runtime reachability has not been established.\"]}",
+      "scope_expanded": false,
+      "proof_authority": false,
+      "retrieval": {
+        "tool_source": false,
+        "public_knowledge": false,
+        "reviewed_scenarios": false
+      },
+      "retrieval_errors": [],
+      "evidence_manifest": [
+        {
+          "id": "E0",
+          "kind": "run_snapshot",
+          "executed": [],
+          "finding_count": 0,
+          "phase_states": {}
+        }
+      ],
+      "model": "fixture-model",
+      "decision": {
+        "next_phase": "ci_cd_supply_chain_security",
+        "reason": "Review dependency provenance before the next independent check.",
+        "evidence_ids": [
+          "E0"
+        ],
+        "review_notes": [
+          "Runtime reachability has not been established."
+        ]
+      },
+      "seconds": 0.996
+    },
+    {
+      "sequence": 2,
+      "ready_candidates": [
+        "code_security_tooling",
+        "supply_chain_review"
+      ],
+      "original_next": "code_security_tooling",
+      "selected_next": "supply_chain_review",
+      "status": "accepted",
+      "changed_order": true,
+      "proposal": "{\"next_phase\": \"supply_chain_review\", \"reason\": \"Review dependency provenance before the next independent check.\", \"evidence_ids\": [\"E0\"], \"review_notes\": [\"Runtime reachability has not been established.\"]}",
+      "scope_expanded": false,
+      "proof_authority": false,
+      "retrieval": {
+        "tool_source": false,
+        "public_knowledge": false,
+        "reviewed_scenarios": false
+      },
+      "retrieval_errors": [],
+      "evidence_manifest": [
+        {
+          "id": "E0",
+          "kind": "run_snapshot",
+          "executed": [
+            "ci_cd_supply_chain_security"
+          ],
+          "finding_count": 0,
+          "phase_states": {
+            "ci_cd_supply_chain_security": "COMPLETED"
+          }
+        }
+      ],
+      "model": "fixture-model",
+      "decision": {
+        "next_phase": "supply_chain_review",
+        "reason": "Review dependency provenance before the next independent check.",
+        "evidence_ids": [
+          "E0"
+        ],
+        "review_notes": [
+          "Runtime reachability has not been established."
+        ]
+      },
+      "seconds": 0.978
+    }
+  ],
+  "executed_order": [
+    "ci_cd_supply_chain_security",
+    "supply_chain_review",
+    "code_security_tooling",
+    "report"
+  ],
+  "decision_budget": 2,
+  "no_phase_skipping": true,
+  "scope_expansion_allowed": false,
+  "confirmation_authority": false,
+  "model_reasoning_quality_evaluated": false,
+  "training_executed": false
+}

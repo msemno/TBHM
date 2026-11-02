@@ -1,0 +1,8 @@
+test_bounded_learning_input_rejects_symlinks_corrupt_and_oversize (test_security_v425.Security.test_bounded_learning_input_rejects_symlinks_corrupt_and_oversize) ... ok
+test_installable_release_requires_manifest_but_generic_zip_remains_supported (test_security_v425.Security.test_installable_release_requires_manifest_but_generic_zip_remains_supported) ... ok
+test_legacy_retrieval_omits_private_run_and_imported_text (test_security_v425.Security.test_legacy_retrieval_omits_private_run_and_imported_text) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.050s
+
+OK

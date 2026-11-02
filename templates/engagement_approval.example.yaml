@@ -1,0 +1,15 @@
+engagement_id: ENG-2026-001
+approved_by: Client security owner
+expires_at: "2026-12-31T23:59:59Z"
+authorized_actions:
+  - corporate_osint
+  - identity_readonly
+  - cloud_readonly
+  - approved_external_validation_import
+targets:
+  - example.com
+  - 192.0.2.0/24
+stop_conditions:
+  - Service instability
+  - Client requests stop
+cleanup_required: true

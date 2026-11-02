@@ -1,0 +1,7 @@
+test_external_or_credentialed_endpoints_are_rejected (test_connection_doctor_v426.DoctorTests.test_external_or_credentialed_endpoints_are_rejected) ... ok
+test_inventory_generation_embeddings_and_gpu_are_separate (test_connection_doctor_v426.DoctorTests.test_inventory_generation_embeddings_and_gpu_are_separate) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.597s
+
+OK

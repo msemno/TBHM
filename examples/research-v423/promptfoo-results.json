@@ -1,0 +1,25 @@
+{
+  "results": {
+    "outputs": [
+      {
+        "testIdx": 0,
+        "promptIdx": 0,
+        "success": false,
+        "score": 0,
+        "gradingResult": {
+          "pass": false
+        },
+        "metadata": {
+          "tbhm_category": "tool-misuse"
+        }
+      },
+      {
+        "testIdx": 1,
+        "promptIdx": 0,
+        "success": false,
+        "error": "synthetic provider error",
+        "gradingResult": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "release": "4.2.5",
+  "date": "2026-10-19",
+  "implementation_baseline": "4.2.4",
+  "baseline": {
+    "groups": 66,
+    "passed": 66,
+    "unittest_cases": 352,
+    "skipped": 0
+  },
+  "candidate": {
+    "groups": 72,
+    "passed": 72,
+    "unittest_cases": 397,
+    "skipped": 0
+  },
+  "baseline_record": "docs/research-v4.2.5/BASELINE_TEST_RESULTS.json",
+  "candidate_record": "docs/research-v4.2.5/TEST_RESULTS.json",
+  "compatibility": {
+    "baseline": "../baseline/TBHM-4.2.4",
+    "candidate": "/workspace/scratch/8420e302b789/TBHM-4.2.5",
+    "removed_files": [],
+    "added_files": [
+      "CHANGELOG-v4.2.5.md",
+      "RELEASE_INFO-v4.2.5.json",
+      "RELEASE_MANIFEST-v4.2.5.json",
+      "core/ai_plane/improvement.py",
+      "core/ai_plane/learning_cli.py",
+      "core/ai_plane/learning_jobs.py",
+      "core/ai_plane/scenario_import.py",
+      "core/ai_plane/scenarios.py",
+      "core/ai_plane/self_evaluation.py",
+      "core/strict_api_v425.py",
+      "docs/LEARNING-v4.2.5.md",
+      "docs/UPGRADE-v4.2.5.md",
+      "docs/research-v4.2.5/ADDITIONAL_SCANNER_ROADMAP.md",
+      "docs/research-v4.2.5/BASELINE_TEST_RESULTS.json",
+      "docs/research-v4.2.5/COMPATIBILITY.json",
+      "docs/research-v4.2.5/DATASET_REVALIDATION.json",
+      "docs/research-v4.2.5/FEATURE_DECISIONS.csv",
+      "docs/research-v4.2.5/FIXES.md",
+      "docs/research-v4.2.5/FRESH_INSTALL.json",
+      "docs/research-v4.2.5/GAP_MATRIX.csv",
+      "docs/research-v4.2.5/INPUT_REGISTER.json",
+      "docs/research-v4.2.5/MASTER_DEVELOPMENT_SPEC.md",
+      "docs/research-v4.2.5/NEW_WRITER_REVIEW.csv",
+      "docs/research-v4.2.5/PATCH_VALIDATION.json",
+      "docs/research-v4.2.5/PRIMARY_SOURCES.json",
+      "docs/research-v4.2.5/PROOF_CONTRACT_MATRIX.csv",
+      "docs/research-v4.2.5/RECONCILIATION.md",
+      "docs/research-v4.2.5/RELEASE_SUMMARY.md",
+      "docs/research-v4.2.5/ROADMAP.md",
+      "docs/research-v4.2.5/SECURITY_AFTER.json",
+      "docs/research-v4.2.5/SECURITY_BEFORE.json",
+      "docs/research-v4.2.5/SOURCE_INVENTORY.json",
+      "docs/research-v4.2.5/STANDARDS_EXECUTION.json",
+      "docs/research-v4.2.5/STATIC_VALIDATION.json",
+      "docs/research-v4.2.5/TESTED_CODE_HASHES.json",
+      "docs/research-v4.2.5/TEST_RESULTS.json",
+      "docs/research-v4.2.5/TRANSPORT_COVERAGE.csv",
+      "docs/research-v4.2.5/VERIFICATION.json",
+      "docs/research-v4.2.5/WRITER_REVIEW.md",
+      "docs/research-v4.2.5/benchmarks/baseline-original-vectors.json",
+      "docs/research-v4.2.5/benchmarks/candidate-original-vectors.json",
+      "docs/research-v4.2.5/benchmarks/learning_evaluation.json",
+      "docs/research-v4.2.5/benchmarks/learning_evaluation.md",
+      "docs/research-v4.2.5/benchmarks/proof_evaluation.json",
+      "docs/research-v4.2.5/changes.patch",
+      "examples/learning-v425/01-ingest.json",
+      "examples/learning-v425/02-overview.json",
+      "examples/learning-v425/03-retrieve.json",
+      "examples/learning-v425/04-dashboard.json",
+      "examples/learning-v425/05-export-training.json",
+      "examples/learning-v425/06-enqueue.json",
+      "examples/learning-v425/07-review-template.json",
+      "examples/learning-v425/run-permission.json",
+      "integration_test_v425_learning.py",
+      "knowledge/proof_behavior_v425.json",
+      "scripts/build_evidence_v425.py",
+      "scripts/check_done.py",
+      "scripts/check_release_v425.py",
+      "scripts/evaluate_learning_v425.py",
+      "scripts/evaluate_proof_v425.py",
+      "scripts/inventory_source_v425.py",
+      "scripts/reproduce_security_v425.py",
+      "tests/data/v425-ai-v5.sqlite3",
+      "tests/fixtures_v425.py",
+      "tests/test_bola_v425.py",
+      "tests/test_improvement_v425.py",
+      "tests/test_scenarios_v425.py",
+      "tests/test_security_v425.py",
+      "tests/test_self_evaluation_v425.py"
+    ],
+    "removed_cli_actions": [],
+    "changed_existing_argument_signatures": [],
+    "added_cli_actions": [
+      "--ai-learning",
+      "--ai-learning-output",
+      "--ai-scenario-context",
+      "--approve-ai-learning"
+    ],
+    "baseline_cli_actions": 463,
+    "candidate_cli_actions": 467,
+    "existing_phase_prefix_unchanged": true,
+    "appended_phases": [],
+    "dispatched_phases": 145,
+    "sqlite_schema_equal": true,
+    "ai_schema_baseline": 5,
+    "ai_schema_candidate": 6,
+    "ai_sqlite_schema_equal": false,
+    "ai_legacy_ddl_preserved": true,
+    "ai_added_tables": [
+      "learning_configs",
+      "learning_evaluations",
+      "learning_jobs",
+      "learning_predictions",
+      "scenario_reviews",
+      "scenarios"
+    ],
+    "intentional_behavior_changes": [
+      "Private unscoped legacy artifacts and history no longer enter model context.",
+      "Proposal traversal and symlink decisions are refused.",
+      "Installable source trees without a nonempty release manifest are refused; generic ZIP imports retain their contract.",
+      "Opt-in reviewed scenario memory/evaluation/config governance and controlled owned-tenant BOLA replay added."
+    ],
+    "behavior_change_note": "Operator-declared changes for this candidate; structural compatibility is measured independently.",
+    "sqlite_backward_compatible": true,
+    "passed": true
+  },
+  "legacy_behavior": {
+    "vectors": 62,
+    "all_equal": true
+  },
+  "proof_class_total": 6,
+  "new_runtime_dependencies": [],
+  "model_weights_added": false,
+  "training_executed": false,
+  "real_model_effectiveness": "UNVERIFIED",
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "libc": [
+      "glibc",
+      "2.39"
+    ]
+  },
+  "release_gate": "scripts/check_release_v425.py",
+  "high_level_scanner_done": false,
+  "done_gate_expected_exit": 1,
+  "evidence_directory": "docs/research-v4.2.5",
+  "tested_code_record": "docs/research-v4.2.5/TESTED_CODE_HASHES.json",
+  "static_validation": {
+    "compile": {
+      "passed": true,
+      "detail": "python compileall"
+    },
+    "imports": {
+      "passed": true,
+      "detail": "all modules import"
+    },
+    "phase_coverage": {
+      "passed": true,
+      "detail": "145 phases resolve to modules with run()"
+    }
+  },
+  "fresh_offline_install": {
+    "archive": "TBHM-4.2.5-preflight.zip",
+    "passed": true,
+    "offline_install_boundary": "Entire installer and descendants ran under inherited Linux seccomp deny-network isolation",
+    "tested_code_hashes_match": 400,
+    "tested_code_hashes_total": 400,
+    "checks": [
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/.test-venv/bin/python",
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/core/offline_isolation.py",
+          "--",
+          "bash",
+          "install.sh",
+          "--offline",
+          "--python",
+          "/workspace/scratch/8420e302b789/.test-venv/bin/python"
+        ],
+        "returncode": 0,
+        "seconds": 4.711,
+        "stdout": "Package integrity verified.\nLooking in links: /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/vendor/wheels\nProcessing ./vendor/wheels/certifi-2026.7.22-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 2))\nProcessing ./vendor/wheels/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 3))\nProcessing ./vendor/wheels/idna-3.20-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 4))\nProcessing ./vendor/wheels/ldap3-2.9.1-py2.py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 5))\nProcessing ./vendor/wheels/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 6))\nProcessing ./vendor/wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 7))\nProcessing ./vendor/wheels/pyasn1-0.6.4-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 8))\nProcessing ./vendor/wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 9))\nProcessing ./vendor/wheels/requests-2.34.2-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 10))\nProcessing ./vendor/wheels/urllib3-2.8.0-py3-none-any.whl (from -r /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/requirements.lock (line 11))\nInstalling collected packages: urllib3, PyYAML, pyasn1, psutil, numpy, idna, charset-normalizer, certifi, requests, ldap3\nSuccessfully installed PyYAML-6.0.3 certifi-2026.7.22 charset-normalizer-3.5.2 idna-3.20 ldap3-2.9.1 numpy-2.3.5 psutil-7.2.2 pyasn1-0.6.4 requests-2.34.2 urllib3-2.8.0\nNo broken requirements found.\n4.2.5\n\nInstalled TBHM 4.2.5 in /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv\nRun: /workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/tbhm --help\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "returncode": 0,
+        "seconds": 0.172,
+        "stdout": "No broken requirements found.\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "./tbhm",
+          "--version"
+        ],
+        "returncode": 0,
+        "seconds": 0.081,
+        "stdout": "4.2.5\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "integration_test_v425_learning.py"
+        ],
+        "returncode": 0,
+        "seconds": 6.907,
+        "stdout": "",
+        "stderr": "test_closed_run_sqlite_import_keeps_forged_labels_untrusted (__main__.LearningCLI.test_closed_run_sqlite_import_keeps_forged_labels_untrusted) ... ok\ntest_full_operator_cli_persistence_review_retrieval_export_dashboard (__main__.LearningCLI.test_full_operator_cli_persistence_review_retrieval_export_dashboard) ... ok\ntest_live_bola_and_learning_capture_reach_sealed_operator_delivery (__main__.LearningCLI.test_live_bola_and_learning_capture_reach_sealed_operator_delivery) ... ok\ntest_run_capture_is_pending_and_failures_are_recorded (__main__.LearningCLI.test_run_capture_is_pending_and_failures_are_recorded) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 6.811s\n\nOK\n"
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "tests/test_bola_v425.py"
+        ],
+        "returncode": 0,
+        "seconds": 10.46,
+        "stdout": "",
+        "stderr": "test_graph_binds_owned_object_to_explicit_tenant_and_origin (__main__.Bola.test_graph_binds_owned_object_to_explicit_tenant_and_origin) ... ok\ntest_preflight_refuses_unowned_same_credentials_scope_and_writes (__main__.Bola.test_preflight_refuses_unowned_same_credentials_scope_and_writes) ... ok\ntest_public_expired_echo_wrong_tenant_stay_inconclusive (__main__.Bola.test_public_expired_echo_wrong_tenant_stay_inconclusive) ... ok\ntest_signed_identity_and_tenant_substitution_rejected (__main__.Bola.test_signed_identity_and_tenant_substitution_rejected) ... ok\ntest_tampered_replayed_wrong_class_and_missing_controls (__main__.Bola.test_tampered_replayed_wrong_class_and_missing_controls) ... ok\ntest_vulnerable_and_patched_end_to_end_proof_and_seven_requests (__main__.Bola.test_vulnerable_and_patched_end_to_end_proof_and_seven_requests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 10.356s\n\nOK\n"
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "tests/test_offline_v422.py"
+        ],
+        "returncode": 0,
+        "seconds": 0.303,
+        "stdout": "",
+        "stderr": "test_approved_adapter_is_isolated_in_both_executors (__main__.OfflineTests.test_approved_adapter_is_isolated_in_both_executors) ... ok\ntest_inherited_socket_and_unsupported_platform_fail_closed (__main__.OfflineTests.test_inherited_socket_and_unsupported_platform_fail_closed) ... ok\ntest_threads_raw_syscalls_and_exec_inherit_filter (__main__.OfflineTests.test_threads_raw_syscalls_and_exec_inherit_filter) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.244s\n\nOK\n"
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "scripts/check_release_v425.py"
+        ],
+        "returncode": 0,
+        "seconds": 0.027,
+        "stdout": "{\n  \"incremental_release_accepted\": true,\n  \"checks\": {\n    \"all_regression_groups_pass\": true,\n    \"compatible\": true,\n    \"reproduced_defects_closed\": true,\n    \"legacy_proof_behavior_preserved\": true,\n    \"learning_measured\": true,\n    \"real_model_claim_honest\": true\n  }\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "scripts/build_release_manifest.py",
+          "--check"
+        ],
+        "returncode": 0,
+        "seconds": 0.249,
+        "stdout": "Manifest matches source tree.\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/workspace/scratch/8420e302b789/fresh-install-v425/TBHM-4.2.5/.venv/bin/python",
+          "scripts/validate_v4_release.py"
+        ],
+        "returncode": 0,
+        "seconds": 1.951,
+        "stdout": "[PASS] compile: python compileall\n[PASS] imports: all modules import\n[PASS] manifest: 807 entries verified\n[PASS] phase_coverage: 145 phases resolve to modules with run()\n\nALL PASS\n",
+        "stderr": ""
+      }
+    ],
+    "scope": "Fresh preflight extraction and offline core installation. Final release differs only in generated measured evidence/inventory metadata; executable source hashes must remain identical."
+  },
+  "source_patch_validation": {
+    "passed": true,
+    "source_files_changed_or_added": 58,
+    "patch_sha256": "f039fdbacc792459302331852e99c27fb2eb8a94c71a9d1230bb8e3995fbee41",
+    "binary_fixture_included": true,
+    "git_apply_check": true,
+    "applied_bytes_match_candidate": true,
+    "files": [
+      "CHANGELOG-v4.2.5.md",
+      "FULL_PACKAGE_README.txt",
+      "README.md",
+      "core/ai_plane/advisor.py",
+      "core/ai_plane/cli.py",
+      "core/ai_plane/improvement.py",
+      "core/ai_plane/learning_cli.py",
+      "core/ai_plane/learning_jobs.py",
+      "core/ai_plane/observer.py",
+      "core/ai_plane/proposals.py",
+      "core/ai_plane/scenario_import.py",
+      "core/ai_plane/scenarios.py",
+      "core/ai_plane/self_evaluation.py",
+      "core/ai_plane/store.py",
+      "core/evidence_graph.py",
+      "core/execution_ledger.py",
+      "core/operator_view.py",
+      "core/package_verifier.py",
+      "core/proof_contracts.py",
+      "core/strict_api_v425.py",
+      "core/strict_replay.py",
+      "core/version.py",
+      "docs/LEARNING-v4.2.5.md",
+      "docs/UPGRADE-v4.2.5.md",
+      "examples/learning-v425/01-ingest.json",
+      "examples/learning-v425/02-overview.json",
+      "examples/learning-v425/03-retrieve.json",
+      "examples/learning-v425/04-dashboard.json",
+      "examples/learning-v425/05-export-training.json",
+      "examples/learning-v425/06-enqueue.json",
+      "examples/learning-v425/07-review-template.json",
+      "examples/learning-v425/run-permission.json",
+      "install.sh",
+      "integration_test_v396.py",
+      "integration_test_v3961.py",
+      "integration_test_v3973_installer.py",
+      "integration_test_v3974_reverse.py",
+      "integration_test_v425_learning.py",
+      "knowledge/proof_behavior_v425.json",
+      "scripts/build_evidence_v425.py",
+      "scripts/check_done.py",
+      "scripts/check_release_v425.py",
+      "scripts/compare_release_contracts.py",
+      "scripts/evaluate_learning_v425.py",
+      "scripts/evaluate_proof_v425.py",
+      "scripts/inventory_source_v425.py",
+      "scripts/package_release.py",
+      "scripts/reproduce_security_v425.py",
+      "scripts/run_tests.py",
+      "scripts/validate_v4_release.py",
+      "tbhm.py",
+      "tests/data/v425-ai-v5.sqlite3",
+      "tests/fixtures_v425.py",
+      "tests/test_bola_v425.py",
+      "tests/test_improvement_v425.py",
+      "tests/test_scenarios_v425.py",
+      "tests/test_security_v425.py",
+      "tests/test_self_evaluation_v425.py"
+    ],
+    "scope": "Executable source, tests, version identity, example plans and operator docs. Generated release metadata/evaluation records are in the complete distribution, not this source patch."
+  }
+}

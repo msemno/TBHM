@@ -1,0 +1,10 @@
+{
+  "baseline_archive_name": "TBHM-4.2.5-knowledge-and-migration(3).zip",
+  "baseline_archive_sha256": "0014251971e44c3b7335956e6a067148b4c9061cc9c7e49b93d3afb93dbe549a",
+  "baseline_manifest_sha256": "5f379d4f9f427dc4e2e74721b96c33a3baee083907509e23dbc5a6ed3bd8d340",
+  "preserved_baseline_manifest_sha256": "5f379d4f9f427dc4e2e74721b96c33a3baee083907509e23dbc5a6ed3bd8d340",
+  "actual_live_source_fingerprints": "not supplied",
+  "runtime_repair_payloads_hash_verified": 15,
+  "dev1_archive_checksum_verification": "not possible; archive absent",
+  "corrected_source_build_sha256": "3a689a411dfe5dde0a4e5c255c41a00d700e24af3b01f493a28214d0017ccf91"
+}

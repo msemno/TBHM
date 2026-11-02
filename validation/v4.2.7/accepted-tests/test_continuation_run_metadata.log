@@ -1,0 +1,6 @@
+test_arguments_targets_and_program_urls_are_redacted_without_mutating_input (test_continuation_run_metadata.RunMetadataTests.test_arguments_targets_and_program_urls_are_redacted_without_mutating_input) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.079s
+
+OK

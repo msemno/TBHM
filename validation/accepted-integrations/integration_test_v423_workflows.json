@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_v423_workflows.py",
+  "expected_cases": 3,
+  "executed_cases": 3,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 4.178,
+  "passed": true
+}

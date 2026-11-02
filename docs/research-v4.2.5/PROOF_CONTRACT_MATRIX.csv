@@ -1,0 +1,16 @@
+Class,Status,Code,Mandatory evidence,Scope,Tests
+access_control,IMPLEMENTED,core/proof_contracts.py,Authenticated baseline/mutation/negative/two distinct repeats and class invariants,Retained baseline scope,42 legacy differential vectors
+open_redirect,IMPLEMENTED,core/proof_contracts.py,Authenticated baseline/mutation/negative/two distinct repeats and class invariants,Retained baseline scope,42 legacy differential vectors
+sensitive_data_exposure,IMPLEMENTED,core/proof_contracts.py,Authenticated baseline/mutation/negative/two distinct repeats and class invariants,Retained baseline scope,42 legacy differential vectors
+bfla,IMPLEMENTED,core/strict_classes_v424.py,Authenticated baseline/mutation/negative/two distinct repeats and class invariants,Owned privileged/limited read function + anonymous control,tests/test_strict_classes_v424.py
+path_traversal,IMPLEMENTED,core/strict_classes_v424.py,Authenticated baseline/mutation/negative/two distinct repeats and class invariants,Controlled outside-root TBHM canary file,tests/test_strict_classes_v424.py
+sqli,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+reflected_xss,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+stored_xss,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+dom_xss,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+ssrf,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+ssti,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+deserialization,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+auth_session,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+csrf,DEFERRED,core/proof_contracts.py,No audited contract; advisory/inconclusive only,Separate safe oracle/control/fixture work required,Unsupported-class refusal
+bola,IMPLEMENTED,core/strict_api_v425.py,Seven authenticated captures: owner/challenger/missing/own-object/anonymous/two repeats,Owned two-tenant exact JSON canary read only,tests/test_bola_v425.py; 42 measured vectors

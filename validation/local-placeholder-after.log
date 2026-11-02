@@ -1,0 +1,6 @@
+test_local_source_placeholder_never_becomes_a_live_base (__main__.LocalPlaceholder.test_local_source_placeholder_never_becomes_a_live_base) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

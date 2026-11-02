@@ -1,0 +1,7 @@
+test_clean_archive_still_extracts_with_the_same_report (test_continuation_archive_deadline.ArchiveDeadlineTests.test_clean_archive_still_extracts_with_the_same_report) ... ok
+test_stalled_extractor_is_killed_by_its_own_deadline (test_continuation_archive_deadline.ArchiveDeadlineTests.test_stalled_extractor_is_killed_by_its_own_deadline) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.254s
+
+OK

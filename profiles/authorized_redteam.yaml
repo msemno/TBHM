@@ -1,0 +1,179 @@
+name: authorized_redteam
+description: Enterprise red-team safe coverage. Adds internal network, AD, IoT/CCTV, wireless/physical/SOC, firmware, AI, and residual-risk registers. Requires written SoW.
+active_probes: true
+send_payloads: true
+rate_limit:
+  global_rps: 8
+  per_target_rps: 4
+  per_endpoint_rps: 1
+payload_classes:
+- time_blind
+- oob
+- reflection
+- differential
+nuclei:
+  severity:
+  - critical
+  - high
+  - medium
+  - low
+  tags:
+  - cve
+  - exposure
+  - misconfig
+  - takeover
+  - api
+  - graphql
+  - cloud
+  - token
+  - jwt
+  - cors
+  - oauth
+sqlmap:
+  enabled: true
+  level: 2
+  risk: 1
+  max_time: 120
+max_subdomains: 10000
+katana_depth: 3
+phases:
+- preflight
+- diagnostics
+- toolchain_readiness
+- agentic_control_manifest
+- opsec_preflight
+- engagement_objectives
+- standards_knowledge_sync
+- redteam_governance
+- redteam_campaign_control
+- recon
+- external_perimeter_tooling
+- corporate_osint
+- osint_depth_collectors
+- cname_takeover
+- ports
+- honeypot_detection
+- internal_network_safe
+- network_firewall_tooling
+- egress_canary
+- add_service_primitive
+- ad_identity_safe
+- add_net_ad
+- lateral_movement_paths
+- internal_ad_tooling
+- ad_access_assessment
+- identity_security_tooling
+- engagement_evidence_review
+- iot_cctv_safe
+- ot_ics_safe
+- wireless_physical_soc
+- social_engineering_governance
+- discovery
+- smart_crawl
+- backend_map
+- web_scanner_tooling
+- js_analysis
+- content_discovery
+- deep_crawl
+- spec_scan
+- api_fuzz
+- code_scan
+- code_intel
+- sast_tooling
+- code_security_tooling
+- source_orchestration_tooling
+- mobile_scan
+- mobile_tooling
+- mobile_reverse_extended
+- supply_chain_review
+- ci_cd_supply_chain_security
+- firmware_reverse_safe
+- firmware_tooling_extended
+- reverse_triage
+- reverse_static_analysis
+- reverse_ir_analysis
+- reverse_taint_analysis
+- reverse_cross_language
+- reverse_sandbox_analysis
+- reverse_dynamic_evidence
+- reverse_dynamic_mapping
+- reverse_symbolic_analysis
+- reverse_fuzzing
+- reverse_crash_triage
+- reverse_diff_analysis
+- reverse_campaign_index
+- reverse_family_analysis
+- reverse_correlation
+- reverse_engineering_tooling
+- privesc_audit_tooling
+- surface_correlation
+- protected_routes
+- vuln_scan
+- nuclei_extended
+- custom_nuclei
+- vuln_scan_extended
+- infra_exposure
+- deep_scan
+- audit
+- atlassian_audit
+- injections
+- add_sqli
+- waf_evasion_ssrf
+- smuggling
+- authenticated_session_model
+- bug_bounty_workspace
+- access_control
+- auth_advanced
+- auth_modern_review
+- mfa_bypass_safe
+- api_specific
+- graphql_audit
+- interface_probe
+- modern_protocols_discovery
+- ai_redteam_safe
+- ai_llm_tooling
+- llm_agent_tool_call_abuse
+- upload_race
+- business_logic
+- cache_deception
+- pdf_injection
+- cloud_recon
+- cloud_recon_extended
+- iac_drift
+- k8s_recon_safe
+- cloud_inventory_safe
+- cloud_posture_tooling
+- cloud_identity_path_analysis
+- console_leaks
+- api_key_pivot
+- client_platform
+- secrets_misc
+- browser_extension_audit
+- visual
+- web3
+- curl_verify
+- verify
+- strict_finding_validation
+- local_llm_triage
+- exploitability_assessment
+- vulnerability_intelligence_enrichment
+- attack_path
+- execution_orchestration_plan
+- controlled_validation_plane
+- purple_team_validation
+- compliance_coverage
+- compliance_reporting_extended
+- dashboard
+- fp_review
+- redteam_final_summary
+- backup_restore_simulation
+- test_coverage_ledger
+- coverage_map
+- playbook_integration
+- data_analysis_intelligence
+- ai_supervision
+- ocsf_normalization
+- llm_run_analysis
+- report
+- evidence_finalize
+ai_observe: true

@@ -1,0 +1,12 @@
+{
+  "help_nonempty": true,
+  "profiles_nonempty": true,
+  "capability_registered": 15,
+  "capability_available_now": 11,
+  "doctor_ok": true,
+  "doctor_checks": 20,
+  "plan_artifact": "/mnt/data/tbhm_3971_work/final_cli_smoke/plan-output/redteam/106_safe_plan_execution/safe_plan_execution.json",
+  "plan_dry_run_count": 1,
+  "plan_rejected_count": 0,
+  "plan_action_status": "dry_run"
+}

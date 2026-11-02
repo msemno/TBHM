@@ -1,0 +1,155 @@
+test_browser_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_browser_regex_exec_is_not_a_shell_sink) ... FAIL
+test_cancel_content_stops_after_first_tool_and_keeps_partial_parse (__main__.IncidentRegressions.test_cancel_content_stops_after_first_tool_and_keeps_partial_parse) ... FAIL
+test_diagnostic_wrapper_is_never_executed (__main__.IncidentRegressions.test_diagnostic_wrapper_is_never_executed) ... FAIL
+test_exact_host_archive_intake_never_queries_shared_parent (__main__.IncidentRegressions.test_exact_host_archive_intake_never_queries_shared_parent) ... FAIL
+test_generated_curl_is_not_an_original_request (__main__.IncidentRegressions.test_generated_curl_is_not_an_original_request) ... ERROR
+test_httpx_fixture_parses_and_reports_invalid_records (__main__.IncidentRegressions.test_httpx_fixture_parses_and_reports_invalid_records) ... ERROR
+test_ledger_snapshots_are_amortized_and_journal_recovers (__main__.IncidentRegressions.test_ledger_snapshots_are_amortized_and_journal_recovers) ... FAIL
+test_mfa_url_match_is_a_lead_at_its_actual_host (__main__.IncidentRegressions.test_mfa_url_match_is_a_lead_at_its_actual_host) ... FAIL
+test_nmap_leaf_address_preserves_host (__main__.IncidentRegressions.test_nmap_leaf_address_preserves_host) ... /workspace/scratch/1b3ad98bd9df/baseline/TBHM-4.2.5/phases/network_firewall_tooling.py:26: DeprecationWarning: Testing an element's truth value will always return True in future versions.  Use specific 'len(elem)' or 'elem is not None' test instead.
+  addr=(h.find('address') or {}).get('addr','') if h.find('address') is not None else ''
+FAIL
+test_node_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_node_regex_exec_is_not_a_shell_sink) ... FAIL
+test_runtime_learning_commits_progress_before_later_row_fails (__main__.IncidentRegressions.test_runtime_learning_commits_progress_before_later_row_fails) ... ERROR
+test_service_budget_does_not_consume_target_budget (__main__.IncidentRegressions.test_service_budget_does_not_consume_target_budget) ... FAIL
+test_service_budget_survives_target_exhaustion (__main__.IncidentRegressions.test_service_budget_survives_target_exhaustion) ... ERROR
+test_strict_missing_proof_has_explicit_coverage (__main__.IncidentRegressions.test_strict_missing_proof_has_explicit_coverage) ... ERROR
+
+======================================================================
+ERROR: test_generated_curl_is_not_an_original_request (__main__.IncidentRegressions.test_generated_curl_is_not_an_original_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 117, in test_generated_curl_is_not_an_original_request
+    st.save_finding({'phase':'code_scan','title':'source lead','severity':'LOW','confidence':'LOW','target':'src/app.py',
+  File "/workspace/scratch/1b3ad98bd9df/baseline/TBHM-4.2.5/core/storage.py", line 476, in save_finding
+    f["discovered_at"], f.get("mrs_score"),
+    ~^^^^^^^^^^^^^^^^^
+KeyError: 'discovered_at'
+
+======================================================================
+ERROR: test_httpx_fixture_parses_and_reports_invalid_records (__main__.IncidentRegressions.test_httpx_fixture_parses_and_reports_invalid_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 165, in test_httpx_fixture_parses_and_reports_invalid_records
+    from core.httpx_adapter import parse_records
+ModuleNotFoundError: No module named 'core.httpx_adapter'
+
+======================================================================
+ERROR: test_runtime_learning_commits_progress_before_later_row_fails (__main__.IncidentRegressions.test_runtime_learning_commits_progress_before_later_row_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 146, in test_runtime_learning_commits_progress_before_later_row_fails
+    from core.ai_plane.embeddings import VectorIndex, EmbeddingDeferred
+ImportError: cannot import name 'EmbeddingDeferred' from 'core.ai_plane.embeddings' (/workspace/scratch/1b3ad98bd9df/baseline/TBHM-4.2.5/core/ai_plane/embeddings.py)
+
+======================================================================
+ERROR: test_service_budget_survives_target_exhaustion (__main__.IncidentRegressions.test_service_budget_survives_target_exhaustion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 40, in test_service_budget_survives_target_exhaustion
+    self.assertEqual(session.request('GET','http://127.0.0.1:11435/api/tags').status_code,200)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/1b3ad98bd9df/baseline/TBHM-4.2.5/core/http_policy.py", line 123, in request
+    raise RequestBlocked('request budget exhausted')
+core.http_policy.RequestBlocked: request budget exhausted
+
+======================================================================
+ERROR: test_strict_missing_proof_has_explicit_coverage (__main__.IncidentRegressions.test_strict_missing_proof_has_explicit_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 176, in test_strict_missing_proof_has_explicit_coverage
+    self.assertEqual(d['missing_proof'],1)
+                     ~^^^^^^^^^^^^^^^^^
+KeyError: 'missing_proof'
+
+======================================================================
+FAIL: test_browser_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_browser_regex_exec_is_not_a_shell_sink)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 95, in test_browser_regex_exec_is_not_a_shell_sink
+    self.assertFalse([f for f in flows if f.sink_cwe=='CWE-78'])
+AssertionError: [TaintFlow(source='location.hash', variable='data', sink='OS command injection', sink_cwe='CWE-78', source_line=1, sink_line=2, function='', sanitized=False, sanitizer='', path='https://example.test/jquery.min.js', lang='js', reachability_corroborated=False, corroboration_source='')] is not false
+
+======================================================================
+FAIL: test_cancel_content_stops_after_first_tool_and_keeps_partial_parse (__main__.IncidentRegressions.test_cancel_content_stops_after_first_tool_and_keeps_partial_parse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 65, in test_cancel_content_stops_after_first_tool_and_keeps_partial_parse
+    self.assertEqual(ctx.runner.run.call_count,1)
+AssertionError: 3 != 1
+
+======================================================================
+FAIL: test_diagnostic_wrapper_is_never_executed (__main__.IncidentRegressions.test_diagnostic_wrapper_is_never_executed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 75, in test_diagnostic_wrapper_is_never_executed
+    self.assertFalse(marker.exists())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_exact_host_archive_intake_never_queries_shared_parent (__main__.IncidentRegressions.test_exact_host_archive_intake_never_queries_shared_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 90, in test_exact_host_archive_intake_never_queries_shared_parent
+    self.assertEqual(calls,[['waybackurls','app.herokuapp.com']])
+AssertionError: Lists differ: [['waybackurls', 'herokuapp.com']] != [['waybackurls', 'app.herokuapp.com']]
+
+First differing element 0:
+['waybackurls', 'herokuapp.com']
+['waybackurls', 'app.herokuapp.com']
+
+- [['waybackurls', 'herokuapp.com']]
++ [['waybackurls', 'app.herokuapp.com']]
+?                   ++++
+
+
+======================================================================
+FAIL: test_ledger_snapshots_are_amortized_and_journal_recovers (__main__.IncidentRegressions.test_ledger_snapshots_are_amortized_and_journal_recovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 140, in test_ledger_snapshots_are_amortized_and_journal_recovers
+    self.assertLess(flush.call_count,30)
+AssertionError: 1000 not less than 30
+
+======================================================================
+FAIL: test_mfa_url_match_is_a_lead_at_its_actual_host (__main__.IncidentRegressions.test_mfa_url_match_is_a_lead_at_its_actual_host)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 132, in test_mfa_url_match_is_a_lead_at_its_actual_host
+    self.assertEqual(f['target'],'second.test');self.assertEqual(classify(f),'lead')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'first.test' != 'second.test'
+- first.test
++ second.test
+
+
+======================================================================
+FAIL: test_nmap_leaf_address_preserves_host (__main__.IncidentRegressions.test_nmap_leaf_address_preserves_host)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 110, in test_nmap_leaf_address_preserves_host
+    self.assertEqual(ctx.save_finding.call_args.args[0]['target'],'192.0.2.18')
+AssertionError: '' != '192.0.2.18'
++ 192.0.2.18
+
+
+======================================================================
+FAIL: test_node_regex_exec_is_not_a_shell_sink (__main__.IncidentRegressions.test_node_regex_exec_is_not_a_shell_sink)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 100, in test_node_regex_exec_is_not_a_shell_sink
+    self.assertFalse([f for f in flows if f.sink_cwe=='CWE-78'])
+AssertionError: [TaintFlow(source='req.query', variable='data', sink='OS command injection', sink_cwe='CWE-78', source_line=1, sink_line=2, function='', sanitized=False, sanitizer='', path='/server/app.js', lang='js', reachability_corroborated=False, corroboration_source='')] is not false
+
+======================================================================
+FAIL: test_service_budget_does_not_consume_target_budget (__main__.IncidentRegressions.test_service_budget_does_not_consume_target_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 49, in test_service_budget_does_not_consume_target_budget
+    self.assertEqual(ctx._http_policy_state['used'],0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 14 tests in 21.625s
+
+FAILED (failures=9, errors=5)

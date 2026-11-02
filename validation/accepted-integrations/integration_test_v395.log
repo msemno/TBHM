@@ -1,0 +1,18 @@
+test_adapter_contract_and_provenance (integration_test_v395.V395Tests.test_adapter_contract_and_provenance) ... ok
+test_approval_domain_url_ip_and_cidr (integration_test_v395.V395Tests.test_approval_domain_url_ip_and_cidr) ... ok
+test_authenticated_har_role_matrix_is_offline_supported_lead (integration_test_v395.V395Tests.test_authenticated_har_role_matrix_is_offline_supported_lead) ... ok
+test_catalog_and_safe_installer_policy (integration_test_v395.V395Tests.test_catalog_and_safe_installer_policy) ... ok
+test_controlled_validation_requires_matching_approval_for_findings (integration_test_v395.V395Tests.test_controlled_validation_requires_matching_approval_for_findings) ... ok
+test_corporate_osint_hashes_email_without_pii_policy (integration_test_v395.V395Tests.test_corporate_osint_hashes_email_without_pii_policy) ... ok
+test_data_analysis_hashes_email_and_exports_graph (integration_test_v395.V395Tests.test_data_analysis_hashes_email_and_exports_graph) ... ok
+test_notifier_rejects_insecure_remote_http (integration_test_v395.V395Tests.test_notifier_rejects_insecure_remote_http) ... ok
+test_phase_order_and_profiles (integration_test_v395.V395Tests.test_phase_order_and_profiles) ... ok
+test_report_confidence_and_dependency_gates_demote_not_delete (integration_test_v395.V395Tests.test_report_confidence_and_dependency_gates_demote_not_delete) ... ok
+test_run_learning_redacts_untrusted_secret (integration_test_v395.V395Tests.test_run_learning_redacts_untrusted_secret) ... ok
+test_thread_clamp_and_test_path_policy (integration_test_v395.V395Tests.test_thread_clamp_and_test_path_policy) ... ok
+test_vulnerability_enrichment_local_feeds_never_confirms (integration_test_v395.V395Tests.test_vulnerability_enrichment_local_feeds_never_confirms) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.655s
+
+OK

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "shell-direct",
+    "detected": true
+  },
+  {
+    "id": "shell-inline",
+    "detected": true
+  },
+  {
+    "id": "shell-escaped-html",
+    "detected": true
+  },
+  {
+    "id": "shell-unrelated-escape",
+    "detected": true
+  },
+  {
+    "id": "shell-conditional-kill",
+    "detected": true
+  },
+  {
+    "id": "shell-overwrite",
+    "detected": false
+  },
+  {
+    "id": "argv-values",
+    "detected": false
+  },
+  {
+    "id": "argv-explicit-noshell",
+    "detected": false
+  },
+  {
+    "id": "shell-enabled",
+    "detected": true
+  },
+  {
+    "id": "shell-numeric",
+    "detected": false
+  },
+  {
+    "id": "sql-unsafe",
+    "detected": true
+  },
+  {
+    "id": "sql-html-escape",
+    "detected": true
+  },
+  {
+    "id": "sql-safe-parameter",
+    "detected": false
+  },
+  {
+    "id": "sql-overwrite",
+    "detected": false
+  },
+  {
+    "id": "sql-numeric",
+    "detected": false
+  },
+  {
+    "id": "eval-user",
+    "detected": true
+  },
+  {
+    "id": "eval-overwrite",
+    "detected": false
+  },
+  {
+    "id": "constant-shell",
+    "detected": false
+  }
+]

@@ -1,0 +1,42 @@
+test_alias_map_is_not_copied (test_review_collector_v426.CollectorTests.test_alias_map_is_not_copied) ... ok
+test_bad_alias_map_is_rejected (test_review_collector_v426.CollectorTests.test_bad_alias_map_is_rejected) ... ok
+test_cli_argv_keeps_tbhm_target_and_removes_curl_login (test_review_collector_v426.CollectorTests.test_cli_argv_keeps_tbhm_target_and_removes_curl_login) ... ok
+test_cli_empty_path_returns_error_not_current_directory (test_review_collector_v426.CollectorTests.test_cli_empty_path_returns_error_not_current_directory) ... ok
+test_database_html_and_raw_secret_reports_are_excluded (test_review_collector_v426.CollectorTests.test_database_html_and_raw_secret_reports_are_excluded) ... ok
+test_embedded_json_quoted_assignment (test_review_collector_v426.CollectorTests.test_embedded_json_quoted_assignment) ... ok
+test_extra_unrecorded_file_is_detected (test_review_collector_v426.CollectorTests.test_extra_unrecorded_file_is_detected) ... ok
+test_fifo_is_not_opened (test_review_collector_v426.CollectorTests.test_fifo_is_not_opened) ... ok
+test_file_count_limit_and_priority (test_review_collector_v426.CollectorTests.test_file_count_limit_and_priority) ... ok
+test_file_replacement_or_mutation_is_detected (test_review_collector_v426.CollectorTests.test_file_replacement_or_mutation_is_detected) ... ok
+test_hard_link_file_is_rejected (test_review_collector_v426.CollectorTests.test_hard_link_file_is_rejected) ... ok
+test_header_pairs (test_review_collector_v426.CollectorTests.test_header_pairs) ... ok
+test_include_evidence_retains_benign_context_and_removes_secret (test_review_collector_v426.CollectorTests.test_include_evidence_retains_benign_context_and_removes_secret) ... ok
+test_invalid_json_is_not_silently_copied (test_review_collector_v426.CollectorTests.test_invalid_json_is_not_silently_copied) ... ok
+test_invalid_utf8_is_held_back (test_review_collector_v426.CollectorTests.test_invalid_utf8_is_held_back) ... ok
+test_inventory_budget_is_enforced_before_unbounded_listing (test_review_collector_v426.CollectorTests.test_inventory_budget_is_enforced_before_unbounded_listing) ... ok
+test_jsonl_remains_parseable (test_review_collector_v426.CollectorTests.test_jsonl_remains_parseable) ... ok
+test_known_value_encoded_forms (test_review_collector_v426.CollectorTests.test_known_value_encoded_forms) ... ok
+test_manifest_path_traversal_is_rejected (test_review_collector_v426.CollectorTests.test_manifest_path_traversal_is_rejected) ... ok
+test_minimal_omits_json_evidence_but_not_verdict (test_review_collector_v426.CollectorTests.test_minimal_omits_json_evidence_but_not_verdict) ... ok
+test_missing_primary_is_disclosed_as_partial (test_review_collector_v426.CollectorTests.test_missing_primary_is_disclosed_as_partial) ... ok
+test_no_network_or_subprocess_is_used (test_review_collector_v426.CollectorTests.test_no_network_or_subprocess_is_used) ... ok
+test_ordinary_tool_logs_need_explicit_option (test_review_collector_v426.CollectorTests.test_ordinary_tool_logs_need_explicit_option) ... ok
+test_output_inside_source_is_rejected (test_review_collector_v426.CollectorTests.test_output_inside_source_is_rejected) ... ok
+test_oversize_file_is_not_truncated_to_success (test_review_collector_v426.CollectorTests.test_oversize_file_is_not_truncated_to_success) ... ok
+test_private_key_complete_and_incomplete (test_review_collector_v426.CollectorTests.test_private_key_complete_and_incomplete) ... ok
+test_private_permissions_and_archive_members (test_review_collector_v426.CollectorTests.test_private_permissions_and_archive_members) ... ok
+test_read_only_source_and_preserved_outcome (test_review_collector_v426.CollectorTests.test_read_only_source_and_preserved_outcome) ... ok
+test_recon_and_ai_artifacts_are_collected (test_review_collector_v426.CollectorTests.test_recon_and_ai_artifacts_are_collected) ... ok
+test_short_or_whitespace_only_known_values_are_rejected (test_review_collector_v426.CollectorTests.test_short_or_whitespace_only_known_values_are_rejected) ... ok
+test_source_identity_is_read_without_execution (test_review_collector_v426.CollectorTests.test_source_identity_is_read_without_execution) ... ok
+test_symbolic_link_file_is_rejected (test_review_collector_v426.CollectorTests.test_symbolic_link_file_is_rejected) ... ok
+test_symlink_directory_is_rejected (test_review_collector_v426.CollectorTests.test_symlink_directory_is_rejected) ... ok
+test_symlink_input_parent_is_rejected (test_review_collector_v426.CollectorTests.test_symlink_input_parent_is_rejected) ... ok
+test_symlink_output_parent_does_not_write_through (test_review_collector_v426.CollectorTests.test_symlink_output_parent_does_not_write_through) ... ok
+test_tamper_is_detected (test_review_collector_v426.CollectorTests.test_tamper_is_detected) ... ok
+test_total_budget_is_enforced (test_review_collector_v426.CollectorTests.test_total_budget_is_enforced) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.151s
+
+OK

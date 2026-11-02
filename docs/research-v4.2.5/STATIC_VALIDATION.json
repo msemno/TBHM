@@ -1,0 +1,14 @@
+{
+  "compile": {
+    "passed": true,
+    "detail": "python compileall"
+  },
+  "imports": {
+    "passed": true,
+    "detail": "all modules import"
+  },
+  "phase_coverage": {
+    "passed": true,
+    "detail": "145 phases resolve to modules with run()"
+  }
+}

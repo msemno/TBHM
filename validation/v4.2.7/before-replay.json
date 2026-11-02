@@ -1,0 +1,50 @@
+{
+  "checkov": {
+    "raw_passed_checks": 327,
+    "raw_failed_checks": 1,
+    "normalized_candidates": 328,
+    "normalized_rules": {
+      "CKV_GHA_1": 76,
+      "CKV_GHA_5": 6,
+      "CKV_GHA_4": 76,
+      "CKV_GHA_2": 76,
+      "CKV_GHA_6": 6,
+      "CKV_GHA_3": 76,
+      "CKV_GHA_7": 6,
+      "CKV2_GHA_1": 6
+    }
+  },
+  "njsscan": {
+    "raw_errors": 1,
+    "normalized_candidates": 6,
+    "normalized_parser_error_findings": 1,
+    "candidates_with_actual_file": 1,
+    "normalized_rules": {
+      "3": 1,
+      "": 5
+    },
+    "retained_match_occurrences": 0
+  },
+  "clear_routes": {
+    "old_report_findings": 11,
+    "paths_still_requiring_response_review": 11,
+    "response_bodies_retested": false
+  },
+  "controls": {
+    "declaration_runtime_sinks": 2,
+    "api_403": [
+      true,
+      "EXISTS \u2014 authentication/authorization required",
+      "MEDIUM"
+    ],
+    "api_503": [
+      true,
+      "EXISTS \u2014 server error (possible injection point)",
+      "LOW"
+    ],
+    "recon_cwe": "CWE-327"
+  },
+  "live_target_requests": 0,
+  "source_artifacts_modified": false,
+  "model_quality_evaluated": false
+}

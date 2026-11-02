@@ -1,0 +1,17 @@
+test_all_historical_cli_flags_are_retained (integration_test_v3961.V3961RegressionTests.test_all_historical_cli_flags_are_retained) ... ok
+test_all_historical_phases_are_retained (integration_test_v3961.V3961RegressionTests.test_all_historical_phases_are_retained) ... ok
+test_all_python_and_data_files_parse (integration_test_v3961.V3961RegressionTests.test_all_python_and_data_files_parse) ... ok
+test_detailed_branch_table_is_restored (integration_test_v3961.V3961RegressionTests.test_detailed_branch_table_is_restored) ... ok
+test_historical_payload_and_wordlist_entries_are_retained (integration_test_v3961.V3961RegressionTests.test_historical_payload_and_wordlist_entries_are_retained) ... ok
+test_historical_public_symbols_are_retained (integration_test_v3961.V3961RegressionTests.test_historical_public_symbols_are_retained) ... ok
+test_historical_source_and_config_paths_are_retained (integration_test_v3961.V3961RegressionTests.test_historical_source_and_config_paths_are_retained) ... ok
+test_historical_structured_catalog_identifiers_are_retained (integration_test_v3961.V3961RegressionTests.test_historical_structured_catalog_identifiers_are_retained) ... ok
+test_profiles_are_canonicalized_and_finalization_is_last (integration_test_v3961.V3961RegressionTests.test_profiles_are_canonicalized_and_finalization_is_last) ... ok
+test_release_versions_are_synchronized (integration_test_v3961.V3961RegressionTests.test_release_versions_are_synchronized) ... ok
+test_restored_http_reproducer_kit_is_complete (integration_test_v3961.V3961RegressionTests.test_restored_http_reproducer_kit_is_complete) ... ok
+test_reverse_kit_never_executes_the_artifact (integration_test_v3961.V3961RegressionTests.test_reverse_kit_never_executes_the_artifact) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 7.841s
+
+OK

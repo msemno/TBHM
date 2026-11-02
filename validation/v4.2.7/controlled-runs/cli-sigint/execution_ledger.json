@@ -1,0 +1,82 @@
+{
+  "schema": "tbhm.execution/1",
+  "planned_phases": [
+    "preflight",
+    "content_discovery",
+    "report",
+    "evidence_finalize"
+  ],
+  "context_fingerprint": "16d95f49ae3258cd0d25431bb00f5ef1356718836958306dd9b0f3986ba6356d",
+  "events": [
+    {
+      "phase": "content_discovery",
+      "kind": "phase_state",
+      "status": "RUNNING",
+      "sequence": 1,
+      "timestamp": "2026-10-29T23:10:19.589733+00:00"
+    },
+    {
+      "phase": "content_discovery",
+      "kind": "capability",
+      "tool": "ffuf",
+      "status": "available",
+      "sequence": 2,
+      "timestamp": "2026-10-29T23:10:19.590598+00:00"
+    },
+    {
+      "phase": "content_discovery",
+      "kind": "tool",
+      "argv": [
+        "ffuf",
+        "-u",
+        "https://example.test/FUZZ",
+        "-w",
+        "/workspace/scratch/8420e302b789/tbhm-v427-work/validation/source-freeze/TBHM-4.2.7/wordlists/api_endpoints.txt",
+        "-mc",
+        "200,201,204,301,302,307,401,403,405",
+        "-fs",
+        "0",
+        "-ac",
+        "-rate",
+        "5",
+        "-t",
+        "20",
+        "-of",
+        "json",
+        "-o",
+        "/tmp/tmpnxl72lvq/run/scans/content/example.test__api_endpoints.json",
+        "-s",
+        "-timeout",
+        "8"
+      ],
+      "returncode": 130,
+      "status": "tool-error",
+      "outcome": "CANCELLED",
+      "executable": {
+        "path": "/tmp/tmpnxl72lvq/bin/ffuf",
+        "sha256": "aaaaa947d7b956b9b2677d8626414ed69983d3f9af8bcf6cc8c1da5e30566bb6",
+        "version": "UNVERIFIED"
+      },
+      "seconds": 0.305,
+      "sequence": 3,
+      "timestamp": "2026-10-29T23:10:19.900567+00:00"
+    },
+    {
+      "phase": "content_discovery",
+      "kind": "phase",
+      "status": "partial",
+      "seconds": 0.313,
+      "sequence": 4,
+      "timestamp": "2026-10-29T23:10:19.903649+00:00"
+    },
+    {
+      "phase": "evidence_finalize",
+      "kind": "run",
+      "status": "incomplete",
+      "exit_code": 2,
+      "sequence": 5,
+      "timestamp": "2026-10-29T23:10:19.948485+00:00"
+    }
+  ],
+  "coverage_note": "Phase completion is not vulnerability-test coverage."
+}

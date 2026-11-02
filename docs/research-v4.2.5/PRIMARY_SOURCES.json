@@ -1,0 +1,13 @@
+{
+  "reviewed_on": "2026-10-19",
+  "sources": [
+    {
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "use": "API1:2023 owned object authorization control objective"
+    },
+    {
+      "url": "https://owasp.github.io/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization/04-Insecure_Direct_Object_References",
+      "use": "WSTG-ATHZ-04 testing methodology; executed-case mapping is narrow, not complete standards coverage"
+    }
+  ]
+}

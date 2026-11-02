@@ -1,0 +1,16 @@
+test_ci_cd_static_review_and_attestation_inventory (integration_test_v396.V396Tests.test_ci_cd_static_review_and_attestation_inventory) ... ok
+test_cloud_identity_analysis_is_read_only_lead (integration_test_v396.V396Tests.test_cloud_identity_analysis_is_read_only_lead) ... ok
+test_compliance_matrix_is_policy_driven_not_certification (integration_test_v396.V396Tests.test_compliance_matrix_is_policy_driven_not_certification) ... ok
+test_execution_plan_is_approval_gated_and_contains_no_commands (integration_test_v396.V396Tests.test_execution_plan_is_approval_gated_and_contains_no_commands) ... ok
+test_execution_registry_enforces_plan_import_boundary (integration_test_v396.V396Tests.test_execution_registry_enforces_plan_import_boundary) ... ok
+test_invalid_high_impact_registry_override_is_blocked (integration_test_v396.V396Tests.test_invalid_high_impact_registry_override_is_blocked) ... ok
+test_ocsf_and_mcp_manifests_are_non_authoritative (integration_test_v396.V396Tests.test_ocsf_and_mcp_manifests_are_non_authoritative) ... ok
+test_osint_depth_generates_plan_and_hashes_username (integration_test_v396.V396Tests.test_osint_depth_generates_plan_and_hashes_username) ... ok
+test_phase_order_profiles_and_version (integration_test_v396.V396Tests.test_phase_order_profiles_and_version) ... ok
+test_richer_sarif_has_provenance_and_fingerprint (integration_test_v396.V396Tests.test_richer_sarif_has_provenance_and_fingerprint) ... ok
+test_social_engineering_unsafe_plan_is_blocked (integration_test_v396.V396Tests.test_social_engineering_unsafe_plan_is_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.266s
+
+OK

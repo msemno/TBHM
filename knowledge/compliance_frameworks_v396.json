@@ -1,0 +1,83 @@
+{
+  "catalog_version": "3.9.6",
+  "statement": "This catalog supports evidence mapping and gap reporting. It is not a certification opinion and does not replace licensed/official control text or assessor judgment.",
+  "frameworks": [
+    {"id":"pci-dss","name":"PCI DSS","version":"4.0-family","scope_note":"Top-level requirement-family mapping; official subrequirements may be supplied with --compliance-catalog.","controls":[
+      {"id":"PCI-1","title":"Install and maintain network security controls","tags":["network-security"],"phases":["network_firewall_tooling","cloud_posture_tooling"],"evidence_required":["network diagrams","firewall rules","segmentation tests"]},
+      {"id":"PCI-2","title":"Apply secure configurations","tags":["network-security","cloud-security"],"phases":["infra_exposure","cloud_posture_tooling"]},
+      {"id":"PCI-3","title":"Protect stored account data","tags":["data-protection"],"phases":["code_intel","secrets_misc"]},
+      {"id":"PCI-4","title":"Protect cardholder data in transit","tags":["network-security","data-protection"],"phases":["secrets_misc","auth_modern_review"]},
+      {"id":"PCI-5","title":"Protect systems from malware","tags":["incident-response"],"phases":["purple_team_validation"],"manual":true},
+      {"id":"PCI-6","title":"Develop and maintain secure systems and software","tags":["secure-development","vulnerability-management"],"phases":["code_security_tooling","ci_cd_supply_chain_security","vulnerability_intelligence_enrichment"]},
+      {"id":"PCI-7","title":"Restrict access by business need","tags":["access-control"],"phases":["access_control","authenticated_session_model"]},
+      {"id":"PCI-8","title":"Identify users and authenticate access","tags":["authentication"],"phases":["auth_advanced","mfa_bypass_safe"]},
+      {"id":"PCI-9","title":"Restrict physical access","tags":["physical-security"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"PCI-10","title":"Log and monitor access","tags":["logging-monitoring"],"phases":["purple_team_validation"]},
+      {"id":"PCI-11","title":"Test security systems and processes","tags":["vulnerability-management"],"phases":["vuln_scan","verify","purple_team_validation"]},
+      {"id":"PCI-12","title":"Support information security with policies and programs","tags":["governance"],"phases":["redteam_governance","engagement_objectives"],"manual":true}
+    ]},
+    {"id":"hipaa","name":"HIPAA Security Rule","version":"45 CFR 164","scope_note":"Safeguard-family evidence map, not a legal conclusion.","controls":[
+      {"id":"164.308","title":"Administrative safeguards","tags":["governance","incident-response"],"phases":["redteam_governance","purple_team_validation"],"manual":true},
+      {"id":"164.310","title":"Physical safeguards","tags":["physical-security"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"164.312","title":"Technical safeguards","tags":["access-control","authentication","data-protection","logging-monitoring"],"phases":["access_control","auth_advanced","secrets_misc","purple_team_validation"]}
+    ]},
+    {"id":"gdpr","name":"GDPR","version":"EU 2016/679","scope_note":"Technical evidence for selected Articles; DPIA/legal determinations remain manual.","controls":[
+      {"id":"Art-5","title":"Principles relating to processing","tags":["data-protection"],"phases":["corporate_osint","data_analysis_intelligence"],"manual":true},
+      {"id":"Art-25","title":"Data protection by design and by default","tags":["secure-development","data-protection"],"phases":["code_intel","ci_cd_supply_chain_security"]},
+      {"id":"Art-30","title":"Records of processing activities","tags":["governance"],"phases":["engagement_objectives"],"manual":true},
+      {"id":"Art-32","title":"Security of processing","tags":["access-control","authentication","network-security","incident-response"],"phases":["access_control","auth_advanced","network_firewall_tooling","purple_team_validation"]},
+      {"id":"Art-33","title":"Notification of a personal data breach","tags":["incident-response"],"phases":["purple_team_validation"],"manual":true},
+      {"id":"Art-35","title":"Data protection impact assessment","tags":["governance","data-protection"],"phases":["engagement_objectives","data_analysis_intelligence"],"manual":true}
+    ]},
+    {"id":"iso27001","name":"ISO/IEC 27001 Annex A","version":"2022 families","scope_note":"Control-family mapping; official licensed control wording is not redistributed.","controls":[
+      {"id":"A.5","title":"Organizational controls","tags":["governance"],"phases":["redteam_governance","engagement_objectives"],"manual":true},
+      {"id":"A.6","title":"People controls","tags":["social-engineering","authentication"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"A.7","title":"Physical controls","tags":["physical-security"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"A.8","title":"Technological controls","tags":["access-control","secure-development","network-security","logging-monitoring","vulnerability-management"],"phases":["access_control","code_security_tooling","network_firewall_tooling","purple_team_validation","vulnerability_intelligence_enrichment"]}
+    ]},
+    {"id":"nist-800-53","name":"NIST SP 800-53","version":"Rev. 5 control families","scope_note":"All control families are represented; organization-specific controls and enhancements should be supplied through an external catalog.","controls":[
+      {"id":"AC","title":"Access Control","tags":["access-control"],"phases":["access_control","authenticated_session_model"]},
+      {"id":"AT","title":"Awareness and Training","tags":["social-engineering"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"AU","title":"Audit and Accountability","tags":["logging-monitoring"],"phases":["purple_team_validation"]},
+      {"id":"CA","title":"Assessment, Authorization, and Monitoring","tags":["governance"],"phases":["redteam_governance","compliance_reporting_extended"]},
+      {"id":"CM","title":"Configuration Management","tags":["cloud-security","network-security"],"phases":["cloud_posture_tooling","network_firewall_tooling"]},
+      {"id":"CP","title":"Contingency Planning","tags":["incident-response"],"phases":["backup_restore_simulation"],"manual":true},
+      {"id":"IA","title":"Identification and Authentication","tags":["authentication"],"phases":["auth_advanced","identity_security_tooling"]},
+      {"id":"IR","title":"Incident Response","tags":["incident-response"],"phases":["purple_team_validation"],"manual":true},
+      {"id":"MA","title":"Maintenance","tags":["governance"],"phases":["engagement_objectives"],"manual":true},
+      {"id":"MP","title":"Media Protection","tags":["data-protection"],"phases":["data_analysis_intelligence"],"manual":true},
+      {"id":"PE","title":"Physical and Environmental Protection","tags":["physical-security"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"PL","title":"Planning","tags":["governance"],"phases":["engagement_objectives"]},
+      {"id":"PM","title":"Program Management","tags":["governance"],"phases":["redteam_governance"],"manual":true},
+      {"id":"PS","title":"Personnel Security","tags":["social-engineering"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"PT","title":"PII Processing and Transparency","tags":["data-protection"],"phases":["corporate_osint","data_analysis_intelligence"],"manual":true},
+      {"id":"RA","title":"Risk Assessment","tags":["vulnerability-management"],"phases":["vulnerability_intelligence_enrichment","attack_path"]},
+      {"id":"SA","title":"System and Services Acquisition","tags":["secure-development"],"phases":["ci_cd_supply_chain_security","supply_chain_review"]},
+      {"id":"SC","title":"System and Communications Protection","tags":["network-security","data-protection"],"phases":["network_firewall_tooling","secrets_misc"]},
+      {"id":"SI","title":"System and Information Integrity","tags":["vulnerability-management","incident-response"],"phases":["vuln_scan","verify","purple_team_validation"]},
+      {"id":"SR","title":"Supply Chain Risk Management","tags":["secure-development"],"phases":["supply_chain_review","ci_cd_supply_chain_security"]}
+    ]},
+    {"id":"ptes","name":"PTES","version":"Lifecycle","scope_note":"Engagement-stage coverage map.","controls":[
+      {"id":"PTES-1","title":"Pre-engagement interactions","tags":["governance"],"phases":["preflight","engagement_objectives"]},
+      {"id":"PTES-2","title":"Intelligence gathering","tags":["corporate_osint"],"phases":["recon","corporate_osint","osint_depth_collectors"]},
+      {"id":"PTES-3","title":"Threat modeling","tags":["governance"],"phases":["engagement_objectives","attack_path"]},
+      {"id":"PTES-4","title":"Vulnerability analysis","tags":["vulnerability-management"],"phases":["vuln_scan","code_security_tooling","cloud_posture_tooling"]},
+      {"id":"PTES-5","title":"Exploitation","tags":["controlled-validation"],"phases":["execution_orchestration_plan","controlled_validation_plane"],"manual":true},
+      {"id":"PTES-6","title":"Post exploitation","tags":["controlled-validation"],"phases":["execution_orchestration_plan","controlled_validation_plane"],"manual":true},
+      {"id":"PTES-7","title":"Reporting","tags":["reporting"],"phases":["report","evidence_finalize"]}
+    ]},
+    {"id":"osstmm","name":"OSSTMM","version":"Methodology families","scope_note":"Channel-oriented planning and evidence map; official methodology remains authoritative.","controls":[
+      {"id":"OSSTMM-HUMSEC","title":"Human security","tags":["social-engineering"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"OSSTMM-PHYSEC","title":"Physical security","tags":["physical-security"],"phases":["social_engineering_governance"],"manual":true},
+      {"id":"OSSTMM-WIRELESS","title":"Wireless security","tags":["wireless"],"phases":["wireless_physical_soc"],"manual":true},
+      {"id":"OSSTMM-DATANET","title":"Data networks","tags":["network-security"],"phases":["ports","network_firewall_tooling"]},
+      {"id":"OSSTMM-TELECOM","title":"Telecommunications","tags":["network-security"],"phases":["modern_protocols_discovery"],"manual":true}
+    ]},
+    {"id":"vdp","name":"Vulnerability Disclosure Program","version":"Report profile","scope_note":"Standardized disclosure report completeness checks.","controls":[
+      {"id":"VDP-SCOPE","title":"Scope and authorization","tags":["governance"],"phases":["preflight"]},
+      {"id":"VDP-REPRO","title":"Reproduction and evidence","tags":["vulnerability-management"],"phases":["verify","exploitability_assessment"]},
+      {"id":"VDP-IMPACT","title":"Security impact","tags":["vulnerability-management"],"phases":["exploitability_assessment"]},
+      {"id":"VDP-REMEDIATION","title":"Remediation and retest","tags":["reporting"],"phases":["report"]}
+    ]}
+  ]
+}

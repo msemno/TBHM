@@ -1,0 +1,3 @@
+{"entry_type": "config", "fixture": true}
+{"entry_type": "eval", "probe": "synthetic.promptinject", "detector": "synthetic.fixture", "passed": 3, "total_evaluated": 5, "nones": 1, "metadata": {"tbhm_category": "prompt-injection"}}
+{"entry_type": "eval", "probe": "synthetic.leakage", "detector": "synthetic.fixture", "passed": 2, "total_evaluated": 2, "nones": 0, "metadata": {"tbhm_category": "data-leakage"}}

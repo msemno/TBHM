@@ -1,0 +1,11 @@
+{
+  "scope": "3000 generated synthetic CVE parser fixtures; not a real model or production-data evaluation",
+  "records": 3000,
+  "exit_code": 0,
+  "status": "complete",
+  "elapsed_seconds": 1.038,
+  "process_peak_rss_mib": 32.8,
+  "database_bytes": 5693440,
+  "model_calls": 0,
+  "bulk_embeddings": 0
+}

@@ -1,0 +1,42 @@
+id: tbhm-exposed-backup-archive
+
+info:
+  name: Exposed Backup / Archive File
+  author: tbhm
+  severity: medium
+  description: |
+    A common backup or archive filename is downloadable from the web root
+    (e.g. backup.zip, www.tar.gz, site.sql). These frequently contain full source
+    or database dumps.
+  remediation: "Remove backups from web-accessible paths; deny archive extensions."
+  tags: tbhm,exposure,backup
+  metadata:
+    max-request: 6
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/backup.zip"
+      - "{{BaseURL}}/backup.tar.gz"
+      - "{{BaseURL}}/www.zip"
+      - "{{BaseURL}}/site.sql"
+      - "{{BaseURL}}/database.sql"
+      - "{{BaseURL}}/{{Hostname}}.zip"
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: word
+        part: header
+        condition: or
+        words:
+          - "application/zip"
+          - "application/x-gzip"
+          - "application/gzip"
+          - "application/octet-stream"
+          - "application/sql"
+      - type: dsl
+        dsl:
+          - "content_length > 0"

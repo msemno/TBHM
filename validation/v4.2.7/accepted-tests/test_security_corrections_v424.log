@@ -1,0 +1,9 @@
+test_canary_in_filename_is_a_delivery_leak (test_security_corrections_v424.Defects.test_canary_in_filename_is_a_delivery_leak) ... ok
+test_operator_queue_cannot_trust_imported_flags (test_security_corrections_v424.Defects.test_operator_queue_cannot_trust_imported_flags) ... ok
+test_oversized_429_still_persists_shared_cooldown (test_security_corrections_v424.Defects.test_oversized_429_still_persists_shared_cooldown) ... ok
+test_untrusted_graph_flags_cannot_verify_proof (test_security_corrections_v424.Defects.test_untrusted_graph_flags_cannot_verify_proof) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.528s
+
+OK

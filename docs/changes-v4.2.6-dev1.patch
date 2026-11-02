@@ -1,0 +1,566 @@
+--- /dev/null
++++ b/RELEASE_INFO-v4.2.6-dev1.json
+@@ -0,0 +1,13 @@
++{
++  "version": "4.2.6-dev1",
++  "status": "development-unvalidated",
++  "source_baseline": "TBHM-4.2.5-knowledge-and-migration(1).zip",
++  "source_repairs_merged": false,
++  "phase_names_changed": false,
++  "full_regression_passed": false,
++  "kali_runtime_validated": false,
++  "real_origin_scanning_implemented": false,
++  "waf_bypass_implemented": false,
++  "strict_classes_added": 0,
++  "new_tests_passed": 9
++}
+--- /dev/null
++++ b/core/nuclei_runtime.py
+@@ -0,0 +1,39 @@
++"""Bounded, read-only Nuclei template and result readiness checks.
++
++No subprocesses, network calls or installer side effects are used here.
++"""
++from __future__ import annotations
++
++
++def installed_templates(bootstrap):
++    root = bootstrap.nuclei_templates_root()
++    count = bootstrap.nuclei_template_count() if root is not None else 0
++    return {"path": str(root) if root else None, "count": max(0, count),
++            "ready": bool(root and count > 0), "action": "read-only-check"}
++
++
++def interpret_execution(rc, stderr='', stdout='', output_present=False):
++    text = ' '.join(str(stderr or stdout or '').lower().split())[:600]
++    if rc in (124, -9):
++        return 'timeout'
++    if any(x in text for x in ('flag provided but not defined', 'unknown flag', 'unknown shorthand flag')):
++        return 'tool-incompatible'
++    if any(x in text for x in ('no templates provided', 'could not find any templates', 'no templates found', 'no templates to run')):
++        return 'missing-templates'
++    if rc not in (0, 1):
++        return 'tool-error'
++    if rc == 1 and not output_present:
++        return 'tool-error'  # do not assume every version uses 1 for clean no match
++    return 'results-present' if output_present else 'no-matches'
++
++
++def evidence_fields(record):
++    req, resp = record.get('request') or '', record.get('response') or ''
++    if not isinstance(req, str): req = str(req)
++    if not isinstance(resp, str): resp = str(resp)
++    # Nuclei findings without both original capture components are leads only.
++    valid = bool(req.strip() and resp.strip())
++    return {'evidence_capture_status': 'capture-present' if valid else 'missing-http-exchange',
++            'finding_class': 'supported' if valid else 'lead',
++            'validation_required': 'Nuclei match is not vulnerability proof; replay with class-specific negative controls and repeats.' if valid else
++                'Original HTTP request AND response are missing; obtain an approved capture before verification.'}
+--- /dev/null
++++ b/core/origin_firewall_analysis.py
+@@ -0,0 +1,60 @@
++"""Offline origin attribution and WAF behavior review.
++
++Never performs DNS lookups, active requests, or an origin-bypass. A historical
++IP is only a *candidate*; scanning requires explicit authorization for that IP.
++"""
++from __future__ import annotations
++import ipaddress
++from urllib.parse import urlsplit
++
++
++def _ip(value):
++    try:
++        ip = ipaddress.ip_address(str(value).strip('[]'))
++        if ip.is_multicast or ip.is_unspecified or ip.is_loopback or ip.is_link_local:
++            return None
++        return str(ip)
++    except ValueError:
++        return None
++
++
++def review_origin_candidates(records: list[dict], authorized_ips: list[str]) -> list[dict]:
++    approved = {val for x in authorized_ips if (val := _ip(x))}
++    results = {}
++    for row in records:
++        address = _ip(row.get('ip', ''))
++        if not address:
++            continue
++        host = str(row.get('hostname') or '').strip().lower().rstrip('.')
++        source = str(row.get('source') or 'unspecified')[:80]
++        if not host:
++            continue
++        key = (host, address)
++        item = results.setdefault(key, {'hostname': host, 'ip': address,
++                                        'authorization': 'approved-ip' if address in approved else 'not-approved',
++                                        'state': 'candidate-only', 'sources': []})
++        if source not in item['sources']:
++            item['sources'].append(source)
++    return sorted(results.values(), key=lambda x:(x['hostname'],x['ip']))
++
++
++def review_firewall_pairs(samples: list[dict]) -> list[dict]:
++    """Compare externally collected benign/control responses. Not a vulnerability oracle."""
++    out=[]
++    for sample in samples:
++        baseline=sample.get('baseline') or {}
++        variant=sample.get('variant') or {}
++        bs=baseline.get('status');vs=variant.get('status')
++        if type(bs) is not int or type(vs) is not int or not (100 <= bs <= 599 and 100 <= vs <= 599):
++            label='incomplete-evidence'
++        elif bs < 400 and vs in (403,406,429):
++            label='possible-filter-differential'
++        elif bs == vs:
++            label='same-http-status'
++        else:
++            label='different-http-behavior'
++        out.append({'test_id': str(sample.get('test_id') or '')[:100],
++                    'observation': label, 'baseline_status': bs, 'variant_status': vs,
++                    'security_conclusion': 'unverified',
++                    'next_step': 'Review complete redacted exchanges, approval scope, and repeatable controls.'})
++    return out
+--- a/core/storage.py
++++ b/core/storage.py
+@@ -429,9 +429,8 @@
+                 cmd = curl_reproducer.build(f)
+                 if cmd:
+                     f["reproducer_curl"] = cmd
+-                    # Also tag onto request_raw so existing reporters pick it up
+-                    existing_req = f.get("request_raw") or ""
+-                    f["request_raw"] = (existing_req + "\n\n# Reproducer:\n" + cmd).strip()
++                    # A suggested curl command is NOT the original HTTP request.
++                    # Keep it separate, so evidence audits never count it as a capture.
+         except Exception:
+             pass
+ 
+@@ -455,6 +454,7 @@
+             "repeatability_passed", "validation_attempt_id", "verification_state",
+             "test_execution_id", "candidate_id", "root_cause_fingerprint",
+             "scope_decision", "policy_id", "identity_context", "workflow_id",
++            "evidence_capture_status", "reproducer_curl",
+             "attack_ids", "operation_id", "campaign_id", "cleanup_status",
+         ):
+             if key in f:
+--- a/core/taint_engine.py
++++ b/core/taint_engine.py
+@@ -382,6 +382,30 @@
+     r"([A-Za-z_$][\w$]*)\s*\([^)]*\)\s*{)")
+ 
+ 
++def js_runtime_context(path: str, source: str = "") -> str:
++    """Infer narrow runtime signals, never treat a shared JS bundle as authoritative.
++
++    A browser source (location/document/window) cannot directly feed a Node-only
++    sink. For mixed/ambiguous modules, retain evidence for human review.
++    """
++    p = str(path or "").replace("\\", "/").lower()
++    if any(x in p for x in ("/public/", "/static/", "/assets/", "/browser/", ".browser.", ".client.")):
++        return "browser"
++    if any(x in p for x in ("/server/", "/backend/", "/node/", ".server.", ".node.")) or p.endswith(".cjs"):
++        return "node"
++    if source.startswith(("location.", "document.", "window.")):
++        return "browser"
++    if source.startswith(("req.", "request.", "process.env")):
++        return "node"
++    return "ambiguous"
++
++
++def js_sink_compatible(source: str, cwe: str, path: str) -> bool:
++    # Browser code has no direct access to the Node SQL driver or shell API.
++    # This does NOT rule out a separate backend vulnerability reached by HTTP.
++    return not (js_runtime_context(path, source) == "browser" and cwe in {"CWE-78", "CWE-89"})
++
++
+ def analyze_js(text: str, path: str = "") -> list[TaintFlow]:
+     lines = text.splitlines()
+     flows: list[TaintFlow] = []
+@@ -424,7 +448,7 @@
+                         if re.search(rf"\b{re.escape(tv)}\b", line):
+                             src_label, var, def_line = sl, tv, dl
+                             break
+-                if src_label:
++                if src_label and js_sink_compatible(src_label, cwe, path):
+                     # A lexical pass cannot establish that a sanitizer wraps
+                     # every tainted value in the correct output context. Keep
+                     # the candidate visible rather than treating a word on the
+--- a/core/version.py
++++ b/core/version.py
+@@ -1,4 +1,4 @@
+ """Central TBHM release identity."""
+-VERSION = "4.2.5"
+-SEMANTIC_VERSION = "4.2.5"
+-DISPLAY_VERSION = "v4.2.5"
++VERSION = "4.2.6-dev1"
++SEMANTIC_VERSION = "4.2.6-dev1"
++DISPLAY_VERSION = "v4.2.6-dev1"
+--- /dev/null
++++ b/docs/RELEASE-v4.2.6-dev1.md
+@@ -0,0 +1,46 @@
++# TBHM 4.2.6-dev1 — incident-driven development candidate
++
++**Status: DEVELOPMENT / NOT PRODUCTION VALIDATED.** This tree is derived from the uploaded `TBHM-4.2.5-knowledge-and-migration(1).zip` archive. The incident report states that this archive predates later runtime repairs. Those repairs are **not** silently assumed merged.
++
++## Implemented source changes
++
++1. JS taint analysis: filter browser-origin dataflow claims leading directly to Node-only OS-command / SQL sinks. Node-origin dataflow and browser DOM XSS leads are retained. This is lexical screening, **not** dynamic browser confirmation.
++2. Nuclei: check local templates without automatic downloads during scanning; classify CLI incompatibility, timeouts, missing templates, and tool errors independently from clean no-match results. Results without original request+response remain leads. Scanner claims are never proof receipts.
++3. Diagnostics: stop running arbitrary installed executable version flags and template build scripts. Tool presence is NOT labelled operational readiness.
++4. Finding persistence: keep suggested curl reproducers separate from the actual original `request_raw`. Existing redaction protections remain.
++5. Nmap XML network import: retain the host IP despite ElementTree leaf elements evaluating false.
++6. Offline/passive origin-IP candidate attribution with literal authorized-IP matching; no active origin discovery or bypass.
++7. Offline firewall-response comparison; no firewall-bypass execution or vulnerability confirmation.
++8. New unit tests for the above source changes.
++
++## Measured review of uploaded runs
++
++| Run | Findings | Blocked HTTP ledger events | Request+response fields present |
++|---|---:|---:|---:|
++| omarchy/run1 | 117 | 61 | 0 |
++| verisk/01-manual-recon | 2 | 32,458 | 0 |
++| livenation/04-deep | 144 | 17,993 | 3 |
++
++`request_raw` in the historical runs may be a synthetic curl reproducer, not a real original request. The CSV/JSON output does not attest to full scanner capture coverage. All three runs had 0 confirmed vulnerability claims. Do not assume a correct vulnerability was missed merely because proof was unavailable.
++
++## Validation
++
++- New tests: 9/9 passed in this source-review environment.
++- Existing proof behavior: 2/2 passed.
++- Existing v4.2.5 security checks: 3/3 passed.
++- F02/F03 remediation tests: 4/4 passed; F04: 3/3 passed.
++- The old v4.2.3 flow-contract suite currently fails due to stale source/AST hash freezes (including a file untouched from the supplied archive); this candidate does NOT claim a green full suite.
++- Full suite was attempted, but did not complete within the execution budget. One strict-class test run timed out separately. No full clean extraction/offline installation test was performed on Kali/Python 3.12; external tools and Windows Ollama runtime were not accessible.
++
++## Outstanding / not implemented
++
++- Full request/response capture for *every* external scanner, with bounded private raw-evidence vault and operator permission.
++- Vulnerability-specific active negative-control/differential/repeatability engines and headless DOM execution proof.
++- First/third-party source content hashing and complete bundled provenance.
++- Universal child/browser wire metering, full sensitive-writer closure, and robust global cancellation/early-stop on HTTP budget exhaustion.
++- Tested live Nuclei version readiness on the user's Kali VM; evidence bundle lacks raw per-tool logs.
++- Real model semantic acceptance and Windows GPU/tunnel reliability.
++- Active origin IP discovery, live WAF/firewall validation or bypass; offline candidate/behavior analysis only.
++- Complete baseline repair reconciliation from the user's currently running installation.
++
++**Do not replace the stable installed TBHM directory with this development build.** Compare/merge with actual deployed repair receipts and run on owned local fixtures before using on an authorized engagement.
+--- a/install.sh
++++ b/install.sh
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env bash
+-# TBHM 4.2.5 core installer. No sudo, global pip changes or tool downloads.
++# TBHM 4.2.6-dev1 core installer. No sudo, global pip changes or tool downloads.
+ set -Eeuo pipefail
+ TBHM_RELEASE_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ TBHM_VENV="$TBHM_RELEASE_ROOT/.venv"
+@@ -12,7 +12,7 @@
+     --online) TBHM_INSTALL_MODE=online; shift ;;
+     --venv) TBHM_VENV="${2:?--venv requires a path}"; shift 2 ;;
+     --python) TBHM_PYTHON="${2:?--python requires an interpreter}"; shift 2 ;;
+-    -h|--help) printf '%s\n' 'TBHM 4.2.5: bash install.sh [--offline|--online] [--python python3.12] [--venv PATH]' 'Default: install only the pinned core from bundled wheels into .venv.'; exit 0 ;;
++    -h|--help) printf '%s\n' 'TBHM 4.2.6-dev1: bash install.sh [--offline|--online] [--python python3.12] [--venv PATH]' 'Default: install only the pinned core from bundled wheels into .venv.'; exit 0 ;;
+     *) printf 'Unknown option: %s\n' "$1" >&2; exit 2 ;;
+   esac
+ done
+@@ -20,7 +20,7 @@
+ import platform, sys
+ from pathlib import Path
+ if sys.version_info[:2] != (3, 12):
+-    raise SystemExit('TBHM 4.2.5 packaged runtime requires Python 3.12. Use --python /path/to/python3.12.')
++    raise SystemExit('TBHM 4.2.6-dev1 packaged runtime requires Python 3.12. Use --python /path/to/python3.12.')
+ if sys.platform != 'linux' or platform.machine() not in {'x86_64', 'amd64'}:
+     raise SystemExit('This offline distribution targets Linux x86-64. Other platforms are not validated.')
+ root = Path(sys.argv[1]); sys.path.insert(0, str(root))
+@@ -36,4 +36,4 @@
+ "$TBHM_VENV/bin/python" -m pip install "${TBHM_PIP_ARGS[@]}"
+ "$TBHM_VENV/bin/python" -m pip check
+ "$TBHM_VENV/bin/python" "$TBHM_RELEASE_ROOT/tbhm.py" --version
+-printf '\nInstalled TBHM 4.2.5 in %s\nRun: %s/tbhm --help\n' "$TBHM_VENV" "$TBHM_RELEASE_ROOT"
++printf '\nInstalled TBHM 4.2.6-dev1 in %s\nRun: %s/tbhm --help\n' "$TBHM_VENV" "$TBHM_RELEASE_ROOT"
+--- a/phases/custom_nuclei.py
++++ b/phases/custom_nuclei.py
+@@ -23,7 +23,7 @@
+ from pathlib import Path
+ from urllib.parse import urlparse
+ 
+-from core import noise_filter, bootstrap
++from core import noise_filter, bootstrap, nuclei_runtime
+ from core.targets import get_root_domains
+ 
+ 
+@@ -41,7 +41,8 @@
+ 
+     # Make sure nuclei has *some* official templates too (DSL helpers etc. work
+     # regardless, but this also self-heals the empty-store case).
+-    bootstrap.ensure_nuclei_templates(log=ctx.log)
++    # No hidden network download/setup during a scan.
++    nuclei_runtime.installed_templates(bootstrap)
+ 
+     # Build target list (alive hosts + crawled URLs).
+     targets = []
+@@ -139,7 +140,7 @@
+                 else obj.get("matcher-name", "")
+                 or f"Matched by TBHM template {template_id}")
+     mrs = {"CRITICAL": 90, "HIGH": 80, "MEDIUM": 55, "LOW": 35, "INFO": 20}.get(severity, 30)
+-    return {
++    finding = {
+         "phase":       "custom_nuclei",
+         "template_id": template_id,
+         "severity":    severity,
+@@ -159,3 +160,5 @@
+         "response_raw":(obj.get("response") or "")[:4000],
+         "mrs_score":   mrs,
+     }
++    finding.update(nuclei_runtime.evidence_fields(obj))
++    return finding
+--- a/phases/diagnostics.py
++++ b/phases/diagnostics.py
+@@ -243,7 +243,10 @@
+     if shutil.which("nuclei"):
+         template_count = bootstrap.nuclei_template_count()
+         template_root = bootstrap.nuclei_templates_root()
+-        custom_info = bootstrap.ensure_custom_templates(log=None)
++        # Only inspect metadata. Template builders/setup must never execute in diagnostics.
++        custom_root = getattr(bootstrap, 'CUSTOM_TEMPLATE_DIR', None)
++        custom_count = sum(1 for _ in custom_root.rglob('*.yaml')) if custom_root and custom_root.is_dir() else 0
++        custom_info = {'count': custom_count}
+         lines.append(f"## NUCLEI TEMPLATES: {template_count} official templates loaded")
+         lines.append(f"  official root: {template_root or 'not found'}")
+         lines.append(f"  TBHM custom  : {custom_info.get('count', 0)} bundled templates")
+@@ -325,7 +328,7 @@
+     elif missing:
+         lines.append(f"✅ VERDICT: scan will run, but {len(missing)} optional tools missing.")
+     else:
+-        lines.append("✅ VERDICT: full coverage available.")
++        lines.append("⚠️  VERDICT: tools detected; operational readiness and coverage unverified.")
+     lines.append("=" * 70)
+ 
+     report = "\n".join(lines)
+@@ -362,16 +365,9 @@
+ 
+ 
+ def _get_version(tool: str) -> str:
+-    """Try a few common version flags. Returns short version string."""
+-    for flag in ("-version", "--version", "-v", "version"):
+-        try:
+-            r = subprocess.run([tool, flag], capture_output=True, text=True, timeout=5)
+-            text = (r.stdout + r.stderr).strip()
+-            if text:
+-                # Take first line, strip ANSI, truncate
+-                first = text.split("\n")[0]
+-                first = first.replace("\x1b[0m", "").replace("\x1b[1m", "")[:30]
+-                return first
+-        except Exception:
+-            continue
+-    return "?"
++    """Presence-only result: unvetted wrappers may install, download or request sudo.
++
++    Never execute arbitrary binaries or version flags as a diagnostic side effect.
++    A dedicated adapter readiness test is required for capability verification.
++    """
++    return "detected / not probed" if shutil.which(tool) else "not installed"
+--- a/phases/network_firewall_tooling.py
++++ b/phases/network_firewall_tooling.py
+@@ -23,7 +23,7 @@
+   try:root=ET.parse(p).getroot()
+   except Exception:return 0
+   for h in root.findall('.//host'):
+-   addr=(h.find('address') or {}).get('addr','') if h.find('address') is not None else ''
++   addr=next((a.get('addr','') for a in h.findall('address') if a.get('addrtype')=='ipv4'), '') or next((a.get('addr','') for a in h.findall('address')), '')
+    for port in h.findall('.//port'):
+     st=port.find('state'); svc=port.find('service')
+     if st is not None and st.get('state')=='open':
+--- a/phases/nuclei_extended.py
++++ b/phases/nuclei_extended.py
+@@ -17,6 +17,7 @@
+ from urllib.parse import urlparse
+ 
+ from core import bootstrap, noise_filter, ratelimit
++from core import nuclei_runtime
+ from core.targets import get_root_domains
+ 
+ 
+@@ -43,7 +44,7 @@
+         return
+ 
+     ctx.log("INFO", "nuclei_extended", "checking nuclei templates...")
+-    tpl_info = bootstrap.ensure_nuclei_templates(log=ctx.log)
++    tpl_info = nuclei_runtime.installed_templates(bootstrap)
+     template_root = bootstrap.nuclei_templates_root()
+     if not template_root:
+         ctx.log("WARN", "nuclei_extended", "official nuclei template root not found; sweeps may rely on nuclei defaults")
+@@ -101,15 +102,16 @@
+ 
+         ctx.log("INFO", "nuclei_extended", f"  → sweep '{sweep_id}'…")
+         rc, stdout, stderr = ctx.runner.run(cmd, timeout=timeout_min * 60, log_name=f"nuclei_extended_{sweep_id}")
+-        if rc not in (0, 1):
+-            # nuclei often returns 0/1 depending on matches/no matches; anything else deserves visibility.
+-            ctx.log("WARN", "nuclei_extended", f"  sweep '{sweep_id}' exited rc={rc}: {_short(stderr or stdout)}")
++        state = nuclei_runtime.interpret_execution(rc, stderr, stdout, out_file.exists() and out_file.stat().st_size > 0)
++        if state in ('timeout', 'tool-error', 'tool-incompatible', 'missing-templates'):
++            ctx.log('WARN', 'nuclei_extended', f"  sweep '{sweep_id}' {state} rc={rc}: {_short(stderr or stdout)}")
++            continue
+         elif _looks_like_no_templates(stderr + stdout):
+             ctx.log("WARN", "nuclei_extended", f"  sweep '{sweep_id}': no matching templates available")
+             continue
+ 
+         if not out_file.exists():
+-            ctx.log("OK", "nuclei_extended", f"  sweep '{sweep_id}': 0 findings")
++            ctx.log("INFO", "nuclei_extended", f"  sweep '{sweep_id}': no matches (no output file)")
+             continue
+ 
+         n_sweep = 0
+@@ -257,6 +259,9 @@
+         finding["impact"] = (
+             "POTENTIAL subdomain takeover (unverified). " + finding.get("impact", "")
+         ).strip()
++    finding.update(nuclei_runtime.evidence_fields(obj))
++    if _takeover_lead:
++        finding['finding_class'] = 'lead'
+     return finding
+ 
+ 
+--- a/phases/vuln_scan.py
++++ b/phases/vuln_scan.py
+@@ -3,7 +3,7 @@
+ import json
+ from pathlib import Path
+ 
+-from core import bootstrap
++from core import bootstrap, nuclei_runtime
+ 
+ 
+ def run(ctx):
+@@ -24,7 +24,7 @@
+         return
+     # Make the normal nuclei phase self-healing too; otherwise it can silently
+     # run against an empty/default-misconfigured template store.
+-    bootstrap.ensure_nuclei_templates(log=ctx.log, force=bool(getattr(ctx.args, "update_templates", False)))
++    nuclei_runtime.installed_templates(bootstrap)
+     template_root = bootstrap.nuclei_templates_root()
+ 
+     cfg = ctx.profile.get("nuclei", {})
+@@ -68,6 +68,11 @@
+     cmd += ["-c", "25", "-bs", "25", "-o", str(out_jsonl)]
+     ctx.log("INFO", "vuln_scan", f"running nuclei (sev={','.join(sevs)})...")
+     rc, out, err = ctx.runner.run(cmd, timeout=3600, log_name="nuclei")
++    execution = nuclei_runtime.interpret_execution(rc, err, out,
++                       out_jsonl.exists() and out_jsonl.stat().st_size > 0)
++    if execution in ('tool-error', 'tool-incompatible', 'missing-templates', 'timeout'):
++        ctx.log('WARN', 'vuln_scan', f'nuclei execution failed: {execution} (rc={rc})')
++        return
+     if not out_jsonl.exists():
+         detail = " ".join((err or out or "").split())[:240]
+         ctx.log("WARN", "vuln_scan",
+@@ -83,6 +88,9 @@
+         info = r.get("info", {})
+         sev = (info.get("severity") or "info").upper()
+         ctx.save_finding({
++            **nuclei_runtime.evidence_fields(r),
++            "request_raw": str(r.get('request') or '')[:8000],
++            "response_raw": str(r.get('response') or '')[:8000],
+             "phase": "vuln_scan",
+             "template_id": r.get("template-id") or r.get("templateID", ""),
+             "severity": sev if sev in ("CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO") else "INFO",
+--- /dev/null
++++ b/scripts/tbhm_origin_firewall_review.py
+@@ -0,0 +1,27 @@
++#!/usr/bin/env python3
++"""Offline analysis of operator-provided origin candidates and WAF response pairs."""
++from __future__ import annotations
++import argparse,json,sys
++from pathlib import Path
++ROOT=Path(__file__).resolve().parents[1]
++sys.path.insert(0,str(ROOT))
++from core.origin_firewall_analysis import review_origin_candidates,review_firewall_pairs
++
++def main():
++    p=argparse.ArgumentParser(description=__doc__)
++    p.add_argument('--input',type=Path,required=True,help='JSON containing candidates, authorized_ips and response_pairs')
++    p.add_argument('--output',type=Path,required=True)
++    a=p.parse_args()
++    if a.input.resolve()==a.output.resolve():p.error('output cannot overwrite input')
++    if a.input.stat().st_size>4_000_000:p.error('input is over the 4MB limit')
++    data=json.loads(a.input.read_text(encoding='utf8'))
++    if not isinstance(data,dict):p.error('expected JSON object')
++    output={'schema':'tbhm.origin-firewall-review/1',
++            'network_requests_executed':0, 'auto_bypass_enabled':False,
++            'origin_candidates':review_origin_candidates(data.get('candidates',[]), data.get('authorized_ips',[])),
++            'firewall_observations':review_firewall_pairs(data.get('response_pairs',[]))}
++    a.output.write_text(json.dumps(output,indent=2)+'\n',encoding='utf8')
++    a.output.chmod(0o600)
++    print(json.dumps({'output':str(a.output),'candidates':len(output['origin_candidates']),
++                      'firewall_pairs':len(output['firewall_observations'])}))
++if __name__=='__main__':main()
+--- /dev/null
++++ b/tests/test_operational_repairs_v426.py
+@@ -0,0 +1,71 @@
++"""Offline regression coverage for incident-derived compatibility corrections."""
++import unittest
++from pathlib import Path
++from tempfile import TemporaryDirectory
++from unittest.mock import Mock
++from core.taint_engine import analyze_js, js_runtime_context
++from core.nuclei_runtime import installed_templates, interpret_execution, evidence_fields
++from core.origin_firewall_analysis import review_origin_candidates, review_firewall_pairs
++from phases.nuclei_extended import _to_finding
++from phases.network_firewall_tooling import import_results
++
++class OperationalRepairs(unittest.TestCase):
++    def test_diagnostic_version_probe_does_not_execute_wrapper(self):
++        from unittest.mock import patch
++        from phases import diagnostics
++        with patch('phases.diagnostics.shutil.which', return_value='/fake/bin/nuclei'):
++            with patch('phases.diagnostics.subprocess.run', side_effect=AssertionError('unvetted wrapper executed')):
++                self.assertEqual(diagnostics._get_version('nuclei'), 'detected / not probed')
++
++    def test_browser_query_cannot_be_sql_injection(self):
++        script='const data = location.search;\ndb.query(data);\n'
++        self.assertFalse([f for f in analyze_js(script,'/public/app.js') if f.sink_cwe=='CWE-89'])
++        self.assertTrue([f for f in analyze_js('const x = location.search;\nelement.innerHTML = x;', '/public/app.js') if f.sink_cwe=='CWE-79'])
++
++    def test_node_sql_flow_retained(self):
++        flows=analyze_js('const value = req.query.id;\ndb.query(value);','/server/api.js')
++        self.assertEqual([f.sink_cwe for f in flows],['CWE-89'])
++
++    def test_nuclei_classifies_invalid_executions(self):
++        self.assertEqual(interpret_execution(2,'unknown flag: -jsonl'), 'tool-incompatible')
++        self.assertEqual(interpret_execution(124,''), 'timeout')
++        self.assertEqual(interpret_execution(1,'',output_present=False), 'tool-error')
++        self.assertEqual(interpret_execution(0,'',output_present=False), 'no-matches')
++
++    def test_nuclei_templates_have_no_install_side_effect(self):
++        api=Mock()
++        api.nuclei_templates_root.return_value=Path('/tmp/templates')
++        api.nuclei_template_count.return_value=14_035
++        self.assertTrue(installed_templates(api)['ready'])
++        api.ensure_nuclei_templates.assert_not_called()
++
++    def test_imported_scanner_match_without_capture_remains_lead(self):
++        obj={'template-id':'tbhm-test','matched-at':'https://example.test/a','info':{'severity':'high','name':'test'}}
++        f=_to_finding(obj,'cves',70)
++        self.assertEqual(f['finding_class'],'lead')
++        self.assertEqual(f['evidence_capture_status'],'missing-http-exchange')
++        self.assertEqual(evidence_fields({'request':'GET / HTTP/1.1','response':'HTTP/1.1 200 OK'})['finding_class'],'supported')
++
++    def test_nmap_xml_host_address_survives_boolean_false_element(self):
++        xml='<nmaprun><host><address addr="192.0.2.18" addrtype="ipv4"/><ports><port protocol="tcp" portid="443"><state state="open"/></port></ports></host></nmaprun>'
++        with TemporaryDirectory() as tmp:
++            p=Path(tmp)/'result.xml';p.write_text(xml)
++            ctx=Mock();ctx.save_finding=Mock()
++            self.assertEqual(import_results(ctx,p),1)
++            self.assertEqual(ctx.save_finding.call_args[0][0]['target'],'192.0.2.18')
++
++    def test_origin_is_candidate_not_permission(self):
++        rows=[{'hostname':'app.example.test','ip':'192.0.2.42','source':'historical-dns'},
++              {'hostname':'app.example.test','ip':'192.0.2.42','source':'user-inventory'}]
++        o=review_origin_candidates(rows,[])
++        self.assertEqual(len(o),1)
++        self.assertEqual(o[0]['authorization'],'not-approved')
++        self.assertEqual(o[0]['state'],'candidate-only')
++        self.assertEqual(review_origin_candidates(rows,['192.0.2.42'])[0]['authorization'],'approved-ip')
++
++    def test_firewall_status_differential_is_not_vuln(self):
++        result=review_firewall_pairs([{'test_id':'lab-1','baseline':{'status':200},'variant':{'status':403}}])[0]
++        self.assertEqual(result['observation'],'possible-filter-differential')
++        self.assertEqual(result['security_conclusion'],'unverified')
++
++if __name__=='__main__': unittest.main()

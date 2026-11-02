@@ -1,0 +1,116 @@
+name: authorized_assumed_breach
+description: Corporate assumed-breach/internal-start profile. Begins from approved internal/identity/cloud/source evidence and keeps all high-impact actions in the approval-gated validation plane.
+active_probes: true
+send_payloads: false
+rate_limit:
+  global_rps: 4
+  per_target_rps: 2
+  per_endpoint_rps: 1
+payload_classes:
+- differential
+- reflection
+nuclei:
+  severity:
+  - critical
+  - high
+  - medium
+  - low
+  tags:
+  - cve
+  - exposure
+  - misconfig
+  - api
+  - cloud
+  - token
+  - jwt
+  - cors
+  - oauth
+sqlmap:
+  enabled: false
+max_subdomains: 0
+katana_depth: 1
+phases:
+- preflight
+- diagnostics
+- toolchain_readiness
+- agentic_control_manifest
+- opsec_preflight
+- engagement_objectives
+- standards_knowledge_sync
+- redteam_governance
+- redteam_campaign_control
+- osint_depth_collectors
+- internal_network_safe
+- network_firewall_tooling
+- egress_canary
+- add_service_primitive
+- ad_identity_safe
+- add_net_ad
+- lateral_movement_paths
+- internal_ad_tooling
+- ad_access_assessment
+- identity_security_tooling
+- engagement_evidence_review
+- iot_cctv_safe
+- ot_ics_safe
+- wireless_physical_soc
+- social_engineering_governance
+- code_scan
+- code_intel
+- sast_tooling
+- code_security_tooling
+- source_orchestration_tooling
+- mobile_scan
+- mobile_tooling
+- mobile_reverse_extended
+- supply_chain_review
+- ci_cd_supply_chain_security
+- firmware_reverse_safe
+- firmware_tooling_extended
+- reverse_triage
+- reverse_static_analysis
+- reverse_ir_analysis
+- reverse_taint_analysis
+- reverse_cross_language
+- reverse_sandbox_analysis
+- reverse_dynamic_evidence
+- reverse_dynamic_mapping
+- reverse_symbolic_analysis
+- reverse_fuzzing
+- reverse_crash_triage
+- reverse_diff_analysis
+- reverse_campaign_index
+- reverse_family_analysis
+- reverse_correlation
+- reverse_engineering_tooling
+- privesc_audit_tooling
+- authenticated_session_model
+- bug_bounty_workspace
+- cloud_inventory_safe
+- cloud_posture_tooling
+- cloud_identity_path_analysis
+- web3
+- verify
+- strict_finding_validation
+- local_llm_triage
+- exploitability_assessment
+- vulnerability_intelligence_enrichment
+- attack_path
+- execution_orchestration_plan
+- controlled_validation_plane
+- purple_team_validation
+- compliance_coverage
+- compliance_reporting_extended
+- fp_review
+- redteam_final_summary
+- backup_restore_simulation
+- test_coverage_ledger
+- coverage_map
+- playbook_integration
+- data_analysis_intelligence
+- ai_supervision
+- ocsf_normalization
+- llm_run_analysis
+- report
+- evidence_finalize
+ai_observe: true

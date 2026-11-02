@@ -1,0 +1,19 @@
+test_browser_regex_exec_is_not_a_shell_sink (test_incident_v426.IncidentRegressions.test_browser_regex_exec_is_not_a_shell_sink) ... ok
+test_cancel_content_stops_after_first_tool_and_keeps_partial_parse (test_incident_v426.IncidentRegressions.test_cancel_content_stops_after_first_tool_and_keeps_partial_parse) ... ok
+test_diagnostic_wrapper_is_never_executed (test_incident_v426.IncidentRegressions.test_diagnostic_wrapper_is_never_executed) ... ok
+test_exact_host_archive_intake_never_queries_shared_parent (test_incident_v426.IncidentRegressions.test_exact_host_archive_intake_never_queries_shared_parent) ... ok
+test_generated_curl_is_not_an_original_request (test_incident_v426.IncidentRegressions.test_generated_curl_is_not_an_original_request) ... ok
+test_httpx_fixture_parses_and_reports_invalid_records (test_incident_v426.IncidentRegressions.test_httpx_fixture_parses_and_reports_invalid_records) ... ok
+test_ledger_snapshots_are_amortized_and_journal_recovers (test_incident_v426.IncidentRegressions.test_ledger_snapshots_are_amortized_and_journal_recovers) ... ok
+test_mfa_url_match_is_a_lead_at_its_actual_host (test_incident_v426.IncidentRegressions.test_mfa_url_match_is_a_lead_at_its_actual_host) ... ok
+test_nmap_leaf_address_preserves_host (test_incident_v426.IncidentRegressions.test_nmap_leaf_address_preserves_host) ... ok
+test_node_regex_exec_is_not_a_shell_sink (test_incident_v426.IncidentRegressions.test_node_regex_exec_is_not_a_shell_sink) ... ok
+test_runtime_learning_commits_progress_before_later_row_fails (test_incident_v426.IncidentRegressions.test_runtime_learning_commits_progress_before_later_row_fails) ... ok
+test_service_budget_does_not_consume_target_budget (test_incident_v426.IncidentRegressions.test_service_budget_does_not_consume_target_budget) ... ok
+test_service_budget_survives_target_exhaustion (test_incident_v426.IncidentRegressions.test_service_budget_survives_target_exhaustion) ... ok
+test_strict_missing_proof_has_explicit_coverage (test_incident_v426.IncidentRegressions.test_strict_missing_proof_has_explicit_coverage) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.680s
+
+OK

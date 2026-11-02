@@ -1,0 +1,174 @@
+{
+  "schema": "tbhm.execution/1",
+  "planned_phases": [
+    "preflight",
+    "controlled_validation_plane",
+    "strict_finding_validation",
+    "test_coverage_ledger",
+    "report",
+    "evidence_finalize"
+  ],
+  "context_fingerprint": "95526fd35f9198698f4a6f0dba6d8f7431075f862daf48da66df6aedc3f04427",
+  "events": [
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "phase_state",
+      "status": "RUNNING",
+      "sequence": 1,
+      "timestamp": "2026-10-29T23:10:14.249598+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-a",
+      "http_status": 200,
+      "decoded_response_bytes": 128,
+      "seconds": 0.002,
+      "sequence": 2,
+      "timestamp": "2026-10-29T23:10:14.280918+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-a",
+      "http_status": 403,
+      "decoded_response_bytes": 6,
+      "seconds": 0.002,
+      "sequence": 3,
+      "timestamp": "2026-10-29T23:10:14.481535+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/missing-owned",
+      "http_status": 404,
+      "decoded_response_bytes": 9,
+      "seconds": 0.001,
+      "sequence": 4,
+      "timestamp": "2026-10-29T23:10:14.681307+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-b",
+      "http_status": 200,
+      "decoded_response_bytes": 129,
+      "seconds": 0.002,
+      "sequence": 5,
+      "timestamp": "2026-10-29T23:10:14.881539+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-a",
+      "http_status": 403,
+      "decoded_response_bytes": 6,
+      "seconds": 0.002,
+      "sequence": 6,
+      "timestamp": "2026-10-29T23:10:15.081649+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-a",
+      "http_status": 403,
+      "decoded_response_bytes": 6,
+      "seconds": 0.002,
+      "sequence": 7,
+      "timestamp": "2026-10-29T23:10:15.282159+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "http",
+      "status": "executed",
+      "method": "GET",
+      "required": false,
+      "url": "http://127.0.0.1:42435/objects/owned-a",
+      "http_status": 403,
+      "decoded_response_bytes": 6,
+      "seconds": 0.001,
+      "sequence": 8,
+      "timestamp": "2026-10-29T23:10:15.481906+00:00"
+    },
+    {
+      "phase": "controlled_validation_plane",
+      "kind": "phase",
+      "status": "executed",
+      "seconds": 1.243,
+      "sequence": 9,
+      "timestamp": "2026-10-29T23:10:15.493539+00:00"
+    },
+    {
+      "phase": "strict_finding_validation",
+      "kind": "phase_state",
+      "status": "RUNNING",
+      "sequence": 10,
+      "timestamp": "2026-10-29T23:10:15.497127+00:00"
+    },
+    {
+      "phase": "strict_finding_validation",
+      "kind": "phase",
+      "status": "executed",
+      "seconds": 0.005,
+      "sequence": 11,
+      "timestamp": "2026-10-29T23:10:15.502222+00:00"
+    },
+    {
+      "phase": "test_coverage_ledger",
+      "kind": "phase_state",
+      "status": "RUNNING",
+      "sequence": 12,
+      "timestamp": "2026-10-29T23:10:15.504601+00:00"
+    },
+    {
+      "phase": "test_coverage_ledger",
+      "kind": "phase",
+      "status": "executed",
+      "seconds": 0.005,
+      "sequence": 13,
+      "timestamp": "2026-10-29T23:10:15.509633+00:00"
+    },
+    {
+      "phase": "report",
+      "kind": "phase_state",
+      "status": "RUNNING",
+      "sequence": 14,
+      "timestamp": "2026-10-29T23:10:15.512622+00:00"
+    },
+    {
+      "phase": "report",
+      "kind": "phase",
+      "status": "executed",
+      "seconds": 0.039,
+      "sequence": 15,
+      "timestamp": "2026-10-29T23:10:15.551534+00:00"
+    },
+    {
+      "phase": "evidence_finalize",
+      "kind": "run",
+      "status": "completed",
+      "exit_code": 0,
+      "sequence": 16,
+      "timestamp": "2026-10-29T23:10:15.568720+00:00"
+    }
+  ],
+  "coverage_note": "Phase completion is not vulnerability-test coverage."
+}

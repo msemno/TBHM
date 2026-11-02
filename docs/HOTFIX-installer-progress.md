@@ -1,0 +1,9 @@
+# TBHM 4.2.5 optional installer progress correction — 20 October 2026
+
+An `all-safe --apply --json` operation can spend a long time in one external package manager. Earlier builds captured subprocess output and printed the final JSON only after processing every selected catalog row. An operator who typed another shell command into that occupied terminal and pressed Ctrl+C received a raw `KeyboardInterrupt` traceback and no completed state file.
+
+The optional installer now reports the selected tool, the command family and its exit status on stderr. A command still running emits a 30-second heartbeat. JSON on stdout remains machine-readable. When `--state-file` is provided, completed eligible tool results are written atomically as partial checkpoints. Ctrl+C writes a final partial checkpoint containing `complete: false`, `selected_total`, `selected` (completed row count), and `interrupted_tool`, then exits 130 without a traceback. Normal completion retains the existing summary contract.
+
+Read `--state-file` to see which tools completed. Rerun with a narrower `--tools` or `--bundle` selection after fixing the dependency/network failure. A partially created Python environment has no success marker; the next attempt can retry it. The script's default timeout remains 1800 seconds **per external command**, so a large catalog can still take hours.
+
+The regression suite simulates a Ctrl+C during the second tool and verifies that the first result survives, stdout remains valid JSON, and stderr shows the interrupted tool. It also checks progress labels without printing package specs. The live user's Kali VM and real remote package installations are not available to this release build. Earlier `docs/research-v4.2.5` measurements predate both this correction and the ParamSpider recipe correction documented separately.

@@ -1,0 +1,31 @@
+id: tbhm-http-trace-enabled
+
+info:
+  name: HTTP TRACE Method Enabled (Cross-Site Tracing)
+  author: tbhm
+  severity: low
+  description: |
+    The server answers TRACE, reflecting the request back. Combined with another
+    flaw this enables Cross-Site Tracing (XST) to read headers/cookies that are
+    otherwise HttpOnly.
+  remediation: "Disable the TRACE method at the web server."
+  reference:
+    - https://owasp.org/www-community/attacks/Cross_Site_Tracing
+  tags: tbhm,misconfig,method
+  metadata:
+    max-request: 1
+
+http:
+  - method: TRACE
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code == 200"
+      - type: word
+        part: body
+        words:
+          - "TRACE /"
+        case-insensitive: true

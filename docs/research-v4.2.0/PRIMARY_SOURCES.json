@@ -1,0 +1,101 @@
+{
+  "checked_at": "2026-10-18",
+  "sources": [
+    {
+      "id": "P01",
+      "title": "OpenAPI 3.1.1 specification",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "use": "Operation security overrides root; empty array removes requirements; empty alternative permits anonymous access. Implemented common 3.0/3.1 semantics; not a full schema validator."
+    },
+    {
+      "id": "P02",
+      "title": "Swagger/OpenAPI 2.0 specification",
+      "url": "https://spec.openapis.org/oas/v2.0.html",
+      "use": "Swagger 2.0 paths, parameters, basePath and security inheritance."
+    },
+    {
+      "id": "P03",
+      "title": "Android activity manifest documentation",
+      "url": "https://developer.android.com/guide/topics/manifest/activity-element",
+      "use": "Exported declarations, permissions and Android 12+ target explicit declaration requirements; defaults remain uncertain in static inventory."
+    },
+    {
+      "id": "P04",
+      "title": "Android service manifest documentation",
+      "url": "https://developer.android.com/guide/topics/manifest/service-element",
+      "use": "Service exported and permission behavior."
+    },
+    {
+      "id": "P05",
+      "title": "Android provider manifest documentation",
+      "url": "https://developer.android.com/guide/topics/manifest/provider-element",
+      "use": "Provider permissions/read/write/path/URI controls; platform-dependent default exported handling."
+    },
+    {
+      "id": "P06",
+      "title": "Slither JSON output",
+      "url": "https://github.com/crytic/slither/wiki/JSON-output",
+      "use": "Success/error envelope and detector fields. Import does not execute Slither or compile contracts."
+    },
+    {
+      "id": "P07",
+      "title": "Ollama structured outputs",
+      "url": "https://docs.ollama.com/capabilities/structured-outputs",
+      "use": "JSON output is a transport aid; local application validation remains necessary."
+    },
+    {
+      "id": "P08",
+      "title": "OWASP Top 10 2025 A10",
+      "url": "https://top10.owasp.org/2025/A10_2025-Mishandling_of_Exceptional_Conditions/",
+      "use": "Correct research mapping: A10:2025 is Mishandling of Exceptional Conditions, not SSRF."
+    },
+    {
+      "id": "P09",
+      "title": "MITRE CWE-782",
+      "url": "https://cwe.mitre.org/data/definitions/782.html",
+      "use": "Correct research mapping: exposed IOCTL with insufficient access control, not generic debug-interface exposure."
+    },
+    {
+      "id": "P10",
+      "title": "OWASP Smart Contract Top 10 2026",
+      "url": "https://scs.owasp.org/sctop10/",
+      "use": "Current taxonomy reference only; no detector-completeness claim."
+    },
+    {
+      "id": "P11",
+      "title": "Linux cgroup v2 documentation",
+      "url": "https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html",
+      "use": "Hard resource controllers require actual hierarchy/delegation support; monitoring is not a cgroup quota."
+    },
+    {
+      "id": "P12",
+      "title": "LLM-Driven SAST-Genius",
+      "url": "https://arxiv.org/abs/2509.15433",
+      "use": "Paper reports ~91% reduction in its tested setup; not replicated here and not transferred to TBHM."
+    },
+    {
+      "id": "P13",
+      "title": "QASecClaw",
+      "url": "https://arxiv.org/abs/2605.01885",
+      "use": "Paper abstract reports 88.6% FP reduction with a recall decrease on OWASP Benchmark Java cases; not a universal improvement guarantee."
+    },
+    {
+      "id": "P14",
+      "title": "LLMpatronous",
+      "url": "https://arxiv.org/abs/2504.18423",
+      "use": "RAG/MoA research direction; not evidence of performance on the user hardware or TBHM findings."
+    },
+    {
+      "id": "P15",
+      "title": "Reducing False Positives in Static Bug Detection with LLMs: An Empirical Study in Industry",
+      "url": "https://arxiv.org/abs/2601.18844",
+      "use": "Limited industrial alarm dataset and selected bug types; context differs from generalized bounty scanning."
+    },
+    {
+      "id": "P16",
+      "title": "Unresolved supplied arXiv reference 2610.08406",
+      "url": "https://arxiv.org/abs/2610.08406",
+      "use": "Retrieval did not return a usable paper. Related numerical scanner-cascade claims remain unverified."
+    }
+  ]
+}

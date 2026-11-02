@@ -1,0 +1,12 @@
+Path,Status,File evidence,Controls,Limit
+Native Requests outside pins,PARTIAL,core/request_guard.py; core/http_policy.py,URL scope/method/rate/cooldown/body limit,No general resolved-address or wire quota
+Parent broker without pins,PARTIAL,core/brokered_http.py,Existing shared accepted-body/request ledger; corrected header cooldown,"Compatible legacy opt-in path, not DNS pinned"
+Parent broker with pins,IMPLEMENTED,core/pinned_transport.py; core/brokered_http.py,All DNS answers must match explicit IPs; numeric connect; TLS host maintained; serial lock,"Decoded accepted body bytes, not all wire bytes"
+Strict read replay,IMPLEMENTED,core/strict_replay.py,Pins mandatory; approved GET policy; complete plan preflight; bounded captures,Owned controlled fixtures only
+Fixed pipe-v1 worker,IMPLEMENTED,scripts/broker_pipe_worker.py; core/offline_isolation.py,Actual isolated child; parent HTTP by approved IDs and same ledger,No arbitrary URL/command/scanner protocol
+Legacy scanners/external tools,UNVERIFIED,core/runner.py; phases/*_tooling.py,Existing adapter-specific controls; inherited offline filter,Online traffic outside pinned meter; unsupported strict driver IDs
+Python/Go subprocesses,PARTIAL,core/runner.py; bin/tbhm-go-executor; core/offline_isolation.py,Offline filter inherited and tested; existing Go execution retained,No global online metering
+Browser automation,UNVERIFIED,phases/smart_crawl.py:guarded_route,Existing route interception and WebSocket controls,No real headless test in 4.2.4; unsupported strict driver
+urllib/native clients,UNVERIFIED,phases/discovery.py; phases/recon.py; core/osint_collectors.py; core/secret_validator.py,Existing function-specific guards; offline syscall filter,No universal online origin/byte accounting claim
+Proxy paths,UNVERIFIED,core/http_policy.py; core/pinned_transport.py,Existing optional proxy behavior retained elsewhere,Pinned/strict replay rejects proxies before dispatch
+Scenario learning,LOCAL ONLY,core/ai_plane/learning_jobs.py,No target networking; optional existing loopback model; offline refuses inference,Not a scanner traffic broker; no wire-metering claim

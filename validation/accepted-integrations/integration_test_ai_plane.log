@@ -1,0 +1,49 @@
+[PASS] home layout created — /tmp/tbhm-ai-test-x3_w7l1s/aihome
+[PASS] db schema present
+[PASS] source indexed — 635 files, 5136 chunks
+[PASS] vector index built (fallback ok) — rows=5136 mode=fallback
+[PASS] retrieval returns hits — 5 hits
+[PASS] delta detects modification — modified=1
+[PASS] forged nested CONFIRMED rejected
+[PASS] authenticated confirmation resolved
+[PASS] nested SUPPORTED resolved
+[PASS] bare finding computed via assess()
+[PASS] is_confirmed only true for CONFIRMED
+[PASS] schema coerces bad correlations to list
+[PASS] schema keeps valid verify_next rows
+[PASS] proposal created (pending, not applied)
+[PASS] approval archives, does not auto-apply
+[PASS] audit hash-chain intact — audit chain intact (2 entries)
+{
+  "archive": "/tmp/tbhm-ai-test-x3_w7l1s/aihome/tbhm-ai-backup-20261026-160705.tar.gz",
+  "compression": "gzip",
+  "includes": [
+    "config",
+    "audit",
+    "proposals",
+    "knowledge/approved-lessons",
+    "indexes/vector-manifest.json",
+    "backups/memory-backup.sqlite3"
+  ],
+  "excludes": [
+    "model weights (re-pull via model-lock.json)",
+    "rebuildable vector matrix",
+    "legacy/raw imported resources"
+  ],
+  "restore": "./tbhm.py --ai-restore /tmp/tbhm-ai-test-x3_w7l1s/aihome/tbhm-ai-backup-20261026-160705.tar.gz"
+}
+[PASS] backup produced archive
+[PASS] backup archive on disk — tbhm-ai-backup-20261026-160705.tar.gz
+{
+  "ok": true,
+  "home": "/tmp/tbhm-ai-test-x3_w7l1s/aihome-restored",
+  "db": "/tmp/tbhm-ai-test-x3_w7l1s/aihome-restored/database/memory.sqlite3",
+  "index_rebuilt_rows": 5136,
+  "embedding_mode": "fallback",
+  "tool_source_stale_vs_restored_index": false,
+  "next": "ready"
+}
+[PASS] restore succeeded
+[PASS] restored db has the indexed chunks — 5136 chunks
+
+RESULT: ALL PASS

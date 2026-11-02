@@ -1,0 +1,122 @@
+[
+  {
+    "path": "core/ai_plane/public_knowledge.py",
+    "baseline_sha256": "5a517f1e195ce6a5e7cab7fbefd9645ed0a46831c9bc1a17cf167f9dcee1a2d4",
+    "repair_sha256": "ff1d386e862b8e6c49cf2caead7826e71f8978654f9dd03b215663bc1738887a",
+    "release_sha256": "ff1d386e862b8e6c49cf2caead7826e71f8978654f9dd03b215663bc1738887a",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/llm_local.py",
+    "baseline_sha256": "f8fc9e851295f64a8581855ab3e7fa0fc699684611b408fa28e4b07a7fe42762",
+    "repair_sha256": "595cdbd5efe536b86f352b658fb286ecee6e513b47e64c4a53300056e79a595a",
+    "release_sha256": "595cdbd5efe536b86f352b658fb286ecee6e513b47e64c4a53300056e79a595a",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/llm_review.py",
+    "baseline_sha256": "ab060d82ef5c841c74bfc996b33206f6882c8f38d07ade6e05620a7e7e4a1827",
+    "repair_sha256": "0237d77253b2b8af0bc4c6b156a4b35d0a6972874f13227530a19d340589b458",
+    "release_sha256": "0237d77253b2b8af0bc4c6b156a4b35d0a6972874f13227530a19d340589b458",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "phases/local_llm_triage.py",
+    "baseline_sha256": "d5dfc11f732bb7961cdd89b66d19cf07226bc7199c3f7db6cf88b9fc4e52485e",
+    "repair_sha256": "24b5ff73b24a4f190ea33d94b1d1ead972b135c5aa55b375bd42fe3193ffaada",
+    "release_sha256": "24b5ff73b24a4f190ea33d94b1d1ead972b135c5aa55b375bd42fe3193ffaada",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/ai_plane/embeddings.py",
+    "baseline_sha256": "b70d3f4279de393fefe685743ef5ec8d64d7f429fb713340153c3bf02a4645fd",
+    "repair_sha256": "285b87ff6560c707969bd26887e334f040fef32ba54d47f6dad1d021c6ec3244",
+    "release_sha256": "dc727872897c2d2f5b770e4eb440abf5704c753dfe6e55da77ab1cfe5883fb49",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/ai_plane/run_learning.py",
+    "baseline_sha256": "7bc655bf27d8553acfa46db0a8fe1fd8a1e20500ffd428519bfed68f846d716c",
+    "repair_sha256": "0b488df6cf01d3f91b020007d3a14858def52f5d39130147f9e24b05c33da1e4",
+    "release_sha256": "9f66a373d98db30898f06df3cc6f1460a924be6deb3b949f51cf215e42e69a32",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/ai_plane/observer.py",
+    "baseline_sha256": "6eddb2a343373b700bbd5a748ce5b414fea4bbcd0e07f5be354ea13f8d0cdcf5",
+    "repair_sha256": "a8236781c7173d5a07e18165b6a44be45fb4368086aaac8e2a0948cfa1d7b3f7",
+    "release_sha256": "52ea60e194a550383afa12f48e46e26f8b896d84aa63ee7dc123cffea7649b5a",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/ai_plane/cli.py",
+    "baseline_sha256": "39b1dbd06c6012ab5d2415bf90273378f8109d511f6ac22a5b98c3653a666bf0",
+    "repair_sha256": "d2ecd03543e8306413d64dead54cdced54bc46b349031c21cd34b974f0ae0d13",
+    "release_sha256": "d2ecd03543e8306413d64dead54cdced54bc46b349031c21cd34b974f0ae0d13",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/request_guard.py",
+    "baseline_sha256": "1bdff594af27cd2fb4db844a76278c70db81e23f9101e91afde67c97f6493c66",
+    "repair_sha256": "f031f0790aa5d1fe3d082c957bd4b957dacb42dcacd0e0245fba2f17ed9412bb",
+    "release_sha256": "f0b4ae7d6081a0c8e9a41ec5dc083c2ad83ac14aab4506432622e06625761191",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/evidence_redaction.py",
+    "baseline_sha256": "65eb92f8cd28febfb64b48a55327d7207cb2d660eff4cca3c398b2dc90602bca",
+    "repair_sha256": "a920c347ac18ca021d9b4404e619b1d4beb3af073f1b6e54ec91055ed4acce58",
+    "release_sha256": "318034b6b9173905900c4e4c4c1ce326d8d57baae58937bccfd52e0a285b6904",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/runner.py",
+    "baseline_sha256": "dca498e2832dd89dff44e646d5ccfa3d4a6c4deaa7bd6e2839b575b3f084e5fb",
+    "repair_sha256": "8e65dff1c5aba16c0482ab3151ff573e5a74db320ca3ddb58bc0850ed02cd05f",
+    "release_sha256": "5cb357a5df24311802286bb5de1e048b5040e1b65ffcb6ca03b98f9388021af0",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "phases/discovery.py",
+    "baseline_sha256": "dbe179bbdbb9afb292a6e723b741d40cd73756b319694e9856b169fa574fc0d1",
+    "repair_sha256": "3d469958f70ea57438d075d01d195c9a2c2be520e3dd9e05104fb7094a06ea80",
+    "release_sha256": "3d469958f70ea57438d075d01d195c9a2c2be520e3dd9e05104fb7094a06ea80",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "tests/test_flow_contract_v423.py",
+    "baseline_sha256": "aeb38cf6eb5463f38a829abb81569c4fa722c0451ce1863ad4e9ebcf1722c52e",
+    "repair_sha256": "a939c147ebaf3499b7aba154f617df93a977b88598c78d4d789787f322f5b3f8",
+    "release_sha256": "d99e1c14388272e51945837081e9a5a4db84d01034f40359265988b3d9492441",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "phases/recon.py",
+    "baseline_sha256": "cae6fa549795ee0bf506984957fbf81bbdeca7359502f21a041f03bb93e1a4b0",
+    "repair_sha256": "85a8f6c83c84750fb1adb71bc6762067749fdbeeaa7286a8c04a9f5a9d07a342",
+    "release_sha256": "57d410b975ee74c2fd9030dbc9da6c6d1aac2868d2caa730fa8ef43e29a23420",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  },
+  {
+    "path": "core/ai_plane/advisor.py",
+    "baseline_sha256": "4630f325d515372058ac53c0c196fad2be5df4eca090668fae88aecff136d5b9",
+    "repair_sha256": "b3762a516dd8e6e4ba404c50399c793d2e4303aa1adff1826876bdbab01d6468",
+    "release_sha256": "b3762a516dd8e6e4ba404c50399c793d2e4303aa1adff1826876bdbab01d6468",
+    "baseline_matches_repair_before": true,
+    "live_installed_sha256": "NOT SUPPLIED"
+  }
+]

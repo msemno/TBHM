@@ -1,0 +1,35 @@
+id: tbhm-x-powered-by-disclosure
+
+info:
+  name: Technology Disclosure via X-Powered-By / Framework Headers
+  author: tbhm
+  severity: info
+  description: |
+    The response leaks backend technology through X-Powered-By, X-AspNet-Version,
+    X-AspNetMvc-Version, X-Generator, or X-Drupal-Cache headers — useful recon for
+    targeting version-specific exploits.
+  remediation: "Remove framework version headers in production."
+  tags: tbhm,disclosure,fingerprint
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: regex
+        part: header
+        condition: or
+        regex:
+          - "(?i)x-powered-by:\\s*\\S+"
+          - "(?i)x-aspnet-version:\\s*\\S+"
+          - "(?i)x-aspnetmvc-version:\\s*\\S+"
+          - "(?i)x-generator:\\s*\\S+"
+          - "(?i)x-drupal-cache:\\s*\\S+"
+    extractors:
+      - type: kval
+        kval:
+          - x_powered_by
+          - x_aspnet_version
+          - x_generator

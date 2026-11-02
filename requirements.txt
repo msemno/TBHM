@@ -1,0 +1,2 @@
+# Reproducible core install; see install.sh.
+-r requirements.lock

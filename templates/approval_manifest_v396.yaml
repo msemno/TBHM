@@ -1,0 +1,13 @@
+engagement_id: CLIENT-CHANGE-ME
+approved_by: CHANGE-ME
+expires_at: 2026-12-31T23:59:59+00:00
+authorized_actions:
+  - execution:metasploit-import
+  - social_engineering:phishing_simulation
+  - osint_active_dns
+targets:
+  - example.com
+notes: >-
+  Example only. Replace with the signed engagement authorization. Approval here
+  does not authorize TBHM to execute high-impact actions; it only unlocks the
+  plan/import ledger for separately governed operator work.

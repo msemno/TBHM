@@ -1,0 +1,16 @@
+name: forensic_recheck
+description: Re-validate previously-found bugs only. Minimal traffic.
+
+active_probes: true
+send_payloads: true
+only_check_known: true
+
+rate_limit:
+  global_rps: 2
+  per_target_rps: 1
+  per_endpoint_rps: 1
+
+phases_enabled:
+  - verify
+  - exploitability_assessment
+  - report

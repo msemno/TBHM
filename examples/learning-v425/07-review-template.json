@@ -1,0 +1,17 @@
+{
+  "schema": "tbhm.learning-operation/1",
+  "project_id": "owned-lab",
+  "operation": "review",
+  "scenario_id": "owned-example",
+  "review": {
+    "expected_sha256": "REPLACE_WITH_INGEST_HASH",
+    "reviewer": "operator",
+    "technical_validity": "inconclusive",
+    "decision": "accepted",
+    "note": "Replace with independent evidence review. Program disposition does not establish technical validity.",
+    "evidence_ids": [
+      "E1"
+    ],
+    "program_outcome": "unsubmitted"
+  }
+}

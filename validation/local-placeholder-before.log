@@ -1,0 +1,21 @@
+test_local_source_placeholder_never_becomes_a_live_base (__main__.LocalPlaceholder.test_local_source_placeholder_never_becomes_a_live_base) ... FAIL
+
+======================================================================
+FAIL: test_local_source_placeholder_never_becomes_a_live_base (__main__.LocalPlaceholder.test_local_source_placeholder_never_becomes_a_live_base)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_local_placeholder.py", line 7, in test_local_source_placeholder_never_becomes_a_live_base
+    self.assertEqual(live_bases_from_targets(['local-analysis.invalid'],['https://local-analysis.invalid']),[])
+AssertionError: Lists differ: ['https://local-analysis.invalid'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'https://local-analysis.invalid'
+
+- ['https://local-analysis.invalid']
++ []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

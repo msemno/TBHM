@@ -1,0 +1,8 @@
+test_discovery_uses_scope_action_tls_proxy_and_neutral_user_agent (test_continuation_http_broker.HttpBrokerTests.test_discovery_uses_scope_action_tls_proxy_and_neutral_user_agent) ... ok
+test_new_adapters_cannot_reset_the_context_budget (test_continuation_http_broker.HttpBrokerTests.test_new_adapters_cannot_reset_the_context_budget) ... ok
+test_zero_budget_passive_denied_and_invalid_rates_do_not_dispatch (test_continuation_http_broker.HttpBrokerTests.test_zero_budget_passive_denied_and_invalid_rates_do_not_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK

@@ -1,0 +1,9 @@
+{
+  "policy_id": "replace-with-reviewed-program-policy",
+  "included_assets": [{"host":"api.example.test","schemes":["https"],"ports":[443],"paths":["/objects/*"]}],
+  "excluded_assets": [],
+  "allowed_http_methods": ["GET"],
+  "allowed_actions": ["api_authorization_read", "authenticated_session_model"],
+  "prohibited_actions": [],
+  "max_requests_per_second": 1
+}

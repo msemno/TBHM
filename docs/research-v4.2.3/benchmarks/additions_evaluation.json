@@ -1,0 +1,275 @@
+{
+  "schema": "tbhm.additive-capability-evaluation/1",
+  "passed": true,
+  "transport": [
+    {
+      "case": "shared_request_budget",
+      "result_states": [
+        "observed",
+        "observed",
+        "blocked"
+      ],
+      "quota": {
+        "id": 1,
+        "request_limit": 2,
+        "body_limit": 1024,
+        "request_slots_used": 2,
+        "accepted_body_bytes": 4,
+        "reserved_body_bytes": 0,
+        "denied": 1,
+        "rate": 1000.0,
+        "next_dispatch_epoch": 1792390558.3244174
+      },
+      "attempts": [
+        {
+          "id": 1,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "observed",
+          "reason": "",
+          "reserved": 8,
+          "body_bytes": 2
+        },
+        {
+          "id": 2,
+          "source": "pipe-v1",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "observed",
+          "reason": "",
+          "reserved": 8,
+          "body_bytes": 2
+        },
+        {
+          "id": 3,
+          "source": "pipe-v1",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "blocked",
+          "reason": "shared request budget exhausted",
+          "reserved": 0,
+          "body_bytes": 0
+        }
+      ],
+      "byte_unit": "accepted decoded response-body bytes",
+      "hard_wire_egress_guarantee": false,
+      "all_legacy_traffic_covered": false,
+      "approved_target_contacts": 2,
+      "denied_origin_contacts": 0,
+      "worker": {
+        "isolation_check": "network_socket_denied",
+        "worker_sha256": "de8653b422f55d01532ddea3f302db5812211a95b810454966daf155e63edf1c"
+      }
+    },
+    {
+      "case": "denied_origin",
+      "result_states": [
+        "blocked",
+        "blocked"
+      ],
+      "quota": {
+        "id": 1,
+        "request_limit": 10,
+        "body_limit": 1024,
+        "request_slots_used": 0,
+        "accepted_body_bytes": 0,
+        "reserved_body_bytes": 0,
+        "denied": 2,
+        "rate": 1000.0,
+        "next_dispatch_epoch": 0.0
+      },
+      "attempts": [
+        {
+          "id": 1,
+          "source": "native",
+          "target": "http://127.0.0.1:34211/outside",
+          "outcome": "blocked",
+          "reason": "reviewed program asset/action/method policy denied",
+          "reserved": 0,
+          "body_bytes": 0
+        },
+        {
+          "id": 2,
+          "source": "pipe-v1",
+          "target": "http://127.0.0.1:34211/outside",
+          "outcome": "blocked",
+          "reason": "reviewed program asset/action/method policy denied",
+          "reserved": 0,
+          "body_bytes": 0
+        }
+      ],
+      "byte_unit": "accepted decoded response-body bytes",
+      "hard_wire_egress_guarantee": false,
+      "all_legacy_traffic_covered": false,
+      "approved_target_contacts": 0,
+      "denied_origin_contacts": 0,
+      "worker": {
+        "isolation_check": "network_socket_denied",
+        "worker_sha256": "de8653b422f55d01532ddea3f302db5812211a95b810454966daf155e63edf1c"
+      }
+    },
+    {
+      "case": "body_reservation",
+      "result_states": [
+        "observed",
+        "blocked"
+      ],
+      "quota": {
+        "id": 1,
+        "request_limit": 10,
+        "body_limit": 8,
+        "request_slots_used": 1,
+        "accepted_body_bytes": 2,
+        "reserved_body_bytes": 0,
+        "denied": 1,
+        "rate": 1000.0,
+        "next_dispatch_epoch": 1792390558.4686916
+      },
+      "attempts": [
+        {
+          "id": 1,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "observed",
+          "reason": "",
+          "reserved": 8,
+          "body_bytes": 2
+        },
+        {
+          "id": 2,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "blocked",
+          "reason": "shared decoded-body reservation budget exhausted",
+          "reserved": 0,
+          "body_bytes": 0
+        }
+      ],
+      "byte_unit": "accepted decoded response-body bytes",
+      "hard_wire_egress_guarantee": false,
+      "all_legacy_traffic_covered": false,
+      "approved_target_contacts": 1,
+      "denied_origin_contacts": 0,
+      "worker": {}
+    },
+    {
+      "case": "oversized_body",
+      "result_states": [
+        "incomplete"
+      ],
+      "quota": {
+        "id": 1,
+        "request_limit": 10,
+        "body_limit": 1024,
+        "request_slots_used": 1,
+        "accepted_body_bytes": 0,
+        "reserved_body_bytes": 0,
+        "denied": 0,
+        "rate": 1000.0,
+        "next_dispatch_epoch": 1792390558.4855535
+      },
+      "attempts": [
+        {
+          "id": 1,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/long",
+          "outcome": "incomplete",
+          "reason": "declared response body exceeds accepted-body cap",
+          "reserved": 8,
+          "body_bytes": 0
+        }
+      ],
+      "byte_unit": "accepted decoded response-body bytes",
+      "hard_wire_egress_guarantee": false,
+      "all_legacy_traffic_covered": false,
+      "approved_target_contacts": 1,
+      "denied_origin_contacts": 0,
+      "worker": {}
+    },
+    {
+      "case": "host_cooldown",
+      "result_states": [
+        "observed",
+        "blocked"
+      ],
+      "quota": {
+        "id": 1,
+        "request_limit": 10,
+        "body_limit": 1024,
+        "request_slots_used": 1,
+        "accepted_body_bytes": 2,
+        "reserved_body_bytes": 0,
+        "denied": 1,
+        "rate": 1000.0,
+        "next_dispatch_epoch": 1792390558.5065577
+      },
+      "attempts": [
+        {
+          "id": 1,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/rate",
+          "outcome": "observed",
+          "reason": "",
+          "reserved": 8,
+          "body_bytes": 2
+        },
+        {
+          "id": 2,
+          "source": "native",
+          "target": "http://127.0.0.1:40825/ok",
+          "outcome": "blocked",
+          "reason": "shared host cooldown",
+          "reserved": 0,
+          "body_bytes": 0
+        }
+      ],
+      "byte_unit": "accepted decoded response-body bytes",
+      "hard_wire_egress_guarantee": false,
+      "all_legacy_traffic_covered": false,
+      "approved_target_contacts": 1,
+      "denied_origin_contacts": 0,
+      "worker": {}
+    }
+  ],
+  "privacy": [
+    {
+      "case": "clean_text",
+      "expected": "pass",
+      "observed": "pass",
+      "matched": true,
+      "known_canary_hits": 0,
+      "incomplete_surfaces": 0
+    },
+    {
+      "case": "utf8_canary",
+      "expected": "fail",
+      "observed": "fail",
+      "matched": true,
+      "known_canary_hits": 1,
+      "incomplete_surfaces": 0
+    },
+    {
+      "case": "zip_utf16_canary",
+      "expected": "fail",
+      "observed": "fail",
+      "matched": true,
+      "known_canary_hits": 1,
+      "incomplete_surfaces": 1
+    },
+    {
+      "case": "gzip_tar_canary",
+      "expected": "fail",
+      "observed": "fail",
+      "matched": true,
+      "known_canary_hits": 2,
+      "incomplete_surfaces": 0
+    },
+    {
+      "case": "opaque_image",
+      "expected": "incomplete",
+      "observed": "incomplete",
+      "matched": true,
+      "known_canary_hits": 0,
+      "incomplete_surfaces": 1
+    }
+  ],
+  "scope": "Five synthetic loopback transport scenarios and five known-canary/container cases. This measures the optional capabilities only; no public target, live browser, all-wire meter, unknown-secret recall, real-model quality or bounty acceptance was evaluated."
+}

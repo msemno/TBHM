@@ -1,0 +1,209 @@
+campaign_id: RT-EXAMPLE-2026-07
+name: Example Threat-Informed Red-Team Campaign
+objective: Validate whether approved controls prevent, detect, contain, and recover from the selected attack path.
+status: planned
+rules_of_engagement:
+  authorization_reference: ROE-CHANGE-0001
+  scope_reference: SCOPE-REGISTER-0001
+  window: 2026-07-27T08:00:00Z/2026-07-27T16:00:00Z
+  real_data_exfiltration: prohibited
+  destructive_impact: prohibited
+  credential_values_in_tbhm: prohibited
+operations:
+  - operation_id: op-recon-01
+    tactic: reconnaissance
+    operation_type: reconnaissance
+    execution_class: read_only
+    target: authorized-perimeter-range
+    objective: Inventory approved public attack surface and validate monitoring of reconnaissance.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    attack_ids: [T1595]
+    expected_telemetry: [edge-access-logs, dns-monitoring]
+    stop_conditions: [scope ambiguity, rate-limit warning]
+    cleanup_steps: [remove temporary local evidence copies after archival]
+    evidence_required: [tool-version, target-list, timestamps, artifact-sha256]
+
+  - operation_id: op-resource-01
+    tactic: resource_development
+    operation_type: resource_development
+    execution_class: import_only
+    target: operator-infrastructure
+    objective: Record separately governed infrastructure preparation without exposing secrets in TBHM.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: []
+    stop_conditions: [approval withdrawn]
+    cleanup_steps: [decommission approved temporary infrastructure]
+    evidence_required: [approval-reference, sanitized-inventory, cleanup-proof]
+
+  - operation_id: op-initial-access-01
+    tactic: initial_access
+    operation_type: initial_access
+    execution_class: import_only
+    target: approved-lab-entry-point
+    objective: Validate an approved initial-access control using a benign marker and test identity.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    attack_ids: [T1190]
+    expected_telemetry: [waf-log, application-log, edr-alert]
+    stop_conditions: [unexpected production data, service instability]
+    cleanup_steps: [remove benign marker, invalidate temporary session]
+    evidence_required: [structured-assertion, baseline, negative-control, repeatability, cleanup-proof]
+
+  - operation_id: op-exploit-validation-01
+    tactic: initial_access
+    operation_type: exploit_validation
+    execution_class: import_only
+    target: approved-isolated-clone
+    objective: Reproduce a suspected vulnerability with a controlled non-destructive effect.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    attack_ids: [T1190]
+    expected_telemetry: [application-log, edr-telemetry, siem-alert]
+    stop_conditions: [unexpected code path, crash outside disposable clone]
+    cleanup_steps: [restore snapshot, delete marker artifact, verify clean state]
+    evidence_required: [artifact-hash, structured-proof, operator, timestamps, cleanup-verification]
+
+  - operation_id: op-execution-01
+    tactic: execution
+    operation_type: execution
+    execution_class: import_only
+    target: approved-disposable-host
+    objective: Validate prevention and detection of an inert approved execution simulation.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [process-creation, edr-event, siem-alert]
+    stop_conditions: [unexpected child process, instability]
+    cleanup_steps: [remove marker, restore snapshot]
+    evidence_required: [simulation-id, process-telemetry, cleanup-proof]
+
+  - operation_id: op-persistence-01
+    tactic: persistence
+    operation_type: persistence
+    execution_class: import_only
+    target: approved-disposable-host
+    objective: Validate detection using a reversible benign persistence simulation.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [configuration-change, edr-alert]
+    stop_conditions: [unexpected reboot effect]
+    cleanup_steps: [remove simulation, verify original configuration]
+    evidence_required: [before-state, after-state, restoration-proof]
+
+  - operation_id: op-privesc-01
+    tactic: privilege_escalation
+    operation_type: privilege_escalation
+    execution_class: import_only
+    target: approved-disposable-host
+    objective: Validate a known privilege boundary using a test principal and benign proof.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [identity-log, process-log, edr-alert]
+    stop_conditions: [access to unrelated account or secret]
+    cleanup_steps: [remove temporary principal and artifacts]
+    evidence_required: [identity-context, assertion, negative-control, cleanup-proof]
+
+  - operation_id: op-defense-evasion-01
+    tactic: defense_evasion
+    operation_type: defense_evasion
+    execution_class: import_only
+    target: approved-security-control-lab
+    objective: Assess control visibility with an inert simulation rather than bypass production protection.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [edr-health, tamper-alert, siem-alert]
+    stop_conditions: [control disabled, production policy changed]
+    cleanup_steps: [restore policy and verify sensor health]
+    evidence_required: [control-health-before-after, telemetry, cleanup-proof]
+
+  - operation_id: op-credential-01
+    tactic: credential_access
+    operation_type: credential_access
+    execution_class: import_only
+    target: approved-credential-control-lab
+    objective: Validate whether synthetic credential material is protected and detected.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [identity-alert, edr-alert, siem-correlation]
+    stop_conditions: [real credential encountered]
+    cleanup_steps: [destroy synthetic material and verify revocation]
+    evidence_required: [synthetic-data-proof, telemetry, cleanup-proof]
+
+  - operation_id: op-discovery-01
+    tactic: discovery
+    operation_type: discovery
+    execution_class: read_only
+    target: approved-internal-range
+    objective: Validate visibility of bounded read-only host and service discovery.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [network-flow, dns-log, edr-network-event]
+    stop_conditions: [rate warning, out-of-scope host]
+    cleanup_steps: [archive sanitized logs]
+    evidence_required: [scope-list, timestamps, telemetry]
+
+  - operation_id: op-lateral-01
+    tactic: lateral_movement
+    operation_type: lateral_movement
+    execution_class: import_only
+    target: approved-two-host-lab
+    objective: Validate segmentation and detection using synthetic identities.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [authentication-log, network-flow, edr-alert]
+    stop_conditions: [unapproved host reached]
+    cleanup_steps: [invalidate synthetic session and restore snapshots]
+    evidence_required: [source-destination-proof, identity-context, cleanup-proof]
+
+  - operation_id: op-collection-01
+    tactic: collection
+    operation_type: collection
+    execution_class: import_only
+    target: approved-synthetic-data-store
+    objective: Validate controls using synthetic labeled data only.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [file-access-log, dlp-event, edr-event]
+    stop_conditions: [real user data encountered]
+    cleanup_steps: [delete synthetic collection and verify absence]
+    evidence_required: [synthetic-data-manifest, telemetry, cleanup-proof]
+
+  - operation_id: op-c2-01
+    tactic: command_and_control
+    operation_type: command_and_control
+    execution_class: import_only
+    target: approved-isolated-network
+    objective: Validate egress and detection with a benign simulator under separate operator control.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [proxy-log, dns-log, network-detection, edr-alert]
+    stop_conditions: [connection outside approved sink]
+    cleanup_steps: [stop simulator, remove temporary network rules]
+    evidence_required: [simulator-id, destination-allowlist, telemetry, cleanup-proof]
+
+  - operation_id: op-exfil-01
+    tactic: exfiltration
+    operation_type: exfiltration
+    execution_class: import_only
+    target: approved-synthetic-data-path
+    objective: Validate controls using a tiny synthetic canary, never real data.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [dlp-event, proxy-log, siem-alert]
+    stop_conditions: [real data selected, unapproved destination]
+    cleanup_steps: [delete canary and receiving copy]
+    evidence_required: [synthetic-canary-hash, telemetry, cleanup-proof]
+
+  - operation_id: op-impact-01
+    tactic: impact
+    operation_type: impact
+    execution_class: import_only
+    target: tabletop-or-disposable-clone
+    objective: Validate resilience through tabletop or reversible synthetic simulation only.
+    authorization_reference: ROE-CHANGE-0001
+    scope_reference: SCOPE-REGISTER-0001
+    expected_telemetry: [incident-ticket, backup-alert, recovery-metrics]
+    stop_conditions: [production impact, destructive effect]
+    cleanup_steps: [restore clone, verify service and data integrity]
+    evidence_required: [simulation-record, recovery-timing, integrity-proof]

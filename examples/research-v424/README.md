@@ -1,0 +1,1 @@
+These are operator-editable templates, deliberately invalid until reviewed pins, canaries, fixture filenames, URLs, credentials and scope references are supplied. They cannot be used as ready-made remote PoCs. For an executable owned loopback example run scripts/evaluate_release_v424.py against a saved 4.2.3 baseline. See docs/UPGRADE-v4.2.4.md.

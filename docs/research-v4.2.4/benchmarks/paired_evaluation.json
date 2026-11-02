@@ -1,0 +1,230 @@
+{
+  "schema": "tbhm.paired-confirmation-evaluation/1",
+  "baseline": "4.2.3",
+  "candidate": "4.2.4",
+  "scope": "Four synthetic controlled-fixture HTTP cases, two per new class. Repeats belong to each proof and are not independent samples. This measures confirmation only, not vulnerability discovery or representative field accuracy.",
+  "cases": [
+    {
+      "id": "vulnerable-path_traversal",
+      "class": "path_traversal",
+      "fixture": "vulnerable",
+      "requests": 5,
+      "baseline_result": "inconclusive",
+      "candidate_result": "pass",
+      "baseline_receipt": false,
+      "candidate_finding_id": 1,
+      "bundle_sha256": "794005d982291fce415f5567fe7899ea69fd01666556a867e3d4e0955c14bace"
+    },
+    {
+      "id": "vulnerable-bfla",
+      "class": "bfla",
+      "fixture": "vulnerable",
+      "requests": 6,
+      "baseline_result": "inconclusive",
+      "candidate_result": "pass",
+      "baseline_receipt": false,
+      "candidate_finding_id": 2,
+      "bundle_sha256": "b717be8c5560dbdd9feb654e17637d5ad13d85f580f35f9793e78270194607bb"
+    },
+    {
+      "id": "secure-path_traversal",
+      "class": "path_traversal",
+      "fixture": "secure",
+      "requests": 5,
+      "baseline_result": "inconclusive",
+      "candidate_result": "fail",
+      "baseline_receipt": false,
+      "candidate_finding_id": null,
+      "bundle_sha256": "94b2726bdb68cc590ca828fe372aacb6abb0625ca0beccdef4f77baf1738891d"
+    },
+    {
+      "id": "secure-bfla",
+      "class": "bfla",
+      "fixture": "secure",
+      "requests": 6,
+      "baseline_result": "inconclusive",
+      "candidate_result": "fail",
+      "baseline_receipt": false,
+      "candidate_finding_id": null,
+      "bundle_sha256": "8e7f351efd7df72ffe69bba734fdb9f13c9a16cb821d722a173f10b6e0c248b2"
+    }
+  ],
+  "baseline_metrics": {
+    "schema": "tbhm.quality-evaluation/1",
+    "by_stage_class": [
+      {
+        "stage": "confirmation",
+        "class": "bfla",
+        "TP": 0,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "inconclusive": 2,
+        "inconclusive_positive": 1,
+        "inconclusive_negative": 1,
+        "sample_size": 2,
+        "prediction_coverage": 0.0,
+        "conditional_precision": null,
+        "conditional_recall": null,
+        "conditional_false_positive_rate": null,
+        "conditional_false_negative_rate": null,
+        "recall_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "precision_wilson_95": null,
+        "recall_wilson_95_conditional": null,
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      },
+      {
+        "stage": "confirmation",
+        "class": "path_traversal",
+        "TP": 0,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "inconclusive": 2,
+        "inconclusive_positive": 1,
+        "inconclusive_negative": 1,
+        "sample_size": 2,
+        "prediction_coverage": 0.0,
+        "conditional_precision": null,
+        "conditional_recall": null,
+        "conditional_false_positive_rate": null,
+        "conditional_false_negative_rate": null,
+        "recall_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          1.0
+        ],
+        "precision_wilson_95": null,
+        "recall_wilson_95_conditional": null,
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      }
+    ],
+    "sample_size": 4,
+    "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+  },
+  "candidate_metrics": {
+    "schema": "tbhm.quality-evaluation/1",
+    "by_stage_class": [
+      {
+        "stage": "confirmation",
+        "class": "bfla",
+        "TP": 1,
+        "FP": 0,
+        "TN": 1,
+        "FN": 0,
+        "inconclusive": 0,
+        "inconclusive_positive": 0,
+        "inconclusive_negative": 0,
+        "sample_size": 2,
+        "prediction_coverage": 1.0,
+        "conditional_precision": 1.0,
+        "conditional_recall": 1.0,
+        "conditional_false_positive_rate": 0.0,
+        "conditional_false_negative_rate": 0.0,
+        "recall_bounds": [
+          1.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "precision_wilson_95": [
+          0.20654931437723745,
+          1
+        ],
+        "recall_wilson_95_conditional": [
+          0.20654931437723745,
+          1
+        ],
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      },
+      {
+        "stage": "confirmation",
+        "class": "path_traversal",
+        "TP": 1,
+        "FP": 0,
+        "TN": 1,
+        "FN": 0,
+        "inconclusive": 0,
+        "inconclusive_positive": 0,
+        "inconclusive_negative": 0,
+        "sample_size": 2,
+        "prediction_coverage": 1.0,
+        "conditional_precision": 1.0,
+        "conditional_recall": 1.0,
+        "conditional_false_positive_rate": 0.0,
+        "conditional_false_negative_rate": 0.0,
+        "recall_bounds": [
+          1.0,
+          1.0
+        ],
+        "false_positive_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "false_negative_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "precision_wilson_95": [
+          0.20654931437723745,
+          1
+        ],
+        "recall_wilson_95_conditional": [
+          0.20654931437723745,
+          1
+        ],
+        "interval_scope": "Descriptive binomial intervals for these rows; synthetic/dependent fixtures are not independent field samples."
+      }
+    ],
+    "sample_size": 4,
+    "meaning": "Conditional metrics omit abstentions only in their explicitly named denominators; bounds retain every labeled row. Stages are not interchangeable. No general field accuracy follows."
+  },
+  "legacy_vectors": {
+    "count": 42,
+    "behavior_equal": true
+  },
+  "source_hashes": {
+    "core/strict_classes_v424.py": "e7a05ca9ec7de2dfb67dbbca74e145ab01e7050c09e6e747c4959c2d3eebb731",
+    "core/strict_replay.py": "932eb89012b86ec901f5411145821c7d394f167d14d1e651b198e8c05ce9dc43",
+    "core/pinned_transport.py": "ddefd169b8c41a81fcf2dcd65143ee56422d3cdf12d5edc1ae70f4ffab5e0b12",
+    "tests/fixtures_v424.py": "1f220a7e22ed5929da45313b534d413fa6754000314cb451c1199a0c2820b238",
+    "core/proof_contracts.py": "047c05119353e477cb29a52347ae636367e7a00f5441753853b5a55ffb7b6b8a",
+    "core/assertion_engine.py": "4a6397d222993b42d962eaf555bcd7d2b71d6ebbbd190f83559dd868a7953894",
+    "core/finding_class.py": "f9903a2155093958e077c4fb5e49553af934fe6f857f503e3f84e5540728381f",
+    "core/evidence_graph.py": "8052762e04be4973da2d4e86a13929a94e296d7bcbfa70a94ae9444b85b090c9",
+    "core/operator_view.py": "edf34b4257c510280818dea8c9fcfe4aecd9b3508d86acdcf974d9b5c241957b"
+  },
+  "not_evaluated": [
+    "field discovery",
+    "independent held-out projects",
+    "LLM triage quality",
+    "model RAM/VRAM/latency",
+    "live browsers",
+    "real bounty acceptance"
+  ],
+  "passed": true
+}

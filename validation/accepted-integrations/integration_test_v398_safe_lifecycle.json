@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_v398_safe_lifecycle.py",
+  "expected_cases": 14,
+  "executed_cases": 14,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 5.116,
+  "passed": true
+}

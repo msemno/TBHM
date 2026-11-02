@@ -1,0 +1,437 @@
+{
+  "version": "3.9.6",
+  "policy": "High-impact capabilities are plan/import only. TBHM does not generate payloads, launch C2, use credentials, persist, phish, exfiltrate, disrupt wireless, or write to OT systems.",
+  "adapters": [
+    {
+      "id": "metasploit-import",
+      "name": "Metasploit",
+      "capability": "exploit",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "written authorization",
+        "exact module and target",
+        "non-destructive option review",
+        "cleanup plan"
+      ],
+      "evidence_schema": {
+        "module": "string",
+        "target": "string",
+        "outcome": "string",
+        "evidence": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "terminate sessions",
+        "remove artifacts",
+        "verify service health"
+      ]
+    },
+    {
+      "id": "sliver-import",
+      "name": "Sliver",
+      "capability": "c2",
+      "mode": "plan_import",
+      "risk": "critical",
+      "required_controls": [
+        "separate C2 infrastructure approval",
+        "listener and egress boundaries",
+        "kill switch",
+        "data handling plan"
+      ],
+      "evidence_schema": {
+        "session_id": "string",
+        "target": "string",
+        "objective": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "terminate listeners",
+        "revoke certificates",
+        "remove implants",
+        "verify cleanup"
+      ]
+    },
+    {
+      "id": "mythic-import",
+      "name": "Mythic",
+      "capability": "c2",
+      "mode": "plan_import",
+      "risk": "critical",
+      "required_controls": [
+        "separate C2 approval",
+        "operator identity",
+        "kill switch",
+        "cleanup verification"
+      ],
+      "evidence_schema": {
+        "operation_id": "string",
+        "target": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "terminate operation",
+        "remove payloads",
+        "archive logs"
+      ]
+    },
+    {
+      "id": "havoc-import",
+      "name": "Havoc",
+      "capability": "c2",
+      "mode": "plan_import",
+      "risk": "critical",
+      "required_controls": [
+        "separate C2 approval",
+        "listener scope",
+        "kill switch"
+      ],
+      "evidence_schema": {
+        "operation_id": "string",
+        "target": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "stop infrastructure",
+        "remove agents",
+        "verify cleanup"
+      ]
+    },
+    {
+      "id": "cobalt-strike-import",
+      "name": "Cobalt Strike",
+      "capability": "c2",
+      "mode": "commercial_import",
+      "risk": "critical",
+      "required_controls": [
+        "licensed software",
+        "separate C2 approval",
+        "infrastructure and cleanup plan"
+      ],
+      "evidence_schema": {
+        "operation_id": "string",
+        "target": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "stop team server",
+        "remove beacons",
+        "archive evidence"
+      ]
+    },
+    {
+      "id": "identity-attack-import",
+      "name": "Credential/relay/ticket operation",
+      "capability": "credential_attack",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "named accounts or safe test accounts",
+        "lockout thresholds",
+        "rate and time window",
+        "incident deconfliction"
+      ],
+      "evidence_schema": {
+        "action": "string",
+        "target": "string",
+        "outcome": "string",
+        "evidence": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "unlock/reset test accounts",
+        "revoke tickets/tokens",
+        "verify no relay state remains"
+      ]
+    },
+    {
+      "id": "gophish-results",
+      "name": "GoPhish",
+      "capability": "phishing",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "approved recipient group",
+        "synthetic credentials only",
+        "no real password collection",
+        "notification and takedown plan"
+      ],
+      "evidence_schema": {
+        "campaign_id": "string",
+        "sent": "integer",
+        "opened": "integer",
+        "reported": "integer",
+        "submitted_synthetic": "integer"
+      },
+      "cleanup_requirements": [
+        "disable landing page",
+        "delete collected identifiers",
+        "notify stakeholders"
+      ]
+    },
+    {
+      "id": "atomic-red-team-import",
+      "name": "Atomic Red Team",
+      "capability": "detection_validation",
+      "mode": "simulation",
+      "risk": "medium",
+      "required_controls": [
+        "approved lab or endpoint set",
+        "expected telemetry",
+        "rollback command"
+      ],
+      "evidence_schema": {
+        "technique": "string",
+        "test_id": "string",
+        "alert_result": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "run cleanup",
+        "verify process/files removed"
+      ]
+    },
+    {
+      "id": "caldera-import",
+      "name": "MITRE CALDERA",
+      "capability": "detection_validation",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "approved adversary profile",
+        "agent boundaries",
+        "kill switch"
+      ],
+      "evidence_schema": {
+        "operation_id": "string",
+        "techniques": "array",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "terminate agents",
+        "remove abilities artifacts",
+        "archive operation"
+      ]
+    },
+    {
+      "id": "stratus-import",
+      "name": "Stratus Red Team",
+      "capability": "cloud_control_validation",
+      "mode": "simulation",
+      "risk": "medium",
+      "required_controls": [
+        "approved sandbox account",
+        "resource budget",
+        "cleanup confirmation"
+      ],
+      "evidence_schema": {
+        "technique": "string",
+        "provider": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "destroy test resources",
+        "verify account inventory"
+      ]
+    },
+    {
+      "id": "wireless-import",
+      "name": "Wireless assessment tooling",
+      "capability": "wireless_disruption",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "approved SSIDs/BSSIDs/channels",
+        "RF window",
+        "no third-party clients",
+        "safety observer"
+      ],
+      "evidence_schema": {
+        "action": "string",
+        "bssid": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "stop transmissions",
+        "restore AP/client state",
+        "verify no capture retention beyond policy"
+      ]
+    },
+    {
+      "id": "physical-import",
+      "name": "Physical security exercise",
+      "capability": "physical_bypass",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "site authorization",
+        "observer",
+        "prohibited areas",
+        "safety and emergency contacts"
+      ],
+      "evidence_schema": {
+        "site": "string",
+        "scenario": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "return badges/keys",
+        "remove props",
+        "incident debrief"
+      ]
+    },
+    {
+      "id": "empire-import",
+      "name": "BC Security Empire",
+      "capability": "c2",
+      "mode": "plan_import",
+      "risk": "critical",
+      "required_controls": [
+        "separate C2 approval",
+        "listener and agent boundaries",
+        "kill switch",
+        "cleanup verification"
+      ],
+      "evidence_schema": {
+        "operation_id": "string",
+        "target": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "terminate listeners",
+        "remove agents",
+        "revoke credentials/tokens used for the exercise",
+        "archive evidence"
+      ]
+    },
+    {
+      "id": "nxc-import",
+      "name": "NetExec",
+      "capability": "lateral_movement",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "exact hosts and protocols",
+        "approved test credentials",
+        "lockout controls",
+        "no unrestricted command execution"
+      ],
+      "evidence_schema": {
+        "action": "string",
+        "target": "string",
+        "outcome": "string",
+        "evidence": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "remove temporary artifacts",
+        "revoke test credentials",
+        "verify target health"
+      ]
+    },
+    {
+      "id": "certipy-import",
+      "name": "Certipy",
+      "capability": "credential_attack",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "AD CS scope",
+        "approved accounts/templates",
+        "certificate cleanup and revocation plan"
+      ],
+      "evidence_schema": {
+        "technique": "string",
+        "target": "string",
+        "outcome": "string",
+        "evidence": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "revoke test certificates",
+        "remove created objects",
+        "verify CA and directory state"
+      ]
+    },
+    {
+      "id": "evilginx-import",
+      "name": "Evilginx2/Modlishka exercise",
+      "capability": "mfa_interception",
+      "mode": "plan_import",
+      "risk": "critical",
+      "required_controls": [
+        "explicit MFA-phishing authorization",
+        "synthetic identities only",
+        "no production credentials or tokens",
+        "rapid takedown"
+      ],
+      "evidence_schema": {
+        "campaign_id": "string",
+        "target_group": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "destroy tokens and infrastructure",
+        "remove DNS/certificates",
+        "notify stakeholders"
+      ]
+    },
+    {
+      "id": "set-import",
+      "name": "Social-Engineer Toolkit",
+      "capability": "phishing",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "approved target group",
+        "synthetic credentials only",
+        "no third-party targeting",
+        "notification and takedown"
+      ],
+      "evidence_schema": {
+        "campaign_id": "string",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "stop infrastructure",
+        "delete collected identifiers",
+        "verify takedown"
+      ]
+    },
+    {
+      "id": "pacu-import",
+      "name": "Pacu",
+      "capability": "cloud_control_validation",
+      "mode": "plan_import",
+      "risk": "high",
+      "required_controls": [
+        "approved sandbox/cloud account",
+        "explicit modules",
+        "resource and cost limits",
+        "cleanup plan"
+      ],
+      "evidence_schema": {
+        "module": "string",
+        "provider": "aws",
+        "outcome": "string",
+        "cleanup_status": "string"
+      },
+      "cleanup_requirements": [
+        "delete created resources",
+        "revoke temporary credentials",
+        "verify account inventory"
+      ]
+    }
+  ]
+}

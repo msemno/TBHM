@@ -1,0 +1,10 @@
+{
+  "module": "integration_test_v3972.py",
+  "expected_cases": 9,
+  "executed_cases": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.314,
+  "passed": true
+}

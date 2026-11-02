@@ -1,0 +1,68 @@
+test_ai_delta_replaces_stale_document_and_updates_incrementally (integration_test_v3941.V3941RegressionTests.test_ai_delta_replaces_stale_document_and_updates_incrementally) ... ok
+test_ai_embedding_batch_never_mixes_spaces (integration_test_v3941.V3941RegressionTests.test_ai_embedding_batch_never_mixes_spaces) ... ok
+test_ai_ingestion_and_backup_never_store_raw_secret_and_include_proposals (integration_test_v3941.V3941RegressionTests.test_ai_ingestion_and_backup_never_store_raw_secret_and_include_proposals) ... ok
+test_ai_model_lock_is_authoritative (integration_test_v3941.V3941RegressionTests.test_ai_model_lock_is_authoritative) ... ok
+test_ai_restore_rejects_special_tar_members (integration_test_v3941.V3941RegressionTests.test_ai_restore_rejects_special_tar_members) ... ok
+test_boundary_aware_short_api_and_capa_parser (integration_test_v3941.V3941RegressionTests.test_boundary_aware_short_api_and_capa_parser) ... ok
+test_deep_crawl_passive_and_404_handling (integration_test_v3941.V3941RegressionTests.test_deep_crawl_passive_and_404_handling) ... ok
+test_deep_crawl_uses_final_redirect_base_for_relative_links (integration_test_v3941.V3941RegressionTests.test_deep_crawl_uses_final_redirect_base_for_relative_links) ... ok
+test_js_analysis_blocks_out_of_scope_before_request (integration_test_v3941.V3941RegressionTests.test_js_analysis_blocks_out_of_scope_before_request) ... ok
+test_observer_lesson_candidates_are_current_run_only (integration_test_v3941.V3941RegressionTests.test_observer_lesson_candidates_are_current_run_only) ... ok
+test_profile_phase_order_rate_and_local_only_gate (integration_test_v3941.V3941RegressionTests.test_profile_phase_order_rate_and_local_only_gate) ... ok
+test_public_suffix_and_ip_scope (integration_test_v3941.V3941RegressionTests.test_public_suffix_and_ip_scope) ... ok
+test_reverse_correlation_groups_by_artifact_id (integration_test_v3941.V3941RegressionTests.test_reverse_correlation_groups_by_artifact_id) ... ok
+test_scope_safe_redirect_stops_before_external_request (integration_test_v3941.V3941RegressionTests.test_scope_safe_redirect_stops_before_external_request) ... ok
+test_static_taint_is_supported_not_mitigated_or_confirmed (integration_test_v3941.V3941RegressionTests.test_static_taint_is_supported_not_mitigated_or_confirmed) ... ok
+test_storage_redacts_secrets_but_preserves_artifact_hash (integration_test_v3941.V3941RegressionTests.test_storage_redacts_secrets_but_preserves_artifact_hash) ... ok
+test_structured_http_differential_only (integration_test_v3941.V3941RegressionTests.test_structured_http_differential_only) ... ok
+test_supported_static_survives_false_positive_gate (integration_test_v3941.V3941RegressionTests.test_supported_static_survives_false_positive_gate) ... ok
+test_surface_correlation_consumes_source_hosts_urls_and_excludes (integration_test_v3941.V3941RegressionTests.test_surface_correlation_consumes_source_hosts_urls_and_excludes) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.708s
+
+OK
+{
+  "ok": true,
+  "source_type": "operator_note",
+  "sanitized_copy": "/tmp/tmp314qi8ta/ai-home/knowledge/imported-resources/62070180cc3e-note.txt.sanitized.txt",
+  "metadata": "/tmp/tmp314qi8ta/ai-home/knowledge/imported-resources/62070180cc3e-note.txt.meta.json",
+  "raw_stored": false,
+  "chunks_added": 1,
+  "chunks_reused": 0,
+  "raw_sha256": "62070180cc3e2595dd266261740a7d7dea0dd8b2d60b531b389516ec72e0254b",
+  "sanitized_sha256": "f67f9710cb69820ca2dfadd296e9f98ced5eb8a1e06f6aa9c171fcff7eb58607",
+  "vector_index": {
+    "rows": 1,
+    "embedding_mode": "fallback",
+    "model": "tbhm-hash-v1",
+    "dim": 256,
+    "updated_rows": 1,
+    "rebuild": true
+  },
+  "advisory": {
+    "related_tbhm_components": [],
+    "note": "Knowledge added. Any source change must go through review/proposal governance."
+  }
+}
+{
+  "archive": "/tmp/tmp314qi8ta/ai-home/tbhm-ai-backup-20261026-160715.tar.gz",
+  "compression": "gzip",
+  "includes": [
+    "config",
+    "audit",
+    "proposals",
+    "knowledge/approved-lessons",
+    "indexes/vector-manifest.json",
+    "backups/memory-backup.sqlite3",
+    "knowledge/imported-resources/62070180cc3e-note.txt.meta.json",
+    "knowledge/imported-resources/62070180cc3e-note.txt.sanitized.txt"
+  ],
+  "excludes": [
+    "model weights (re-pull via model-lock.json)",
+    "rebuildable vector matrix",
+    "legacy/raw imported resources"
+  ],
+  "restore": "./tbhm.py --ai-restore /tmp/tmp314qi8ta/ai-home/tbhm-ai-backup-20261026-160715.tar.gz"
+}
+{"ok": false, "detail": "safe extract failed: special archive members are not allowed in AI backups: bad-fifo"}

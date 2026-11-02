@@ -1,0 +1,34 @@
+[
+  {
+    "id": "owned-cross-account-1",
+    "detected": true
+  },
+  {
+    "id": "owned-cross-account-2",
+    "detected": true
+  },
+  {
+    "id": "nested-object-1",
+    "detected": true
+  },
+  {
+    "id": "nested-object-2",
+    "detected": true
+  },
+  {
+    "id": "secure-object-1",
+    "detected": false
+  },
+  {
+    "id": "secure-object-2",
+    "detected": false
+  },
+  {
+    "id": "wrong-object-lookalike-1",
+    "detected": false
+  },
+  {
+    "id": "wrong-object-lookalike-2",
+    "detected": false
+  }
+]

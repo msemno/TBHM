@@ -1,0 +1,9 @@
+test_benign_local_endpoint_stays_inconclusive (test_ssrf_v421.SSRFSafetyTest.test_benign_local_endpoint_stays_inconclusive) ... ok
+test_disabled_and_offline_generate_no_traffic (test_ssrf_v421.SSRFSafetyTest.test_disabled_and_offline_generate_no_traffic) ... ok
+test_local_callback_correlated_as_observation_only (test_ssrf_v421.SSRFSafetyTest.test_local_callback_correlated_as_observation_only) ... ok
+test_scope_denial_blocks_network (test_ssrf_v421.SSRFSafetyTest.test_scope_denial_blocks_network) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.601s
+
+OK

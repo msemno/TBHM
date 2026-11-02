@@ -1,0 +1,33 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Runtime output directories
+/audits/
+/runs/
+/logs/
+/reports/
+
+# Local build/editor caches
+.DS_Store
+Thumbs.db
+
+# Private state and additional runtime output at the checkout root
+/.proof-capture.key
+/.secret_vault.key
+/output/
+/outputs/
+/tbhm-ai/

@@ -1,0 +1,41 @@
+{
+  "release": "3.9.7.4-universal-reverse",
+  "archive": "TBHM-v3.9.7.4-universal-reverse.zip",
+  "archive_size_bytes": 1791918,
+  "archive_sha256": "d38ccf2867e3b3ee530957f162368cfc205243d1cc6534fba19bb1ed71506b71",
+  "manifest_sha256": "eb2dce378239e30aa02f335877f4a02068acf07b270a9786bfcc961090df7e4b",
+  "manifest_listed_files": 407,
+  "clean_release_files_including_manifest": 408,
+  "zip_members_including_directories": 433,
+  "primary_cli_options": 332,
+  "historical_cli_options": 319,
+  "ordered_phases": 130,
+  "historical_phases": 129,
+  "integration_scripts_passed": 15,
+  "named_regression_tests": 149,
+  "backward_compatibility": {
+    "historical_source_data_files_removed": 0,
+    "historical_cli_options_removed": 0,
+    "historical_phases_removed": 0
+  },
+  "new_reverse_capabilities": [
+    "firmware and embedded-container identification beyond the first 4 KiB",
+    "validated extraction with unblob, binwalk, unsquashfs and sasquatch fallbacks",
+    "rootfs-confined account, key, service, permission, web/CGI and ELF audit",
+    "package/component inventory and CycloneDX-compatible firmware SBOM",
+    "static update-chain review, attack-surface candidates and binary prioritization",
+    "EMBA explicit static execution and result import with separate isolated-emulation gate",
+    "RouterSploit static module catalog and result import without module execution",
+    "generic FirmAE, FIRMADYNE, FAT, FACT and QEMU evidence import"
+  ],
+  "remaining_roadmap_gaps": [
+    "universal normalized decompiler IR",
+    "context-sensitive interprocedural taint across languages",
+    "owned disposable-VM sandbox and static-to-dynamic mapping",
+    "symbolic/concolic input synthesis",
+    "fuzz harness generation and crash minimization",
+    "function-level patch diff and campaign intelligence",
+    "dedicated UEFI, driver/kernel, protocol, mobile and hardware packs"
+  ],
+  "external_validation_limit": "Large optional third-party environments were not installed for live end-to-end execution; adapters and safety gates were validated with fixtures and mocks. RouterSploit execution is intentionally not implemented."
+}

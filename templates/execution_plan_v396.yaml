@@ -1,0 +1,8 @@
+actions:
+  - id: validation-001
+    stage: initial_access_validation
+    adapter_id: metasploit-import
+    approval_action: execution:metasploit-import
+    target: app.example.com
+    objective: Validate a confirmed finding in separately governed operator infrastructure.
+    finding_ref: CHANGE-ME

@@ -1,0 +1,26 @@
+[
+  {
+    "run": "arc",
+    "service_network_errors": 0,
+    "service_errors_near_15_seconds": 0,
+    "short_service_errors": 0
+  },
+  {
+    "run": "box",
+    "service_network_errors": 14,
+    "service_errors_near_15_seconds": 11,
+    "short_service_errors": 3
+  },
+  {
+    "run": "clear",
+    "service_network_errors": 44,
+    "service_errors_near_15_seconds": 35,
+    "short_service_errors": 9
+  },
+  {
+    "run": "svelte",
+    "service_network_errors": 103,
+    "service_errors_near_15_seconds": 100,
+    "short_service_errors": 3
+  }
+]

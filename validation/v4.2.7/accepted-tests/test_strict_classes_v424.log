@@ -1,0 +1,13 @@
+test_complete_plan_is_validated_before_any_contact (test_strict_classes_v424.StrictClasses.test_complete_plan_is_validated_before_any_contact) ... ok
+test_live_vulnerable_filesystem_and_owned_role_function_confirm (test_strict_classes_v424.StrictClasses.test_live_vulnerable_filesystem_and_owned_role_function_confirm) ... ok
+test_metamorphic_order_noise_and_missing_generic_assertion (test_strict_classes_v424.StrictClasses.test_metamorphic_order_noise_and_missing_generic_assertion) ... ok
+test_missing_controls_and_repeats_remain_inconclusive (test_strict_classes_v424.StrictClasses.test_missing_controls_and_repeats_remain_inconclusive) ... ok
+test_patched_controls_hold_without_confirmation (test_strict_classes_v424.StrictClasses.test_patched_controls_hold_without_confirmation) ... ok
+test_public_function_and_expired_privileged_identity_are_inconclusive (test_strict_classes_v424.StrictClasses.test_public_function_and_expired_privileged_identity_are_inconclusive) ... ok
+test_signed_unstable_repeat_and_physical_tamper_are_refused (test_strict_classes_v424.StrictClasses.test_signed_unstable_repeat_and_physical_tamper_are_refused) ... ok
+test_tampered_signature_replayed_capture_wrong_class_and_cross_binding_refused (test_strict_classes_v424.StrictClasses.test_tampered_signature_replayed_capture_wrong_class_and_cross_binding_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 11.943s
+
+OK

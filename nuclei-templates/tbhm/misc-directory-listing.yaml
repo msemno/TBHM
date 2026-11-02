@@ -1,0 +1,30 @@
+id: tbhm-directory-listing
+
+info:
+  name: Directory Listing Enabled
+  author: tbhm
+  severity: low
+  description: |
+    The server returns an auto-generated directory index, exposing the file
+    structure and potentially sensitive files not meant to be linked.
+  remediation: "Disable autoindex / directory browsing."
+  tags: tbhm,misconfig,exposure
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        condition: or
+        words:
+          - "Index of /"
+          - "<title>Directory listing for"
+          - "[To Parent Directory]"
+      - type: dsl
+        dsl:
+          - "status_code == 200"

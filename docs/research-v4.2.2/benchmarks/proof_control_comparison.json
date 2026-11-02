@@ -1,0 +1,49 @@
+{
+  "scope": "Five constructed authenticated capture bundles per version, not a detector benchmark or live HTTP evaluation.",
+  "baseline": [
+    {
+      "case": "positive_control",
+      "result": "pass"
+    },
+    {
+      "case": "denied_echo",
+      "result": "pass"
+    },
+    {
+      "case": "leaking_control",
+      "result": "pass"
+    },
+    {
+      "case": "same_request_control",
+      "result": "pass"
+    },
+    {
+      "case": "public_object",
+      "result": "pass"
+    }
+  ],
+  "candidate": [
+    {
+      "case": "positive_control",
+      "result": "pass"
+    },
+    {
+      "case": "denied_echo",
+      "result": "inconclusive"
+    },
+    {
+      "case": "leaking_control",
+      "result": "inconclusive"
+    },
+    {
+      "case": "same_request_control",
+      "result": "inconclusive"
+    },
+    {
+      "case": "public_object",
+      "result": "inconclusive"
+    }
+  ],
+  "candidate_refused_invalid_controls": 4,
+  "passed": true
+}

@@ -1,0 +1,9 @@
+test_blocked_redirect_still_marks_authorized_origin_live (test_remediation_f02_f03.ReconAuthorityTests.test_blocked_redirect_still_marks_authorized_origin_live) ... ok
+test_direct_liveness_filters_urls_and_file_before_child (test_remediation_f02_f03.ReconAuthorityTests.test_direct_liveness_filters_urls_and_file_before_child) ... ok
+test_no_child_dispatch_for_an_empty_authorized_file (test_remediation_f02_f03.ReconAuthorityTests.test_no_child_dispatch_for_an_empty_authorized_file) ... ok
+test_sibling_and_denied_seed (test_remediation_f02_f03.ReconAuthorityTests.test_sibling_and_denied_seed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.062s
+
+OK

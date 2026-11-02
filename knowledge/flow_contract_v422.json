@@ -1,0 +1,43 @@
+{
+  "baseline": "4.2.2",
+  "protected_files": {
+    "core/runner.py": "dca498e2832dd89dff44e646d5ccfa3d4a6c4deaa7bd6e2839b575b3f084e5fb",
+    "core/storage.py": "82d919044261cb114505968c2d2b327da5e30dfe7a6a05c28d134781da617886",
+    "core/http_policy.py": "8d79c861d90dbe68c61ec92c2131f1511577f04eca958fef73c06b493a37248e",
+    "core/scoped_http.py": "8fc579f42cf36d47c57c452e20da5c57d80390450ed09a79550ab1b10bd28090",
+    "core/targets.py": "5c6d49c4604b641a1462b5c87a6ec0a0d71b1b236c50cda627d9f5a8051b5071",
+    "core/offline_isolation.py": "0df38fdba16bd57f5d900a5330c6d950e5354568ba219deb695473450b42cead",
+    "core/evidence_manifest.py": "1658ec87b3ddad711a7ecd3cd97398f2e0f230a25f194028418770aa04753dec"
+  },
+  "controller_functions": {
+    "expanded_phase_order": "07f9d3a714be6924c6bef02e9e3b973e1b1278d538940ba827bbe3c9ef321265",
+    "canonicalize_profile_phases": "c587a5591367d165865ca84528194320df7abfe9fcfdffb54aa705225aa01e26",
+    "SV_extract_value": "f629b12a651b5de55fb87770a1bde1335ee7d0330c6ba6120de29ff571eea74e",
+    "_guess_secret_type": "ea5d02dd6bcc6d1377d2a71a49238ec2cc1af427e123ffd1573effddb0fa7c21",
+    "Ctx": "6eb3d3b38e630948c379dcfdfa06ead869bac044f3a602f51d0edd219567ea68",
+    "collect_targets": "059fc0542937d79e6a5285bfa2f248543c25d5906f4125c302e1d9af3ca57d34",
+    "_phases_from_prior": "761205cec5b7f8b47d221e2f4576b0f9dc4d83a2052ff64a7b70faa9d2552a1b",
+    "collect_excludes": "9732f88dc693c8a221d8fa576b88df0fb76a19959eb7ee657bcb896ed5c832df",
+    "collect_includes": "18425e4bda83f45c15b02575fd1738b5be70311c34a5836d50d7a39b6854df29",
+    "_detach_and_exit": "80713bc09a088ad0a465870ad5769fb52c1a383fdb0f019f3f270cb3a4a6c8dc",
+    "_apply_thread_override": "b2843988f92866e9e598a22a0f6acda90adeb86782e10d5136da11cd4cd0d64e",
+    "_apply_rate_limit_override": "3e91284cd413d0575f4aa06fe2cf877f399afaa83a26ae6c0d4950b8bd1fb8e9",
+    "_local_only_target": "570ebe4fb76e6efb4cfb1d2a1b2acd08eb48c6112a00a06c15bc475d4184ef86",
+    "make_output_dir": "4c5ef837ef25067f688958e364dd5eafdbf3faa72e4ca9349921d1655743fb22",
+    "import_phase": "36854c4c94598ba688aa3c395af8594efe190901ba71055d8e61b13786beaf5c",
+    "_load_approved_plan_phases": "0cf36706bebb214b70874b8494fe8bc8831dc38c774d7771a9a991698a19ac4c",
+    "preflight_legal_check": "4460916c4ce6187b84c072f64d95463c086385ce9b68964d468e1c7c262b9298",
+    "main": "44b3b748ef4a3e08ca6ace49217b449d9b049e0cff71afdff809eeec2a4f32e9"
+  },
+  "phase_run_functions": {
+    "phases/controlled_validation_plane.py": "60c251f842e94096cd9bfd4f78b836c0434b9521ad3232a32c8712ccde7b89a7",
+    "phases/ai_llm_tooling.py": "b1ce4acfb65e407bb8dd402959f1d3c31c16cd68439e00422c569885bd613f55",
+    "phases/engagement_evidence_review.py": "53622d623c64235305e0400c3d5076da91cebb7460599e10cdd5b905019d186a"
+  },
+  "source_evolution_exceptions": {
+    "core/proof_contracts.py": "4.2.4 additive development; executable behavioral contracts replace old file hashes. See tests/test_proof_behavior_v424.py and transport regressions.",
+    "core/assertion_engine.py": "4.2.4 additive development; executable behavioral contracts replace old file hashes. See tests/test_proof_behavior_v424.py and transport regressions.",
+    "core/finding_class.py": "4.2.4 additive development; executable behavioral contracts replace old file hashes. See tests/test_proof_behavior_v424.py and transport regressions.",
+    "core/request_guard.py": "4.2.4 additive development; executable behavioral contracts replace old file hashes. See tests/test_proof_behavior_v424.py and transport regressions."
+  }
+}

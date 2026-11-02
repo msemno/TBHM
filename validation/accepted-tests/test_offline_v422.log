@@ -1,0 +1,8 @@
+test_approved_adapter_is_isolated_in_both_executors (test_offline_v422.OfflineTests.test_approved_adapter_is_isolated_in_both_executors) ... ok
+test_inherited_socket_and_unsupported_platform_fail_closed (test_offline_v422.OfflineTests.test_inherited_socket_and_unsupported_platform_fail_closed) ... ok
+test_threads_raw_syscalls_and_exec_inherit_filter (test_offline_v422.OfflineTests.test_threads_raw_syscalls_and_exec_inherit_filter) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.699s
+
+OK

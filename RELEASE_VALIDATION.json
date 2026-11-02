@@ -1,0 +1,20 @@
+{
+  "schema": "tbhm.validation-summary/1",
+  "release": "4.2.6",
+  "source_build_sha256": "3a689a411dfe5dde0a4e5c255c41a00d700e24af3b01f493a28214d0017ccf91",
+  "validated_at": "2026-10-26T16:17:51.667146+00:00",
+  "unit_modules": 60,
+  "unit_regression_cases": 400,
+  "integration_groups": 23,
+  "integration_unittest_cases": 177,
+  "total_test_cases": 577,
+  "script_integration_checks": 6,
+  "unit_passed": true,
+  "integration_passed": true,
+  "passed": true,
+  "skipped": 0,
+  "model_security_reasoning_accepted": false,
+  "kali_windows_live_acceptance": false,
+  "high_level_scanner_done": false,
+  "package_installation": "Recorded separately against the finished ZIP SHA-256 in TBHM-4.2.6-Validation.json"
+}

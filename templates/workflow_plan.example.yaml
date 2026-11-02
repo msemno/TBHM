@@ -1,0 +1,38 @@
+workflows:
+  - workflow_id: object-read-authorization
+    name: Cross-object read authorization
+    invariant: A member can read only objects owned by the same authorized identity or tenant.
+    tests:
+      - test_id: authz-object-read-v1
+        identity_id: account-a-member
+        request_id: REPLACE_WITH_REDACTED_HAR_REQUEST_ID
+        action: workflow_test
+        expected_invariant: Account A must not receive Account B's protected object.
+        failure_conditions:
+          - type: status_equals
+            source: mutation
+            value: 200
+          - type: object_identity_equals
+            source: mutation
+            value: account-b-object
+        negative_control_conditions:
+          - type: status_equals
+            source: negative_control
+            value: 404
+  - workflow_id: coupon-single-use
+    name: Coupon consumption invariant
+    invariant: A coupon can produce the authorized benefit no more than once per eligible account.
+    tests:
+      - test_id: business-coupon-single-use-v1
+        identity_id: account-a-member
+        request_id: REPLACE_WITH_REDACTED_HAR_REQUEST_ID
+        action: workflow_test
+        expected_invariant: A second controlled redemption must not create a second benefit.
+        failure_conditions:
+          - type: state_equals
+            source: mutation
+            value: duplicate-benefit-created
+        negative_control_conditions:
+          - type: state_equals
+            source: negative_control
+            value: no-benefit-created

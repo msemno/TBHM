@@ -1,0 +1,27 @@
+{
+  "release": "4.2.0",
+  "archive_root": "TBHM-4.2.0",
+  "previous_release": "4.1.0",
+  "release_date": "2026-10-18",
+  "baseline_sha256": "a63291ff61c8b2414ac57cf9a0b470158ab3a1a7c861487fff9186a008f5edde",
+  "runtime": "runtime.json",
+  "dependency_lock": "requirements.lock",
+  "sbom": "SBOM.cdx.json",
+  "new_runtime_dependencies": [],
+  "cli_actions": 450,
+  "dispatched_phases": 145,
+  "capability_records": 22,
+  "research_decisions": 109,
+  "research_directory": "docs/research-v4.2.0",
+  "upgrade_guide": "docs/UPGRADE-v4.2.0.md",
+  "safety_model": {
+    "llm_advisory_only": true,
+    "no_model_finding_suppression": true,
+    "strict_proof_v2_preserved": true,
+    "chain_outputs_hypotheses_only": true,
+    "local_imports_do_not_execute_contracts": true,
+    "brokered_native_http_scope_and_budget": true,
+    "external_scanner_traffic_globally_metered": false,
+    "offline_is_os_network_namespace": false
+  }
+}

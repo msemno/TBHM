@@ -1,0 +1,94 @@
+{
+  "release": "4.2.4",
+  "date": "2026-10-19",
+  "implementation_baseline": "4.2.3",
+  "baseline": {
+    "groups": 58,
+    "passed": 58,
+    "unittest_cases": 312,
+    "record": "docs/research-v4.2.4/BASELINE_TEST_RESULTS.json"
+  },
+  "candidate": {
+    "groups": 66,
+    "passed": 66,
+    "unittest_cases": 352,
+    "skipped": 0,
+    "record": "docs/research-v4.2.4/TEST_RESULTS.json"
+  },
+  "legacy_behavior": {
+    "vectors": 42,
+    "all_equal": true,
+    "record": "docs/research-v4.2.4/benchmarks/paired_evaluation.json"
+  },
+  "new_classes": {
+    "path_traversal": "controlled outside-root TBHM canary file only",
+    "bfla": "owned privileged/limited read function only"
+  },
+  "proof_class_total": 5,
+  "new_runtime_dependencies": [],
+  "model_weights_added": false,
+  "training_executed": false,
+  "paired_evaluation": {
+    "cases": 4,
+    "scope": "Synthetic confirmation on owned local vulnerable/patched fixtures; not discovery or field accuracy",
+    "passed": true
+  },
+  "tested_python_files": 379,
+  "tested_code_record": "docs/research-v4.2.4/TESTED_CODE_HASHES.json",
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "libc": [
+      "glibc",
+      "2.39"
+    ]
+  },
+  "compatibility_record": "docs/research-v4.2.4/COMPATIBILITY.json",
+  "critical_corrections_record": "docs/research-v4.2.4/SECURITY_CORRECTIONS.json",
+  "open_gates": [
+    "Global all-traffic/all-wire enforcement",
+    "Full sensitive-writer and opaque-format closure",
+    "Other strict vulnerability classes",
+    "State-changing/tenant API workflows",
+    "Representative field discovery and full standards coverage",
+    "Real-model evaluation/training"
+  ],
+  "scope": "No third-party target, real browser, external scanner/provider/model runtime, payout or zero-false-positive claim.",
+  "static_validation": {
+    "compile": {
+      "passed": true,
+      "detail": "python compileall"
+    },
+    "imports": {
+      "passed": true,
+      "detail": "all modules import"
+    },
+    "phase_coverage": {
+      "passed": true,
+      "detail": "145 phases resolve to modules with run()"
+    }
+  },
+  "compatibility": {
+    "removed_files": [],
+    "removed_cli_actions": [],
+    "changed_existing_argument_signatures": [],
+    "added_cli_actions": [
+      "--approve-strict-replay",
+      "--strict-replay-plan"
+    ],
+    "baseline_cli_actions": 461,
+    "candidate_cli_actions": 463,
+    "existing_phase_prefix_unchanged": true,
+    "appended_phases": [],
+    "dispatched_phases": 145,
+    "sqlite_schema_equal": true,
+    "passed": true
+  },
+  "fresh_offline_install": {
+    "passed": true,
+    "checks": 7,
+    "tested_code_hashes_match": 379,
+    "record": "docs/research-v4.2.4/FRESH_INSTALL.json",
+    "scope": "Clean preflight archive extraction; final packaging changes only measured verification/inventory metadata."
+  }
+}

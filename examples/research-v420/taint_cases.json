@@ -1,0 +1,110 @@
+[
+  {
+    "id": "shell-direct",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n os.system(\"echo \"+x)\n"
+  },
+  {
+    "id": "shell-inline",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n os.system(\"echo \"+request.args[\"x\"])\n"
+  },
+  {
+    "id": "shell-escaped-html",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n os.system(html.escape(x))\n"
+  },
+  {
+    "id": "shell-unrelated-escape",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n os.system(x+html.escape(\"fixed\"))\n"
+  },
+  {
+    "id": "shell-conditional-kill",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n if flag:\n  x=\"fixed\"\n os.system(x)\n"
+  },
+  {
+    "id": "shell-overwrite",
+    "category": "CWE-78",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n x=\"fixed\"\n os.system(x)\n"
+  },
+  {
+    "id": "argv-values",
+    "category": "CWE-78",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n subprocess.run([\"echo\",x])\n"
+  },
+  {
+    "id": "argv-explicit-noshell",
+    "category": "CWE-78",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n subprocess.run([\"echo\",x],shell=False)\n"
+  },
+  {
+    "id": "shell-enabled",
+    "category": "CWE-78",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n subprocess.run(\"echo \"+x,shell=True)\n"
+  },
+  {
+    "id": "shell-numeric",
+    "category": "CWE-78",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=int(request.args[\"x\"])\n os.system(x)\n"
+  },
+  {
+    "id": "sql-unsafe",
+    "category": "CWE-89",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n cursor.execute(\"select \"+x)\n"
+  },
+  {
+    "id": "sql-html-escape",
+    "category": "CWE-89",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n cursor.execute(html.escape(x))\n"
+  },
+  {
+    "id": "sql-safe-parameter",
+    "category": "CWE-89",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n cursor.execute(\"select * from t where id=%s\", (x,))\n"
+  },
+  {
+    "id": "sql-overwrite",
+    "category": "CWE-89",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n x=\"select 1\"\n cursor.execute(x)\n"
+  },
+  {
+    "id": "sql-numeric",
+    "category": "CWE-89",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n cursor.execute(int(x))\n"
+  },
+  {
+    "id": "eval-user",
+    "category": "CWE-95",
+    "vulnerable": true,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n eval(x)\n"
+  },
+  {
+    "id": "eval-overwrite",
+    "category": "CWE-95",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n x=request.args[\"x\"]\n x=\"1+1\"\n eval(x)\n"
+  },
+  {
+    "id": "constant-shell",
+    "category": "CWE-78",
+    "vulnerable": false,
+    "source": "import os, subprocess, html\nfrom flask import request\ndef route():\n os.system(\"echo fixed\")\n"
+  }
+]

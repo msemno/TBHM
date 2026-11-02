@@ -1,0 +1,236 @@
+{
+  "groups": 23,
+  "executed_unittest_cases": 177,
+  "passed": true,
+  "results": [
+    {
+      "module": "integration_test_addons.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 1.283
+    },
+    {
+      "module": "integration_test_ai_plane.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 35.514
+    },
+    {
+      "module": "integration_test_historical_regressions_v3971.py",
+      "expected_cases": 22,
+      "executed_cases": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.928,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v391_safe.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 1.493
+    },
+    {
+      "module": "integration_test_v392.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 1.124
+    },
+    {
+      "module": "integration_test_v393.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 0.268
+    },
+    {
+      "module": "integration_test_v3941.py",
+      "expected_cases": 19,
+      "executed_cases": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.502,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v395.py",
+      "expected_cases": 13,
+      "executed_cases": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.124,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v396.py",
+      "expected_cases": 11,
+      "executed_cases": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.032,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3961.py",
+      "expected_cases": 12,
+      "executed_cases": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 8.712,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3971.py",
+      "expected_cases": 13,
+      "executed_cases": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.258,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3972.py",
+      "expected_cases": 9,
+      "executed_cases": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.824,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3973_installer.py",
+      "expected_cases": 23,
+      "executed_cases": 23,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.694,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3974_reverse.py",
+      "expected_cases": 10,
+      "executed_cases": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.82,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v3975_deep_reverse.py",
+      "expected_cases": 13,
+      "executed_cases": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.794,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v398_safe_lifecycle.py",
+      "expected_cases": 14,
+      "executed_cases": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.799,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v39_safe.py",
+      "passed": true,
+      "manual_script_completion_marker": true,
+      "returncode": 0,
+      "seconds": 1.12
+    },
+    {
+      "module": "integration_test_v420_workflows.py",
+      "expected_cases": 6,
+      "executed_cases": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.508,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v422_workflows.py",
+      "expected_cases": 1,
+      "executed_cases": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.326,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v423_workflows.py",
+      "expected_cases": 3,
+      "executed_cases": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.749,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v424_workflows.py",
+      "expected_cases": 2,
+      "executed_cases": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 11.583,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v425_learning.py",
+      "expected_cases": 4,
+      "executed_cases": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.131,
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "module": "integration_test_v4_ai_learning.py",
+      "expected_cases": 2,
+      "executed_cases": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.439,
+      "passed": true,
+      "returncode": 0
+    }
+  ]
+}

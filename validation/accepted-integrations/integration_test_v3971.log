@@ -1,0 +1,18 @@
+test_adapter_generator_is_unapproved_proposal_only (integration_test_v3971.V3971Tests.test_adapter_generator_is_unapproved_proposal_only) ... ok
+test_cicd_native_dataflow_and_no_execution (integration_test_v3971.V3971Tests.test_cicd_native_dataflow_and_no_execution) ... ok
+test_cli_and_phase_backward_compatibility (integration_test_v3971.V3971Tests.test_cli_and_phase_backward_compatibility) ... ok
+test_cloud_graph_detects_required_indicators_without_claiming_exploitability (integration_test_v3971.V3971Tests.test_cloud_graph_detects_required_indicators_without_claiming_exploitability) ... ok
+test_compliance_phase_completion_alone_is_not_pass (integration_test_v3971.V3971Tests.test_compliance_phase_completion_alone_is_not_pass) ... ok
+test_doctor_never_prints_secret_values (integration_test_v3971.V3971Tests.test_doctor_never_prints_secret_values) ... ok
+test_ocsf_fingerprint_repeatability_and_classes (integration_test_v3971.V3971Tests.test_ocsf_fingerprint_repeatability_and_classes) ... ok
+test_passive_wireless_inventory_boundary (integration_test_v3971.V3971Tests.test_passive_wireless_inventory_boundary) ... ok
+test_rdap_retry_redaction_and_unknown_provider (integration_test_v3971.V3971Tests.test_rdap_retry_redaction_and_unknown_provider) ... ok
+test_registry_is_truthful_and_valid (integration_test_v3971.V3971Tests.test_registry_is_truthful_and_valid) ... ok
+test_safe_plan_rdap_mock_and_username_approval (integration_test_v3971.V3971Tests.test_safe_plan_rdap_mock_and_username_approval) ... ok
+test_safe_plan_rejects_arbitrary_commands_and_shell_metacharacters (integration_test_v3971.V3971Tests.test_safe_plan_rejects_arbitrary_commands_and_shell_metacharacters) ... ok
+test_session_import_dedup_malformed_and_redaction (integration_test_v3971.V3971Tests.test_session_import_dedup_malformed_and_redaction) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.802s
+
+OK

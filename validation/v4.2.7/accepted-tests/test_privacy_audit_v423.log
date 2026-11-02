@@ -1,0 +1,11 @@
+test_clean_supported_delivery_and_later_mutation (test_privacy_audit_v423.PrivacyAuditTests.test_clean_supported_delivery_and_later_mutation) ... ok
+test_decompression_budgets_remain_incomplete (test_privacy_audit_v423.PrivacyAuditTests.test_decompression_budgets_remain_incomplete) ... ok
+test_missing_canary_fails_before_any_privacy_claim (test_privacy_audit_v423.PrivacyAuditTests.test_missing_canary_fails_before_any_privacy_claim) ... ok
+test_opaque_formats_never_receive_a_clean_result (test_privacy_audit_v423.PrivacyAuditTests.test_opaque_formats_never_receive_a_clean_result) ... ok
+test_unsafe_zip_member_never_extracts (test_privacy_audit_v423.PrivacyAuditTests.test_unsafe_zip_member_never_extracts) ... ok
+test_zip_utf16_and_gzip_tar_contents_are_scanned_without_extracting (test_privacy_audit_v423.PrivacyAuditTests.test_zip_utf16_and_gzip_tar_contents_are_scanned_without_extracting) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.023s
+
+OK

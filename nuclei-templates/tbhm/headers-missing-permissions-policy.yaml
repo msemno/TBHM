@@ -1,0 +1,39 @@
+id: tbhm-missing-permissions-policy
+
+info:
+  name: Missing Permissions-Policy Header
+  author: tbhm
+  severity: info
+  description: |
+    Permissions-Policy (formerly Feature-Policy) is not set, so powerful browser
+    features (camera, microphone, geolocation, payment) are not explicitly
+    restricted for the page and any embedded content.
+  remediation: "Add a Permissions-Policy locking down unused features, e.g. geolocation=(), camera=()."
+  reference:
+    - https://owasp.org/www-project-secure-headers/#permissions-policy
+  tags: tbhm,headers,misconfig
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code >= 200 && status_code < 400"
+      - type: word
+        part: header
+        words:
+          - "permissions-policy"
+          - "feature-policy"
+        case-insensitive: true
+        condition: or
+        negative: true
+      - type: word
+        part: header
+        words:
+          - "text/html"
+        case-insensitive: true

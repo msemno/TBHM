@@ -1,0 +1,343 @@
+{
+  "schema": "tbhm.proof-behavior/1",
+  "class": "bola",
+  "vectors": [
+    {
+      "id": "vulnerable-golden",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "golden",
+      "result": "pass",
+      "receipt_issued": true
+    },
+    {
+      "id": "vulnerable-missing_control",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-missing_actor",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-missing_privacy",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-tampered",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-replayed",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "vulnerable-unrelated_class",
+      "class": "bola",
+      "mode": "vulnerable",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-golden",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "golden",
+      "result": "fail",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_control",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_actor",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-missing_privacy",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-tampered",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-replayed",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "secure-unrelated_class",
+      "class": "bola",
+      "mode": "secure",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-golden",
+      "class": "bola",
+      "mode": "public",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_control",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_actor",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-missing_privacy",
+      "class": "bola",
+      "mode": "public",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-tampered",
+      "class": "bola",
+      "mode": "public",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-replayed",
+      "class": "bola",
+      "mode": "public",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "public-unrelated_class",
+      "class": "bola",
+      "mode": "public",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-golden",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_control",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_actor",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-missing_privacy",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-tampered",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-replayed",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "expired-unrelated_class",
+      "class": "bola",
+      "mode": "expired",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-golden",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_control",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_actor",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-missing_privacy",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-tampered",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-replayed",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "echo-unrelated_class",
+      "class": "bola",
+      "mode": "echo",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-golden",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "golden",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_control",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_control",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_actor",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_actor",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-missing_privacy",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "missing_privacy",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-tampered",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "tampered",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-replayed",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "replayed",
+      "result": "inconclusive",
+      "receipt_issued": false
+    },
+    {
+      "id": "wrong_tenant-unrelated_class",
+      "class": "bola",
+      "mode": "wrong_tenant",
+      "variant": "unrelated_class",
+      "result": "inconclusive",
+      "receipt_issued": false
+    }
+  ],
+  "scope": "owned two-tenant controlled JSON canary read only"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "tbhm.api-authz/1",
+  "accounts": [
+    {"id": "owner", "credential_env": "TBHM_OWNER_AUTH", "owned_test_account": true},
+    {"id": "challenger", "credential_env": "TBHM_CHALLENGER_AUTH", "owned_test_account": true}
+  ],
+  "cases": [
+    {
+      "test_id": "owned-private-object",
+      "owner": "owner",
+      "challenger": "challenger",
+      "url": "https://api.example.test/objects/owned-test-object",
+      "negative_control_url": "https://api.example.test/objects/owned-nonexistent-object",
+      "object_id": "owned-test-object",
+      "object_path": "id",
+      "owner_path": "owner",
+      "owned_test_object": true,
+      "expected_challenger_access": "deny"
+    }
+  ]
+}

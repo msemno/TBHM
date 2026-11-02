@@ -1,0 +1,32 @@
+id: tbhm-missing-x-content-type-options
+
+info:
+  name: Missing X-Content-Type-Options Header
+  author: tbhm
+  severity: info
+  description: |
+    X-Content-Type-Options: nosniff is absent, so browsers may MIME-sniff the
+    response and treat it as a different content type, enabling some XSS vectors
+    on user-controlled uploads or text endpoints.
+  remediation: "Add: X-Content-Type-Options: nosniff"
+  reference:
+    - https://owasp.org/www-project-secure-headers/#x-content-type-options
+  tags: tbhm,headers,misconfig
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code >= 200 && status_code < 400"
+      - type: word
+        part: header
+        words:
+          - "x-content-type-options"
+        case-insensitive: true
+        negative: true

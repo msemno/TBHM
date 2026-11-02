@@ -1,0 +1,34 @@
+id: tbhm-cors-reflected-origin
+
+info:
+  name: CORS Reflects Arbitrary Origin
+  author: tbhm
+  severity: medium
+  description: |
+    The server reflects an attacker-supplied Origin into
+    Access-Control-Allow-Origin. If Access-Control-Allow-Credentials is also true,
+    a malicious site can read authenticated responses cross-origin.
+  remediation: "Validate Origin against an allow-list; never reflect it blindly with credentials."
+  reference:
+    - https://portswigger.net/web-security/cors
+  tags: tbhm,cors,misconfig
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    headers:
+      Origin: "https://tbhm-evil.example.com"
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "access-control-allow-origin: https://tbhm-evil.example.com"
+        case-insensitive: true
+    extractors:
+      - type: kval
+        kval:
+          - access_control_allow_credentials

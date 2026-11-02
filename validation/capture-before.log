@@ -1,0 +1,14 @@
+test_generated_curl_is_not_an_original_request (__main__.IncidentRegressions.test_generated_curl_is_not_an_original_request) ... FAIL
+
+======================================================================
+FAIL: test_generated_curl_is_not_an_original_request (__main__.IncidentRegressions.test_generated_curl_is_not_an_original_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/1b3ad98bd9df/validation/test_incident_regressions.py", line 120, in test_generated_curl_is_not_an_original_request
+    self.assertFalse(f.get('request_raw'))
+AssertionError: '# Reproducer:\ncurl -i -sk -X GET src/app.py' is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 1.602s
+
+FAILED (failures=1)

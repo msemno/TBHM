@@ -1,0 +1,9 @@
+{
+  "schema": "tbhm.run-learning-permission/1",
+  "project_id": "owned-lab",
+  "scope_reference": "REPLACE_WITH_OWNED_LAB_SCOPE",
+  "source_license": "operator-owned local lab",
+  "permission_reference": "REPLACE_WITH_EXPLICIT_REUSE_PERMISSION",
+  "reuse_approved": true,
+  "test_objective": "Review scanner observations with independent negative controls"
+}

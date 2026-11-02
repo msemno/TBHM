@@ -1,0 +1,90 @@
+[
+  {
+    "id": "R1",
+    "name": "Building a Localized, LLM-Enhanced Bug Bounty Framework for Kali Linux.pdf",
+    "type": ".pdf",
+    "bytes": 107401,
+    "sha256": "56e3b766d300e33bd6752bed87a299882d4bd4ba7552f2173bae9e5b2085126a",
+    "read_status": "complete",
+    "pages": 17,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R2",
+    "name": "Pasted text (2).txt",
+    "type": ".txt",
+    "bytes": 31808,
+    "sha256": "184c61b6d5b25fc28e3a1a5ef9fdf45a4b42ba661ec4334f2b4d4d7f069b017d",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R3",
+    "name": "Pasted text (3).txt",
+    "type": ".txt",
+    "bytes": 36122,
+    "sha256": "fe69f45c6b298a70209673c8edae57f1772b2c606d9963749dd05f71570ccdad",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R4",
+    "name": "Pasted text (4).txt",
+    "type": ".txt",
+    "bytes": 35779,
+    "sha256": "00ba7d3bd2ad8ab2fc72e159e138307be1cccd87b37dc1763ebbfc13914cfd97",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R5",
+    "name": "Pasted text (5).txt",
+    "type": ".txt",
+    "bytes": 10813,
+    "sha256": "2d88aaf2732a67ede47d48c7d0e7f53b1fe3d6edf72e1e18b01cf727c21ffc64",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R6",
+    "name": "Pasted text (6).txt",
+    "type": ".txt",
+    "bytes": 13489,
+    "sha256": "7f19e7e5eb3bca15d88a2236688f1dec7841ca4d5cfa974f4a9d68e470638909",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R7",
+    "name": "Pasted text (7).txt",
+    "type": ".txt",
+    "bytes": 15698,
+    "sha256": "0edabb21ef9820adfd59309b0b38cd97b9f8f692a821e683bf4b10f4f094b30f",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "candidate research requirements",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  },
+  {
+    "id": "R8",
+    "name": "Pasted text(2).txt",
+    "type": ".txt",
+    "bytes": 38917,
+    "sha256": "a57216b191bc23fe4f24fe390e29bf41eb04897afa00a45f20adcc2ebf70c8fe",
+    "read_status": "complete",
+    "pages": null,
+    "purpose": "engineering instructions",
+    "limitations": "Research claims require independent checking; references can be missing or indirect."
+  }
+]

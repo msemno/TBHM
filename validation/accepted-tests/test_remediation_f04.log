@@ -1,0 +1,8 @@
+test_denied_and_zero_and_calibration_budget (test_remediation_f04.ApiBoundaryTests.test_denied_and_zero_and_calibration_budget) ... ok
+test_policy_methods_assets_and_zero_ceiling (test_remediation_f04.ApiBoundaryTests.test_policy_methods_assets_and_zero_ceiling) ... ok
+test_shared_fractional_rate_and_budget_across_workers (test_remediation_f04.ApiBoundaryTests.test_shared_fractional_rate_and_budget_across_workers) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.052s
+
+OK

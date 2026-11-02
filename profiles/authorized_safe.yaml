@@ -1,0 +1,29 @@
+name: authorized_safe
+description: Default bug-bounty scan. Active probing with conservative rate limits.
+
+active_probes: true
+send_payloads: true
+
+rate_limit:
+  global_rps: 10
+  per_target_rps: 5
+  per_endpoint_rps: 1
+
+payload_classes:
+  - time_blind
+  - oob
+  - reflection
+  - differential
+
+nuclei:
+  severity: [critical, high, medium]
+  tags: [cve, exposure, misconfig, takeover]
+
+sqlmap:
+  enabled: true
+  level: 2
+  risk: 1
+  max_time: 60
+
+max_subdomains: 2000
+katana_depth: 2

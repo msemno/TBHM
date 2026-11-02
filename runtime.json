@@ -1,0 +1,8 @@
+{
+  "python": ">=3.12,<3.13",
+  "platform": "Linux x86-64 (glibc >=2.27)",
+  "tested_python": "3.12.14",
+  "go_executor": "optional Linux x86-64; rebuilt with Go 1.22.5",
+  "optional_scanners": "Detected separately; not included or claimed installed by the core installer.",
+  "offline_isolation": "Linux x86-64 seccomp network syscall filter; inherited across threads and fork/exec; no fallback"
+}

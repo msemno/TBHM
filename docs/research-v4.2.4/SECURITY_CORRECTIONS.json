@@ -1,0 +1,24 @@
+[
+  {
+    "source": "4.2.3",
+    "command": [
+      "/workspace/scratch/275c82ed021c/test-venv/bin/python",
+      "/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/scripts/reproduce_security_corrections_v424.py",
+      "/workspace/scratch/275c82ed021c/release/TBHM-4.2.3"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "test_canary_in_filename_is_a_delivery_leak (__main__.Defects.test_canary_in_filename_is_a_delivery_leak) ... ok\ntest_operator_queue_cannot_trust_imported_flags (__main__.Defects.test_operator_queue_cannot_trust_imported_flags) ... FAIL\ntest_oversized_429_still_persists_shared_cooldown (__main__.Defects.test_oversized_429_still_persists_shared_cooldown) ... FAIL\ntest_untrusted_graph_flags_cannot_verify_proof (__main__.Defects.test_untrusted_graph_flags_cannot_verify_proof) ... FAIL\n\n======================================================================\nFAIL: test_operator_queue_cannot_trust_imported_flags (__main__.Defects.test_operator_queue_cannot_trust_imported_flags)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/scripts/reproduce_security_corrections_v424.py\", line 36, in test_operator_queue_cannot_trust_imported_flags\n    self.assertFalse(result['queue'][0]['proof_verified'])\nAssertionError: True is not false\n\n======================================================================\nFAIL: test_oversized_429_still_persists_shared_cooldown (__main__.Defects.test_oversized_429_still_persists_shared_cooldown)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/scripts/reproduce_security_corrections_v424.py\", line 24, in test_oversized_429_still_persists_shared_cooldown\n    self.assertEqual(a.request({'id':'large','url':url+'/rate'},'native')['status'],'incomplete');self.assertEqual(b.request({'id':'next','url':url+'/ok'},'native')['status'],'blocked')\n                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'observed' != 'blocked'\n- observed\n+ blocked\n\n\n======================================================================\nFAIL: test_untrusted_graph_flags_cannot_verify_proof (__main__.Defects.test_untrusted_graph_flags_cannot_verify_proof)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/scripts/reproduce_security_corrections_v424.py\", line 17, in test_untrusted_graph_flags_cannot_verify_proof\n    graph=build([{'id':1,'url':'https://example.test/a','verified':True,'finding_class':'confirmed'}]);self.assertFalse(next(n for n in graph['nodes'] if n['kind']=='finding')['proof_verified'])\n                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not false\n\n----------------------------------------------------------------------\nRan 4 tests in 0.522s\n\nFAILED (failures=3)\n"
+  },
+  {
+    "source": "4.2.4",
+    "command": [
+      "/workspace/scratch/275c82ed021c/test-venv/bin/python",
+      "/workspace/scratch/275c82ed021c/release/TBHM-4.2.4/scripts/reproduce_security_corrections_v424.py",
+      "/workspace/scratch/275c82ed021c/release/TBHM-4.2.4"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_canary_in_filename_is_a_delivery_leak (__main__.Defects.test_canary_in_filename_is_a_delivery_leak) ... ok\ntest_operator_queue_cannot_trust_imported_flags (__main__.Defects.test_operator_queue_cannot_trust_imported_flags) ... ok\ntest_oversized_429_still_persists_shared_cooldown (__main__.Defects.test_oversized_429_still_persists_shared_cooldown) ... ok\ntest_untrusted_graph_flags_cannot_verify_proof (__main__.Defects.test_untrusted_graph_flags_cannot_verify_proof) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.517s\n\nOK\n"
+  }
+]

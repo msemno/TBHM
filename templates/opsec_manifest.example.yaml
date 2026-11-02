@@ -1,0 +1,10 @@
+dedicated_identity: true
+egress_verified: true
+evidence_encrypted: true
+pii_minimization: true
+browser_isolation: true
+fingerprint_control: false
+kill_switch: "Stop TBHM, revoke research/API tokens, notify engagement lead"
+retention_days: 90
+notes:
+  - This manifest declares operator controls; TBHM does not claim anonymity.

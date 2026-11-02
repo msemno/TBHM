@@ -1,0 +1,28 @@
+id: tbhm-http-options-write-methods
+
+info:
+  name: Write HTTP Methods Advertised via OPTIONS
+  author: tbhm
+  severity: info
+  description: |
+    The OPTIONS response advertises state-changing methods (PUT, DELETE, PATCH).
+    If any are reachable unauthenticated, they may allow file upload or
+    modification — worth manual verification.
+  remediation: "Restrict the Allow set to required methods and enforce auth."
+  tags: tbhm,misconfig,method
+  metadata:
+    max-request: 1
+
+http:
+  - method: OPTIONS
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: regex
+        part: header
+        regex:
+          - "(?i)allow:\\s*[^\\r\\n]*(PUT|DELETE|PATCH)"
+    extractors:
+      - type: kval
+        kval:
+          - allow

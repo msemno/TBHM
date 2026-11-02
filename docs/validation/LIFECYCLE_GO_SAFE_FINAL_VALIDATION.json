@@ -1,0 +1,60 @@
+{
+  "release": "TBHM-v3.9.7.3-lifecycle-go-safe-upgrade",
+  "validation_date": "2026-07-26",
+  "environment": "Kali/Linux-compatible offline validation environment",
+  "results": {
+    "integration_suites": {
+      "passed": 15,
+      "total": 15
+    },
+    "strict_lifecycle_tests": {
+      "passed": 14,
+      "total": 14
+    },
+    "python_files_ast_parsed": 256,
+    "json_files_parsed_before_review_docs": 32,
+    "yaml_files_parsed": 44,
+    "phase_modules_imported": 133,
+    "historical_phase_order": 129,
+    "expanded_phase_order": 133,
+    "shell_scripts_bash_n": 3,
+    "go_test": "pass",
+    "go_vet": "pass",
+    "go_static_build": "pass",
+    "cli_help": "pass",
+    "cli_profile_listing": "pass",
+    "bug_bounty_cli_smoke": "pass",
+    "redteam_campaign_cli_smoke": "pass",
+    "removed_original_files": 0,
+    "dynamic_execution_audit_issues": 0
+  },
+  "go_executor": {
+    "path": "bin/tbhm-go-executor",
+    "sha256": "431bdc3aa75bed53c791f15aaf76a12f54b4ac1c5f213c8579d777afe98860cf",
+    "format": "ELF 64-bit x86-64 statically linked stripped"
+  },
+  "safety_boundary": {
+    "autonomous_weaponized_exploitation_added": false,
+    "credential_theft_added": false,
+    "persistence_added": false,
+    "defense_evasion_added": false,
+    "c2_added": false,
+    "lateral_movement_added": false,
+    "destructive_actions_added": false,
+    "high_impact_model": "approval-gated import-only structured proof with cleanup and detection evidence"
+  },
+  "comparison": {
+    "original_files": 395,
+    "changed_original_files": 36,
+    "added_files_before_review_docs": 22,
+    "removed_original_files": []
+  },
+  "validation_artifacts": [
+    "VALIDATION-v3.9.7.3-lifecycle-go-safe.md",
+    "docs/STRICT_EVIDENCE_AND_CAMPAIGN_ARCHITECTURE.md",
+    "docs/review/TBHM_full_redteam_bug_bounty_gap_and_logic_review.md",
+    "docs/review/TBHM_phase_logic_inventory.csv",
+    "docs/review/TBHM_gap_matrix.csv",
+    "docs/review/TBHM_recommended_finding_schema.json"
+  ]
+}

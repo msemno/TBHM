@@ -1,0 +1,29 @@
+id: tbhm-server-version-disclosure
+
+info:
+  name: Server Software Version Disclosure
+  author: tbhm
+  severity: info
+  description: |
+    The Server response header exposes the web-server product and version. This
+    helps an attacker map the stack to known CVEs.
+  remediation: "Strip or generalise the Server header at the edge."
+  tags: tbhm,disclosure,fingerprint
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: regex
+        part: header
+        regex:
+          - "(?i)server:\\s*[a-z\\-]+/[0-9]+\\.[0-9]+"
+    extractors:
+      - type: regex
+        part: header
+        group: 1
+        regex:
+          - "(?i)server:\\s*([^\\r\\n]+)"

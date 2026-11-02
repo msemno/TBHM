@@ -1,0 +1,42 @@
+{
+  "schema": "tbhm.executed-standard-objectives/1",
+  "full_requirement_level_coverage": false,
+  "rows": [
+    {
+      "standard": "WSTG",
+      "version": "4.2",
+      "requirement_id": "WSTG-ATHZ-04",
+      "objective": "Verify object authorization using two separately authenticated owned users",
+      "executed_case_ids": [
+        "bola-vulnerable",
+        "bola-secure",
+        "bola-public",
+        "bola-expired",
+        "bola-echo",
+        "bola-wrong_tenant"
+      ],
+      "execution_record": "docs/research-v4.2.5/benchmarks/proof_evaluation.json",
+      "scope": "Partial objective coverage: explicit owned two-tenant read-only JSON canary object",
+      "source": "https://wstg.owasp.org/v4.2/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References"
+    },
+    {
+      "standard": "OWASP API Security Top 10",
+      "version": "2023",
+      "requirement_id": "API1:2023",
+      "objective": "Enforce authorization for the particular object requested by an authenticated principal",
+      "executed_case_ids": [
+        "bola-vulnerable",
+        "bola-secure"
+      ],
+      "execution_record": "docs/research-v4.2.5/benchmarks/proof_evaluation.json",
+      "scope": "Category/control objective link only; not complete API Top 10 requirement coverage",
+      "source": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/"
+    }
+  ],
+  "deferred": [
+    "Complete WSTG objective coverage",
+    "API2\u2013API10 executed requirement mapping",
+    "ASVS versioned verification requirements",
+    "MASVS/MASTG executed fixtures"
+  ]
+}

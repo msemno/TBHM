@@ -1,0 +1,10 @@
+actions:
+  - id: VAL-001
+    action: approved_external_validation_import
+    target: app.example.com
+    attack_technique: T1190
+    expected_impact: Validate a reported authorization boundary using client-controlled accounts
+    max_duration: 15m
+    request_limit: 20
+    evidence_required: [Baseline, negative control, proof response, timestamps]
+    cleanup: [Delete created test objects, revoke temporary tokens]

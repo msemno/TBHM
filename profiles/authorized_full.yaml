@@ -1,0 +1,26 @@
+name: authorized_full
+description: Full pentest. Requires SoW. Aggressive but still bounded by hard limits.
+
+active_probes: true
+send_payloads: true
+
+rate_limit:
+  global_rps: 30
+  per_target_rps: 15
+  per_endpoint_rps: 3
+
+payload_classes:
+  - "*"
+
+nuclei:
+  severity: [critical, high, medium, low]
+  tags: [cve, exposure, misconfig, takeover, intrusive, fuzz]
+
+sqlmap:
+  enabled: true
+  level: 3
+  risk: 2
+  max_time: 180
+
+max_subdomains: 10000
+katana_depth: 4

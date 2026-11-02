@@ -1,0 +1,41 @@
+{
+  "verdict": "NOT_READY",
+  "baseline": "3.9.7.3-installer-stability",
+  "intended_update": "3.9.7.4",
+  "archive_comparison": {
+    "common_files": 395,
+    "identical_common_files": 390,
+    "modified_files": 5,
+    "new_files": 1,
+    "removed_files": 0,
+    "historical_cli_flags_retained": true,
+    "new_cli_flags": [
+      "--firmware-rootfs"
+    ],
+    "bundled_test_scripts_passed": 14,
+    "compile_passed": true
+  },
+  "confirmed_regressions": [
+    {
+      "id": "R-01",
+      "severity": "HIGH",
+      "title": "Relative firmware paths break after extraction cwd change"
+    },
+    {
+      "id": "R-02",
+      "severity": "MEDIUM",
+      "title": "Explicit binwalk root extraction compatibility removed"
+    }
+  ],
+  "release_blockers": [
+    "Internal version remains 3.9.7.3",
+    "Release manifest hashes are stale and new changelog is missing",
+    "Rootfs audit follows symlinks outside extracted tree",
+    "Failed unsquashfs can be accepted as success and skip sasquatch",
+    "Public PEM certificates can be reported as private keys",
+    "Comment-only service references can be reported as started",
+    "Readelf failures can become all-mitigations-missing findings",
+    "Firmware input flags do not auto-activate phase across profiles",
+    "Main --doctor path does not check firmware dependencies"
+  ]
+}

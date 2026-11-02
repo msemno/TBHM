@@ -1,0 +1,90 @@
+{
+  "release": "4.2.1",
+  "date": "2026-10-18",
+  "platform_tested": "Linux x86-64, Python 3.13.5",
+  "source_baseline_sha256": "e6563326e5127e16338fb938ae43b8e52f2f46170adeeac7e0d1553641d48aca",
+  "compatibility": {
+    "baseline_files": 590,
+    "removed_files": [],
+    "phase_names_and_order_equal": true,
+    "sqlite_schema_equal": true,
+    "original_cli_actions_retained": "no CLI switch/dispatch table removal; 450 baseline CLI actions, no new CLI switches",
+    "legacy_compliance_functions_preserved": [
+      "load",
+      "finding_tags",
+      "map_findings"
+    ],
+    "go_source_unchanged": true
+  },
+  "regression": {
+    "tested_groups": 48,
+    "passed_concurrent": 47,
+    "failed_concurrent": [
+      {
+        "test": "integration_test_v398_safe_lifecycle.py",
+        "error": "------------------\nTraceback (most recent call last):\n  File \"/mnt/data/tbhm_work/TBHM-4.2.0/integration_test_v398_safe_lifecycle.py\", line 199, in test_runner_streams_bounded_output_times_out_and_runs_parallel\n    self.assertLess(elapsed, 2.25)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: 2.274737945000197 not less than 2.25\n\n----------------------------------------------------------------------\nRan 14 tests in 5.240s\n\nFAILED (failures=1)\n"
+      }
+    ],
+    "isolated_retest": {
+      "test": "integration_test_v398_safe_lifecycle.py",
+      "result": "PASS (14 tests, 5.908 s; captured locally after parallel timing failure)"
+    },
+    "suite_note": "One timing-sensitive legacy test crossed 2.25 seconds by 0.025 under concurrent load; it passed on standalone replay. An attempted copied-source suite exceeded the environment timeout; no assertion of a single clean full run."
+  },
+  "oast": {
+    "local_http_oracle": "PASS; 3 unit tests including callback budget, missing approval, offline guard",
+    "local_ssrf_phase": "PASS; 4 test scenarios including lab positive, secure fixture negative, scope deny, offline",
+    "external_service_or_dns": "NOT TESTED; deliberately unsupported"
+  },
+  "standards_mapping": {
+    "tests": "PASS; 3 executed strict test-ID mapping cases",
+    "catalog_size": 5,
+    "catalog_partial": true
+  },
+  "offline_egress": {
+    "test": "PASS; 1 local mocked no-external-call test",
+    "os_namespace": "NOT IMPLEMENTED"
+  },
+  "strict_proof_synthetic": {
+    "labeled_cases": 12,
+    "tamper_attempts": 24,
+    "tamper_refusals": 24,
+    "by_class": {
+      "access_control": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "open_redirect": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      },
+      "sensitive_data_exposure": {
+        "TP": 2,
+        "FP": 0,
+        "FN": 0,
+        "TN": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "f1": 1.0
+      }
+    },
+    "measurement_scope": "12 generated local authenticated-capture cases (6 positive, 6 benign) for three existing strict proof classes. Does not measure real-world detector recall or false-positive rates."
+  },
+  "network_live_validation": "NONE; loopback synthetic fixtures only",
+  "child_scanner_global_metering": "NOT IMPLEMENTED",
+  "limitations": "No verified production scanner accuracy, live bounty acceptance, full standards coverage, multi-identity workflow or 10-class confirmation expansion.",
+  "status": "SCOPED_INCREMENTAL_RELEASE; required high-level scanner floors not closed"
+}

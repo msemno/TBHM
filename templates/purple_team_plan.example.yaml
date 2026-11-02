@@ -1,0 +1,8 @@
+tests:
+  - id: PT-001
+    attack_technique: T1078
+    objective: Validate detection of approved test-account misuse
+    expected_telemetry: Authentication, identity-provider and endpoint events
+    d3fend: D3-IAA
+    execution_owner: Client-approved operator
+    cleanup: Revoke test session and preserve alert/investigation evidence

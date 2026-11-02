@@ -1,0 +1,20 @@
+Priority,Requirement,State,Implementation,Evidence,Limit/prerequisite
+P0,unscoped model context,FIXED,core/ai_plane/advisor.py,tests/test_security_v425.py,Project-scoped reviewed retrieval required for private case text
+P0,proposal path traversal,FIXED,core/ai_plane/proposals.py,tests/test_improvement_v425.py,Exact UID and non-link directory
+P0,installer missing manifest,FIXED,core/package_verifier.py; install.sh,tests/test_security_v425.py,Explicit release-only requirement preserves generic tree/ZIP contract
+P1,persistent reviewed scenarios,IMPLEMENTED,core/ai_plane/scenarios.py,tests/test_scenarios_v425.py,Additive schema with immutable versioned identities
+P1,reviewed RAG and mistake feedback,IMPLEMENTED,core/ai_plane/scenarios.py,benchmarks/learning_evaluation.json,Synthetic retrieval comparison only
+P1,independent evaluation,IMPLEMENTED INFRASTRUCTURE,core/ai_plane/self_evaluation.py,tests/test_self_evaluation_v425.py,Real model effectiveness UNVERIFIED
+P1,controlled improvement,IMPLEMENTED,core/ai_plane/improvement.py,tests/test_improvement_v425.py,Retrieval config only; source and weights excluded
+P1,owned two-tenant BOLA proof,IMPLEMENTED,core/strict_api_v425.py,benchmarks/proof_evaluation.json,Read-only controlled exact JSON canary representation
+P1,evidence correlation,IMPLEMENTED ADDITION,core/evidence_graph.py,tests/test_bola_v425.py,"Origin/tenant/object declarations remain associations, not exploit paths"
+P1,learning resource backpressure,IMPLEMENTED,core/ai_plane/learning_jobs.py,tests/test_improvement_v425.py,One active inference per DB; 32 pending per project; no hard RSS quota
+P2,training dataset preparation,IMPLEMENTED,core/ai_plane/scenarios.py; learning_cli.py,tests/test_scenarios_v425.py,Explicit permission and revocation validation; no training
+P2,real model evaluation/training,DEFERRED,docs/LEARNING-v4.2.5.md,benchmarks/learning_evaluation.json,Approved model/data/hardware and comparative held-out evidence required
+P2,global transport/wire closure,OPEN,core/request_guard.py; core/brokered_http.py,TRANSPORT_COVERAGE.csv,Enforced scanner/browser transport plus wire/packet evidence required
+P2,full sensitive writer closure,OPEN,scripts/inventory_source_v425.py,SOURCE_INVENTORY.json,Per-producer semantic review plus opaque format canaries still required
+P2,other strict injection/browser classes,DEFERRED,ROADMAP.md,PROOF_CONTRACT_MATRIX.csv,Complete semantic verifier and bounded fixture recipe required
+P2,external attributable OAST,DEFERRED,core/oast.py,ROADMAP.md,Approved reachable signed callback provider and false-correlation controls
+P2,representative held-out calibration,DEFERRED,ROADMAP.md,VERIFICATION.json,Licensed independently labeled real projects required
+P2,full requirement-level standards,OPEN,STANDARDS_EXECUTION.json,ROADMAP.md,Only the executed owned-object objective is linked; ASVS/MASVS coverage unclaimed
+P2,actual Kali VM model resource measurement,DEFERRED,docs/UPGRADE-v4.2.5.md,benchmarks/learning_evaluation.json,Actual Kali/VMware guest/model runtime required

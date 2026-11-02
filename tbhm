@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+TBHM_RELEASE_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+TBHM_RUNTIME="${TBHM_PYTHON:-$TBHM_RELEASE_ROOT/.venv/bin/python}"
+if [[ ! -x "$TBHM_RUNTIME" ]]; then printf 'Run bash install.sh first, or set TBHM_PYTHON to your pinned interpreter.\n' >&2; exit 2; fi
+exec "$TBHM_RUNTIME" "$TBHM_RELEASE_ROOT/tbhm.py" "$@"

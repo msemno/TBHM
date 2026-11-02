@@ -1,0 +1,14 @@
+test_cli_vulnerable_patched_and_public_bola (test_incident_workflows_v426.WorkflowTests.test_cli_vulnerable_patched_and_public_bola) ... ok
+test_gcp_project_is_positional_and_explicit_on_every_command (test_incident_workflows_v426.WorkflowTests.test_gcp_project_is_positional_and_explicit_on_every_command) ... ok
+test_mandatory_external_containment_fails_before_process_launch (test_incident_workflows_v426.WorkflowTests.test_mandatory_external_containment_fails_before_process_launch) ... ok
+test_native_inference_records_success_after_target_budget_is_spent (test_incident_workflows_v426.WorkflowTests.test_native_inference_records_success_after_target_budget_is_spent) ... ok
+test_nuclei_timeout_retains_valid_capture_and_records_malformed_output (test_incident_workflows_v426.WorkflowTests.test_nuclei_timeout_retains_valid_capture_and_records_malformed_output) ... ok
+test_owned_term_ignoring_child_is_killed_and_unrelated_child_survives (test_incident_workflows_v426.WorkflowTests.test_owned_term_ignoring_child_is_killed_and_unrelated_child_survives) ... ok
+test_phase_deadline_cannot_be_swallowed_as_a_probe_error (test_incident_workflows_v426.WorkflowTests.test_phase_deadline_cannot_be_swallowed_as_a_probe_error) ... ok
+test_real_httpx_fixture_process_uses_json_and_preserves_partial_metadata (test_incident_workflows_v426.WorkflowTests.test_real_httpx_fixture_process_uses_json_and_preserves_partial_metadata) ... ok
+test_sigint_stops_ffuf_without_post_cancel_model_requests (test_incident_workflows_v426.WorkflowTests.test_sigint_stops_ffuf_without_post_cancel_model_requests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 15.401s
+
+OK

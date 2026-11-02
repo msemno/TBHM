@@ -1,0 +1,79 @@
+[
+  {
+    "filename": "Pasted markdown(1).md",
+    "bytes": 19797,
+    "sha256": "44ca0a89e6eb6027a5e6d0dd5e32601585c5852b430c639deb93655259c95ab4",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "Pasted text (2)(5).txt",
+    "bytes": 12112,
+    "sha256": "dccfa90fe0a9efd9560c620931e18e552822eb04c2bba6270116c5494bb9c743",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "Pasted text (3)(3).txt",
+    "bytes": 18107,
+    "sha256": "752b5bc4f4f597e10d3a8d8de419bf6fa6d1e80c1c6f62ca77d7bb5df22e2a11",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "Pasted text(6).txt",
+    "bytes": 41408,
+    "sha256": "9f2f5b58fca6ef3298163be5b530ddf2effd1022e4bc77b2a620069d346bd8e2",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "TBHM-4.2.0-linux-x86_64.zip",
+    "bytes": 21847373,
+    "sha256": "e6563326e5127e16338fb938ae43b8e52f2f46170adeeac7e0d1553641d48aca",
+    "duplicate_of": null,
+    "use": "historical comparison"
+  },
+  {
+    "filename": "TBHM-4.2.1-Research-and-Fixes.md",
+    "bytes": 13346,
+    "sha256": "1fba26979d63c454468aae629c1e698b80fe2f541c4a7e95a2548f501911b344",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "TBHM-4.2.1-linux-x86_64.zip",
+    "bytes": 21957839,
+    "sha256": "773103b80bdbc6d56dece79aefb92401ef3c096d9aa958857cbaf8cce9274757",
+    "duplicate_of": null,
+    "use": "implementation baseline"
+  },
+  {
+    "filename": "TBHM_Proven_Bug_Bounty_Tools_and_LLM_Research_2026(2).md",
+    "bytes": 31474,
+    "sha256": "55254a6da0ac0402048c034d964583e6000f62975323a755fee7b26ee0614e4f",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "TBHM_Proven_Bug_Bounty_Tools_and_LLM_Research_2026(3).md",
+    "bytes": 31474,
+    "sha256": "55254a6da0ac0402048c034d964583e6000f62975323a755fee7b26ee0614e4f",
+    "duplicate_of": "TBHM_Proven_Bug_Bounty_Tools_and_LLM_Research_2026(2).md",
+    "use": "research/process input"
+  },
+  {
+    "filename": "TBHM_Ultimate_Bug_Bounty_Research_2026(2).md",
+    "bytes": 74527,
+    "sha256": "a6a26fb8e2e7f3f380e383db8e05c1107b77f38d8a257b1334998f692f0ebf5c",
+    "duplicate_of": null,
+    "use": "research/process input"
+  },
+  {
+    "filename": "TBHM_Ultimate_Bug_Bounty_Research_2026(3).md",
+    "bytes": 74527,
+    "sha256": "a6a26fb8e2e7f3f380e383db8e05c1107b77f38d8a257b1334998f692f0ebf5c",
+    "duplicate_of": "TBHM_Ultimate_Bug_Bounty_Research_2026(2).md",
+    "use": "research/process input"
+  }
+]

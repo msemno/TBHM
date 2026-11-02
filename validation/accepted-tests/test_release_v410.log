@@ -1,0 +1,18 @@
+test_legacy_flags_status_only_and_counters_never_confirm (test_release_v410.ReleaseTests.test_legacy_flags_status_only_and_counters_never_confirm) ... ok
+test_native_http_guard_applies_before_transport_and_caps_responses (test_release_v410.ReleaseTests.test_native_http_guard_applies_before_transport_and_caps_responses) ... ok
+test_native_redirect_verifier_creates_a_linked_confirmed_finding (test_release_v410.ReleaseTests.test_native_redirect_verifier_creates_a_linked_confirmed_finding) ... ok
+test_observation_validation_enrichment_and_notes_are_redacted (test_release_v410.ReleaseTests.test_observation_validation_enrichment_and_notes_are_redacted) ... ok
+test_other_confirmation_contracts_accept_captured_positive_pairs (test_release_v410.ReleaseTests.test_other_confirmation_contracts_accept_captured_positive_pairs) ... ok
+test_provider_credentials_are_never_in_live_argv (test_release_v410.ReleaseTests.test_provider_credentials_are_never_in_live_argv) ... ok
+test_raw_json_cannot_restore_confirmation_receipt (test_release_v410.ReleaseTests.test_raw_json_cannot_restore_confirmation_receipt) ... ok
+test_real_capture_contract_survives_database_reopen (test_release_v410.ReleaseTests.test_real_capture_contract_survives_database_reopen) ... ok
+test_recovered_sources_are_analyzed_raw_and_exported_redacted (test_release_v410.ReleaseTests.test_recovered_sources_are_analyzed_raw_and_exported_redacted) ... ok
+test_replayed_tampered_unsigned_and_wrong_class_proof_is_refused (test_release_v410.ReleaseTests.test_replayed_tampered_unsigned_and_wrong_class_proof_is_refused) ... ok
+test_resume_detects_changed_source_even_with_preserved_mtime (test_release_v410.ReleaseTests.test_resume_detects_changed_source_even_with_preserved_mtime) ... ok
+test_sealed_snapshot_includes_consistent_database_and_survives_later_writes (test_release_v410.ReleaseTests.test_sealed_snapshot_includes_consistent_database_and_survives_later_writes) ... ok
+test_snapshot_reports_tampering_and_rejects_symlinks (test_release_v410.ReleaseTests.test_snapshot_reports_tampering_and_rejects_symlinks) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.033s
+
+OK

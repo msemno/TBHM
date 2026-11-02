@@ -1,0 +1,20 @@
+{
+  "schema": "tbhm.learning-corpus/1",
+  "records": [
+    {
+      "id": "synthetic-negative-control",
+      "project_id": "tbhm-authored-fixture",
+      "root_cause_id": "synthetic-score-only",
+      "split": "train",
+      "source_url": "https://example.test/tbhm-synthetic-fixture",
+      "source_license": "CC0-1.0 synthetic example data",
+      "reuse_approved": true,
+      "human_reviewed": true,
+      "contains_sensitive_data": false,
+      "technical_validity": "refuted",
+      "program_outcome": "unsubmitted",
+      "text": "Synthetic negative control: a scanner score does not establish a vulnerability.",
+      "reviewed_text_sha256": "278cf81240f37d14c056df19539889c7bc2ce27fd5c255603e8f6ea0f4350b3b"
+    }
+  ]
+}

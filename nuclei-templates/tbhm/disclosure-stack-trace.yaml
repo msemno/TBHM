@@ -1,0 +1,32 @@
+id: tbhm-verbose-error-stacktrace
+
+info:
+  name: Verbose Error / Stack Trace Disclosure
+  author: tbhm
+  severity: low
+  description: |
+    An induced error response leaks a framework stack trace or debug page,
+    revealing file paths, library versions, and sometimes query fragments.
+  remediation: "Disable debug mode in production; return generic error pages."
+  tags: tbhm,disclosure,debug,error
+  metadata:
+    max-request: 1
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/%27%22%3E%5C"
+    matchers:
+      - type: word
+        part: body
+        condition: or
+        case-insensitive: true
+        words:
+          - "Traceback (most recent call last)"
+          - "Whoops, looks like something went wrong"
+          - "java.lang."
+          - "System.Web.HttpException"
+          - "org.springframework"
+          - "Warning: include("
+          - "Fatal error:"
+          - "DEBUG = True"

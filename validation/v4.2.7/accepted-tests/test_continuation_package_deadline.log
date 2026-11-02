@@ -1,0 +1,8 @@
+test_budget_rejection_never_enters_crc (test_continuation_package_deadline.PackageDeadlineTests.test_budget_rejection_never_enters_crc) ... ok
+test_clean_package_is_still_verified (test_continuation_package_deadline.PackageDeadlineTests.test_clean_package_is_still_verified) ... ok
+test_stalled_worker_is_stopped_without_external_watchdog (test_continuation_package_deadline.PackageDeadlineTests.test_stalled_worker_is_stopped_without_external_watchdog) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.240s
+
+OK

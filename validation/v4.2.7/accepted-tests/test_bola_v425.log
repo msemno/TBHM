@@ -1,0 +1,11 @@
+test_graph_binds_owned_object_to_explicit_tenant_and_origin (test_bola_v425.Bola.test_graph_binds_owned_object_to_explicit_tenant_and_origin) ... ok
+test_preflight_refuses_unowned_same_credentials_scope_and_writes (test_bola_v425.Bola.test_preflight_refuses_unowned_same_credentials_scope_and_writes) ... ok
+test_public_expired_echo_wrong_tenant_stay_inconclusive (test_bola_v425.Bola.test_public_expired_echo_wrong_tenant_stay_inconclusive) ... ok
+test_signed_identity_and_tenant_substitution_rejected (test_bola_v425.Bola.test_signed_identity_and_tenant_substitution_rejected) ... ok
+test_tampered_replayed_wrong_class_and_missing_controls (test_bola_v425.Bola.test_tampered_replayed_wrong_class_and_missing_controls) ... ok
+test_vulnerable_and_patched_end_to_end_proof_and_seven_requests (test_bola_v425.Bola.test_vulnerable_and_patched_end_to_end_proof_and_seven_requests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 10.555s
+
+OK
