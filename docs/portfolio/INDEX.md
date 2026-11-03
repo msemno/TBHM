@@ -23,3 +23,7 @@ The files under `docs/portfolio/` are navigational and explanatory. The 4.2.7 re
 ## What this documentation intentionally does not do
 
 It does not claim every phase executed, every optional tool is installed, every vulnerability lead is real, every child process is fully contained, or a local LLM is accurate. There is no added fabricated screenshot, benchmark, target finding, award, production engagement, or CI result.
+
+## Continuous integration
+
+[CI foundation, limitations and manual regression](CI_GUIDE.md) explains the offline release gate and how to validate an actual Actions run.

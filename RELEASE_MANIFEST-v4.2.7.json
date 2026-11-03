@@ -3,14 +3,21 @@
   "release": "4.2.7",
   "semantic_version": "4.2.7",
   "root_name": "TBHM-4.2.7",
-  "generated_at": 1793691566,
+  "generated_at": 1793695510,
   "local_repair": "tbhm-4.2.7-regression-environment-1",
   "manifest_policy": "Every source file except current manifest and runtime caches; historical manifests retained.",
   "summary": {
-    "file_count": 1249,
-    "total_bytes": 39497203
+    "file_count": 1251,
+    "total_bytes": 39505528
   },
   "files": [
+    {
+      "path": ".github/workflows/tbhm-ci.yml",
+      "size": 2891,
+      "sha256": "8c0cb5165807132d45f17e133e6a6441bd0be0612b8e66c01a66f739eb5e64a8",
+      "executable": false,
+      "type": "yml"
+    },
     {
       "path": ".gitignore",
       "size": 451,
@@ -328,8 +335,8 @@
     },
     {
       "path": "README.md",
-      "size": 9178,
-      "sha256": "cdb255ecbf32703442d28daa214c7e543371b11572d2bb3b990dd428ffa2838b",
+      "size": 9701,
+      "sha256": "890b27fd014ba8599672f727d26bc59f24959edd372a13f6f817a15ffc55578f",
       "executable": false,
       "type": "md"
     },
@@ -2119,6 +2126,13 @@
       "type": "md"
     },
     {
+      "path": "docs/portfolio/CI_GUIDE.md",
+      "size": 4203,
+      "sha256": "337e563bc92639bc8229a1e1236735a91b00395c3934dee4d4c5944c7fb4c1d3",
+      "executable": false,
+      "type": "md"
+    },
+    {
       "path": "docs/portfolio/CONTRIBUTION_CLAIMS.md",
       "size": 2028,
       "sha256": "a96cf3bba33c926657e400313e016abd532295357dfbaecbd9519e0584504810",
@@ -2148,8 +2162,8 @@
     },
     {
       "path": "docs/portfolio/INDEX.md",
-      "size": 2407,
-      "sha256": "a44836c9a6f8e2e2072341bbf4d4579281f5eb25d135e3146e4da2c47d7cf852",
+      "size": 2576,
+      "sha256": "77aac4c148b495379009044f3d8f23bfccc428f0103eb2654a7ec83dd55e5d02",
       "executable": false,
       "type": "md"
     },
@@ -2176,8 +2190,8 @@
     },
     {
       "path": "docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md",
-      "size": 4507,
-      "sha256": "126dcbc24c3337e2107b1c1465ea281627b26cb57bc1c21f6ba06154d298207f",
+      "size": 4971,
+      "sha256": "5111b0b03f6991a2d17cedc9ffc7d1793ef75380188a4c0a494272421d5c13bd",
       "executable": false,
       "type": "md"
     },
@@ -2218,8 +2232,8 @@
     },
     {
       "path": "docs/portfolio/TESTING_AND_VALIDATION.md",
-      "size": 3065,
-      "sha256": "f8494a7e07daa0c18fc37bd1e8c93806c831f5bdef7d343c890abab7897900f5",
+      "size": 3140,
+      "sha256": "29d9cd376e80b2286882dc82e49944658b9daee1371231170c4f2012cc67dc76",
       "executable": false,
       "type": "md"
     },
@@ -8768,5 +8782,21 @@
     "runtime_source_changed": false,
     "license_changed": false,
     "added_docs": 17
+  },
+  "ci_foundation": {
+    "patch_id": "tbhm-v427-ci-foundation-v1",
+    "basis_manifest_sha256": "3beaeb869d7e500b779c243e7478c6d0d64a3ef502d9b4eb467599f82c754857",
+    "added_files": [
+      ".github/workflows/tbhm-ci.yml",
+      "docs/portfolio/CI_GUIDE.md"
+    ],
+    "updated_docs": [
+      "README.md",
+      "docs/portfolio/INDEX.md",
+      "docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md",
+      "docs/portfolio/TESTING_AND_VALIDATION.md"
+    ],
+    "runtime_source_changed": false,
+    "license_changed": false
   }
 }

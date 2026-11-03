@@ -1,0 +1,99 @@
+name: TBHM 4.2.7 - Release Integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      full_regression:
+        description: "Run full local regression suite (longer; local fixtures only)"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tbhm-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package-integrity:
+    name: Offline install, manifest and phase registry
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout (without persisting Git credentials)
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12 (required by bundled wheels)
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Offline installation from hash-locked wheels
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash install.sh --offline --python "$(command -v python)"
+
+      - name: Package smoke tests and dependency consistency
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./tbhm --version
+          ./tbhm --help > "$RUNNER_TEMP/tbhm-help.txt"
+          .venv/bin/python -m pip check
+
+      - name: Verify release manifest, compile/import and phase resolution
+        shell: bash
+        run: |
+          set -euo pipefail
+          .venv/bin/python scripts/validate_v4_release.py
+
+  full-regression:
+    name: Full regression - manual opt-in
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.full_regression == true }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Offline installation
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash install.sh --offline --python "$(command -v python)"
+
+      - name: Verify release before tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          .venv/bin/python scripts/validate_v4_release.py
+
+      - name: Run repository regression harness
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/tbhm-ci"
+          .venv/bin/python scripts/run_tests.py \
+            --source . --workers 1 \
+            --output "$RUNNER_TEMP/tbhm-ci/full-regression-v427.json"
+          test -s "$RUNNER_TEMP/tbhm-ci/full-regression-v427.json"
+
+# Intentionally no external scanning targets, cloud credentials,
+# browser-based assessments, model downloads, or artifact uploads.
+# Review the full-regression harness before opting in to that manual job.

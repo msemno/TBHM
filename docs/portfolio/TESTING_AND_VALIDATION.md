@@ -35,6 +35,6 @@ The supplied release documentation names tampered/replayed proof, forged capture
 
 The included overlay applier requires every current manifest entry to match **before** applying any documentation changes. It adds this documentation, saves the previous README, updates only their metadata and the release manifest, and re-verifies file contents. It does not claim to have re-executed the full test suite. Re-run the built-in validator and review the Git diff on Kali after application.
 
-## CI design before claiming it
+## CI implementation: do not claim success before a run
 
-A future GitHub Actions setup could run installation validation, static checks, unit/regression subsets, manifest integrity, and secret scanning with controlled fixture handling. **This pack does not add a pipeline or claim that CI passed.** Make a separate CI PR with branch protection, minimal workflow permissions, reproducible runner/architecture, pinned actions and a documented test matrix. Record whether an external-tool test actually ran or was skipped.
+The CI foundation installs `.github/workflows/tbhm-ci.yml` for automatic offline installation, manifest and phase-entry verification on `main` pushes and PRs. It exposes a manual opt-in for the full regression harness; broader secret scanning, live external adapters and real model execution are not included. **No GitHub Actions run is claimed by installing this file.** See [CI_GUIDE.md](CI_GUIDE.md) for job definitions and evidence requirements. Record skipped/unavailable tools separately from passed checks.

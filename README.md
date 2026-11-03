@@ -28,11 +28,12 @@ TBHM brings together web/API, source, mobile, enterprise, firmware, and reverse-
 - **[Evidence and finding verification](docs/portfolio/PROOF_AND_FINDINGS.md)** — what makes a finding confirmed
 - **[AI: supported roles and limits](docs/portfolio/LOCAL_AI.md)** — what optional local inference can and cannot do
 - **[Tests and release evidence](docs/portfolio/TESTING_AND_VALIDATION.md)** — reproducible verification commands, evidence classifications
+- **[CI foundation and limits](docs/portfolio/CI_GUIDE.md)** — offline release gate, manual regression and interpretation
 - **[Security / scope boundaries](docs/portfolio/SECURITY_BOUNDARIES.md)** — enforced core behavior and limitations
 - **[Release evolution](docs/portfolio/RELEASE_HISTORY.md)** — capability groups and 4.2.7 changes
 - **[Project walkthrough](docs/portfolio/RECRUITER_OVERVIEW.md)**
 - **[Planned synthetic demo](docs/portfolio/DEMO_PLAN.md)** — roadmap only, not yet executed — a fast, evidence-grounded portfolio narrative
-- **[Publication and GitHub push protection](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md)** — currently unresolved remote publication gate
+- **[Publication and GitHub push protection](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md)** — historical blocking events and safety lessons
 - **[Known limitations](KNOWN_LIMITATIONS.md)** · **[Third-party notices](THIRD_PARTY_NOTICES.md)** · **[Current project-rights notice](NOTICE.md)**
 
 ## Architecture overview
@@ -117,6 +118,8 @@ TBHM contains inherited functionality and successive improvements. Contribution 
 
 The 4.2.7 publication kit records that original project source has **no chosen project-level license**. A public GitHub repository does not automatically grant reuse rights. The source-rights holder must choose a valid license; third-party notices stay in force. No license has been added by this documentation pack.
 
-## Current publication note
+## Public repository and CI status
 
-At the time of the supplied 2 November 2026 terminal log, the first GitHub push was **rejected by push protection** for Stripe-shaped test values. The GitHub repository page was empty at review time. Review the blocked literals and resolve the gate before describing this project as publicly available. See [the dedicated resolution guide](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md). No push or GitHub repository modification is performed by this documentation pack.
+The `main` branch of [msemno/TBHM](https://github.com/msemno/TBHM) was successfully pushed and confirmed public on 3 November 2026, with release source commit `6d1f2bd` and portfolio documentation commit `eafe694`. The initial push was blocked by GitHub Push Protection for Stripe-shaped literals in regression fixtures; see the [publication history](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md). **Accepted publication does not prove a comprehensive credential or privacy review.**
+
+This CI foundation adds a GitHub Actions workflow for Python 3.12 offline installation and release/manifest validation. **Its success is not claimed until a real GitHub Actions run reports success.** Full regression remains a manual opt-in; no external targets, real-model performance or automated scanning coverage is implied. See the [CI guide](docs/portfolio/CI_GUIDE.md).
