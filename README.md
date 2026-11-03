@@ -1,160 +1,122 @@
-> **Current release: TBHM 4.2.7.** Incremental fixes from four supplied run archives; dedicated scanner-result parsing; conservative route/source classification; explicit network scope for port scans; and opt-in model scheduling inside the phase dispatcher. Start with [the installation and operator guide](docs/UPGRADE-v4.2.7.md), [the audit report](docs/review-v4.2.7/ROOT_CAUSE_REPORT.md), and [the architecture guide](docs/review-v4.2.7/ARCHITECTURE.md). Real-model reasoning accuracy and universal external/browser containment remain separately unverified.
+# TBHM — The Bug Hunter Master
 
+**Release:** 4.2.7 · **Type:** Security assessment orchestration framework · **Primary stack:** Python 3.12 with optional Go executor and local AI · **Status:** Source release with documented limitations; not a claim of comprehensive scanner or model validation.
 
-# TBHM 4.2.7
+> **Use only on assets you own or are explicitly authorized to assess.** TBHM is not an autonomous proof of exploitability. A phase being available does not imply its external dependencies are installed, it ran successfully, or its outputs represent confirmed findings.
 
-The Bug Hunter Master: the complete Python tool, optional Go executor, existing
-web/API/source/mobile/enterprise/firmware/reverse phases, profiles, templates and
-reports in one installable distribution.
+TBHM brings together web/API, source, mobile, enterprise, firmware, and reverse-engineering assessment *phases* in an installable Linux distribution. It focuses on execution accountability, conservative interpretation of scanner output, reproducible evidence, and separating **leads** from **verified findings**. Optional local-model features can advise or prioritize; they do not independently confirm vulnerabilities.
 
-This distribution targets **Linux x86-64, glibc 2.27+, Python 3.12**. Python
-3.12.14 is the tested interpreter. It includes all ten resolved core dependency
-wheels. External scanners, browsers and local AI models remain optional and are
-reported separately by the tool's diagnostics; a catalog entry does not mean an
-integration is installed or its checks ran.
+## At a glance
 
-## Inherited capabilities
+| Dimension | In this release | What it does **not** establish |
+| --- | --- | --- |
+| Orchestration | 145 dispatchable phase names verified in the publication clone | 145 independently tested live scanners |
+| Environment | Linux x86-64, glibc 2.27+, Python 3.12; hash-locked offline wheels | Universal OS, architecture, or Python support |
+| Web/API | Authorized profile, request policy controls, per-adapter execution ledger | Global containment of every child process/browser |
+| Source | Offline code analysis, native SBOM, external adapters where available | Executing untrusted projects safely or full SAST coverage |
+| Verification | Proof-v2 contracts for selected finding classes; controls and repeat captures | AI/scanner prose or HTTP status code as vulnerability proof |
+| Reporting | Review queue, HTML/Markdown reports, delivery snapshots and hashes | Independent digital attestation or a zero-risk target |
+| Local AI | Optional Ollama/model guidance and bounded dispatcher scheduling | Validated real-model reasoning, training, or complete retrieval |
 
-- Offline OpenAPI review, baseline diffs and HAR observation inventory.
-- Permission-aware Android manifest inventory and offline Slither JSON import.
-- Grounded local-AI counterevidence advice with strict IDs; no automatic finding suppression or confirmation.
-- Conservative taint/soft-404 fixes, gated same-asset chain hypotheses and shared 429/503 cooldowns.
-- `OPERATOR.html`, a persisted review queue, typed evidence export and labeled-fixture metrics.
+## Quick navigation
 
-See `docs/UPGRADE-v4.2.0.md` and `docs/TBHM-4.2.0-Research-Review-and-Playbook.html` for the full workflow, research decisions and limits. Existing CLI options and all 145 dispatched phase names remain available.
+- **[Start here: documentation hub](docs/portfolio/INDEX.md)** — reading paths for recruiters, practitioners, maintainers
+- **[ابدأ هنا بالعربي](docs/portfolio/START_HERE_AR.md)** — Arabic guided tour
+- **[Architecture explained](docs/portfolio/ARCHITECTURE_WALKTHROUGH.md)** — stage-by-stage data flow and trust boundaries
+- **[Component / folder map](docs/portfolio/MODULE_MAP.md)** — where to find implementations and documentation
+- **[Practical operator playbook](docs/portfolio/WORKFLOWS.md)** — offline source example, authorized web workflow, result interpretation
+- **[Evidence and finding verification](docs/portfolio/PROOF_AND_FINDINGS.md)** — what makes a finding confirmed
+- **[AI: supported roles and limits](docs/portfolio/LOCAL_AI.md)** — what optional local inference can and cannot do
+- **[Tests and release evidence](docs/portfolio/TESTING_AND_VALIDATION.md)** — reproducible verification commands, evidence classifications
+- **[Security / scope boundaries](docs/portfolio/SECURITY_BOUNDARIES.md)** — enforced core behavior and limitations
+- **[Release evolution](docs/portfolio/RELEASE_HISTORY.md)** — capability groups and 4.2.7 changes
+- **[Project walkthrough](docs/portfolio/RECRUITER_OVERVIEW.md)**
+- **[Planned synthetic demo](docs/portfolio/DEMO_PLAN.md)** — roadmap only, not yet executed — a fast, evidence-grounded portfolio narrative
+- **[Publication and GitHub push protection](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md)** — currently unresolved remote publication gate
+- **[Known limitations](KNOWN_LIMITATIONS.md)** · **[Third-party notices](THIRD_PARTY_NOTICES.md)** · **[Current project-rights notice](NOTICE.md)**
 
-## Install
+## Architecture overview
 
-Extract the release archive and enter `TBHM-4.2.7`, then run:
+```mermaid
+flowchart LR
+    A[Operator and explicit scope] --> B[Profile / configuration]
+    B --> C[Phase dispatcher]
+    C --> D[Native analysis and optional scanner adapters]
+    D --> E[Execution ledger + raw observations]
+    E --> F[Evidence contracts and review queue]
+    F --> G[Leads / confirmed / incomplete]
+    G --> H[Reports and sealed delivery]
+    I[Optional local model advice] -.-> C
+    I -.-> F
+```
+
+This diagram describes the **logical flow**, not an exhaustive class-level or process-level call graph. The model does not bypass the evidence verifier. For the implementation-level diagram and file-level architecture, consult `docs/review-v4.2.7/ARCHITECTURE.md` and `docs/review-v4.2.7/FILE_MAP.md` included in the distribution.
+
+## Installation (Kali / compatible Linux)
+
+The tested runtime is **Python 3.12.14**, not the latest system Python by default. From a complete, verified TBHM 4.2.7 release checkout:
 
 ```bash
-bash install.sh
+bash install.sh --offline --python /path/to/python3.12
 ./tbhm --version
 ./tbhm --help
+.venv/bin/python scripts/validate_v4_release.py
 ```
 
-Installation verifies the package and installs the hash-locked core into `.venv`
-using the included wheels, without network access or system Python changes.
-Use `bash install.sh --python /path/to/python3.12` if needed. `--online` explicitly
-allows pip to fetch the same locked versions instead. A virtual environment
-requires the interpreter's venv/ensurepip support. If you select `--venv PATH`,
-run with `TBHM_PYTHON=PATH/bin/python ./tbhm ...`.
+Use the correct Python 3.12 executable for your environment. The offline installer consumes the bundled hash-locked dependency wheels and validates the release manifest. Consult [installation notes](docs/UPGRADE-v4.2.7.md) before customizing an operator machine. Optional external scanners, browsers and models are managed separately.
 
-## Analyze local source
+## Two workflows you can reproduce
+
+### 1) Offline source assessment (does not require a live target)
 
 ```bash
-./tbhm --code-dir /path/to/project --offline \
+./tbhm --code-dir /path/to/your/local/project --offline \
   --phases code_scan,code_intel,report,evidence_finalize \
-  --no-ai-observe -o /path/to/results -y
+  --no-ai-observe -o /path/to/private/results -y
 ```
 
-This generates native source findings and a local SBOM without publishing
-project dependencies. Offline mode blocks repository cloning, native HTTP
-requests, and external adapters without a local-analysis contract. Install the
-optional scanners you need separately; their actual invocations and failures
-are recorded in `execution_ledger.json`.
+This is local source analysis. Run it on a project you may legally inspect. `--offline` blocks network-dependent native operations and non-offline adapters according to their declared contracts; do not interpret it as a general sandbox for untrusted source or binaries.
 
-## Run an authorized web assessment
+### 2) Authorized web assessment (network traffic)
 
 ```bash
-./tbhm -u https://app.example.com --profile authorized_safe \
-  --rate-limit 2 --no-bootstrap -o /path/to/results -y
+./tbhm -u https://authorized.example.com --profile authorized_safe \
+  --rate-limit 2 --no-bootstrap -o /path/to/private/results -y
 ```
 
-Replace the example with your authorized target. Existing CLI switches and
-phase names are retained. Python Requests calls enforce target/policy checks,
-shared rate/request budgets, verified TLS, explicit proxy settings and response
-byte limits before evidence is consumed. Redirects are evaluated explicitly;
-browser request interception checks destinations before navigation/subresources.
-Child scanners use their adapter controls; their traffic is not measured by the
-Python request counter. Avoid treating that counter as a cross-process traffic
-quota. `--offline` is the supported zero-network analysis mode.
+**Replace the illustrative URL with an explicitly approved scope.** An authorized profile and rate limit are **not** a substitute for a real signed scope and host policy. Child-process scanner traffic has separate controls and is not all represented in the Python request counter. Read the [operator workflows](docs/portfolio/WORKFLOWS.md) and [boundaries](docs/portfolio/SECURITY_BOUNDARIES.md) first.
 
-Automatic bootstrap downloads are disabled unless `--update-templates` is
-explicitly requested. OSV dependency enrichment is opt-in through
-`--allow-external-enrichment` and is always disabled by `--offline`.
+## Understand the outputs
 
-## Read the results
+| Artifact | Why it matters |
+| --- | --- |
+| `execution_ledger.json` | What was attempted, blocked, skipped, failed or incomplete |
+| `REPORT_final.html` / `REPORT_final.md` | Human-readable assessment output |
+| `REPORT_confirmed.md` | Findings accepted by the current verifier, for supported contracts |
+| `REPORT_leads.md` | Leads needing manual follow-up; not proven vulnerabilities |
+| `OPERATOR.html` | Local operator review interface |
+| `evidence_manifest.json` | References the final sealed delivery snapshot |
+| `delivery/run-.../` | Redacted delivery, backup and hash inventory; do not expose working secrets |
 
-- `REPORT_final.html` / `REPORT_final.md`: main report.
-- `REPORT_confirmed.md`: only findings accepted by the current verifier.
-- `execution_ledger.json`: planned phases, tool invocations, failures and blocked work.
-- `evidence_manifest.json`: pointer to the sealed delivery snapshot.
-- `delivery/run-.../`: final files, redaction scan, consistent SQLite backup and hashes.
+Review each output *together* with coverage gaps. A report with no confirmed findings is **not** automatically a clean bill of health.
 
-A later resume creates a new delivery rather than rewriting the previous one.
-Resume skips completed phases only when the effective configuration, targets and
-local input contents match the saved fingerprint; changed inputs are rerun.
-Deliver the snapshot directory. The working directory contains live state and
-an owner-only capture key needed to validate recorded proof on resume. Do not
-copy that private key into a client deliverable. Snapshot file permissions
-prevent accidental edits; hashes detect tampering and are not digital signatures
-by an independent third party.
+## Validation and what the evidence proves
 
-## Verification and migration
-
-Confirmation requires a version 2 class-specific contract, authenticated local
-captures, matching target/request/identity bindings, a negative control, and two
-distinct repeat captures. Supported automatic confirmation contracts currently
-cover cross-actor object access, anonymous sensitive-data exposure, and controlled
-open redirects. The native open-redirect detector records these controls and repeats itself.
-Other detectors remain supported evidence or leads pending an
-appropriate verifier. Imported flags, status codes, counters, scanner prose,
-legacy `verified=true`, cached assessments and AI output cannot confirm a finding.
-
-Existing databases retain their schema and record IDs. Opening an old database
-redacts legacy credential text in place; legacy confirmation claims are retained
-as evidence but require revalidation. Back up existing results privately before
-migration if your retention process requires original credential-bearing data.
-The trusted capture adapter API and proof format are documented in
-`docs/PROOF-v2.md`.
-
-Firmware, mobile and reverse integrations retain their existing capabilities.
-Static Android manifest booleans are interpreted structurally; this does not
-constitute a device test or complete effective Android security-policy analysis.
-External tool versions, licenses, configurations and privileges remain operator
-managed. Repository code is never intentionally executed by native source
-analysis; external scanner sandboxes are not supplied by this core distribution.
-ESLint uses a framework-owned config and Semgrep uses bundled local rules.
-
-Full process capture is bounded at 64 MiB per stream (128 MiB hard maximum),
-and individual sanitized output records at 16 MiB. An exceeded limit is reported
-as incomplete output with a nonzero tool result rather than silently accepted.
-
-## Check the installation
+The publication-preparation review records a successful local fresh-clone offline install, compile/import checks, and resolution of **145 phase names**. Its full regression groups were reported as passed for that reviewed build. These are **package and regression checks**, not proof of successful live target scans, browser containment, or AI inference correctness. See [test evidence](docs/portfolio/TESTING_AND_VALIDATION.md) and the release review materials.
 
 ```bash
-./.venv/bin/python scripts/validate_v4_release.py
-./.venv/bin/python scripts/run_tests.py --source . --workers 1 \
+.venv/bin/python scripts/run_tests.py --source . --workers 1 \
   --output "$HOME/tbhm-work/publication/full-regression-v427.json"
 ```
 
-The suite runs independent copies of the tool with isolated test state. The
-command above stores results outside the checkout. When `--output` is omitted,
-the default is the system temporary directory followed by `tbhm-test-results.json`.
-Release-specific tests include
-forged/replayed proof, capture tampering, database reopen/redaction, live local
-HTTP boundary checks and delivery snapshot integrity.
+Keep test output outside the repository. The review's evidence applies to its checked source build, and must not be represented as a fresh run on a modified checkout.
 
-`RELEASE_MANIFEST-v4.2.7.json` inventories the current packaged tree.
-`runtime.json`, `requirements.lock`, `SBOM.cdx.json` and `vendor/licenses` describe
-its runtime and dependencies. Versioned historical release-info files are
-retained as provenance; they do not replace the current manifest.
-Older release manifests/manuals are retained as project history. The previous
-README and installer recipe are under `docs/history/`; the historical installer
-is not the current installation entry point. Project licensing information is in
-`NOTICE.md`.
+## Ownership, provenance, and licensing
 
+TBHM contains inherited functionality and successive improvements. Contribution claims should identify who built, tested, or maintained each part, with traceable commit and test evidence; **do not infer authorship from repository ownership**. See [contribution claims](docs/portfolio/CONTRIBUTION_CLAIMS.md).
 
-## Developing and publishing
+The 4.2.7 publication kit records that original project source has **no chosen project-level license**. A public GitHub repository does not automatically grant reuse rights. The source-rights holder must choose a valid license; third-party notices stay in force. No license has been added by this documentation pack.
 
-See [the publication workflow](docs/GITHUB_PUBLICATION.md) for preparing a
-separate checkout, checking the complete release manifest, reviewing secrets,
-and validating a fresh clone before publishing. Preserve the bundled wheels and
-license notices when using the offline installation path.
+## Current publication note
 
-[Known limitations](KNOWN_LIMITATIONS.md) separates incomplete checks, scanner
-failures, model advice, and independently demonstrated findings.
-[Third-party notices](THIRD_PARTY_NOTICES.md) inventories the bundled notices.
-Project licensing remains defined by `NOTICE.md` until the copyright holder
-selects and grants an explicit license.
+At the time of the supplied 2 November 2026 terminal log, the first GitHub push was **rejected by push protection** for Stripe-shaped test values. The GitHub repository page was empty at review time. Review the blocked literals and resolve the gate before describing this project as publicly available. See [the dedicated resolution guide](docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md). No push or GitHub repository modification is performed by this documentation pack.

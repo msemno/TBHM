@@ -3,12 +3,12 @@
   "release": "4.2.7",
   "semantic_version": "4.2.7",
   "root_name": "TBHM-4.2.7",
-  "generated_at": 1793646348,
+  "generated_at": 1793691566,
   "local_repair": "tbhm-4.2.7-regression-environment-1",
   "manifest_policy": "Every source file except current manifest and runtime caches; historical manifests retained.",
   "summary": {
-    "file_count": 1232,
-    "total_bytes": 39441069
+    "file_count": 1249,
+    "total_bytes": 39497203
   },
   "files": [
     {
@@ -328,8 +328,8 @@
     },
     {
       "path": "README.md",
-      "size": 8624,
-      "sha256": "76185f8e82ac4802cb261a5bc7423b4110706d7b65ec8d8ce5277a14457a7af6",
+      "size": 9178,
+      "sha256": "cdb255ecbf32703442d28daa214c7e543371b11572d2bb3b990dd428ffa2838b",
       "executable": false,
       "type": "md"
     },
@@ -2108,6 +2108,125 @@
       "path": "docs/performance/RUNTIME_VALIDATION.md",
       "size": 2585,
       "sha256": "c883dc5af9e8920f0a77b5784554531520f3ba54e9fd908e74eb0fd33fc3783d",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/ARCHITECTURE_WALKTHROUGH.md",
+      "size": 4042,
+      "sha256": "225437c2707ffa72f6ce12b188906845a6f0b756d1eaed38c6e249fc1f89aa63",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/CONTRIBUTION_CLAIMS.md",
+      "size": 2028,
+      "sha256": "a96cf3bba33c926657e400313e016abd532295357dfbaecbd9519e0584504810",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/DEMO_PLAN.md",
+      "size": 2087,
+      "sha256": "6f0cbd9463fe2013ff513c9fa1266ba334743535eaf866431cbff6c43aa82d4a",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/FAQ.md",
+      "size": 2136,
+      "sha256": "d3072394247a71b0bd8562fa73d35421d063db85c9d342b000a22ee9bdd0d75f",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/GLOSSARY.md",
+      "size": 1510,
+      "sha256": "ed8c54053413607f34b2037110b194b28570d3880e320c9c8586f225d8ad6fff",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/INDEX.md",
+      "size": 2407,
+      "sha256": "a44836c9a6f8e2e2072341bbf4d4579281f5eb25d135e3146e4da2c47d7cf852",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/LOCAL_AI.md",
+      "size": 2168,
+      "sha256": "877ca6e0ea9c74b9321f6dc9460ecbed208942307a32942b87715f88acb1e5d1",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/MODULE_MAP.md",
+      "size": 3132,
+      "sha256": "3daa42fd223a4f7a603d32ab95602ae6ae831f5006151fb24d2ca729cf6c4cf8",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/PROOF_AND_FINDINGS.md",
+      "size": 3141,
+      "sha256": "05ba58f45991dfeb822d9afb6881c31bd3b6e555490448229cf08bed3afcbd41",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/PUBLISHING_AND_PUSH_PROTECTION.md",
+      "size": 4507,
+      "sha256": "126dcbc24c3337e2107b1c1465ea281627b26cb57bc1c21f6ba06154d298207f",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/RECRUITER_OVERVIEW.md",
+      "size": 3028,
+      "sha256": "9f98d0478806f30ac314d00f00a2b22c6f575ae04a4c7dd8932056258ccd5d82",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/RELEASE_HISTORY.md",
+      "size": 2561,
+      "sha256": "964c187f2f34802949552a10a068064100d07ca8ab087411df01a489b1139f2b",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/RELEASE_OPERATOR_REFERENCE.md",
+      "size": 8624,
+      "sha256": "76185f8e82ac4802cb261a5bc7423b4110706d7b65ec8d8ce5277a14457a7af6",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/SECURITY_BOUNDARIES.md",
+      "size": 2883,
+      "sha256": "69c286d6d6220deaf571c5d3e493be8cb639c1f69dfe0a0ca9f21eecf570d8a8",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/START_HERE_AR.md",
+      "size": 4104,
+      "sha256": "eeab0cf7371e7c3d086670515d851006e9837a71fedff148c534e8c47d9e50b9",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/TESTING_AND_VALIDATION.md",
+      "size": 3065,
+      "sha256": "f8494a7e07daa0c18fc37bd1e8c93806c831f5bdef7d343c890abab7897900f5",
+      "executable": false,
+      "type": "md"
+    },
+    {
+      "path": "docs/portfolio/WORKFLOWS.md",
+      "size": 4157,
+      "sha256": "d8e794df9dca51d2715685d730797b817ac2693e1f1e4b0770a3d97f520a8a66",
       "executable": false,
       "type": "md"
     },
@@ -8642,5 +8761,12 @@
     "runtime_source_changed": false,
     "license_changed": false,
     "private_engagement_files_excluded": 6
+  },
+  "portfolio_documentation": {
+    "patch_id": "tbhm-v427-portfolio-docs-v1",
+    "basis_manifest_sha256": "27c6596c53893d4c465069ce1c3edba19702774c8201e0970112195cac5003ae",
+    "runtime_source_changed": false,
+    "license_changed": false,
+    "added_docs": 17
   }
 }
